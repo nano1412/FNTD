@@ -30,7 +30,7 @@ public class Interaction : MonoBehaviour
         if (saveHit.tag == "Spawner")
         {
             ActiveSpawnerCanvas();
-            saveSpawner = saveHit.gameObject;
+            saveSpawner = saveHit.transform.Find("spawner").gameObject;
             saveHit = null;
         }
     }
