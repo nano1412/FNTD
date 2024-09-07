@@ -126,7 +126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   points: []
   path: {fileID: 0}
-  enemyprefab: {fileID: 7603948603235542068, guid: 51efdfd4fb9a165438eebcc7e068bbcc, type: 3}
+  enemyprefab: {fileID: 6453380481440969478, guid: fe5204bb5d41f6c43a9be9c87c75e179, type: 3}
   size: 1
   spawnTimer: 3
 --- !u!114 &8372808561644455863

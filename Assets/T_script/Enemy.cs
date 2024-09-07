@@ -33,9 +33,11 @@ public class Enemy : MonoBehaviour
 
         if (other.CompareTag("HumanKingdom")) // ตรวจสอบแท็กของวัตถุที่ชน
         {
-            Debug.Log("Enemy reached HumanKingdom!"); // ตรวจสอบว่าชน HumanKingdom
+            /*Debug.Log("Enemy reached HumanKingdom!"); // ตรวจสอบว่าชน HumanKingdom
             PlayerStats.Lives -= 1; // ลดชีวิตของผู้เล่นลง 1
-            Debug.Log("Player loses 1 life. Remaining lives: " + PlayerStats.Lives);
+            Debug.Log("Player loses 1 life. Remaining lives: " + PlayerStats.Lives);*/
+
+            PlayerStats.UpdateLives(1);
 
             Destroy(gameObject); // ทำลายศัตรูเมื่อชนกับ HumanKingdom
         }

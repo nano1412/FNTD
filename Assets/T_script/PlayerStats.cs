@@ -12,11 +12,11 @@ public class PlayerStats : MonoBehaviour
     }
 
     // เมธอดสำหรับอัพเดตชีวิตและแสดง Log
-    public void UpdateLives(int amount)
+    public static void UpdateLives(int amount)
     {
-        Lives += amount;
+        Lives -= amount;
 
-        if (amount < 0)
+        if (amount > 0)
         {
             Debug.Log("Lives decreased by " + Mathf.Abs(amount) + ". Current lives: " + Lives);
         }

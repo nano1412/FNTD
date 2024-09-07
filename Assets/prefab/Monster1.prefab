@@ -67,6 +67,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5f2b6d7b98dc3ca4191e274e292643a0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 932548062197027922}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5f2b6d7b98dc3ca4191e274e292643a0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2122161014110218608}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5f2b6d7b98dc3ca4191e274e292643a0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -2805205947478378553}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5f2b6d7b98dc3ca4191e274e292643a0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6526613836538188710}
   m_SourcePrefab: {fileID: 100100000, guid: 5f2b6d7b98dc3ca4191e274e292643a0, type: 3}
 --- !u!1 &6453380481440969478 stripped
 GameObject:
@@ -86,3 +95,66 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 40
+--- !u!54 &2122161014110218608
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6453380481440969478}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &-2805205947478378553
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6453380481440969478}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 7.677335, y: 11.499591, z: 5.844185}
+  m_Center: {x: -0.011445999, y: 5.2497954, z: 0.043630123}
+--- !u!114 &6526613836538188710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6453380481440969478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fa89d920f5a88249b3a7b792431ac0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points: []
+  moveSpeed: 15
+  pointsIndex: 0
