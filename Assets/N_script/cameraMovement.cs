@@ -16,31 +16,22 @@ public class cameraMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float movement = 0;
 
         if (Input.GetKey(KeyCode.A))
         {
-            movement -= 1;
-            movement *= movespeed * Time.deltaTime;
-            player.transform.position += new Vector3(movement, 0, 0);
+            player.transform.position += transform.right * -1 * movespeed * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.D))
         {
-            movement = 1;
-            movement *= movespeed * Time.deltaTime;
-            player.transform.position += new Vector3(movement, 0, 0);
+            player.transform.position += transform.right * movespeed * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.W))
         {
-            movement = 1;
-            movement *= movespeed * Time.deltaTime;
-            player.transform.position += new Vector3(0, 0, movement);
+            player.transform.position += transform.forward * movespeed * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.S))
         {
-            movement = -1;
-            movement *= movespeed * Time.deltaTime;
-            player.transform.position += new Vector3(0, 0, movement);
+            player.transform.position += transform.forward * -1 * movespeed * Time.deltaTime;
         }
 
         if (Input.GetKey(KeyCode.Q))
