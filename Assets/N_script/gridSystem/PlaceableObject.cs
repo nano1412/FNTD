@@ -11,12 +11,12 @@ public class PlaceableObject : MonoBehaviour
 
     private void GetColliderVertexPositionsLocal()
     {
-        BoxCollider b = gameObject.GetComponent<BoxCollider>();
+        BoxCollider box_collider = gameObject.GetComponent<BoxCollider>();
         Vertices = new Vector3[4];
-        Vertices[0] = b.center + new Vector3(-b.size.x, -b.size.y, -b.size.z) * 0.5f;
-        Vertices[1] = b.center + new Vector3(b.size.x, -b.size.y, -b.size.z) * 0.5f;
-        Vertices[2] = b.center + new Vector3(b.size.x, -b.size.y, b.size.z) * 0.5f;
-        Vertices[3] = b.center + new Vector3(-b.size.x, -b.size.y, b.size.z) * 0.5f;
+        Vertices[0] = box_collider.center + new Vector3(-box_collider.size.x, -box_collider.size.y, -box_collider.size.z) * 0.75f;
+        Vertices[1] = box_collider.center + new Vector3(box_collider.size.x, -box_collider.size.y, -box_collider.size.z) * 0.75f;
+        Vertices[2] = box_collider.center + new Vector3(box_collider.size.x, -box_collider.size.y, box_collider.size.z) * 0.75f;
+        Vertices[3] = box_collider.center + new Vector3(-box_collider.size.x, -box_collider.size.y, box_collider.size.z) * 0.75f;
     }
 
     private void CalculateSizeInCells()

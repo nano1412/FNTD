@@ -9,14 +9,17 @@ public class Spawner : MonoBehaviour
     [SerializeField] Transform[] points;
     [SerializeField] GameObject path;
     [SerializeField] GameObject enemyprefab;
+    [SerializeField] string humanKingdomName;
+    [SerializeField] GameObject humanKingdom;
 
     public int size = 1;
     float timer;
     public float spawnTimer;
-    private int numOfPathChange = 0;
+    private int numOfPathChange = 1;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        humanKingdom = GameObject.Find(humanKingdomName);
         path = this.transform.Find("Path").gameObject;
         List<Transform> childrenList = new List<Transform>();
         childrenList.Add(transform);
@@ -26,6 +29,7 @@ public class Spawner : MonoBehaviour
 
             childrenList.Add(child);
         }
+        childrenList.Add(humanKingdom.transform);
 
         points = childrenList.ToArray();
 
@@ -65,7 +69,8 @@ public class Spawner : MonoBehaviour
 
             childrenList.Add(child);
         }
-        path.name = "old path " + numOfPathChange;
+        childrenList.Add(humanKingdom.transform);
+        path.name = "Path " + numOfPathChange;
         numOfPathChange++;
 
         points = childrenList.ToArray();

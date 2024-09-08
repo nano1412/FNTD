@@ -15,6 +15,7 @@ public class BuildingSystem : MonoBehaviour
 
     public GameObject prefab1;
     public GameObject prefab2;
+    public GameObject prefab3;
 
     private PlaceableObject objectToPlace;
 
@@ -28,13 +29,17 @@ public class BuildingSystem : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             InitializeWithObject(prefab1);
         }
-        else if (Input.GetKeyDown(KeyCode.B))
+        else if (Input.GetKeyDown(KeyCode.W))
         {
             InitializeWithObject(prefab2);
+        }
+        else if (Input.GetKeyDown(KeyCode.E))
+        {
+            InitializeWithObject(prefab3);
         }
 
         if (!objectToPlace)
