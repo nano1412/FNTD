@@ -3,7 +3,8 @@ using static UnityEngine.GraphicsBuffer;
 
 public class cameraMovement : MonoBehaviour
 {
-    public float movespeed = 1000;
+    public float moveSpeed;
+    public float rotateSpeed;
     public GameObject player;
     float smooth = 5.0f;
 
@@ -19,29 +20,29 @@ public class cameraMovement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A))
         {
-            player.transform.position += transform.right * -1 * movespeed * Time.deltaTime;
+            player.transform.position += transform.right * -1 * moveSpeed * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.D))
         {
-            player.transform.position += transform.right * movespeed * Time.deltaTime;
+            player.transform.position += transform.right * moveSpeed * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.W))
         {
-            player.transform.position += transform.forward * movespeed * Time.deltaTime;
+            player.transform.position += transform.forward * moveSpeed * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.S))
         {
-            player.transform.position += transform.forward * -1 * movespeed * Time.deltaTime;
+            player.transform.position += transform.forward * -1 * moveSpeed * Time.deltaTime;
         }
 
         if (Input.GetKey(KeyCode.Q))
         {
-            player.transform.Rotate(0, 5, 0);
+            player.transform.Rotate(0, rotateSpeed, 0);
         }
 
         if (Input.GetKey(KeyCode.E))
         {
-            player.transform.Rotate(0, -5, 0);
+            player.transform.Rotate(0, -rotateSpeed, 0);
         }
     }
 }

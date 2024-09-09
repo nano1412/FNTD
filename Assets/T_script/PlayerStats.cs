@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
@@ -5,10 +6,14 @@ public class PlayerStats : MonoBehaviour
     public static int Lives;
     public int startLives = 20;
 
+    public TMP_Text hpText;
+
     void Start()
     {
         Lives = startLives;
         Debug.Log("Game started with " + Lives + " lives.");
+
+        hpText.text = "HP: " + Lives;
     }
 
     // àÁ¸Í´ÊÓËÃÑºÍÑ¾à´µªÕÇÔµáÅÐáÊ´§ Log
@@ -30,6 +35,21 @@ public class PlayerStats : MonoBehaviour
         else if (amount > 0)
         {
             Debug.Log("Lives increased by " + amount + ". Current lives: " + Lives);
+        }
+
+        
+    }
+
+    private void Update()
+    {
+        
+
+        if(Lives <= 0)
+        {
+            hpText.text = "Game over HP: " + Lives;
+        } else
+        {
+            hpText.text = "HP: " + Lives;
         }
     }
 }

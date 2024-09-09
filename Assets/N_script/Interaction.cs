@@ -33,6 +33,23 @@ public class Interaction : MonoBehaviour
             saveSpawner = saveHit.transform.Find("spawner").gameObject;
             saveHit = null;
         }
+
+        switch (saveHit.tag)
+        {
+            case "Spawner":
+                ActiveSpawnerCanvas();
+                saveSpawner = saveHit.transform.Find("spawner").gameObject;
+                saveHit = null;
+            break;
+
+            case null:
+
+            break;
+
+            default: 
+                
+            break;
+        }
     }
 
     void ActiveSpawnerCanvas()
