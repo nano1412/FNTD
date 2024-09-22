@@ -27,20 +27,15 @@ public class PlayerStats : MonoBehaviour
     {
         Lives -= amount;
 
-        if (amount > 0)
-        {
-            Debug.Log("Lives decreased by " + Mathf.Abs(amount) + ". Current lives: " + Lives);
-        }
-
         // ตรวจสอบหากชีวิตลดลงเหลือน้อยกว่า 0
-        if (Lives <= 0)
+        if (Lives < 0)
         {
             Lives = 0;
             Debug.Log("Lives updated. Current lives: " + Lives + ". Game Over.");
         }
-        else if (amount > 0)
+        else if (amount < 0)
         {
-            Debug.Log("Lives increased by " + amount + ". Current lives: " + Lives);
+            Debug.Log("Player loses " + Mathf.Abs(amount) + " life(s). Remaining lives: " + Lives);
         }
     }
 
