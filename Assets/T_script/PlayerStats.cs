@@ -6,14 +6,20 @@ public class PlayerStats : MonoBehaviour
     public static int Lives;
     public int startLives = 20;
 
+    public static int Coins; // ตัวแปรสำหรับเก็บจำนวนเหรียญ
+    public int startCoins = 0;
+
     public TMP_Text hpText;
+    public TMP_Text coinText; // เพิ่ม Text สำหรับแสดงจำนวนเหรียญ
 
     void Start()
     {
         Lives = startLives;
-        Debug.Log("Game started with " + Lives + " lives.");
+        Coins = startCoins; // ตั้งค่าเริ่มต้นของเหรียญ
+        Debug.Log("Game started with " + Lives + " lives and " + Coins + " coins.");
 
         hpText.text = "HP: " + Lives;
+        coinText.text = "Coins: " + Coins; // แสดงจำนวนเหรียญเริ่มต้น
     }
 
     // เมธอดสำหรับอัพเดตชีวิตและแสดง Log
@@ -36,20 +42,28 @@ public class PlayerStats : MonoBehaviour
         {
             Debug.Log("Lives increased by " + amount + ". Current lives: " + Lives);
         }
+    }
 
-        
+    // เมธอดสำหรับอัพเดตเหรียญและแสดง Log
+    public static void AddCoins(int amount)
+    {
+        Coins += amount;
+        Debug.Log("Coins updated. Current coins: " + Coins);
     }
 
     private void Update()
     {
-        
-
-        if(Lives <= 0)
+        // อัปเดตข้อความสำหรับแสดง HP
+        if (Lives <= 0)
         {
             hpText.text = "Game over HP: " + Lives;
-        } else
+        }
+        else
         {
             hpText.text = "HP: " + Lives;
         }
+
+        // อัปเดตข้อความสำหรับแสดงจำนวนเหรียญ
+        coinText.text = "Coins: " + Coins;
     }
 }

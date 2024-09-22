@@ -1133,7 +1133,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc100b2bc5b2c75488746f46bd880870, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movespeed: 100
+  moveSpeed: 0
+  rotateSpeed: 0
   player: {fileID: 881938604}
 --- !u!1 &940738457
 GameObject:
@@ -6786,6 +6787,10 @@ PrefabInstance:
     - target: {fileID: 1818217765292401174, guid: a7f98817b07d83842ba983a5daa9fde8, type: 3}
       propertyPath: m_Name
       value: Turret
+      objectReference: {fileID: 0}
+    - target: {fileID: 4268297892393452608, guid: a7f98817b07d83842ba983a5daa9fde8, type: 3}
+      propertyPath: fireRate
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

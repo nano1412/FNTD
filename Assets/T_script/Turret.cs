@@ -1,23 +1,26 @@
 using UnityEngine;
-using System.Collections;
 
 public class Turret : MonoBehaviour
 {
-
     private Transform target;
     private Enemy targetEnemy;
-    public float range = 15f;
 
-    public GameObject bulletPrefab;
+    public float range = 15f;
     public float fireRate = 1f;
+    public int damage = 10;
     private float fireCountdown = 0f;
 
+    public GameObject bulletPrefab;
+    public Transform partToRotate;
+    public Transform firePoint;
     public string enemyTag = "Enemy";
 
-    public Transform partToRotate;
-    public float turnSpeed = 10f;
+    // ระดับของป้อม
+    public int level = 1;
 
-    public Transform firePoint;
+    // คุณสมบัติของป้อมที่แต่ละระดับ
+    private int[] levelDamage = { 10, 20, 30 };  // ดาเมจของแต่ละระดับ
+    private float[] levelFireRate = { 1f, 1.5f, 2f };  // อัตราการยิงของแต่ละระดับ
 
     void Start()
     {
@@ -48,35 +51,29 @@ public class Turret : MonoBehaviour
         {
             target = null;
         }
-
     }
 
     void Update()
     {
         if (target == null)
-        {
             return;
-        }
 
         LockOnTarget();
 
-        
-            if (fireCountdown <= 0f)
-            {
-                Shoot();
-                fireCountdown = 1f / fireRate;
-            }
+        if (fireCountdown <= 0f)
+        {
+            Shoot();
+            fireCountdown = 1f / levelFireRate[level - 1];  // ใช้ fireRate ตามระดับ
+        }
 
-            fireCountdown -= Time.deltaTime;
-
-
+        fireCountdown -= Time.deltaTime;
     }
 
     void LockOnTarget()
     {
         Vector3 dir = target.position - transform.position;
         Quaternion lookRotation = Quaternion.LookRotation(dir);
-        Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
+        Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * 10f).eulerAngles;
         partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
     }
 
@@ -86,7 +83,24 @@ public class Turret : MonoBehaviour
         Bullet bullet = bulletGO.GetComponent<Bullet>();
 
         if (bullet != null)
+        {
             bullet.Seek(target);
+            bullet.damage = levelDamage[level - 1];  // กำหนดดาเมจตามระดับ
+        }
+    }
+
+    // ฟังก์ชันสำหรับอัปเกรดป้อม
+    public void UpgradeTurret()
+    {
+        if (level < 3)  // มีทั้งหมด 3 ระดับ
+        {
+            level++;
+            Debug.Log("Turret upgraded to level " + level);
+        }
+        else
+        {
+            Debug.Log("Turret is already at max level.");
+        }
     }
 
     void OnDrawGizmosSelected()
