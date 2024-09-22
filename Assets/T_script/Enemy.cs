@@ -3,10 +3,12 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public int health = 40; // ตั้งค่าเลือดเริ่มต้นเป็น 40
+    public int MaxHP;
 
     void Start()
     {
         Debug.Log("Enemy spawned with health: " + health);
+        MaxHP = health;
     }
 
     public void TakeDamage(int amount)
