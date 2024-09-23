@@ -615,6 +615,37 @@ MonoBehaviour:
   prefab1: {fileID: 1333141726311767786, guid: 5e78cb8a722fb4a48b09724dba3ab3b2, type: 3}
   prefab2: {fileID: 1070183501551409169, guid: 3ad68d39ba6cf0947b74f925db6d2e65, type: 3}
   prefab3: {fileID: 1818217765292401174, guid: a7f98817b07d83842ba983a5daa9fde8, type: 3}
+--- !u!1 &659133252
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 659133253}
+  m_Layer: 0
+  m_Name: canvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &659133253
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 659133252}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &696233535
 GameObject:
   m_ObjectHideFlags: 0
@@ -1605,6 +1636,10 @@ PrefabInstance:
       propertyPath: hpText
       value: 
       objectReference: {fileID: 1040003097}
+    - target: {fileID: 7548700699829681604, guid: 1090e10e2444cb24c952b02c996e29b6, type: 3}
+      propertyPath: startCoins
+      value: 1000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6872,3 +6907,4 @@ SceneRoots:
   - {fileID: 6642030306729989417}
   - {fileID: 1162170183}
   - {fileID: 881938606}
+  - {fileID: 659133253}
