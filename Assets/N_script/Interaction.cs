@@ -94,7 +94,7 @@ public class Interaction : MonoBehaviour
 
         string enemyName = enemy.name;
         string enemySpeed = enemy.GetComponent<path>().moveSpeed.ToString();
-        string enemyHP = enemy.GetComponent<Enemy>().MaxHP.ToString();
+        string enemyHP = enemy.GetComponent<Enemy>().maxHP.ToString();
 
         nameCanvas.text = enemyName;
         speedCanvas.text = "Speed: " + enemySpeed;

@@ -4,9 +4,11 @@ public class Enemy : MonoBehaviour
 {
     public int health = 40; // ตั้งค่าเลือดเริ่มต้นเป็น 40
     private bool killedByTurret = false; // ตัวแปรเพื่อเช็คว่าศัตรูถูกป้อมยิงตายหรือไม่
+    public int maxHP;
 
     void Start()
     {
+        maxHP = health;
         Debug.Log("Enemy spawned with health: " + health);
     }
 
