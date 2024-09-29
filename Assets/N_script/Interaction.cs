@@ -88,9 +88,9 @@ public class Interaction : MonoBehaviour
             Debug.Log("This is not Enemy");
             return;
         }
-        TMP_Text nameCanvas = EnemyStatCanvas.transform.Find("EnemyName").GetComponent<TMP_Text>();
-        TMP_Text speedCanvas = EnemyStatCanvas.transform.Find("EnemySpeed").GetComponent<TMP_Text>();
-        TMP_Text hpCanvas = EnemyStatCanvas.transform.Find("EnemyHP").GetComponent<TMP_Text>();
+        TMP_Text nameCanvas =   EnemyStatCanvas.transform.Find("EnemyName").GetComponent<TMP_Text>();
+        TMP_Text speedCanvas =  EnemyStatCanvas.transform.Find("EnemySpeed").GetComponent<TMP_Text>();
+        TMP_Text hpCanvas =     EnemyStatCanvas.transform.Find("EnemyHP").GetComponent<TMP_Text>();
 
         string enemyName = enemy.name;
         string enemySpeed = enemy.GetComponent<path>().moveSpeed.ToString();
@@ -109,12 +109,12 @@ public class Interaction : MonoBehaviour
             return;
         }
 
-        TMP_Text nameCanvas = TowerStatCanvas.transform.Find("TowerName").GetComponent<TMP_Text>();
-        TMP_Text lvCanvas = TowerStatCanvas.transform.Find("TowerLevel").GetComponent<TMP_Text>();
-        TMP_Text bulletCanvas = TowerStatCanvas.transform.Find("TowerBulletType").GetComponent<TMP_Text>();
-        TMP_Text rangeCanvas = TowerStatCanvas.transform.Find("TowerRange").GetComponent<TMP_Text>();
-        TMP_Text fireRateCanvas = TowerStatCanvas.transform.Find("TowerfireRate").GetComponent<TMP_Text>();
-        TMP_Text damageCanvas = TowerStatCanvas.transform.Find("TowerDamage").GetComponent<TMP_Text>();
+        TMP_Text nameCanvas =       TowerStatCanvas.transform.Find("TowerName").GetComponent<TMP_Text>();
+        TMP_Text lvCanvas =         TowerStatCanvas.transform.Find("TowerLevel").GetComponent<TMP_Text>();
+        TMP_Text bulletCanvas =     TowerStatCanvas.transform.Find("TowerBulletType").GetComponent<TMP_Text>();
+        TMP_Text rangeCanvas =      TowerStatCanvas.transform.Find("TowerRange").GetComponent<TMP_Text>();
+        TMP_Text fireRateCanvas =   TowerStatCanvas.transform.Find("TowerfireRate").GetComponent<TMP_Text>();
+        TMP_Text damageCanvas =     TowerStatCanvas.transform.Find("TowerDamage").GetComponent<TMP_Text>();
 
         string towerName = tower.name;
         string towerlv = "0"; //not implement yet
