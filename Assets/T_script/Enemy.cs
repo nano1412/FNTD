@@ -2,13 +2,11 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public int health = 40; // ตั้งค่าเลือดเริ่มต้นเป็น 40
-    private bool killedByTurret = false; // ตัวแปรเพื่อเช็คว่าศัตรูถูกป้อมยิงตายหรือไม่
-    public int maxHP;
+    public int health = 40; // Initial enemy health
+    private bool killedByTurret = false; // Flag to check if the enemy was killed by a turret
 
     void Start()
     {
-        maxHP = health;
         Debug.Log("Enemy spawned with health: " + health);
     }
 
@@ -19,7 +17,7 @@ public class Enemy : MonoBehaviour
 
         if (health <= 0)
         {
-            killedByTurret = true; // ศัตรูถูกป้อมยิงตาย
+            killedByTurret = true; // Mark as killed by turret
             Die();
         }
     }
@@ -28,28 +26,28 @@ public class Enemy : MonoBehaviour
     {
         Debug.Log("Enemy died!");
 
-        // เช็คว่าศัตรูถูกยิงตาย หากใช่ให้เพิ่มเหรียญ
+        // Check if the enemy was killed by a turret
         if (killedByTurret)
         {
-            PlayerStats.AddCoins(10); // เพิ่มเหรียญ 10 เมื่อศัตรูตายจากการโดนยิง
+            CoinSystem.AddCoins(10); // Call the CoinSystem to add coins when the enemy dies
             Debug.Log("Coins added: 10");
         }
 
         Destroy(gameObject);
     }
 
-    // ฟังก์ชันที่ถูกเรียกใช้เมื่อศัตรูชนกับ HumanKingdom
+    // Called when the enemy collides with the HumanKingdom
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Enemy collided with: " + other.gameObject.name); // Log แสดงชื่อของวัตถุที่ชน
+        Debug.Log("Enemy collided with: " + other.gameObject.name); // Log the name of the collided object
 
-        if (other.CompareTag("HumanKingdom")) // ตรวจสอบแท็กของวัตถุที่ชน
+        if (other.CompareTag("HumanKingdom")) // Check if the collision is with the HumanKingdom
         {
-            PlayerStats.UpdateLives(1); // ลดชีวิตของผู้เล่นลง 1
+            PlayerStats.UpdateLives(1); // Reduce player's lives by 1
             Debug.Log("Player loses 1 life. Remaining lives: " + PlayerStats.Lives);
 
-            // ลบศัตรูออกโดยไม่ให้เพิ่มเหรียญ
-            Destroy(gameObject); // ทำลายศัตรูเมื่อชนกับ HumanKingdom
+            // Destroy the enemy without adding coins
+            Destroy(gameObject);
         }
     }
 }
