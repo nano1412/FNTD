@@ -4,30 +4,24 @@ using UnityEngine;
 public class PlayerStats : MonoBehaviour
 {
     public static int Lives;
-    public int startLives = 20;
-
-    public static int Coins; // ตัวแปรสำหรับเก็บจำนวนเหรียญ
-    public int startCoins = 1000;
+    public int startLives = 5;
 
     public TMP_Text hpText;
-    public TMP_Text coinText; // เพิ่ม Text สำหรับแสดงจำนวนเหรียญ
 
     void Start()
     {
         Lives = startLives;
-        Coins = startCoins; // ตั้งค่าเริ่มต้นของเหรียญ
-        Debug.Log("Game started with " + Lives + " lives and " + Coins + " coins.");
+        Debug.Log("Game started with " + Lives + " lives.");
 
         hpText.text = "HP: " + Lives;
-        coinText.text = "Coins: " + Coins; // แสดงจำนวนเหรียญเริ่มต้น
     }
 
-    // เมธอดสำหรับอัพเดตชีวิตและแสดง Log
+    // Method for updating player lives and logging
     public static void UpdateLives(int amount)
     {
         Lives -= amount;
 
-        // ตรวจสอบหากชีวิตลดลงเหลือน้อยกว่า 0
+        // Ensure lives do not drop below zero
         if (Lives < 0)
         {
             Lives = 0;
@@ -39,16 +33,9 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    // เมธอดสำหรับอัพเดตเหรียญและแสดง Log
-    public static void AddCoins(int amount)
-    {
-        Coins += amount;
-        Debug.Log("Coins updated. Current coins: " + Coins);
-    }
-
     private void Update()
     {
-        // อัปเดตข้อความสำหรับแสดง HP
+        // Update displayed HP
         if (Lives <= 0)
         {
             hpText.text = "Game over HP: " + Lives;
@@ -57,8 +44,5 @@ public class PlayerStats : MonoBehaviour
         {
             hpText.text = "HP: " + Lives;
         }
-
-        // อัปเดตข้อความสำหรับแสดงจำนวนเหรียญ
-        coinText.text = "Coins: " + Coins;
     }
 }
