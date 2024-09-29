@@ -11,7 +11,7 @@ public class Interaction : MonoBehaviour
     [SerializeField] private GameObject TowerStatCanvas;
     [SerializeField] private GameObject DisableCanvasButton;
 
-    [SerializeField] private GameObject saveHit = new GameObject();
+    [SerializeField] private GameObject saveHit;
     [SerializeField] private GameObject selected;
     [SerializeField] private GameObject selectedCanvas;
     [SerializeField] private create_new_path create_new_path_script;
