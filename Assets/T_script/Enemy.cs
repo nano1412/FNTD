@@ -3,12 +3,11 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public int health = 40; // ตั้งค่าเลือดเริ่มต้นเป็น 40
-    public int MaxHP;
+    private bool killedByTurret = false; // ตัวแปรเพื่อเช็คว่าศัตรูถูกป้อมยิงตายหรือไม่
 
     void Start()
     {
         Debug.Log("Enemy spawned with health: " + health);
-        MaxHP = health;
     }
 
     public void TakeDamage(int amount)
@@ -18,6 +17,7 @@ public class Enemy : MonoBehaviour
 
         if (health <= 0)
         {
+            killedByTurret = true; // ศัตรูถูกป้อมยิงตาย
             Die();
         }
     }
@@ -25,6 +25,14 @@ public class Enemy : MonoBehaviour
     void Die()
     {
         Debug.Log("Enemy died!");
+
+        // เช็คว่าศัตรูถูกยิงตาย หากใช่ให้เพิ่มเหรียญ
+        if (killedByTurret)
+        {
+            PlayerStats.AddCoins(10); // เพิ่มเหรียญ 10 เมื่อศัตรูตายจากการโดนยิง
+            Debug.Log("Coins added: 10");
+        }
+
         Destroy(gameObject);
     }
 
@@ -35,12 +43,10 @@ public class Enemy : MonoBehaviour
 
         if (other.CompareTag("HumanKingdom")) // ตรวจสอบแท็กของวัตถุที่ชน
         {
-            /*Debug.Log("Enemy reached HumanKingdom!"); // ตรวจสอบว่าชน HumanKingdom
-            PlayerStats.Lives -= 1; // ลดชีวิตของผู้เล่นลง 1
-            Debug.Log("Player loses 1 life. Remaining lives: " + PlayerStats.Lives);*/
+            PlayerStats.UpdateLives(1); // ลดชีวิตของผู้เล่นลง 1
+            Debug.Log("Player loses 1 life. Remaining lives: " + PlayerStats.Lives);
 
-            PlayerStats.UpdateLives(1);
-
+            // ลบศัตรูออกโดยไม่ให้เพิ่มเหรียญ
             Destroy(gameObject); // ทำลายศัตรูเมื่อชนกับ HumanKingdom
         }
     }
