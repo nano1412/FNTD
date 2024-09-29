@@ -7,7 +7,7 @@ public class PlayerStats : MonoBehaviour
     public int startLives = 20;
 
     public static int Coins; // ตัวแปรสำหรับเก็บจำนวนเหรียญ
-    public int startCoins = 0;
+    public int startCoins = 1000;
 
     public TMP_Text hpText;
     public TMP_Text coinText; // เพิ่ม Text สำหรับแสดงจำนวนเหรียญ
