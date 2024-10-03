@@ -41,15 +41,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 7f44029e8545b4741b903a47ea3fbc99, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.6934119
+      value: 1.67
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7f44029e8545b4741b903a47ea3fbc99, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.6934119
+      value: 1.67
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7f44029e8545b4741b903a47ea3fbc99, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.6934119
+      value: 1.67
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7f44029e8545b4741b903a47ea3fbc99, type: 3}
       propertyPath: m_LocalPosition.x
@@ -90,6 +90,10 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 7f44029e8545b4741b903a47ea3fbc99, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7f44029e8545b4741b903a47ea3fbc99, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7f44029e8545b4741b903a47ea3fbc99, type: 3}
       propertyPath: m_Name
@@ -148,7 +152,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a71fe9a0af46ad4ba52e287b205bacf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debuggameObject: {fileID: 1304608617915342497, guid: 8b76cc8024297a745b3653f780dd6ae1, type: 3}
 --- !u!65 &8403632019545784587
 BoxCollider:
   m_ObjectHideFlags: 0

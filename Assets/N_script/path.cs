@@ -4,7 +4,7 @@ using UnityEngine.Playables;
 public class path : MonoBehaviour
 {
     public Transform[] points;
-    [SerializeField] private float moveSpeed;
+    public float moveSpeed;
 
     [SerializeField]  private int pointsIndex = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created

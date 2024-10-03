@@ -1,3 +1,4 @@
+using Unity.Cinemachine;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
@@ -8,6 +9,11 @@ public class cameraMovement : MonoBehaviour
     public GameObject player;
     float smooth = 5.0f;
 
+    [SerializeField] CinemachineCamera virtualCamera;
+    CinemachineComponentBase componentBase;
+    float cameraDistance;
+    [SerializeField] float sensitivity = 10f;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -17,7 +23,12 @@ public class cameraMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        MovementAndRotation();
+        Zoom();
+    }
 
+    void MovementAndRotation()
+    {
         if (Input.GetKey(KeyCode.A))
         {
             player.transform.position += transform.right * -1 * moveSpeed * Time.deltaTime;
@@ -43,6 +54,23 @@ public class cameraMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.E))
         {
             player.transform.Rotate(0, -rotateSpeed, 0);
+        }
+    }
+
+    void Zoom()
+    {
+        if(componentBase == null)
+        {
+            componentBase = virtualCamera.GetCinemachineComponent(CinemachineCore.Stage.Body);
+        }
+
+        if(Input.GetAxis("Mouse ScrollWheel") != 0)
+        {
+            cameraDistance = Input.GetAxis("Mouse ScrollWheel") * sensitivity;
+            if(componentBase is CinemachinePositionComposer)
+            {
+                (componentBase as CinemachinePositionComposer).CameraDistance -= cameraDistance;
+            }
         }
     }
 }
