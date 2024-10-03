@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,6 +17,8 @@ public class BuildingSystem : MonoBehaviour
     public GameObject prefab3;
 
     private PlaceableObject objectToPlace;
+
+    public int turretCost = 200; // กำหนดค่าใช้จ่ายในการวาง turret
 
     #region Unity methods
 
@@ -53,11 +54,20 @@ public class BuildingSystem : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Space))
         {
+            // ตรวจสอบว่ามีเหรียญเพียงพอหรือไม่ก่อนวาง turret
             if (CanBePlaced(objectToPlace))
             {
-                objectToPlace.Place();
-                Vector3Int start = gridLayout.WorldToCell(objectToPlace.GetStartPosition());
-                TakeArea(start, objectToPlace.Size);
+                if (CoinSystem.SpendCoins(turretCost)) // เช็คว่ามีเหรียญพอหรือไม่
+                {
+                    objectToPlace.Place();
+                    Vector3Int start = gridLayout.WorldToCell(objectToPlace.GetStartPosition());
+                    TakeArea(start, objectToPlace.Size);
+                }
+                else
+                {
+                    Debug.Log("Not enough coins to place the turret.");
+                    Destroy(objectToPlace.gameObject);
+                }
             }
             else
             {
