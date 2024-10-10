@@ -3,10 +3,12 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public int health = 40; // Initial enemy health
+    public int maxHP;
     private bool killedByTurret = false; // Flag to check if the enemy was killed by a turret
 
     void Start()
     {
+        maxHP = health;
         Debug.Log("Enemy spawned with health: " + health);
     }
 
