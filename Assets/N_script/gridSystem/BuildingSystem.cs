@@ -16,7 +16,8 @@ public class BuildingSystem : MonoBehaviour
     public GameObject prefab2;
     public GameObject prefab3;
 
-    private PlaceableObject objectToPlace;
+    private GameObject objectToPlace;
+    private PlaceableObject objectToPlace_PlaceableObjectScript;
 
     public int turretCost = 200; // กำหนดค่าใช้จ่ายในการวาง turret
 
@@ -32,51 +33,51 @@ public class BuildingSystem : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Z))
         {
+            Destroy(objectToPlace);
             InitializeWithObject(prefab1);
         }
         else if (Input.GetKeyDown(KeyCode.X))
         {
+            Destroy(objectToPlace);
             InitializeWithObject(prefab2);
         }
         else if (Input.GetKeyDown(KeyCode.C))
         {
+            Destroy(objectToPlace);
             InitializeWithObject(prefab3);
         }
 
-        if (!objectToPlace)
+        if (!objectToPlace_PlaceableObjectScript)
         {
             return;
         }
 
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            objectToPlace.Rotate();
+            objectToPlace_PlaceableObjectScript.Rotate();
         }
         else if (Input.GetKeyDown(KeyCode.Space))
         {
-            // ตรวจสอบว่ามีเหรียญเพียงพอหรือไม่ก่อนวาง turret
-            if (CanBePlaced(objectToPlace))
+            if (!CanBePlaced(objectToPlace_PlaceableObjectScript))
             {
-                if (CoinSystem.SpendCoins(turretCost)) // เช็คว่ามีเหรียญพอหรือไม่
-                {
-                    objectToPlace.Place();
-                    Vector3Int start = gridLayout.WorldToCell(objectToPlace.GetStartPosition());
-                    TakeArea(start, objectToPlace.Size);
-                }
-                else
-                {
-                    Debug.Log("Not enough coins to place the turret.");
-                    Destroy(objectToPlace.gameObject);
-                }
+                Debug.Log("invalid placement.");
+                Destroy(objectToPlace_PlaceableObjectScript.gameObject);
             }
-            else
+
+            if (!CoinSystem.SpendCoins(turretCost))
             {
-                Destroy(objectToPlace.gameObject);
+                Debug.Log("Not enough coins to place the turret.");
+                Destroy(objectToPlace_PlaceableObjectScript.gameObject);
             }
+
+            objectToPlace_PlaceableObjectScript.Place();
+            Vector3Int start = gridLayout.WorldToCell(objectToPlace_PlaceableObjectScript.GetStartPosition());
+            TakeArea(start, objectToPlace_PlaceableObjectScript.Size);
+             
         }
         else if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Destroy(objectToPlace.gameObject);
+            Destroy(objectToPlace_PlaceableObjectScript.gameObject);
         }
     }
 
@@ -127,15 +128,15 @@ public class BuildingSystem : MonoBehaviour
     {
         Vector3 position = SnapCoordinateToGrid(Vector3.zero);
 
-        GameObject obj = Instantiate(prefab, position, Quaternion.identity);
-        objectToPlace = obj.GetComponent<PlaceableObject>();
-        obj.AddComponent<ObjectDrag>();
+        objectToPlace = Instantiate(prefab, position, Quaternion.identity);
+        objectToPlace_PlaceableObjectScript = objectToPlace.GetComponent<PlaceableObject>();
+        objectToPlace.AddComponent<ObjectDrag>();
     }
 
     private bool CanBePlaced(PlaceableObject placeableObject)
     {
         BoundsInt area = new BoundsInt();
-        area.position = gridLayout.WorldToCell(objectToPlace.GetStartPosition());
+        area.position = gridLayout.WorldToCell(objectToPlace_PlaceableObjectScript.GetStartPosition());
         area.size = placeableObject.Size;
         area.size = new Vector3Int(area.size.x + 1, area.size.y + 1, area.size.z);
 

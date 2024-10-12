@@ -526,6 +526,7 @@ MonoBehaviour:
   prefab1: {fileID: 1333141726311767786, guid: 5e78cb8a722fb4a48b09724dba3ab3b2, type: 3}
   prefab2: {fileID: 1070183501551409169, guid: 3ad68d39ba6cf0947b74f925db6d2e65, type: 3}
   prefab3: {fileID: 1818217765292401174, guid: a7f98817b07d83842ba983a5daa9fde8, type: 3}
+  turretCost: 200
 --- !u!1 &788327448
 GameObject:
   m_ObjectHideFlags: 0
@@ -939,7 +940,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4117014187246498906, guid: 1090e10e2444cb24c952b02c996e29b6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.489339
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4117014187246498906, guid: 1090e10e2444cb24c952b02c996e29b6, type: 3}
       propertyPath: m_LocalPosition.y
@@ -947,7 +948,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4117014187246498906, guid: 1090e10e2444cb24c952b02c996e29b6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -37.042458
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4117014187246498906, guid: 1090e10e2444cb24c952b02c996e29b6, type: 3}
       propertyPath: m_LocalRotation.w
