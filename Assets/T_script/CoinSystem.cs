@@ -4,7 +4,7 @@ using TMPro;
 public class CoinSystem : MonoBehaviour
 {
     public static int Coins; // จำนวนเหรียญปัจจุบัน
-    public int startCoins = 1000; // จำนวนเหรียญเริ่มต้น
+    public int startCoins = 100; // จำนวนเหรียญเริ่มต้น
 
     public TMP_Text coinText; // ตัวแสดงเหรียญใน UI
 

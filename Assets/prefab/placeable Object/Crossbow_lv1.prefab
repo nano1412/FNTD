@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3781954006812312783}
   - component: {fileID: 8889374474386473661}
+  - component: {fileID: 5758158585794560177}
   m_Layer: 0
   m_Name: Crossbow_lv1
   m_TagString: Untagged
@@ -48,11 +49,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 40
   fireRate: 2
-  damage: 10
+  damage: 25
   bulletPrefab: {fileID: 3272346184186625450, guid: e5c52ae94af322841bcfee8b6e673997, type: 3}
   partToRotate: {fileID: 5727023845787398849}
   firePoint: {fileID: 4233739364647674004}
   enemyTag: Enemy
+--- !u!114 &5758158585794560177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4555359743750282869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a71fe9a0af46ad4ba52e287b205bacf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6133426466664200541
 GameObject:
   m_ObjectHideFlags: 0
