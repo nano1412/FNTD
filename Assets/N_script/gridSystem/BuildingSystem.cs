@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -11,6 +12,10 @@ public class BuildingSystem : MonoBehaviour
     private Grid grid;
     [SerializeField] private Tilemap MainTilemap;
     [SerializeField] private TileBase whiteTile;
+    [SerializeField] private GameObject humanKingdom;
+    [SerializeField] private GameObject floor;
+ 
+    public float buildingRange;
 
     public GameObject prefab1;
     public GameObject prefab2;
@@ -19,7 +24,7 @@ public class BuildingSystem : MonoBehaviour
     private GameObject objectToPlace;
     private PlaceableObject objectToPlace_PlaceableObjectScript;
 
-    public int turretCost = 200; // กำหนดค่าใช้จ่ายในการวาง turret
+    public int turretCost = 200; //pls this is just a temp, right?
 
     #region Unity methods
 
@@ -33,18 +38,15 @@ public class BuildingSystem : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            Destroy(objectToPlace);
-            InitializeWithObject(prefab1);
+            InitializeObjectToBePlace(prefab1);
         }
         else if (Input.GetKeyDown(KeyCode.X))
         {
-            Destroy(objectToPlace);
-            InitializeWithObject(prefab2);
+            InitializeObjectToBePlace(prefab2);
         }
         else if (Input.GetKeyDown(KeyCode.C))
         {
-            Destroy(objectToPlace);
-            InitializeWithObject(prefab3);
+            InitializeObjectToBePlace(prefab3);
         }
 
         if (!objectToPlace_PlaceableObjectScript)
@@ -58,22 +60,32 @@ public class BuildingSystem : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (!CanBePlaced(objectToPlace_PlaceableObjectScript))
+            if (!IsColideWithWhiteTile(objectToPlace_PlaceableObjectScript))
             {
                 Debug.Log("invalid placement.");
-                Destroy(objectToPlace_PlaceableObjectScript.gameObject);
+                Destroy(objectToPlace);
             }
 
-            if (!CoinSystem.SpendCoins(turretCost))
+            else if (!CoinSystem.SpendCoins(turretCost))
             {
                 Debug.Log("Not enough coins to place the turret.");
-                Destroy(objectToPlace_PlaceableObjectScript.gameObject);
+                Destroy(objectToPlace);
             }
 
-            objectToPlace_PlaceableObjectScript.Place();
-            Vector3Int start = gridLayout.WorldToCell(objectToPlace_PlaceableObjectScript.GetStartPosition());
-            TakeArea(start, objectToPlace_PlaceableObjectScript.Size);
-             
+            else if (!IsInRange())
+            {
+                Debug.Log("Turret is place to far from the Kingdom");
+                Destroy(objectToPlace);
+            }
+
+            else
+            {
+                objectToPlace_PlaceableObjectScript.Place();
+                Vector3Int start = gridLayout.WorldToCell(objectToPlace_PlaceableObjectScript.GetStartPosition());
+                TakeArea(start, objectToPlace_PlaceableObjectScript.Size);
+            }
+
+            objectToPlace = null;
         }
         else if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -120,12 +132,19 @@ public class BuildingSystem : MonoBehaviour
         return array;
     }
 
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, buildingRange);
+    }
+
     #endregion
 
     #region Building Placement
 
-    public void InitializeWithObject(GameObject prefab)
+    public void InitializeObjectToBePlace(GameObject prefab)
     {
+        Destroy(objectToPlace);
         Vector3 position = SnapCoordinateToGrid(Vector3.zero);
 
         objectToPlace = Instantiate(prefab, position, Quaternion.identity);
@@ -133,7 +152,7 @@ public class BuildingSystem : MonoBehaviour
         objectToPlace.AddComponent<ObjectDrag>();
     }
 
-    private bool CanBePlaced(PlaceableObject placeableObject)
+    private bool IsColideWithWhiteTile(PlaceableObject placeableObject)
     {
         BoundsInt area = new BoundsInt();
         area.position = gridLayout.WorldToCell(objectToPlace_PlaceableObjectScript.GetStartPosition());
@@ -150,6 +169,16 @@ public class BuildingSystem : MonoBehaviour
             }
         }
 
+        return true;
+    }
+
+    private bool IsInRange()
+    {
+        float distance = Vector3.Distance(humanKingdom.transform.position, objectToPlace.transform.position);
+        if(distance > buildingRange)
+        {
+            return false;
+        }
         return true;
     }
 
