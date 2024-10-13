@@ -36,6 +36,13 @@ public class BuildingSystem : MonoBehaviour
 
     private void Update()
     {
+        KeyboardInput();
+
+        floor.transform.localScale = new Vector3(buildingRange * 2, floor.transform.localScale.y, buildingRange * 2);
+    }
+
+    private void KeyboardInput()
+    {
         if (Input.GetKeyDown(KeyCode.Z))
         {
             InitializeObjectToBePlace(prefab1);
@@ -87,9 +94,9 @@ public class BuildingSystem : MonoBehaviour
 
             objectToPlace = null;
         }
-        else if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Destroy(objectToPlace_PlaceableObjectScript.gameObject);
+            Destroy(objectToPlace);
         }
     }
 

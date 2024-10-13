@@ -508,6 +508,7 @@ Transform:
   - {fileID: 1430570518}
   - {fileID: 1919229640}
   - {fileID: 4117014188274449181}
+  - {fileID: 2038504543}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &634484177
@@ -525,6 +526,8 @@ MonoBehaviour:
   gridLayout: {fileID: 634484175}
   MainTilemap: {fileID: 1430570520}
   whiteTile: {fileID: 11400000, guid: 51eb94a746566da46817b3ef913c0aaf, type: 2}
+  humanKingdom: {fileID: 4134332409257443705}
+  floor: {fileID: 1919229635}
   buildingRange: 0
   prefab1: {fileID: 1333141726311767786, guid: 5e78cb8a722fb4a48b09724dba3ab3b2, type: 3}
   prefab2: {fileID: 1070183501551409169, guid: 3ad68d39ba6cf0947b74f925db6d2e65, type: 3}
@@ -1332,7 +1335,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.6, z: 0}
-  m_LocalScale: {x: 25, y: 1, z: 25}
+  m_LocalScale: {x: 500, y: 1, z: 500}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 634484176}
@@ -1379,15 +1382,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2038504541}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 206170454}
   - {fileID: 788327450}
   - {fileID: 1113655162}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 634484176}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2234025874267168853
 MeshFilter:
@@ -1635,10 +1638,9 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 2038504543}
+  - {fileID: 634484176}
   - {fileID: 940738459}
   - {fileID: 274328577}
   - {fileID: 8778073050621349983}
-  - {fileID: 634484176}
   - {fileID: 6642030306729989417}
   - {fileID: 1478857043}
