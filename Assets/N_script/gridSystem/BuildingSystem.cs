@@ -18,7 +18,7 @@ public class BuildingSystem : MonoBehaviour
 
     private PlaceableObject objectToPlace;
 
-    public int turretCost = 200; // กำหนดค่าใช้จ่ายในการวาง turret
+    public int turretCost = 50; // กำหนดค่าใช้จ่ายในการวาง turret
 
     #region Unity methods
 

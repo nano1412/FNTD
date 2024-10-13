@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public int health = 40; // Initial enemy health
+    public int health = 100; // Initial enemy health
     public int maxHP;
     private bool killedByTurret = false; // Flag to check if the enemy was killed by a turret
 
@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour
         // Check if the enemy was killed by a turret
         if (killedByTurret)
         {
-            CoinSystem.AddCoins(10); // Call the CoinSystem to add coins when the enemy dies
+            CoinSystem.AddCoins(5); // Call the CoinSystem to add coins when the enemy dies
             Debug.Log("Coins added: 10");
         }
 
