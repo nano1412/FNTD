@@ -18,8 +18,6 @@ public class BuildingSystem : MonoBehaviour
 
     private PlaceableObject objectToPlace;
 
-    public int turretCost = 50; // กำหนดค่าใช้จ่ายในการวาง turret
-
     #region Unity methods
 
     private void Awake()
@@ -32,15 +30,15 @@ public class BuildingSystem : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            InitializeWithObject(prefab1);
+            InitializeWithObject(prefab1, CoinSystem.GetTurretCost(1));
         }
         else if (Input.GetKeyDown(KeyCode.X))
         {
-            InitializeWithObject(prefab2);
+            InitializeWithObject(prefab2, CoinSystem.GetTurretCost(2));
         }
         else if (Input.GetKeyDown(KeyCode.C))
         {
-            InitializeWithObject(prefab3);
+            InitializeWithObject(prefab3, CoinSystem.GetTurretCost(3));
         }
 
         if (!objectToPlace)
@@ -57,7 +55,8 @@ public class BuildingSystem : MonoBehaviour
             // ตรวจสอบว่ามีเหรียญเพียงพอหรือไม่ก่อนวาง turret
             if (CanBePlaced(objectToPlace))
             {
-                if (CoinSystem.SpendCoins(turretCost)) // เช็คว่ามีเหรียญพอหรือไม่
+                int turretCost = CoinSystem.GetCurrentTurretCost();
+                if (CoinSystem.SpendCoins(turretCost))
                 {
                     objectToPlace.Place();
                     Vector3Int start = gridLayout.WorldToCell(objectToPlace.GetStartPosition());
@@ -123,13 +122,15 @@ public class BuildingSystem : MonoBehaviour
 
     #region Building Placement
 
-    public void InitializeWithObject(GameObject prefab)
+    public void InitializeWithObject(GameObject prefab, int cost)
     {
         Vector3 position = SnapCoordinateToGrid(Vector3.zero);
 
         GameObject obj = Instantiate(prefab, position, Quaternion.identity);
         objectToPlace = obj.GetComponent<PlaceableObject>();
         obj.AddComponent<ObjectDrag>();
+
+        CoinSystem.SetCurrentTurretCost(cost); // Set the current turret cost
     }
 
     private bool CanBePlaced(PlaceableObject placeableObject)

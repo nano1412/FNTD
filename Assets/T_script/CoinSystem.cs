@@ -7,6 +7,9 @@ public class CoinSystem : MonoBehaviour
     public int startCoins = 100; // จำนวนเหรียญเริ่มต้น
 
     public TMP_Text coinText; // ตัวแสดงเหรียญใน UI
+    private static int currentTurretCost;
+
+    private static readonly int[] turretCosts = { 0, 0, 50 }; // Costs for each turret
 
     void Start()
     {
@@ -36,6 +39,21 @@ public class CoinSystem : MonoBehaviour
     {
         Coins += amount;
         Debug.Log("Coins added: " + amount + ". Current coins: " + Coins);
+    }
+
+    public static int GetTurretCost(int turretIndex)
+    {
+        return turretCosts[Mathf.Clamp(turretIndex - 1, 0, turretCosts.Length - 1)];
+    }
+
+    public static void SetCurrentTurretCost(int cost)
+    {
+        currentTurretCost = cost;
+    }
+
+    public static int GetCurrentTurretCost()
+    {
+        return currentTurretCost;
     }
 
     // อัพเดท UI ของเหรียญ
