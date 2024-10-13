@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -11,14 +12,19 @@ public class BuildingSystem : MonoBehaviour
     private Grid grid;
     [SerializeField] private Tilemap MainTilemap;
     [SerializeField] private TileBase whiteTile;
+    [SerializeField] private GameObject humanKingdom;
+    [SerializeField] private GameObject floor;
+ 
+    public float buildingRange;
 
     public GameObject prefab1;
     public GameObject prefab2;
     public GameObject prefab3;
 
-    private PlaceableObject objectToPlace;
+    private GameObject objectToPlace;
+    private PlaceableObject objectToPlace_PlaceableObjectScript;
 
-    public int turretCost = 50; // กำหนดค่าใช้จ่ายในการวาง turret
+    public int turretCost = 200; //pls this is just a temp, right?
 
     #region Unity methods
 
@@ -30,53 +36,67 @@ public class BuildingSystem : MonoBehaviour
 
     private void Update()
     {
+        KeyboardInput();
+
+        floor.transform.localScale = new Vector3(buildingRange * 2, floor.transform.localScale.y, buildingRange * 2);
+    }
+
+    private void KeyboardInput()
+    {
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            InitializeWithObject(prefab1);
+            InitializeObjectToBePlace(prefab1);
         }
         else if (Input.GetKeyDown(KeyCode.X))
         {
-            InitializeWithObject(prefab2);
+            InitializeObjectToBePlace(prefab2);
         }
         else if (Input.GetKeyDown(KeyCode.C))
         {
-            InitializeWithObject(prefab3);
+            InitializeObjectToBePlace(prefab3);
         }
 
-        if (!objectToPlace)
+        if (!objectToPlace_PlaceableObjectScript)
         {
             return;
         }
 
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            objectToPlace.Rotate();
+            objectToPlace_PlaceableObjectScript.Rotate();
         }
         else if (Input.GetKeyDown(KeyCode.Space))
         {
-            // ตรวจสอบว่ามีเหรียญเพียงพอหรือไม่ก่อนวาง turret
-            if (CanBePlaced(objectToPlace))
+            if (!IsColideWithWhiteTile(objectToPlace_PlaceableObjectScript))
             {
-                if (CoinSystem.SpendCoins(turretCost)) // เช็คว่ามีเหรียญพอหรือไม่
-                {
-                    objectToPlace.Place();
-                    Vector3Int start = gridLayout.WorldToCell(objectToPlace.GetStartPosition());
-                    TakeArea(start, objectToPlace.Size);
-                }
-                else
-                {
-                    Debug.Log("Not enough coins to place the turret.");
-                    Destroy(objectToPlace.gameObject);
-                }
+                Debug.Log("invalid placement.");
+                Destroy(objectToPlace);
             }
+
+            else if (!CoinSystem.SpendCoins(turretCost))
+            {
+                Debug.Log("Not enough coins to place the turret.");
+                Destroy(objectToPlace);
+            }
+
+            else if (!IsInRange())
+            {
+                Debug.Log("Turret is place to far from the Kingdom");
+                Destroy(objectToPlace);
+            }
+
             else
             {
-                Destroy(objectToPlace.gameObject);
+                objectToPlace_PlaceableObjectScript.Place();
+                Vector3Int start = gridLayout.WorldToCell(objectToPlace_PlaceableObjectScript.GetStartPosition());
+                TakeArea(start, objectToPlace_PlaceableObjectScript.Size);
             }
+
+            objectToPlace = null;
         }
-        else if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Destroy(objectToPlace.gameObject);
+            Destroy(objectToPlace);
         }
     }
 
@@ -119,23 +139,30 @@ public class BuildingSystem : MonoBehaviour
         return array;
     }
 
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, buildingRange);
+    }
+
     #endregion
 
     #region Building Placement
 
-    public void InitializeWithObject(GameObject prefab)
+    public void InitializeObjectToBePlace(GameObject prefab)
     {
+        Destroy(objectToPlace);
         Vector3 position = SnapCoordinateToGrid(Vector3.zero);
 
-        GameObject obj = Instantiate(prefab, position, Quaternion.identity);
-        objectToPlace = obj.GetComponent<PlaceableObject>();
-        obj.AddComponent<ObjectDrag>();
+        objectToPlace = Instantiate(prefab, position, Quaternion.identity);
+        objectToPlace_PlaceableObjectScript = objectToPlace.GetComponent<PlaceableObject>();
+        objectToPlace.AddComponent<ObjectDrag>();
     }
 
-    private bool CanBePlaced(PlaceableObject placeableObject)
+    private bool IsColideWithWhiteTile(PlaceableObject placeableObject)
     {
         BoundsInt area = new BoundsInt();
-        area.position = gridLayout.WorldToCell(objectToPlace.GetStartPosition());
+        area.position = gridLayout.WorldToCell(objectToPlace_PlaceableObjectScript.GetStartPosition());
         area.size = placeableObject.Size;
         area.size = new Vector3Int(area.size.x + 1, area.size.y + 1, area.size.z);
 
@@ -149,6 +176,16 @@ public class BuildingSystem : MonoBehaviour
             }
         }
 
+        return true;
+    }
+
+    private bool IsInRange()
+    {
+        float distance = Vector3.Distance(humanKingdom.transform.position, objectToPlace.transform.position);
+        if(distance > buildingRange)
+        {
+            return false;
+        }
         return true;
     }
 
