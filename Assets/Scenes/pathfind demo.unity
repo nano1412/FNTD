@@ -1979,6 +1979,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crossbow_lv1
       objectReference: {fileID: 0}
+    - target: {fileID: 8889374474386473661, guid: 5058783ef13f9534cbd90f85f1de2866, type: 3}
+      propertyPath: cost
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8889374474386473661, guid: 5058783ef13f9534cbd90f85f1de2866, type: 3}
+      propertyPath: upgradeCost
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3780,7 +3788,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5267853051253347116}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11500000, guid: 11819b5c143b61041a1f736f64390299, type: 3}
+        m_TargetAssemblyTypeName: UnityEngine.Object, UnityEngine
+        m_MethodName: set_name
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: upgradeButton
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!224 &2400037588666769881
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4698,6 +4718,7 @@ MonoBehaviour:
   EnemyStatCanvas: {fileID: 7952267752844427420}
   TowerStatCanvas: {fileID: 7890620463696411996}
   DisableCanvasButton: {fileID: 1010655251745448011}
+  upgradeTowerButton: {fileID: 2372348417589545946}
   saveHit: {fileID: 0}
   selected: {fileID: 0}
   selectedCanvas: {fileID: 0}

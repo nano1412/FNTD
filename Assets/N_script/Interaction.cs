@@ -10,6 +10,7 @@ public class Interaction : MonoBehaviour
     [SerializeField] private GameObject EnemyStatCanvas;
     [SerializeField] private GameObject TowerStatCanvas;
     [SerializeField] private GameObject DisableCanvasButton;
+    [SerializeField] private Button upgradeTowerButton; // Reference to the Upgrade button
 
     [SerializeField] private GameObject saveHit;
     [SerializeField] private GameObject selected;
@@ -19,6 +20,7 @@ public class Interaction : MonoBehaviour
     private void Start()
     {
         DisableAllCanvas();
+        upgradeTowerButton.onClick.AddListener(OnUpgradeTowerButtonClicked);
     }
 
     void Update()
@@ -80,6 +82,7 @@ public class Interaction : MonoBehaviour
             break;
         }
     }
+    
 
     void SetEmenyStatInCanvas(GameObject enemy)
     {
@@ -129,6 +132,23 @@ public class Interaction : MonoBehaviour
         rangeCanvas.text = "Range: " + towerRange;
         fireRateCanvas.text = "FireRate: " + towerFireRate;
         damageCanvas.text = "Damage: " + towerDamage;
+
+
+    }
+
+    private void OnUpgradeTowerButtonClicked()
+    {
+        if (selected != null && selected.CompareTag("Tower"))
+        {
+            Turret turret = selected.GetComponent<Turret>();
+            if (turret != null)
+            {
+                turret.UpgradeTurret(); // Call the UpgradeTurret method
+                                        // รีเซ็ตการเลือกป้อมให้กลับไปอยู่สถานะเริ่มต้น
+                selected = null;
+                DisableAllCanvas(); // ปิดหรือรีเฟรช UI ให้กลับไปอยู่สถานะเริ่มต้น
+            }
+        }
     }
 
     void ActiveCanvas(GameObject canvas)

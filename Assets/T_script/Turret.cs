@@ -5,12 +5,15 @@ public class Turret : MonoBehaviour
     private Transform target;
     private Enemy targetEnemy;
     public int cost;
+    public int upgradeCost;
+    public int level = 1; // เริ่มที่เลเวล 1
 
     public float range = 15f;
     public float fireRate = 1f;
     public int damage = 10;
     private float fireCountdown = 0f;
 
+    public GameObject[] turretPrefabs; // Array ของ prefab สำหรับแต่ละเลเวล
     public GameObject bulletPrefab;
     public Transform partToRotate;
     public Transform firePoint;
@@ -22,7 +25,65 @@ public class Turret : MonoBehaviour
     }
 
     public int GetCost()
-    {  return cost; }
+    {
+        return cost;
+    }
+
+    public void UpgradeTurret()
+    {
+        // ตรวจสอบว่าเลเวลของป้อมยังไม่ถึงระดับสูงสุด
+        if (level < turretPrefabs.Length) // Use the length of the array to determine max level
+        {
+            // Store current level for prefab access
+            int currentPrefabIndex = level - 1;
+
+            // Upgrade turret level
+            level++;
+            UpgradeToNextLevelPrefab(currentPrefabIndex); // Pass the current index
+
+            // เพิ่มค่าใช้จ่ายในการอัปเกรด
+            upgradeCost += 100; // เพิ่มค่าใช้จ่ายในการอัปเกรด 100 หน่วยทุกครั้ง
+        }
+        else
+        {
+            Debug.Log("ป้อมอยู่ในระดับสูงสุดแล้ว!");
+        }
+    }
+
+    private void UpgradeToNextLevelPrefab(int currentPrefabIndex)
+    {
+        // เก็บตำแหน่งและการหมุนของป้อมปัจจุบัน
+        Vector3 currentPosition = transform.position;
+        Quaternion currentRotation = transform.rotation;
+
+        // ลบป้อมปัจจุบัน
+        Destroy(gameObject);
+
+        // สร้างป้อมใหม่จาก prefab ในเลเวลถัดไป
+        // Make sure to use the next level index
+        GameObject newTurret = Instantiate(turretPrefabs[currentPrefabIndex + 1], currentPosition, currentRotation);
+        newTurret.GetComponent<Turret>().level = level; // กำหนดเลเวลให้ตรงกับป้อมใหม่
+
+        Debug.Log($"ป้อมอัปเกรดเป็นเลเวล {level}! เปลี่ยนไปใช้ prefab ใหม่");
+    }
+
+
+    private void UpgradeToNextLevelPrefab()
+    {
+        // เก็บตำแหน่งและการหมุนของป้อมปัจจุบัน
+        Vector3 currentPosition = transform.position;
+        Quaternion currentRotation = transform.rotation;
+
+        // ลบป้อมปัจจุบัน
+        Destroy(gameObject);
+
+        // สร้างป้อมใหม่จาก prefab ในเลเวลถัดไป
+        GameObject newTurret = Instantiate(turretPrefabs[level - 1], currentPosition, currentRotation);
+        newTurret.GetComponent<Turret>().level = level; // กำหนดเลเวลให้ตรงกับป้อมใหม่
+
+        Debug.Log($"ป้อมอัปเกรดเป็นเลเวล {level}! เปลี่ยนไปใช้ prefab ใหม่");
+    }
+
     void UpdateTarget()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
@@ -59,7 +120,7 @@ public class Turret : MonoBehaviour
         if (fireCountdown <= 0f)
         {
             Shoot();
-            fireCountdown = 1f / fireRate;  // ใช้อัตราการยิงคงที่
+            fireCountdown = 1f / fireRate;
         }
 
         fireCountdown -= Time.deltaTime;
@@ -81,7 +142,7 @@ public class Turret : MonoBehaviour
         if (bullet != null)
         {
             bullet.Seek(target);
-            bullet.damage = damage;  // กำหนดดาเมจคงที่
+            bullet.damage = damage;
         }
     }
 
