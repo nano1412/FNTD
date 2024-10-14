@@ -4,7 +4,7 @@ public class Turret : MonoBehaviour
 {
     private Transform target;
     private Enemy targetEnemy;
-    [SerializeField] int cost;
+    public int cost;
 
     public float range = 15f;
     public float fireRate = 1f;

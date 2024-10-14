@@ -63,7 +63,7 @@ public class BuildingSystem : MonoBehaviour
         {
             objectToPlace_PlaceableObjectScript.Rotate();
         }
-        else if (Input.GetKeyDown(KeyCode.Space))
+        else if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0))
         {
             if (!IsColideWithWhiteTile(objectToPlace_PlaceableObjectScript))
             {
@@ -206,3 +206,4 @@ public class BuildingSystem : MonoBehaviour
 
     #endregion
 }
+
