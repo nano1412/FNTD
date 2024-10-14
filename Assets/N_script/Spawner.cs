@@ -10,7 +10,9 @@ public class Spawner : MonoBehaviour
     [SerializeField] GameObject path;
     [SerializeField] GameObject enemyprefab;
     [SerializeField] string humanKingdomName;
+    [SerializeField] string spawners;
     [SerializeField] GameObject humanKingdom;
+    public int numToSpawn = 0;
 
     public int size = 1;
     float timer;
@@ -19,6 +21,8 @@ public class Spawner : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        transform.parent = GameObject.Find(spawners).transform;
+
         humanKingdom = GameObject.Find(humanKingdomName);
         path = this.transform.Find("Path").gameObject;
         List<Transform> childrenList = new List<Transform>();
@@ -32,20 +36,19 @@ public class Spawner : MonoBehaviour
         childrenList.Add(humanKingdom.transform);
 
         points = childrenList.ToArray();
-
-        Spawn();
     }
 
     // Update is called once per frame
     void Update()
     {
         timer -= Time.deltaTime;
-        if (timer < 0f)
+        if (timer < 0f && numToSpawn > 0)
         {
             for (int i = size; i > 0; i--)
             {
                 Spawn();
             }
+            numToSpawn--;
             timer = spawnTimer;
         }
     }

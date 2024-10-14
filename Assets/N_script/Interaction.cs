@@ -46,7 +46,7 @@ public class Interaction : MonoBehaviour
             case "Spawner":
                 ActiveCanvas(createNewPathCanvas);
                 selectedCanvas = createNewPathCanvas;
-                selected = saveHit.transform.Find("spawner").gameObject;
+                selected = saveHit.gameObject;
             break;
 
             case "Enemy":
