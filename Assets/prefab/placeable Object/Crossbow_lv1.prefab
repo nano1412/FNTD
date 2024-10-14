@@ -48,10 +48,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f68959b37a912f4898897127def5ccf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 200
+  cost: 50
+  upgradeCost: 100
+  level: 1
   range: 40
   fireRate: 2
   damage: 25
+  turretPrefabs:
+  - {fileID: 4555359743750282869}
+  - {fileID: 6427643418592851749, guid: 273c34377f1b7524e936a7d10226787c, type: 3}
+  - {fileID: 956524273312363597, guid: a7999ff6d8b23ec4e9b1376b43a76782, type: 3}
   bulletPrefab: {fileID: 3272346184186625450, guid: e5c52ae94af322841bcfee8b6e673997, type: 3}
   partToRotate: {fileID: 5727023845787398849}
   firePoint: {fileID: 4233739364647674004}

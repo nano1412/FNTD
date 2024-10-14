@@ -388,9 +388,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5942573439191281055}
   - component: {fileID: 3213821163640501792}
+  - component: {fileID: 6300384586040241832}
   m_Layer: 0
   m_Name: Crossbow_lv2
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -425,13 +426,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f68959b37a912f4898897127def5ccf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cost: 0
+  upgradeCost: 160
+  level: 2
   range: 40
   fireRate: 2
-  damage: 20
+  damage: 40
+  turretPrefabs:
+  - {fileID: 4555359743750282869, guid: 5058783ef13f9534cbd90f85f1de2866, type: 3}
+  - {fileID: 6427643418592851749}
+  - {fileID: 956524273312363597, guid: a7999ff6d8b23ec4e9b1376b43a76782, type: 3}
   bulletPrefab: {fileID: 3272346184186625450, guid: 16e5f7734d0f2fa41ab7c3b4f60e17ad, type: 3}
   partToRotate: {fileID: 2989838160660945809}
   firePoint: {fileID: 1922381360398348427}
   enemyTag: Enemy
+--- !u!65 &6300384586040241832
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6427643418592851749}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.056576423, y: 0.054148998, z: 0.0682037}
+  m_Center: {x: -0.0007811892, y: 0.007879849, z: 0.0054314947}
 --- !u!1 &9032897016340563638
 GameObject:
   m_ObjectHideFlags: 0
