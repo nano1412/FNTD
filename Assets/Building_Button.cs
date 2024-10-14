@@ -18,7 +18,16 @@ public class Building_Button : MonoBehaviour
         buildingSystem = gameController.GetComponent<BuildingSystem>();
 
         turretName.text = objectToBuild.name;
-        turretCost.text = objectToBuild.GetComponent<Turret>().cost.ToString();
+
+        if (objectToBuild.GetComponent<Turret>() != null)
+        {
+            turretCost.text = objectToBuild.GetComponent<Turret>().GetCost().ToString();
+            objectToBuild.GetComponent<Turret>().enabled = false;
+        }
+        else
+        {
+            turretCost.text = "0";
+        }
     }
 
     public void InitializeObjectViaButton()
