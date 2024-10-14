@@ -63,7 +63,7 @@ public class BuildingSystem : MonoBehaviour
         {
             objectToPlace_PlaceableObjectScript.Rotate();
         }
-        else if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0))
+        else if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             if (!IsColideWithWhiteTile(objectToPlace_PlaceableObjectScript))
             {
@@ -88,7 +88,7 @@ public class BuildingSystem : MonoBehaviour
                 objectToPlace_PlaceableObjectScript.Place();
                 Vector3Int start = gridLayout.WorldToCell(objectToPlace_PlaceableObjectScript.GetStartPosition());
                 TakeArea(start, objectToPlace_PlaceableObjectScript.Size);
-                objectToPlace.GetComponent<Turret>().enabled = true;
+                if (objectToPlace.GetComponent<Turret>() != null) objectToPlace.GetComponent<Turret>().enabled = true;
             }
 
             objectToPlace = null;

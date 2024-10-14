@@ -12,8 +12,6 @@ GameObject:
   - component: {fileID: 4394758559280371349}
   - component: {fileID: 6046500233869721508}
   - component: {fileID: 1745381895037574458}
-  - component: {fileID: 1383442534070011834}
-  - component: {fileID: 8372808561644455863}
   m_Layer: 0
   m_Name: spawner
   m_TagString: Spawner
@@ -33,9 +31,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1492678061629334679}
-  - {fileID: 8228429483672588311}
+  m_Children: []
   m_Father: {fileID: 5683777527483929063}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4394758559280371349
@@ -108,41 +104,10 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1383442534070011834
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 917975406330553783}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2152b0c62265ae40805058bf2ffb0e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  points: []
-  path: {fileID: 0}
-  enemyprefab: {fileID: 6453380481440969478, guid: fe5204bb5d41f6c43a9be9c87c75e179, type: 3}
-  humanKingdomName: Humankingdom
-  humanKingdom: {fileID: 0}
-  size: 1
-  spawnTimer: 3
---- !u!114 &8372808561644455863
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 917975406330553783}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a71fe9a0af46ad4ba52e287b205bacf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1333141726311767786
 GameObject:
   m_ObjectHideFlags: 0
@@ -154,6 +119,8 @@ GameObject:
   - component: {fileID: 5683777527483929063}
   - component: {fileID: 6727764476893346052}
   - component: {fileID: 278227978514852395}
+  - component: {fileID: 3840892164785628124}
+  - component: {fileID: 5021489622649602472}
   m_Layer: 0
   m_Name: Spawner_prefab
   m_TagString: Spawner
@@ -175,6 +142,8 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 9107486064020874320}
+  - {fileID: 1492678061629334679}
+  - {fileID: 8228429483672588311}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6727764476893346052
@@ -210,6 +179,39 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.1876339, y: 1, z: 1.2537829}
   m_Center: {x: -0.014292717, y: 0, z: 0.005290127}
+--- !u!114 &3840892164785628124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1333141726311767786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2152b0c62265ae40805058bf2ffb0e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points: []
+  path: {fileID: 0}
+  enemyprefab: {fileID: 6453380481440969478, guid: fe5204bb5d41f6c43a9be9c87c75e179, type: 3}
+  humanKingdomName: Humankingdom
+  spawners: Spawners
+  humanKingdom: {fileID: 0}
+  numToSpawn: 0
+  size: 1
+  spawnTimer: 3
+--- !u!114 &5021489622649602472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1333141726311767786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a71fe9a0af46ad4ba52e287b205bacf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2112728037964950515
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,12 +236,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2112728037964950515}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 9107486064020874320}
+  m_Father: {fileID: 5683777527483929063}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4434206105602313910
 GameObject:
@@ -265,10 +267,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4434206105602313910}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 9107486064020874320}
+  m_Father: {fileID: 5683777527483929063}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
