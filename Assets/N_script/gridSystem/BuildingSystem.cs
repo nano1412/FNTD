@@ -23,6 +23,7 @@ public class BuildingSystem : MonoBehaviour
 
     private GameObject objectToPlace;
     private PlaceableObject objectToPlace_PlaceableObjectScript;
+    private int objectToPlaceCost;
     #region Unity methods
 
     private void Awake()
@@ -42,15 +43,15 @@ public class BuildingSystem : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            InitializeWithObject(prefab1, CoinSystem.GetTurretCost(1));
+            InitializeWithObject(prefab1);
         }
         else if (Input.GetKeyDown(KeyCode.X))
         {
-            InitializeWithObject(prefab2, CoinSystem.GetTurretCost(2));
+            InitializeWithObject(prefab2);
         }
         else if (Input.GetKeyDown(KeyCode.C))
         {
-            InitializeWithObject(prefab3, CoinSystem.GetTurretCost(3));
+            InitializeWithObject(prefab3);
         }
 
         if (!objectToPlace_PlaceableObjectScript)
@@ -64,14 +65,13 @@ public class BuildingSystem : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Space))
         {
-            int turretCost = CoinSystem.GetCurrentTurretCost();
             if (!IsColideWithWhiteTile(objectToPlace_PlaceableObjectScript))
             {
                 Debug.Log("invalid placement.");
                 Destroy(objectToPlace);
             }
 
-            else if (!CoinSystem.SpendCoins(turretCost))
+            else if (!CoinSystem.SpendCoins(objectToPlaceCost))
             {
                 Debug.Log("Not enough coins to place the turret.");
                 Destroy(objectToPlace);
@@ -80,11 +80,6 @@ public class BuildingSystem : MonoBehaviour
             else if (!IsInRange())
             {
                 Debug.Log("Turret is place to far from the Kingdom");
-                Destroy(objectToPlace);
-            }
-            
-            else if(!CoinSystem.SpendCoins(turretCost)){
-                Debug.Log("Not enough coins to place the turret.");
                 Destroy(objectToPlace);
             }
 
@@ -153,16 +148,24 @@ public class BuildingSystem : MonoBehaviour
 
     #region Building Placement
 
-    public void InitializeWithObject(GameObject prefab, int cost)
+    public void InitializeWithObject(GameObject prefab)
     {
         Destroy(objectToPlace);
         Vector3 position = SnapCoordinateToGrid(Vector3.zero);
 
         objectToPlace = Instantiate(prefab, position, Quaternion.identity);
         objectToPlace_PlaceableObjectScript = objectToPlace.GetComponent<PlaceableObject>();
-        objectToPlace.GetComponent<Turret>().enabled = false;
+
+        if (objectToPlace.GetComponent<Turret>() != null)
+        {
+            objectToPlaceCost = objectToPlace.GetComponent<Turret>().GetCost();
+            objectToPlace.GetComponent<Turret>().enabled = false;
+        } else
+        {
+            objectToPlaceCost = 0;
+        }
+            
         objectToPlace.AddComponent<ObjectDrag>();
-        CoinSystem.SetCurrentTurretCost(cost); // Set the current turret cost
     }
 
     private bool IsColideWithWhiteTile(PlaceableObject placeableObject)

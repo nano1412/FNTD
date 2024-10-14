@@ -4,6 +4,7 @@ public class Turret : MonoBehaviour
 {
     private Transform target;
     private Enemy targetEnemy;
+    [SerializeField] int cost;
 
     public float range = 15f;
     public float fireRate = 1f;
@@ -20,6 +21,8 @@ public class Turret : MonoBehaviour
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }
 
+    public int GetCost()
+    {  return cost; }
     void UpdateTarget()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
