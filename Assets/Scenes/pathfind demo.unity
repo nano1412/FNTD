@@ -1144,6 +1144,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b60a2d8262fd2364ab8e14918803a726, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waveText: {fileID: 987295424}
+  wave: 1
+  enemiesInWave: 10
+  BuildingSystem: {fileID: 0}
+  spawners: {fileID: 516749938}
+  spawnTimer: 0
 --- !u!1 &788327448
 GameObject:
   m_ObjectHideFlags: 0
@@ -1803,7 +1809,7 @@ GameObject:
   - component: {fileID: 987295425}
   - component: {fileID: 987295424}
   m_Layer: 5
-  m_Name: KingdomCoin (1)
+  m_Name: KingdomWave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
