@@ -68,6 +68,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monster3
       objectReference: {fileID: 0}
+    - target: {fileID: 7646012589857749848, guid: 9497f8fc0435ead408a11e479bbcb437, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 19f37d73caba9b4409df7ef2aaaad064, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
