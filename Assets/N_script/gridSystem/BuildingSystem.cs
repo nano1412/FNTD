@@ -93,6 +93,7 @@ public class BuildingSystem : MonoBehaviour
                 objectToPlace_PlaceableObjectScript.Place();
                 Vector3Int start = gridLayout.WorldToCell(objectToPlace_PlaceableObjectScript.GetStartPosition());
                 TakeArea(start, objectToPlace_PlaceableObjectScript.Size);
+                objectToPlace.GetComponent<Turret>().enabled = true;
             }
 
             objectToPlace = null;
@@ -159,6 +160,7 @@ public class BuildingSystem : MonoBehaviour
 
         objectToPlace = Instantiate(prefab, position, Quaternion.identity);
         objectToPlace_PlaceableObjectScript = objectToPlace.GetComponent<PlaceableObject>();
+        objectToPlace.GetComponent<Turret>().enabled = false;
         objectToPlace.AddComponent<ObjectDrag>();
         CoinSystem.SetCurrentTurretCost(cost); // Set the current turret cost
     }
