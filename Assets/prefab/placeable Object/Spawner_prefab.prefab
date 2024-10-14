@@ -195,7 +195,9 @@ MonoBehaviour:
   path: {fileID: 0}
   enemyprefab: {fileID: 6453380481440969478, guid: fe5204bb5d41f6c43a9be9c87c75e179, type: 3}
   humanKingdomName: Humankingdom
+  spawners: Spawners
   humanKingdom: {fileID: 0}
+  numToSpawn: 0
   size: 1
   spawnTimer: 3
 --- !u!114 &5021489622649602472

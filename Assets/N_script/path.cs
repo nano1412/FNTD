@@ -16,7 +16,7 @@ public class path : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(pointsIndex < points.Length)
+        if(pointsIndex <= points.Length)
         {
             transform.position = Vector3.MoveTowards(transform.position, points[pointsIndex].transform.position, moveSpeed * Time.deltaTime);
 
