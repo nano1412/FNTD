@@ -14,7 +14,7 @@ public class BuildingSystem : MonoBehaviour
     [SerializeField] private TileBase whiteTile;
     [SerializeField] private GameObject humanKingdom;
     [SerializeField] private GameObject floor;
- 
+
     public float buildingRange;
 
     public GameObject prefab1;
@@ -64,6 +64,7 @@ public class BuildingSystem : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Space))
         {
+            int turretCost = CoinSystem.GetCurrentTurretCost();
             if (!IsColideWithWhiteTile(objectToPlace_PlaceableObjectScript))
             {
                 Debug.Log("invalid placement.");
@@ -82,7 +83,6 @@ public class BuildingSystem : MonoBehaviour
                 Destroy(objectToPlace);
             }
             
-            int turretCost = CoinSystem.GetCurrentTurretCost();
             else if(!CoinSystem.SpendCoins(turretCost)){
                 Debug.Log("Not enough coins to place the turret.");
                 Destroy(objectToPlace);

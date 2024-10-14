@@ -10,6 +10,7 @@ public class cameraMovement : MonoBehaviour
     float smooth = 5.0f;
 
     [SerializeField] CinemachineCamera virtualCamera;
+    [SerializeField] BuildingSystem buildingSystem;
     CinemachineComponentBase componentBase;
     float cameraDistance;
     [SerializeField] float sensitivity = 10f;
@@ -45,6 +46,8 @@ public class cameraMovement : MonoBehaviour
         {
             player.transform.position += transform.forward * -1 * moveSpeed * Time.deltaTime;
         }
+
+        player.transform.position = Vector3.ClampMagnitude(player.transform.position, buildingSystem.buildingRange);
 
         if (Input.GetKey(KeyCode.Q))
         {
