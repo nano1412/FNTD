@@ -23,9 +23,6 @@ public class BuildingSystem : MonoBehaviour
 
     private GameObject objectToPlace;
     private PlaceableObject objectToPlace_PlaceableObjectScript;
-
-    public int turretCost = 200; //pls this is just a temp, right?
-
     #region Unity methods
 
     private void Awake()
@@ -45,15 +42,15 @@ public class BuildingSystem : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            InitializeObjectToBePlace(prefab1);
+            InitializeWithObject(prefab1, CoinSystem.GetTurretCost(1));
         }
         else if (Input.GetKeyDown(KeyCode.X))
         {
-            InitializeObjectToBePlace(prefab2);
+            InitializeWithObject(prefab2, CoinSystem.GetTurretCost(2));
         }
         else if (Input.GetKeyDown(KeyCode.C))
         {
-            InitializeObjectToBePlace(prefab3);
+            InitializeWithObject(prefab3, CoinSystem.GetTurretCost(3));
         }
 
         if (!objectToPlace_PlaceableObjectScript)
@@ -82,6 +79,12 @@ public class BuildingSystem : MonoBehaviour
             else if (!IsInRange())
             {
                 Debug.Log("Turret is place to far from the Kingdom");
+                Destroy(objectToPlace);
+            }
+            
+            int turretCost = CoinSystem.GetCurrentTurretCost();
+            else if(!CoinSystem.SpendCoins(turretCost)){
+                Debug.Log("Not enough coins to place the turret.");
                 Destroy(objectToPlace);
             }
 
@@ -149,7 +152,7 @@ public class BuildingSystem : MonoBehaviour
 
     #region Building Placement
 
-    public void InitializeObjectToBePlace(GameObject prefab)
+    public void InitializeWithObject(GameObject prefab, int cost)
     {
         Destroy(objectToPlace);
         Vector3 position = SnapCoordinateToGrid(Vector3.zero);
@@ -157,6 +160,7 @@ public class BuildingSystem : MonoBehaviour
         objectToPlace = Instantiate(prefab, position, Quaternion.identity);
         objectToPlace_PlaceableObjectScript = objectToPlace.GetComponent<PlaceableObject>();
         objectToPlace.AddComponent<ObjectDrag>();
+        CoinSystem.SetCurrentTurretCost(cost); // Set the current turret cost
     }
 
     private bool IsColideWithWhiteTile(PlaceableObject placeableObject)
