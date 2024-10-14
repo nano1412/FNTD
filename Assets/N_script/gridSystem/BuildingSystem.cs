@@ -63,7 +63,7 @@ public class BuildingSystem : MonoBehaviour
         {
             objectToPlace_PlaceableObjectScript.Rotate();
         }
-        else if (Input.GetKeyDown(KeyCode.Mouse0))
+        else if (Input.GetKeyDown(KeyCode.Mouse0) && objectToPlace != null)
         {
             if (!IsColideWithWhiteTile(objectToPlace_PlaceableObjectScript))
             {
