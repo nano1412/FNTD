@@ -4,7 +4,6 @@ using TMPro;
 public class Building_Button : MonoBehaviour
 {
     [SerializeField] private GameObject gameController;
-    [SerializeField] private BuildingSystem buildingSystem;
     [SerializeField] private int buttonIndex;
     [SerializeField] private GameObject objectToBuild;
 
@@ -15,7 +14,6 @@ public class Building_Button : MonoBehaviour
     void Start()
     {
         gameController = GameObject.Find("GameController");
-        buildingSystem = gameController.GetComponent<BuildingSystem>();
 
         turretName.text = objectToBuild.name;
 
@@ -32,7 +30,7 @@ public class Building_Button : MonoBehaviour
 
     public void InitializeObjectViaButton()
     {
-        buildingSystem.InitializeObjectThatFollowMouse(objectToBuild);
+        BuildingSystem.current.InitializeObjectThatFollowMouse(objectToBuild);
     }
 
     // Update is called once per frame

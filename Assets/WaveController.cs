@@ -8,7 +8,6 @@ public class WaveController : MonoBehaviour
     [SerializeField] private TMP_Text waveText;
     [SerializeField] private int wave = 1;
     [SerializeField] private int enemiesInWave = 10;
-    [SerializeField] private BuildingSystem buildingSystem;
 
     [SerializeField] private GameObject[] spawnerPrefab;
     [SerializeField] private GameObject[] towerPrefab;
@@ -21,10 +20,6 @@ public class WaveController : MonoBehaviour
     float nextWaveTimer;
     public float spawnTimer;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        buildingSystem = transform.GetComponent<BuildingSystem>();
-    }
 
     // Update is called once per frame
     void Update()
@@ -59,7 +54,7 @@ public class WaveController : MonoBehaviour
             if (wave % 5 == 0)
             {
                 //up map size formula
-                buildingSystem.buildingRange = 250 * (wave / 5);
+                BuildingSystem.current.buildingRange = 250 * (wave / 5);
             }
         }
     }
@@ -114,9 +109,9 @@ public class WaveController : MonoBehaviour
         //spawner
         while (turretAmount > 0)
         {
-            Vector3 randomPosition = new Vector3(Random.Range(buildingSystem.noRNGSpawnRange, buildingSystem.buildingRange) * RandomSign(), 0.6f, Random.Range(buildingSystem.noRNGSpawnRange, buildingSystem.buildingRange) * RandomSign());
+            Vector3 randomPosition = new Vector3(Random.Range(BuildingSystem.current.noRNGSpawnRange, BuildingSystem.current.buildingRange) * RandomSign(), 0.6f, Random.Range(BuildingSystem.current.noRNGSpawnRange, BuildingSystem.current.buildingRange) * RandomSign());
 
-            if (buildingSystem.InitializeObjectRNG(towerPrefab[0], randomPosition))
+            if (BuildingSystem.current.InitializeObjectRNG(towerPrefab[0], randomPosition))
             {
                 turretAmount--;
             }
@@ -125,9 +120,9 @@ public class WaveController : MonoBehaviour
         //turret
         while (false)
         {
-            Vector3 randomPosition = new Vector3(Random.Range(buildingSystem.noRNGSpawnRange, buildingSystem.buildingRange) * RandomSign(), 0.6f, Random.Range(buildingSystem.noRNGSpawnRange, buildingSystem.buildingRange) * RandomSign());
+            Vector3 randomPosition = new Vector3(Random.Range(BuildingSystem.current.noRNGSpawnRange, BuildingSystem.current.buildingRange) * RandomSign(), 0.6f, Random.Range(BuildingSystem.current.noRNGSpawnRange, BuildingSystem.current.buildingRange) * RandomSign());
 
-            if (buildingSystem.InitializeObjectRNG(towerPrefab[0], randomPosition)) {
+            if (BuildingSystem.current.InitializeObjectRNG(towerPrefab[0], randomPosition)) {
                 turretAmount--;
             }
         }

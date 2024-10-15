@@ -7,10 +7,8 @@ public class cameraMovement : MonoBehaviour
     public float moveSpeed;
     public float rotateSpeed;
     public GameObject player;
-    float smooth = 5.0f;
 
     [SerializeField] CinemachineCamera virtualCamera;
-    [SerializeField] BuildingSystem buildingSystem;
     CinemachineComponentBase componentBase;
     float cameraDistance;
     [SerializeField] float sensitivity = 10f;
@@ -47,7 +45,7 @@ public class cameraMovement : MonoBehaviour
             player.transform.position += transform.forward * -1 * moveSpeed * Time.deltaTime;
         }
 
-        player.transform.position = Vector3.ClampMagnitude(player.transform.position, buildingSystem.buildingRange);
+        player.transform.position = Vector3.ClampMagnitude(player.transform.position, BuildingSystem.current.buildingRange);
 
         if (Input.GetKey(KeyCode.Q))
         {
