@@ -32,7 +32,7 @@ public class Building_Button : MonoBehaviour
 
     public void InitializeObjectViaButton()
     {
-        buildingSystem.InitializeWithObject(objectToBuild);
+        buildingSystem.InitializeObjectThatFollowMouse(objectToBuild);
     }
 
     // Update is called once per frame

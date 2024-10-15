@@ -6,11 +6,11 @@ using UnityEngine;
 
 public class PlaceableObject : MonoBehaviour
 {
-    public bool Placed { get; private set; }
+    public bool Placed;
     public Vector3Int Size { get; private set; }
-    private Vector3[] Vertices;
+    [SerializeField] private Vector3[] Vertices;
 
-    private void GetColliderVertexPositionsLocal()
+    public bool GetColliderVertexPositionsLocal()
     {
         BoxCollider box_collider = gameObject.GetComponent<BoxCollider>();
         Vertices = new Vector3[4];
@@ -19,7 +19,7 @@ public class PlaceableObject : MonoBehaviour
         Vertices[2] = box_collider.center + new Vector3(box_collider.size.x, -box_collider.size.y, box_collider.size.z) * 0.5f;
         Vertices[3] = box_collider.center + new Vector3(-box_collider.size.x, -box_collider.size.y, box_collider.size.z) * 0.5f;
 
-        
+        return true;
     }
 
     private void CalculateSizeInCells()

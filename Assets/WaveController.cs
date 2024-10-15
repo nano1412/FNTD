@@ -1,13 +1,18 @@
 using UnityEngine;
 using TMPro;
 using System.Drawing;
+using UnityEditor.Playables;
 
 public class WaveController : MonoBehaviour
 {
     [SerializeField] private TMP_Text waveText;
     [SerializeField] private int wave = 1;
     [SerializeField] private int enemiesInWave = 10;
-    [SerializeField] private BuildingSystem BuildingSystem;
+    [SerializeField] private BuildingSystem buildingSystem;
+
+    [SerializeField] private GameObject[] spawnerPrefab;
+    [SerializeField] private GameObject[] towerPrefab;
+
     private int numSendToSpawner;
     private int spawnerIndex = 1;
     
@@ -18,7 +23,7 @@ public class WaveController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        BuildingSystem = transform.GetComponent<BuildingSystem>();
+        buildingSystem = transform.GetComponent<BuildingSystem>();
     }
 
     // Update is called once per frame
@@ -28,7 +33,6 @@ public class WaveController : MonoBehaviour
 
         waveText.text = "Wave: " + wave;
 
-        Debug.Log(IsEnemiesLeft());
         if (!(IsEnemiesLeft() > 0))
         {
             wave++;
@@ -39,7 +43,7 @@ public class WaveController : MonoBehaviour
             if(wave % 5 == 0)
             {
                 //up map size formula
-                BuildingSystem.buildingRange = 500 * (wave / 5);
+                buildingSystem.buildingRange = 250 * (wave / 5);
             }
         }
 
@@ -97,5 +101,24 @@ public class WaveController : MonoBehaviour
 
         spawner.GetComponent<Spawner>().numToSpawn += numToSpawn;
         return true;
+    }
+
+    public void RNGBuilding( int turretAmount)
+    {
+
+        //turret
+        while (turretAmount > 0)
+        {
+            Vector3 randomPosition = new Vector3(Random.Range(buildingSystem.noRNGSpawnRange, buildingSystem.buildingRange) * RandomSign(), 0.6f, Random.Range(buildingSystem.noRNGSpawnRange, buildingSystem.buildingRange) * RandomSign());
+
+            if (buildingSystem.InitializeObjectRNG(towerPrefab[0], randomPosition)) {
+                turretAmount--;
+            }
+        }
+    }
+
+    public static int RandomSign()
+    {
+        return Random.value < 0.5f ? 1 : -1;
     }
 }
