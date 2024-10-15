@@ -7,13 +7,14 @@ using static UnityEditor.PlayerSettings;
 
 public class BuildingSystem : MonoBehaviour
 {
+    public float timeScale = 1f;
     public static BuildingSystem current;
 
     public GridLayout gridLayout;
     private Grid grid;
     [SerializeField] private Tilemap MainTilemap;
     [SerializeField] private TileBase whiteTile;
-    [SerializeField] private GameObject humanKingdom;
+    public GameObject humanKingdom;
     [SerializeField] private GameObject floor;
 
     public float buildingRange;
@@ -40,6 +41,8 @@ public class BuildingSystem : MonoBehaviour
 
     private void Update()
     {
+        Time.timeScale = timeScale;
+
         //noRNGSpawnRange formula
         noRNGSpawnRange = buildingRange / 3;
         
@@ -150,10 +153,10 @@ public class BuildingSystem : MonoBehaviour
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position, buildingRange);
+        Gizmos.DrawWireCube(transform.position, new Vector3(buildingRange * 2, 100, buildingRange * 2));
 
         Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, noRNGSpawnRange);
+        Gizmos.DrawWireCube(transform.position, new Vector3(noRNGSpawnRange * 2, 100, noRNGSpawnRange * 2));
     }
 
     #endregion
@@ -239,12 +242,11 @@ public class BuildingSystem : MonoBehaviour
 
     private bool IsInRange()
     {
-        float distance = Vector3.Distance(humanKingdom.transform.position, objectToPlace.transform.position);
-        if(distance > buildingRange)
-        {
-            return false;
-        }
-        return true;
+        //this will be square range with middle being building range and buildingRange as length/2
+        bool isBuildingXTooFar = (Mathf.Abs(objectToPlace.transform.position.x) <= buildingRange + humanKingdom.transform.position.x);
+        bool isBuildingZTooFar = (Mathf.Abs(objectToPlace.transform.position.z) <= buildingRange + humanKingdom.transform.position.z);
+
+        return isBuildingXTooFar && isBuildingZTooFar;
     }
 
     public void TakeArea(Vector3Int start, Vector3Int size)

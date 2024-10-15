@@ -2,16 +2,18 @@ using UnityEngine;
 using TMPro;
 using System.Drawing;
 using UnityEditor.Playables;
+using UnityEngine.UIElements;
 
 public class WaveController : MonoBehaviour
 {
     [SerializeField] private TMP_Text waveText;
     [SerializeField] private int wave = 1;
     [SerializeField] private int enemiesInWave = 10;
-    [SerializeField] private BuildingSystem buildingSystem;
 
     [SerializeField] private GameObject[] spawnerPrefab;
     [SerializeField] private GameObject[] towerPrefab;
+    [SerializeField] private int numToSpawnSpawnerPrefab;
+    [SerializeField] private int numToSpawnTowerPrefab;
 
     private int numSendToSpawner;
     private int spawnerIndex = 1;
@@ -21,18 +23,10 @@ public class WaveController : MonoBehaviour
     float nextWaveTimer;
     public float spawnTimer;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        buildingSystem = transform.GetComponent<BuildingSystem>();
-    }
 
     // Update is called once per frame
     void Update()
     {
-
-        
-
-
         //time interval so it wont go too fast
         nextWaveTimer -= Time.deltaTime;
         if (nextWaveTimer < 0f)
@@ -53,13 +47,25 @@ public class WaveController : MonoBehaviour
         {
             wave++;
 
+            //number to spawn prefab formula
+            numToSpawnSpawnerPrefab = 5;
+            numToSpawnTowerPrefab = 5;
+
+            RNGBuilding(numToSpawnSpawnerPrefab, spawnerPrefab);
+            RNGBuilding(numToSpawnTowerPrefab, towerPrefab);
+
+            //dont want to pass by ref. but want to reset the value after it's done execute
+            numToSpawnSpawnerPrefab = 0;
+            numToSpawnTowerPrefab = 0;
+
+
             //enemy formula
             enemiesInWave = 10 + (wave * 2);
 
             if (wave % 5 == 0)
             {
                 //up map size formula
-                buildingSystem.buildingRange = 250 * (wave / 5);
+                BuildingSystem.current.buildingRange = 250 * (wave / 5);
             }
         }
     }
@@ -109,32 +115,49 @@ public class WaveController : MonoBehaviour
         return true;
     }
 
-    public void RNGBuilding( int turretAmount)
+    public void RNGBuilding(int ObjectAmount, GameObject[] gameObjectPrefab)
     {
+        int attempt = 0;
         //spawner
-        while (turretAmount > 0)
+        while (ObjectAmount > 0)
         {
-            Vector3 randomPosition = new Vector3(Random.Range(buildingSystem.noRNGSpawnRange, buildingSystem.buildingRange) * RandomSign(), 0.6f, Random.Range(buildingSystem.noRNGSpawnRange, buildingSystem.buildingRange) * RandomSign());
+            Vector3 randomPosition = new Vector3(Random.Range(0, BuildingSystem.current.buildingRange) * RandomSign(), 0.6f, Random.Range(0, BuildingSystem.current.buildingRange) * RandomSign());
+            Vector3 randomPositionSnap = BuildingSystem.current.SnapCoordinateToGrid(randomPosition);
 
-            if (buildingSystem.InitializeObjectRNG(towerPrefab[0], randomPosition))
+            bool isInValidSpace = (IsInSquare(BuildingSystem.current.buildingRange, randomPositionSnap.x, randomPositionSnap.z)
+                               && !IsInSquare(BuildingSystem.current.noRNGSpawnRange, randomPositionSnap.x, randomPositionSnap.z));
+
+
+            if (isInValidSpace)
             {
-                turretAmount--;
+                if (BuildingSystem.current.InitializeObjectRNG(gameObjectPrefab[Random.Range(0, gameObjectPrefab.Length - 1)], randomPositionSnap))
+                {
+                    ObjectAmount--;
+                }
+                else
+                {
+                    attempt++;
+                }
             }
-        }
 
-        //turret
-        while (false)
-        {
-            Vector3 randomPosition = new Vector3(Random.Range(buildingSystem.noRNGSpawnRange, buildingSystem.buildingRange) * RandomSign(), 0.6f, Random.Range(buildingSystem.noRNGSpawnRange, buildingSystem.buildingRange) * RandomSign());
-
-            if (buildingSystem.InitializeObjectRNG(towerPrefab[0], randomPosition)) {
-                turretAmount--;
+            if(attempt > 20)
+            {
+                Debug.LogError("attempt to spawn Enemies spawner are excess 20, stop the function");
+                break;
             }
         }
     }
 
-    public static int RandomSign()
+    private static int RandomSign()
     {
         return Random.value < 0.5f ? 1 : -1;
+    }
+
+    private bool IsInSquare(float range,float x, float y)
+    {
+        bool isXInRange = (x <= range && x >= -range);
+        bool isYInRange = (y <= range && y >= -range);
+
+        return isXInRange && isYInRange;
     }
 }
