@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using static UnityEditor.PlayerSettings;
 
 public class BuildingSystem : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class BuildingSystem : MonoBehaviour
     [SerializeField] private GameObject floor;
 
     public float buildingRange;
+    public float noRNGSpawnRange;
 
     public GameObject prefab1;
     public GameObject prefab2;
@@ -23,6 +25,10 @@ public class BuildingSystem : MonoBehaviour
 
     private GameObject objectToPlace;
     private PlaceableObject objectToPlace_PlaceableObjectScript;
+
+    private GameObject objectToPlaceRNG;
+    private PlaceableObject objectToPlaceRNG_PlaceableObjectScript;
+
     private int objectToPlaceCost;
     #region Unity methods
 
@@ -34,6 +40,9 @@ public class BuildingSystem : MonoBehaviour
 
     private void Update()
     {
+        //noRNGSpawnRange formula
+        noRNGSpawnRange = buildingRange / 3;
+        
         KeyboardInput();
 
         floor.transform.localScale = new Vector3(buildingRange * 2, floor.transform.localScale.y, buildingRange * 2);
@@ -43,15 +52,15 @@ public class BuildingSystem : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            InitializeWithObject(prefab1);
+            InitializeObjectThatFollowMouse(prefab1);
         }
         else if (Input.GetKeyDown(KeyCode.X))
         {
-            InitializeWithObject(prefab2);
+            InitializeObjectThatFollowMouse(prefab2);
         }
         else if (Input.GetKeyDown(KeyCode.C))
         {
-            InitializeWithObject(prefab3);
+            InitializeObjectThatFollowMouse(prefab3);
         }
 
         if (!objectToPlace_PlaceableObjectScript)
@@ -63,7 +72,7 @@ public class BuildingSystem : MonoBehaviour
         {
             objectToPlace_PlaceableObjectScript.Rotate();
         }
-        else if (Input.GetKeyDown(KeyCode.Mouse0))
+        else if (Input.GetKeyDown(KeyCode.Mouse0) && objectToPlace != null)
         {
             if (!IsColideWithWhiteTile(objectToPlace_PlaceableObjectScript))
             {
@@ -142,13 +151,16 @@ public class BuildingSystem : MonoBehaviour
     {
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, buildingRange);
+
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, noRNGSpawnRange);
     }
 
     #endregion
 
     #region Building Placement
 
-    public void InitializeWithObject(GameObject prefab)
+    public void InitializeObjectThatFollowMouse(GameObject prefab)
     {
         Destroy(objectToPlace);
         Vector3 position = SnapCoordinateToGrid(Vector3.zero);
@@ -168,10 +180,47 @@ public class BuildingSystem : MonoBehaviour
         objectToPlace.AddComponent<ObjectDrag>();
     }
 
+    public bool InitializeObjectRNG(GameObject prefab, Vector3 position)
+    {
+        Vector3 positionSnap = SnapCoordinateToGrid(position);
+
+        objectToPlaceRNG = Instantiate(prefab, positionSnap, Quaternion.identity);
+        objectToPlaceRNG_PlaceableObjectScript = objectToPlaceRNG.GetComponent<PlaceableObject>();
+        objectToPlaceRNG_PlaceableObjectScript.Setup();
+
+        if (objectToPlaceRNG.GetComponent<Turret>() != null)
+        {
+            objectToPlaceRNG.GetComponent<Turret>().enabled = false;
+        }
+
+        objectToPlaceRNG.AddComponent<ObjectDrag>();
+        objectToPlaceRNG.GetComponent<ObjectDrag>().enabled = false;
+
+        if (!IsColideWithWhiteTile(objectToPlaceRNG_PlaceableObjectScript))
+        {
+            Debug.Log("invalid RNG placement.");
+            Destroy(objectToPlaceRNG);
+            return false;
+        } else
+        {
+        objectToPlaceRNG_PlaceableObjectScript.Place();
+            Vector3Int start = gridLayout.WorldToCell(objectToPlaceRNG_PlaceableObjectScript.GetStartPosition()); 
+            TakeArea(start, objectToPlaceRNG_PlaceableObjectScript.Size);
+        if (objectToPlaceRNG.GetComponent<Turret>() != null)
+        {
+            Debug.Log("RNG is enable");
+            objectToPlaceRNG.GetComponent<Turret>().enabled = true;
+        }
+
+        return true;
+
+        }
+    }
+
     private bool IsColideWithWhiteTile(PlaceableObject placeableObject)
     {
         BoundsInt area = new BoundsInt();
-        area.position = gridLayout.WorldToCell(objectToPlace_PlaceableObjectScript.GetStartPosition());
+        area.position = gridLayout.WorldToCell(placeableObject.GetStartPosition()); //this one execute too fast in RNG object
         area.size = placeableObject.Size;
         area.size = new Vector3Int(area.size.x + 1, area.size.y + 1, area.size.z);
 
