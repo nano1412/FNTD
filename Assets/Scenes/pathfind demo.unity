@@ -1287,9 +1287,9 @@ MonoBehaviour:
   buildingSystem: {fileID: 0}
   spawnerPrefab: []
   towerPrefab:
-  - {fileID: 1818217765292401174, guid: a7f98817b07d83842ba983a5daa9fde8, type: 3}
+  - {fileID: 1333141726311767786, guid: 5e78cb8a722fb4a48b09724dba3ab3b2, type: 3}
   spawners: {fileID: 516749938}
-  spawnTimer: 0
+  spawnTimer: 1
 --- !u!1 &774654648
 GameObject:
   m_ObjectHideFlags: 0

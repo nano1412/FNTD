@@ -29,8 +29,24 @@ public class WaveController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        DistrubuteEnemies();
 
+        
+
+
+        //time interval so it wont go too fast
+        nextWaveTimer -= Time.deltaTime;
+        if (nextWaveTimer < 0f)
+        {
+            DistrubuteEnemies();
+            CheckWave();
+            nextWaveTimer = spawnTimer;
+        }
+
+        if (enemiesInWave < 0) { enemiesInWave = 0; }
+    }
+
+    private void CheckWave()
+    {
         waveText.text = "Wave: " + wave;
 
         if (!(IsEnemiesLeft() > 0))
@@ -39,23 +55,13 @@ public class WaveController : MonoBehaviour
 
             //enemy formula
             enemiesInWave = 10 + (wave * 2);
-            
-            if(wave % 5 == 0)
+
+            if (wave % 5 == 0)
             {
                 //up map size formula
                 buildingSystem.buildingRange = 250 * (wave / 5);
             }
         }
-
-
-        //this will be timer for next wave
-        nextWaveTimer -= Time.deltaTime;
-        if (nextWaveTimer < 0f)
-        {
-            nextWaveTimer = spawnTimer;
-        }
-
-        if (enemiesInWave < 0) { enemiesInWave = 0; }
     }
 
     private void DistrubuteEnemies()
@@ -105,9 +111,19 @@ public class WaveController : MonoBehaviour
 
     public void RNGBuilding( int turretAmount)
     {
+        //spawner
+        while (turretAmount > 0)
+        {
+            Vector3 randomPosition = new Vector3(Random.Range(buildingSystem.noRNGSpawnRange, buildingSystem.buildingRange) * RandomSign(), 0.6f, Random.Range(buildingSystem.noRNGSpawnRange, buildingSystem.buildingRange) * RandomSign());
+
+            if (buildingSystem.InitializeObjectRNG(towerPrefab[0], randomPosition))
+            {
+                turretAmount--;
+            }
+        }
 
         //turret
-        while (turretAmount > 0)
+        while (false)
         {
             Vector3 randomPosition = new Vector3(Random.Range(buildingSystem.noRNGSpawnRange, buildingSystem.buildingRange) * RandomSign(), 0.6f, Random.Range(buildingSystem.noRNGSpawnRange, buildingSystem.buildingRange) * RandomSign());
 

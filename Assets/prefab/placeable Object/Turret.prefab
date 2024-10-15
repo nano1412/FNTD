@@ -154,8 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Placed: 0
-  Vertices:
-  - {x: -7.039857, y: -1.118202, z: -5.936668}
+  Vertices: []
 --- !u!65 &8403632019545784587
 BoxCollider:
   m_ObjectHideFlags: 0

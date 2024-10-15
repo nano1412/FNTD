@@ -186,6 +186,7 @@ public class BuildingSystem : MonoBehaviour
 
         objectToPlaceRNG = Instantiate(prefab, positionSnap, Quaternion.identity);
         objectToPlaceRNG_PlaceableObjectScript = objectToPlaceRNG.GetComponent<PlaceableObject>();
+        objectToPlaceRNG_PlaceableObjectScript.Setup();
 
         if (objectToPlaceRNG.GetComponent<Turret>() != null)
         {
@@ -193,7 +194,7 @@ public class BuildingSystem : MonoBehaviour
         }
 
         objectToPlaceRNG.AddComponent<ObjectDrag>();
-        objectToPlaceRNG.AddComponent<ObjectDrag>().enabled = false;
+        objectToPlaceRNG.GetComponent<ObjectDrag>().enabled = false;
 
         if (!IsColideWithWhiteTile(objectToPlaceRNG_PlaceableObjectScript))
         {

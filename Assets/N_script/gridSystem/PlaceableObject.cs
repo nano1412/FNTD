@@ -44,6 +44,11 @@ public class PlaceableObject : MonoBehaviour
 
     private void Start()
     {
+        Setup();
+    }
+
+    public void Setup()
+    {
         GetColliderVertexPositionsLocal();
         CalculateSizeInCells();
     }
