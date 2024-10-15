@@ -45,7 +45,7 @@ public class cameraMovement : MonoBehaviour
             transform.position += transform.forward * -1 * moveSpeed * Time.deltaTime;
         }
 
-        float camX = Mathf.Clamp(transform.position.x,-BuildingSystem.current.buildingRange, BuildingSystem.current.buildingRange);
+        float camX = Mathf.Clamp(transform.position.x, -BuildingSystem.current.buildingRange, BuildingSystem.current.buildingRange);
         float camY = transform.position.y;
         float camZ = Mathf.Clamp(transform.position.z, -BuildingSystem.current.buildingRange, BuildingSystem.current.buildingRange);
 
