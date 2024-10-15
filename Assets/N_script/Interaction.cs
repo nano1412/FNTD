@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class Interaction : MonoBehaviour
 {
@@ -28,7 +29,7 @@ public class Interaction : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                print(hit.collider.tag);
+                //print(hit.collider.tag);
                 saveHit = hit.collider.gameObject;
             }
         }
@@ -41,43 +42,56 @@ public class Interaction : MonoBehaviour
             saveHit = null;
         }*/
 
-        switch (saveHit.tag)
+        try
         {
-            case "Spawner":
-                ActiveCanvas(createNewPathCanvas);
-                selectedCanvas = createNewPathCanvas;
-                selected = saveHit.gameObject;
-            break;
+            switch (saveHit.tag)
+            {
+                case "Spawner":
+                    ActiveCanvas(createNewPathCanvas);
+                    selectedCanvas = createNewPathCanvas;
+                    selected = saveHit.gameObject;
+                    break;
 
-            case "Enemy":
-                ActiveCanvas(EnemyStatCanvas);
-                selectedCanvas = EnemyStatCanvas;
-                selected = saveHit.gameObject;
-                SetEmenyStatInCanvas(selected);
-            break;
+                case "Enemy":
+                    ActiveCanvas(EnemyStatCanvas);
+                    selectedCanvas = EnemyStatCanvas;
+                    selected = saveHit.gameObject;
+                    SetEmenyStatInCanvas(selected);
+                    break;
 
-            case "Tower":
-                ActiveCanvas(TowerStatCanvas);
-                selectedCanvas = TowerStatCanvas;
-                selected = saveHit.gameObject;
-                SetTowerStatInCanvas(selected);
-            break;
+                case "Tower":
+                    ActiveCanvas(TowerStatCanvas);
+                    selectedCanvas = TowerStatCanvas;
+                    selected = saveHit.gameObject;
+                    SetTowerStatInCanvas(selected);
+                    break;
 
-            //not implement yet
-            case "HumanKingdom":
-                ActiveCanvas(null);
-                selectedCanvas = null;
-                selected = saveHit.transform.Find("HumanKingdom").gameObject;
-            break;
+                //not implement yet
+                case "HumanKingdom":
+                    ActiveCanvas(null);
+                    selectedCanvas = null;
+                    selected = saveHit.transform.Find("HumanKingdom").gameObject;
+                    break;
 
 
-            case null:
+                case null:
 
-            break;
+                    break;
 
-            default: 
-                
-            break;
+                default:
+
+                    break;
+            }
+        }
+        
+        catch(MissingReferenceException ex)
+        {
+            //Debug.Log("saveHit is null");
+        } 
+        
+        catch(UnassignedReferenceException ex)
+        {
+            //Debug.Log("the game is just run, there is nothing in saveHit yet");
         }
     }
 

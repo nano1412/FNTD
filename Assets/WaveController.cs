@@ -130,7 +130,7 @@ public class WaveController : MonoBehaviour
 
             if (isInValidSpace)
             {
-                if (BuildingSystem.current.InitializeObjectRNG(gameObjectPrefab[Random.Range(0, gameObjectPrefab.Length)], randomPositionSnap))
+                if (BuildingSystem.current.InitializeObjectRNG(gameObjectPrefab[Random.Range(0, gameObjectPrefab.Length - 1)], randomPositionSnap))
                 {
                     ObjectAmount--;
                 }
