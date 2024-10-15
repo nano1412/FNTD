@@ -3,6 +3,8 @@ using TMPro;
 using System.Drawing;
 using UnityEditor.Playables;
 using UnityEngine.UIElements;
+using System;
+using Random = UnityEngine.Random;
 
 public class WaveController : MonoBehaviour
 {
@@ -130,12 +132,20 @@ public class WaveController : MonoBehaviour
 
             if (isInValidSpace)
             {
-                if (BuildingSystem.current.InitializeObjectRNG(gameObjectPrefab[Random.Range(0, gameObjectPrefab.Length - 1)], randomPositionSnap))
+                try
                 {
-                    ObjectAmount--;
+                    if (BuildingSystem.current.InitializeObjectRNG(gameObjectPrefab[Random.Range(0,gameObjectPrefab.Length)], randomPositionSnap))
+                    {
+                        ObjectAmount--;
+                    }
+                    else
+                    {
+                        attempt++;
+                    }
                 }
-                else
+                catch(IndexOutOfRangeException ex)
                 {
+                    //Debug.LogError(ex.Message);
                     attempt++;
                 }
             }

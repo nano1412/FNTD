@@ -11,7 +11,7 @@ public class PlayerStats : MonoBehaviour
     void Start()
     {
         Lives = startLives;
-        Debug.Log("Game started with " + Lives + " lives.");
+        //Debug.Log("Game started with " + Lives + " lives.");
 
         hpText.text = "HP: " + Lives;
     }
@@ -25,11 +25,11 @@ public class PlayerStats : MonoBehaviour
         if (Lives < 0)
         {
             Lives = 0;
-            Debug.Log("Lives updated. Current lives: " + Lives + ". Game Over.");
+            //Debug.Log("Lives updated. Current lives: " + Lives + ". Game Over.");
         }
         else if (amount < 0)
         {
-            Debug.Log("Player loses " + Mathf.Abs(amount) + " life(s). Remaining lives: " + Lives);
+            //Debug.Log("Player loses " + Mathf.Abs(amount) + " life(s). Remaining lives: " + Lives);
         }
     }
 

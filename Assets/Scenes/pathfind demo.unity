@@ -4706,6 +4706,7 @@ MonoBehaviour:
   EnemyStatCanvas: {fileID: 7952267752844427420}
   TowerStatCanvas: {fileID: 7890620463696411996}
   DisableCanvasButton: {fileID: 1010655251745448011}
+  upgradeTowerButton: {fileID: 0}
   saveHit: {fileID: 0}
   selected: {fileID: 0}
   selectedCanvas: {fileID: 0}
