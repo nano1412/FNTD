@@ -172,7 +172,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameController: {fileID: 0}
-  buildingSystem: {fileID: 0}
   buttonIndex: 0
   objectToBuild: {fileID: 1333141726311767786, guid: 5e78cb8a722fb4a48b09724dba3ab3b2, type: 3}
   turretName: {fileID: 489368329}
@@ -888,7 +887,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameController: {fileID: 0}
-  buildingSystem: {fileID: 0}
   buttonIndex: 0
   objectToBuild: {fileID: 1818217765292401174, guid: a7f98817b07d83842ba983a5daa9fde8, type: 3}
   turretName: {fileID: 1744225952}
@@ -1284,7 +1282,6 @@ MonoBehaviour:
   waveText: {fileID: 987295424}
   wave: 1
   enemiesInWave: 10
-  buildingSystem: {fileID: 0}
   spawnerPrefab: []
   towerPrefab:
   - {fileID: 1818217765292401174, guid: a7f98817b07d83842ba983a5daa9fde8, type: 3}
@@ -2565,7 +2562,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameController: {fileID: 0}
-  buildingSystem: {fileID: 0}
   buttonIndex: 0
   objectToBuild: {fileID: 4555359743750282869, guid: 5058783ef13f9534cbd90f85f1de2866, type: 3}
   turretName: {fileID: 378918962}
@@ -3347,9 +3343,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 250
   rotateSpeed: 5
-  player: {fileID: 2038504541}
+  camera: {fileID: 1113655161}
   virtualCamera: {fileID: 788327449}
-  buildingSystem: {fileID: 634484177}
   sensitivity: 75
 --- !u!4 &2038504543
 Transform:
