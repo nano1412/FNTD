@@ -11,7 +11,7 @@ public class CoinSystem : MonoBehaviour
     void Start()
     {
         Coins = startCoins; // กำหนดจำนวนเหรียญเริ่มต้น
-        Debug.Log("Game started with " + Coins + " coins."); // แสดงผลใน Console
+        //Debug.Log("Game started with " + Coins + " coins."); // แสดงผลใน Console
         UpdateCoinText(); // อัพเดท UI ของเหรียญ
     }
 

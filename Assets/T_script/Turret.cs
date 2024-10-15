@@ -64,7 +64,7 @@ public class Turret : MonoBehaviour
         GameObject newTurret = Instantiate(turretPrefabs[currentPrefabIndex + 1], currentPosition, currentRotation);
         newTurret.GetComponent<Turret>().level = level; // กำหนดเลเวลให้ตรงกับป้อมใหม่
 
-        Debug.Log($"ป้อมอัปเกรดเป็นเลเวล {level}! เปลี่ยนไปใช้ prefab ใหม่");
+        //Debug.Log($"ป้อมอัปเกรดเป็นเลเวล {level}! เปลี่ยนไปใช้ prefab ใหม่");
     }
 
 
