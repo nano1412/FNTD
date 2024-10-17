@@ -143,10 +143,17 @@ public class Interaction : MonoBehaviour
             Turret turret = selected.GetComponent<Turret>();
             if (turret != null)
             {
-                turret.UpgradeTurret(); // Call the UpgradeTurret method
-                                        // รีเซ็ตการเลือกป้อมให้กลับไปอยู่สถานะเริ่มต้น
-                selected = null;
-                DisableAllCanvas(); // ปิดหรือรีเฟรช UI ให้กลับไปอยู่สถานะเริ่มต้น
+                int upgradeCost = turret.upgradeCost; // ค่าใช้จ่ายในการอัปเกรด
+                if (CoinSystem.SpendCoins(upgradeCost)) // ตรวจสอบและหักเหรียญสำหรับการอัปเกรด
+                {
+                    turret.UpgradeTurret(); // อัปเกรดป้อม
+                    selected = null; // รีเซ็ตการเลือกป้อมให้กลับไปอยู่สถานะเริ่มต้น
+                    DisableAllCanvas(); // ปิดหรือรีเฟรช UI ให้กลับไปอยู่สถานะเริ่มต้น
+                }
+                else
+                {
+                    Debug.Log("เหรียญไม่พอสำหรับการอัปเกรด!");
+                }
             }
         }
     }
