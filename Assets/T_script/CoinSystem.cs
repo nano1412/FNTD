@@ -47,6 +47,6 @@ public class CoinSystem : MonoBehaviour
     // แสดงจำนวนเหรียญบนหน้าจอ
     private void UpdateCoinText()
     {
-        coinText.text = "Coins: " + Coins;
+        coinText.text = Coins.ToString();
     }
 }
