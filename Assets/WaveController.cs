@@ -5,6 +5,8 @@ using Random = UnityEngine.Random;
 
 public class WaveController : MonoBehaviour
 {
+    public static WaveController current;
+
     [SerializeField] private TMP_Text waveText;
     [SerializeField] private int wave = 1;
     [SerializeField] private int enemiesInWave = 10;
