@@ -200,7 +200,7 @@ public class BuildingSystem : MonoBehaviour
 
         if (!IsColideWithWhiteTile(objectToPlaceRNG_PlaceableObjectScript))
         {
-            Debug.Log("invalid RNG placement.");
+            //Debug.Log("invalid RNG placement.");
             Destroy(objectToPlaceRNG);
             return false;
         } else
@@ -210,7 +210,7 @@ public class BuildingSystem : MonoBehaviour
             TakeArea(start, objectToPlaceRNG_PlaceableObjectScript.Size);
         if (objectToPlaceRNG.GetComponent<Turret>() != null)
         {
-            Debug.Log("RNG is enable");
+            //Debug.Log("RNG is enable");
             objectToPlaceRNG.GetComponent<Turret>().enabled = true;
         }
 

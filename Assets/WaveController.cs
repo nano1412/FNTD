@@ -11,8 +11,12 @@ public class WaveController : MonoBehaviour
 
     [SerializeField] private GameObject[] spawnerPrefab;
     [SerializeField] private GameObject[] towerPrefab;
-    [SerializeField] private int numToSpawnSpawnerPrefab;
-    [SerializeField] private int numToSpawnTowerPrefab;
+
+    [SerializeField] private int numToSpawnSpawner;
+    [SerializeField] private int numToSpawnTower;
+
+    private int numToSpawnSpawnerPrefab;
+    private int numToSpawnTowerPrefab;
 
     private int numSendToSpawner;
     private int spawnerIndex = 1;
@@ -47,8 +51,8 @@ public class WaveController : MonoBehaviour
             wave++;
 
             //number to spawn prefab formula
-            numToSpawnSpawnerPrefab = 5;
-            numToSpawnTowerPrefab = 5;
+            numToSpawnSpawnerPrefab = numToSpawnSpawner;
+            numToSpawnTowerPrefab = numToSpawnTower;
 
             RNGBuilding(numToSpawnSpawnerPrefab, spawnerPrefab);
             RNGBuilding(numToSpawnTowerPrefab, towerPrefab);
@@ -64,14 +68,14 @@ public class WaveController : MonoBehaviour
             if (wave % 5 == 0)
             {
                 //up map size formula
-                BuildingSystem.current.buildingRange = 250 * (wave / 5);
+                BuildingSystem.current.buildingRange = 250 * ((wave / 5)+1);
             }
         }
     }
 
     private void DistrubuteEnemies()
     {
-        numSendToSpawner = Random.Range(0, enemiesInWave);
+        numSendToSpawner = 1;
         while (enemiesInWave > 0)
         {
             spawnerIndex = Random.Range(0, spawners.transform.childCount - 1);
