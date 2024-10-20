@@ -129,7 +129,7 @@ MonoBehaviour:
   - {fileID: 2011616575309309519}
   - {fileID: 7062489253614302278, guid: afe956f3ab311b74c9f7fb4e74652658, type: 3}
   - {fileID: 4249289282362057911, guid: 539aef8f1a50d2b499cf8bbd9544b21c, type: 3}
-  bulletPrefab: {fileID: 1523502827816540400, guid: 74c31e02d91e5e548b7ec5e7b6568273, type: 3}
+  bulletPrefab: {fileID: 2864083432726700562, guid: 9ee033fb33e7f334599726b93fc439c8, type: 3}
   partToRotate: {fileID: 3877287463543890917}
   firePoint: {fileID: 3728917090367865433}
   enemyTag: Enemy
