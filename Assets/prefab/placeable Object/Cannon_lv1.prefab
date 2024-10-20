@@ -133,7 +133,7 @@ MonoBehaviour:
   cost: 100
   upgradeCost: 210
   level: 1
-  range: 30
+  range: 40
   fireRate: 0.5
   damage: 60
   turretPrefabs:

@@ -258,14 +258,14 @@ MonoBehaviour:
   cost: 0
   upgradeCost: 320
   level: 2
-  range: 15
+  range: 40
   fireRate: 0.5
   damage: 100
   turretPrefabs:
   - {fileID: 8382238454840215484, guid: c43e1c9c1199dbc4e95169c8179ae063, type: 3}
   - {fileID: 4173418805247382789}
   - {fileID: 5767030840414006839, guid: bf14165d57e2a614195c23568bf68159, type: 3}
-  bulletPrefab: {fileID: 4173418805247382789}
+  bulletPrefab: {fileID: 8028206843576772929, guid: be60dbbe87207c94e898dcfa7389ec1a, type: 3}
   partToRotate: {fileID: 1935850761815995988}
   firePoint: {fileID: 3699235644982140547}
   enemyTag: Enemy
