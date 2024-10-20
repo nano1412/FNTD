@@ -11,7 +11,7 @@ public class CoinSystem : MonoBehaviour
     void Start()
     {
         Coins = startCoins; // กำหนดจำนวนเหรียญเริ่มต้น
-        Debug.Log("Game started with " + Coins + " coins."); // แสดงผลใน Console
+        //Debug.Log("Game started with " + Coins + " coins."); // แสดงผลใน Console
         UpdateCoinText(); // อัพเดท UI ของเหรียญ
     }
 
@@ -21,12 +21,12 @@ public class CoinSystem : MonoBehaviour
         if (Coins >= amount)
         {
             Coins -= amount;
-            Debug.Log("Coins spent: " + amount + ". Current coins: " + Coins);
+            //Debug.Log("Coins spent: " + amount + ". Current coins: " + Coins);
             return true;
         }
         else
         {
-            Debug.Log("Not enough coins. Current coins: " + Coins);
+            //Debug.Log("Not enough coins. Current coins: " + Coins);
             return false;
         }
     }
@@ -35,7 +35,7 @@ public class CoinSystem : MonoBehaviour
     public static void AddCoins(int amount)
     {
         Coins += amount;
-        Debug.Log("Coins added: " + amount + ". Current coins: " + Coins);
+        //Debug.Log("Coins added: " + amount + ". Current coins: " + Coins);
     }
 
     // อัพเดท UI ของเหรียญ
@@ -47,6 +47,6 @@ public class CoinSystem : MonoBehaviour
     // แสดงจำนวนเหรียญบนหน้าจอ
     private void UpdateCoinText()
     {
-        coinText.text = "Coins: " + Coins;
+        coinText.text = Coins.ToString();
     }
 }

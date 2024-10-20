@@ -7,13 +7,6 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
-    "com.romifauzi.pathtools": {
-      "version": "https://github.com/romifauzi/PathTools.git?path=/Assets/PathTools",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "66345263b8c60e57dba1602787e845818b244ce5"
-    },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
       "depth": 0,
