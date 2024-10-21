@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using System;
 using Random = UnityEngine.Random;
+using UnityEditor;
 
 public class WaveController : MonoBehaviour
 {
@@ -27,9 +28,12 @@ public class WaveController : MonoBehaviour
 
     float nextWaveTimer;
     public float spawnTimer;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
 
-    // Update is called once per frame
+    private void Awake()
+    {
+        current = this;
+    }
+
     void Update()
     {
         //time interval so it wont go too fast
@@ -56,8 +60,8 @@ public class WaveController : MonoBehaviour
             numToSpawnSpawnerPrefab = numToSpawnSpawner;
             numToSpawnTowerPrefab = numToSpawnTower;
 
-            RNGBuilding(numToSpawnSpawnerPrefab, spawnerPrefab);
-            RNGBuilding(numToSpawnTowerPrefab, towerPrefab);
+            BuildingSystem.current.RNGBuilding(numToSpawnSpawnerPrefab, spawnerPrefab);
+            BuildingSystem.current.RNGBuilding(numToSpawnTowerPrefab, towerPrefab);
 
             //dont want to pass by ref. but want to reset the value after it's done execute
             numToSpawnSpawnerPrefab = 0;
@@ -118,59 +122,5 @@ public class WaveController : MonoBehaviour
 
         spawner.GetComponent<Spawner>().numToSpawn += numToSpawn;
         return true;
-    }
-
-    public void RNGBuilding(int ObjectAmount, GameObject[] gameObjectPrefab)
-    {
-        int attempt = 0;
-        //spawner
-        while (ObjectAmount > 0)
-        {
-            Vector3 randomPosition = new Vector3(Random.Range(0, BuildingSystem.current.buildingRange) * RandomSign(), 0.6f, Random.Range(0, BuildingSystem.current.buildingRange) * RandomSign());
-            Vector3 randomPositionSnap = BuildingSystem.current.SnapCoordinateToGrid(randomPosition);
-
-            bool isInValidSpace = (IsInSquare(BuildingSystem.current.buildingRange, randomPositionSnap.x, randomPositionSnap.z)
-                               && !IsInSquare(BuildingSystem.current.noRNGSpawnRange, randomPositionSnap.x, randomPositionSnap.z));
-
-
-            if (isInValidSpace)
-            {
-                try
-                {
-                    if (BuildingSystem.current.InitializeObjectRNG(gameObjectPrefab[Random.Range(0,gameObjectPrefab.Length)], randomPositionSnap))
-                    {
-                        ObjectAmount--;
-                    }
-                    else
-                    {
-                        attempt++;
-                    }
-                }
-                catch(IndexOutOfRangeException ex)
-                {
-                    //Debug.LogError(ex.Message);
-                    attempt++;
-                }
-            }
-
-            if(attempt > 20)
-            {
-                Debug.LogError("attempt to spawn Enemies spawner are excess 20, stop the function");
-                break;
-            }
-        }
-    }
-
-    private static int RandomSign()
-    {
-        return Random.value < 0.5f ? 1 : -1;
-    }
-
-    private bool IsInSquare(float range,float x, float y)
-    {
-        bool isXInRange = (x <= range && x >= -range);
-        bool isYInRange = (y <= range && y >= -range);
-
-        return isXInRange && isYInRange;
     }
 }
