@@ -48,10 +48,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -464375733503664803, guid: a2cd802b1437c6b49a8c238989009084, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 2bd726f0731abee4c9042f8ede02f383, type: 2}
+    - target: {fileID: -400039932419499575, guid: a2cd802b1437c6b49a8c238989009084, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: f86b5e8684f36824fb940c3505e0d440, type: 2}
     - target: {fileID: 919132149155446097, guid: a2cd802b1437c6b49a8c238989009084, type: 3}
       propertyPath: m_Name
       value: Lv1_sanctuary
       objectReference: {fileID: 0}
+    - target: {fileID: 7183606242956222681, guid: a2cd802b1437c6b49a8c238989009084, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 2a68d47a312e8ce48ab68ee3fe28f1ed, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -82,11 +94,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 30
   damage: 70
-  damageInterval: 1
+  fireRate: 1
   enemyTag: Enemy
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 0
   cost: 125
   upgradeCost: 235
   level: 1
