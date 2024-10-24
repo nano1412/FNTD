@@ -99,6 +99,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cannon_lv1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 16ed58a890ba68e48891f54ee4e7bff7, type: 3}
+      propertyPath: m_TagString
+      value: Tower
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -112,6 +116,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 16ed58a890ba68e48891f54ee4e7bff7, type: 3}
       insertIndex: -1
       addedObject: {fileID: -4277718498765013165}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 16ed58a890ba68e48891f54ee4e7bff7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -1552245417108008599}
   m_SourcePrefab: {fileID: 100100000, guid: 16ed58a890ba68e48891f54ee4e7bff7, type: 3}
 --- !u!1 &8382238454840215484 stripped
 GameObject:
@@ -125,7 +132,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8382238454840215484}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1f68959b37a912f4898897127def5ccf, type: 3}
   m_Name: 
@@ -165,6 +172,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-1552245417108008599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8382238454840215484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a71fe9a0af46ad4ba52e287b205bacf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Placed: 0
+  Vertices: []
 --- !u!4 &9158177431892172038 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 16ed58a890ba68e48891f54ee4e7bff7, type: 3}

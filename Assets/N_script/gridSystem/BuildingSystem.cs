@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using Random = UnityEngine.Random;
 
 public class BuildingSystem : MonoBehaviour
 {
@@ -110,6 +112,47 @@ public class BuildingSystem : MonoBehaviour
         }
     }
 
+    public void RNGBuilding(int ObjectAmount, GameObject[] gameObjectPrefab)
+    {
+        int attempt = 0;
+        //spawner
+        while (ObjectAmount > 0)
+        {
+            Vector3 randomPosition = new Vector3(Random.Range(0, BuildingSystem.current.buildingRange) * RandomSign(), 0.6f, Random.Range(0, BuildingSystem.current.buildingRange) * RandomSign());
+            Vector3 randomPositionSnap = BuildingSystem.current.SnapCoordinateToGrid(randomPosition);
+
+            bool isInValidSpace = (IsInSquare(BuildingSystem.current.buildingRange, randomPositionSnap.x, randomPositionSnap.z)
+                               && !IsInSquare(BuildingSystem.current.noRNGSpawnRange, randomPositionSnap.x, randomPositionSnap.z));
+
+
+            if (isInValidSpace)
+            {
+                try
+                {
+                    if (BuildingSystem.current.InitializeObjectRNG(gameObjectPrefab[Random.Range(0, gameObjectPrefab.Length)], randomPositionSnap))
+                    {
+                        ObjectAmount--;
+                    }
+                    else
+                    {
+                        attempt++;
+                    }
+                }
+                catch (IndexOutOfRangeException ex)
+                {
+                    //Debug.LogError(ex.Message);
+                    attempt++;
+                }
+            }
+
+            if (attempt > 20)
+            {
+                Debug.LogError("attempt to spawn Enemies spawner are excess 20, stop the function");
+                break;
+            }
+        }
+    }
+
     #endregion
 
     #region Utils
@@ -147,6 +190,19 @@ public class BuildingSystem : MonoBehaviour
         }
 
         return array;
+    }
+
+    private static int RandomSign()
+    {
+        return Random.value < 0.5f ? 1 : -1;
+    }
+
+    private bool IsInSquare(float range, float x, float y)
+    {
+        bool isXInRange = (x <= range && x >= -range);
+        bool isYInRange = (y <= range && y >= -range);
+
+        return isXInRange && isYInRange;
     }
 
     void OnDrawGizmosSelected()
