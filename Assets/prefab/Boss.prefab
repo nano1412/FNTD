@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: []
-  moveSpeed: 5
+  moveSpeed: 10
   pointsIndex: 0
 --- !u!65 &-4282299301398184810
 BoxCollider:

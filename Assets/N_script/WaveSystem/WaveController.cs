@@ -155,7 +155,7 @@ public class WaveController : MonoBehaviour
             randomWeight -= enemywithweight[i].weight;
             if(randomWeight < 0)
             {
-                Debug.Log("enemy no " + i);
+                //Debug.Log("enemy no " + i);
                 SendEnemiesToSpawner(enemywithweight[i].enemy);
                 return;
             }

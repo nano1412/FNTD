@@ -60,6 +60,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lv1_sanctuary
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a2cd802b1437c6b49a8c238989009084, type: 3}
+      propertyPath: m_TagString
+      value: Tower
+      objectReference: {fileID: 0}
     - target: {fileID: 7183606242956222681, guid: a2cd802b1437c6b49a8c238989009084, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -74,6 +78,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a2cd802b1437c6b49a8c238989009084, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8189339040179120976}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a2cd802b1437c6b49a8c238989009084, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1632510551814331910}
   m_SourcePrefab: {fileID: 100100000, guid: a2cd802b1437c6b49a8c238989009084, type: 3}
 --- !u!1 &5115871150568103077 stripped
 GameObject:
@@ -124,3 +131,17 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1632510551814331910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5115871150568103077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a71fe9a0af46ad4ba52e287b205bacf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Placed: 0
+  Vertices: []
