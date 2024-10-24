@@ -60,6 +60,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lv3_sanctuary
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d2ef7caa5c9c69d4b872b96ec88a0fd8, type: 3}
+      propertyPath: m_TagString
+      value: Tower
+      objectReference: {fileID: 0}
     - target: {fileID: 1516067199381068722, guid: d2ef7caa5c9c69d4b872b96ec88a0fd8, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -134,5 +138,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 14.205917, y: 27.42279, z: 14.014473}
+  m_Center: {x: 0.055038452, y: 13.211395, z: -0.13230515}
