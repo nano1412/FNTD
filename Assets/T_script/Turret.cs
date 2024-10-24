@@ -32,17 +32,26 @@ public class Turret : MonoBehaviour
     public void UpgradeTurret()
     {
         // ตรวจสอบว่าเลเวลของป้อมยังไม่ถึงระดับสูงสุด
-        if (level < turretPrefabs.Length) // Use the length of the array to determine max level
+        if (level < turretPrefabs.Length)
         {
-            // Store current level for prefab access
-            int currentPrefabIndex = level - 1;
+            int currentPrefabIndex = level - 1; // เก็บอินเด็กซ์ปัจจุบันสำหรับ prefab
 
-            // Upgrade turret level
-            level++;
-            UpgradeToNextLevelPrefab(currentPrefabIndex); // Pass the current index
+            // ตรวจสอบว่าเหรียญเพียงพอหรือไม่
+            if (CoinSystem.SpendCoins(upgradeCost))
+            {
+                // อัปเกรดเลเวล
+                level++;
+                UpgradeToNextLevelPrefab(currentPrefabIndex); // อัปเกรดไปยัง prefab ถัดไป
 
-            // เพิ่มค่าใช้จ่ายในการอัปเกรด
-            upgradeCost += 100; // เพิ่มค่าใช้จ่ายในการอัปเกรด 100 หน่วยทุกครั้ง
+                // เพิ่มค่าใช้จ่ายในการอัปเกรด
+                upgradeCost += 100; // เพิ่ม 100 หน่วยทุกครั้งที่อัปเกรด
+
+                Debug.Log($"ป้อมอัปเกรดเป็นเลเวล {level} แล้ว! ใช้เหรียญ {upgradeCost} หน่วย");
+            }
+            else
+            {
+                Debug.Log("เหรียญไม่พอสำหรับการอัปเกรด");
+            }
         }
         else
         {
@@ -60,25 +69,7 @@ public class Turret : MonoBehaviour
         Destroy(gameObject);
 
         // สร้างป้อมใหม่จาก prefab ในเลเวลถัดไป
-        // Make sure to use the next level index
         GameObject newTurret = Instantiate(turretPrefabs[currentPrefabIndex + 1], currentPosition, currentRotation);
-        newTurret.GetComponent<Turret>().level = level; // กำหนดเลเวลให้ตรงกับป้อมใหม่
-
-        //Debug.Log($"ป้อมอัปเกรดเป็นเลเวล {level}! เปลี่ยนไปใช้ prefab ใหม่");
-    }
-
-
-    private void UpgradeToNextLevelPrefab()
-    {
-        // เก็บตำแหน่งและการหมุนของป้อมปัจจุบัน
-        Vector3 currentPosition = transform.position;
-        Quaternion currentRotation = transform.rotation;
-
-        // ลบป้อมปัจจุบัน
-        Destroy(gameObject);
-
-        // สร้างป้อมใหม่จาก prefab ในเลเวลถัดไป
-        GameObject newTurret = Instantiate(turretPrefabs[level - 1], currentPosition, currentRotation);
         newTurret.GetComponent<Turret>().level = level; // กำหนดเลเวลให้ตรงกับป้อมใหม่
 
         Debug.Log($"ป้อมอัปเกรดเป็นเลเวล {level}! เปลี่ยนไปใช้ prefab ใหม่");
