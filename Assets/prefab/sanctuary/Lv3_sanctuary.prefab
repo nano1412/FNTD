@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5692178738525564842
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8707491188817200394}
+  m_Layer: 0
+  m_Name: parttorotate
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8707491188817200394
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5692178738525564842}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4825538773185238357}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &5007290920428237502
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14,15 +45,15 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 8f5f39d0c926c2849aeedc8b118a7dbf, type: 2}
     - target: {fileID: -8679921383154817045, guid: d2ef7caa5c9c69d4b872b96ec88a0fd8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -106.43964
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d2ef7caa5c9c69d4b872b96ec88a0fd8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5000014
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d2ef7caa5c9c69d4b872b96ec88a0fd8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -63.344353
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d2ef7caa5c9c69d4b872b96ec88a0fd8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -60,6 +91,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lv3_sanctuary
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d2ef7caa5c9c69d4b872b96ec88a0fd8, type: 3}
+      propertyPath: m_TagString
+      value: Tower
+      objectReference: {fileID: 0}
     - target: {fileID: 1516067199381068722, guid: d2ef7caa5c9c69d4b872b96ec88a0fd8, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -78,21 +113,29 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: b1f2915203acdd346be455b87d9bad60, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: d2ef7caa5c9c69d4b872b96ec88a0fd8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8707491188817200394}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d2ef7caa5c9c69d4b872b96ec88a0fd8, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 74704386729302917}
+      addedObject: {fileID: 2959557810420685638}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d2ef7caa5c9c69d4b872b96ec88a0fd8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5321626073304308935}
   m_SourcePrefab: {fileID: 100100000, guid: d2ef7caa5c9c69d4b872b96ec88a0fd8, type: 3}
+--- !u!4 &4825538773185238357 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d2ef7caa5c9c69d4b872b96ec88a0fd8, type: 3}
+  m_PrefabInstance: {fileID: 5007290920428237502}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5313140756136120303 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d2ef7caa5c9c69d4b872b96ec88a0fd8, type: 3}
   m_PrefabInstance: {fileID: 5007290920428237502}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &74704386729302917
+--- !u!114 &2959557810420685638
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -101,20 +144,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 5313140756136120303}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a1e39f138b25ff448ce957024733c23, type: 3}
+  m_Script: {fileID: 11500000, guid: 1f68959b37a912f4898897127def5ccf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 40
-  damage: 160
-  fireRate: 0.5
-  enemyTag: Enemy
   cost: 0
   upgradeCost: 0
   level: 3
-  sanctuaryPrefabs:
+  range: 40
+  fireRate: 0.5
+  damage: 10
+  turretPrefabs:
   - {fileID: 5115871150568103077, guid: d7b24c2fc7fa45c439f24452a8395e4a, type: 3}
   - {fileID: 6407598465294903723, guid: 87e5c0747b22f1b45b1c98228f319206, type: 3}
   - {fileID: 5313140756136120303}
+  bulletPrefab: {fileID: 8028206843576772929, guid: 695373f7c847ae24ab14ffcf4538761f, type: 3}
+  partToRotate: {fileID: 8707491188817200394}
+  firePoint: {fileID: 4825538773185238357}
+  enemyTag: Enemy
 --- !u!65 &5321626073304308935
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -134,5 +180,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 14.532263, y: 28.802252, z: 13.960951}
+  m_Center: {x: -0.62576866, y: 13.901126, z: -0.32960224}

@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2581214813841765069
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3882108573719698429}
+  m_Layer: 0
+  m_Name: partToRotate
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3882108573719698429
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2581214813841765069}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5599356527308146207}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &5349801802928415220
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10,15 +41,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: a2cd802b1437c6b49a8c238989009084, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -86.92824
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a2cd802b1437c6b49a8c238989009084, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5000041
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a2cd802b1437c6b49a8c238989009084, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -49.40717
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a2cd802b1437c6b49a8c238989009084, type: 3}
       propertyPath: m_LocalRotation.w
@@ -70,11 +101,14 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 2a68d47a312e8ce48ab68ee3fe28f1ed, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: a2cd802b1437c6b49a8c238989009084, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3882108573719698429}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a2cd802b1437c6b49a8c238989009084, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6333138676406038197}
+      addedObject: {fileID: 7824435358573001315}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a2cd802b1437c6b49a8c238989009084, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8189339040179120976}
@@ -87,29 +121,32 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a2cd802b1437c6b49a8c238989009084, type: 3}
   m_PrefabInstance: {fileID: 5349801802928415220}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6333138676406038197
+--- !u!114 &7824435358573001315
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5115871150568103077}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a1e39f138b25ff448ce957024733c23, type: 3}
+  m_Script: {fileID: 11500000, guid: 1f68959b37a912f4898897127def5ccf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 30
-  damage: 70
-  fireRate: 1
-  enemyTag: Enemy
   cost: 125
   upgradeCost: 235
   level: 1
-  sanctuaryPrefabs:
+  range: 30
+  fireRate: 1
+  damage: 10
+  turretPrefabs:
   - {fileID: 5115871150568103077}
   - {fileID: 6407598465294903723, guid: 87e5c0747b22f1b45b1c98228f319206, type: 3}
   - {fileID: 5313140756136120303, guid: be415fe1ab7a9fe459d55ac3efb4c366, type: 3}
+  bulletPrefab: {fileID: 8028206843576772929, guid: 6fcf13f8cabd3274dab02429f1c067d8, type: 3}
+  partToRotate: {fileID: 3882108573719698429}
+  firePoint: {fileID: 5599356527308146207}
+  enemyTag: Enemy
 --- !u!65 &8189339040179120976
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -129,8 +166,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 5.970896, y: 9.707091, z: 3.487541}
+  m_Center: {x: -0.0072340965, y: 4.3535457, z: 0.10733235}
 --- !u!114 &1632510551814331910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,3 +182,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Placed: 0
   Vertices: []
+--- !u!4 &5599356527308146207 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a2cd802b1437c6b49a8c238989009084, type: 3}
+  m_PrefabInstance: {fileID: 5349801802928415220}
+  m_PrefabAsset: {fileID: 0}
