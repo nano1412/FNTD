@@ -221,7 +221,7 @@ GameObject:
   - component: {fileID: 5741710160412960975}
   m_Layer: 0
   m_Name: Cannon_lv2
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -288,8 +288,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 10.885247, y: 11.577757, z: 15.266239}
+  m_Center: {x: -0.036947727, y: 5.2888784, z: 0.46959877}
 --- !u!1 &4194278061452514439
 GameObject:
   m_ObjectHideFlags: 0

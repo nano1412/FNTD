@@ -566,7 +566,7 @@ GameObject:
   - component: {fileID: 3022804418457642196}
   m_Layer: 0
   m_Name: Crossbow_lv3
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -634,8 +634,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 13.710397, y: 22.92242, z: 14.2043}
+  m_Center: {x: -0.14782, y: 10.96121, z: -0.1756134}
 --- !u!1 &7430407478016455044
 GameObject:
   m_ObjectHideFlags: 0

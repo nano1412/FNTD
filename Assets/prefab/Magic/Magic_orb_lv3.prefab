@@ -388,7 +388,7 @@ GameObject:
   - component: {fileID: -3522900373420217516}
   m_Layer: 0
   m_Name: Magic_orb_lv3
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -458,8 +458,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 14.422304, y: 25.783241, z: 13.809525}
+  m_Center: {x: -0.036314964, y: 12.391621, z: 0.03037262}
 --- !u!1 &4647054092140576923
 GameObject:
   m_ObjectHideFlags: 0
