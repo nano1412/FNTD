@@ -158,7 +158,7 @@ public class Interaction : MonoBehaviour
             if (turret != null)
             {
                 int upgradeCost = turret.upgradeCost; // ค่าใช้จ่ายในการอัปเกรด
-                if (CoinSystem.SpendCoins(upgradeCost)) // ตรวจสอบและหักเหรียญสำหรับการอัปเกรด
+                if (CoinSystem.current.SpendCoins(upgradeCost)) // ตรวจสอบและหักเหรียญสำหรับการอัปเกรด
                 {
                     turret.UpgradeTurret(); // อัปเกรดป้อม
                     selected = null; // รีเซ็ตการเลือกป้อมให้กลับไปอยู่สถานะเริ่มต้น

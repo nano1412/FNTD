@@ -32,7 +32,7 @@ public class Enemy : MonoBehaviour
         // Check if the enemy was killed by a turret
         if (killedByTurret)
         {
-            CoinSystem.AddCoins(coinReward); // Call the CoinSystem to add coins when the enemy dies
+            CoinSystem.current.AddCoins(coinReward); // Call the CoinSystem to add coins when the enemy dies
             //Debug.Log("Coins added: 10");
         }
 

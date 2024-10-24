@@ -3,10 +3,17 @@ using TMPro;
 
 public class CoinSystem : MonoBehaviour
 {
-    public static int Coins; // จำนวนเหรียญปัจจุบัน
+    public static CoinSystem current;
+
+    public int Coins; // จำนวนเหรียญปัจจุบัน
     public int startCoins = 100; // จำนวนเหรียญเริ่มต้น
 
     public TMP_Text coinText; // ตัวแสดงเหรียญใน UI
+
+    private void Awake()
+    {
+        current = this;
+    }
 
     void Start()
     {
@@ -16,7 +23,7 @@ public class CoinSystem : MonoBehaviour
     }
 
     // ฟังก์ชันสำหรับการหักเหรียญ
-    public static bool SpendCoins(int amount)
+    public bool SpendCoins(int amount)
     {
         if (Coins >= amount)
         {
@@ -32,7 +39,7 @@ public class CoinSystem : MonoBehaviour
     }
 
     // ฟังก์ชันสำหรับการเพิ่มเหรียญ
-    public static void AddCoins(int amount)
+    public void AddCoins(int amount)
     {
         Coins += amount;
         //Debug.Log("Coins added: " + amount + ". Current coins: " + Coins);

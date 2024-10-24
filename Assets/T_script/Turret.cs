@@ -10,7 +10,6 @@ public class Turret : MonoBehaviour
 
     public float range = 15f;
     public float fireRate = 1f;
-    public int damage = 10;
     private float fireCountdown = 0f;
 
     public GameObject[] turretPrefabs; // Array ของ prefab สำหรับแต่ละเลเวล
@@ -37,7 +36,7 @@ public class Turret : MonoBehaviour
             int currentPrefabIndex = level - 1; // เก็บอินเด็กซ์ปัจจุบันสำหรับ prefab
 
             // ตรวจสอบว่าเหรียญเพียงพอหรือไม่
-            if (CoinSystem.SpendCoins(upgradeCost))
+            if (CoinSystem.current.SpendCoins(upgradeCost))
             {
                 // อัปเกรดเลเวล
                 level++;
@@ -133,7 +132,6 @@ public class Turret : MonoBehaviour
         if (bullet != null)
         {
             bullet.Seek(target);
-            bullet.damage = damage;
         }
     }
 

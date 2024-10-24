@@ -84,7 +84,7 @@ public class BuildingSystem : MonoBehaviour
                 Destroy(objectToPlace);
             }
 
-            else if (!CoinSystem.SpendCoins(objectToPlaceCost))
+            else if (!CoinSystem.current.SpendCoins(objectToPlaceCost))
             {
                 Debug.Log("Not enough coins to place the turret.");
                 Destroy(objectToPlace);
