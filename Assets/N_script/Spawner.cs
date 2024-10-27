@@ -20,9 +20,9 @@ public class Spawner : MonoBehaviour
     void Start()
     {
         transform.parent = GameObject.Find(spawners).transform;
-
         humanKingdom = GameObject.Find(humanKingdomName);
         path = this.transform.Find("Path").gameObject;
+
         List<Transform> childrenList = new List<Transform>();
         childrenList.Add(transform);
         foreach (Transform child in path.transform)
@@ -58,7 +58,7 @@ public class Spawner : MonoBehaviour
 
         if (enemiesList[0].tag == "Enemy")
         {
-            Debug.Log("is enemy");
+            //Debug.Log("is enemy");
             GameObject enemy = Instantiate(enemiesList[0], this.transform.Find("Enemy"));
             enemy.GetComponent<path>().AddPath(points);
         }

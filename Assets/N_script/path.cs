@@ -18,6 +18,7 @@ public class path : MonoBehaviour
     {
         if(pointsIndex <= points.Length)
         {
+            //how enemy move
             transform.position = Vector3.MoveTowards(transform.position, points[pointsIndex].transform.position, moveSpeed * Time.deltaTime);
 
             if(transform.position == points[pointsIndex].transform.position)
