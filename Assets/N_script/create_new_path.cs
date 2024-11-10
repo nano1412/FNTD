@@ -3,9 +3,6 @@ using UnityEngine;
 
 public class create_new_path : MonoBehaviour
 {
-    public Vector3 screenPosition;
-    public Vector3 worldPosition;
-    Plane plane = new Plane(Vector3.down, 1);
     public GameObject curser3DPrefab;
     private GameObject curser3D;
     public GameObject tempPath;
@@ -14,6 +11,8 @@ public class create_new_path : MonoBehaviour
     [SerializeField] private GameObject createNewPathCanvas;
 
     private bool isInCreateNewPathAction = false;
+
+    private Vector3 offset;
 
     private void Start()
     {
@@ -27,18 +26,12 @@ public class create_new_path : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        screenPosition = Input.mousePosition;
-
-        Ray ray = Camera.main.ScreenPointToRay(screenPosition);
-
-        if(plane.Raycast(ray,out float distance))
-        {
-            worldPosition = ray.GetPoint(distance);
-        }
-        curser3D.transform.position = worldPosition;
+        Vector3 pos = BuildingSystem.GetMouseWorldPosition() + offset;
+        curser3D.transform.position = BuildingSystem.current.SnapCoordinateToGrid(pos);
 
         if (Input.GetMouseButtonDown(0) && isInCreateNewPathAction && spawner != null)
         {
+            //place path
             GameObject path = Instantiate(pathPrefab, curser3D.transform.position, new Quaternion(), tempPath.transform);
         }
 
