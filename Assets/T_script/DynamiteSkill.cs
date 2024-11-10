@@ -8,6 +8,7 @@ public class DynamiteSkill : MonoBehaviour
     public int skillCost = 100; // ราคาของสกิล
     public int skillDamage = 50; // ความเสียหายที่สกิลทำ
     public float cooldownTime = 30f; // เวลา Cooldown 30 วินาที
+    public float explosionRadius = 5f; // รัศมีของการโจมตี AOE
 
     private Camera mainCamera;
     private bool isCooldown = false; // ตรวจสอบว่ากำลังอยู่ในช่วง Cooldown หรือไม่
@@ -48,8 +49,8 @@ public class DynamiteSkill : MonoBehaviour
 
         if (CoinSystem.current.SpendCoins(skillCost))
         {
-            Debug.Log("Skill Dynamite activated! Select an enemy.");
-            StartCoroutine(SelectEnemyAndDamage());
+            Debug.Log("Skill Dynamite activated! Select a location.");
+            StartCoroutine(SelectLocationAndDamage());
             StartCooldown(); // เริ่ม Cooldown
         }
         else
@@ -65,11 +66,11 @@ public class DynamiteSkill : MonoBehaviour
         Debug.Log($"Dynamite skill on cooldown for {cooldownTime} seconds.");
     }
 
-    private IEnumerator SelectEnemyAndDamage()
+    private IEnumerator SelectLocationAndDamage()
     {
-        bool enemySelected = false;
+        bool locationSelected = false;
 
-        while (!enemySelected)
+        while (!locationSelected)
         {
             if (Input.GetMouseButtonDown(0)) // เมื่อคลิกซ้าย
             {
@@ -78,21 +79,25 @@ public class DynamiteSkill : MonoBehaviour
 
                 if (Physics.Raycast(ray, out hit))
                 {
-                    Enemy enemy = hit.collider.GetComponent<Enemy>();
-                    if (enemy != null)
+                    Vector3 explosionPoint = hit.point; // ตำแหน่งที่ระเบิด
+                    Collider[] colliders = Physics.OverlapSphere(explosionPoint, explosionRadius); // ตรวจสอบวัตถุในรัศมี
+
+                    foreach (Collider nearbyObject in colliders)
                     {
-                        enemy.TakeDamage(skillDamage);
-                        Debug.Log($"Dynamite used! {enemy.name} took {skillDamage} damage.");
-                        enemySelected = true;
+                        Enemy enemy = nearbyObject.GetComponent<Enemy>();
+                        if (enemy != null)
+                        {
+                            enemy.TakeDamage(skillDamage);
+                            Debug.Log($"{enemy.name} took {skillDamage} damage from Dynamite.");
+                        }
                     }
-                    else
-                    {
-                        Debug.Log("No enemy selected. Please click on an enemy.");
-                    }
+
+                    Debug.Log($"Dynamite exploded at {explosionPoint} with radius {explosionRadius}.");
+                    locationSelected = true;
                 }
             }
 
-            yield return null; 
+            yield return null; // รอเฟรมถัดไป
         }
     }
 }
