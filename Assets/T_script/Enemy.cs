@@ -42,7 +42,7 @@ public class Enemy : MonoBehaviour
     // Called when the enemy collides with the HumanKingdom
     void OnTriggerEnter(Collider other)
     {
-        //Debug.Log("Enemy collided with: " + other.gameObject.name); // Log the name of the collided object
+        
 
         if (other.CompareTag("HumanKingdom")) // Check if the collision is with the HumanKingdom
         {

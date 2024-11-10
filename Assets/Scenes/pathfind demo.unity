@@ -771,6 +771,7 @@ GameObject:
   - component: {fileID: 299112854}
   - component: {fileID: 299112853}
   - component: {fileID: 299112852}
+  - component: {fileID: 299112855}
   m_Layer: 5
   m_Name: Skill-2
   m_TagString: Untagged
@@ -881,6 +882,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 299112850}
   m_CullTransparentMesh: 1
+--- !u!114 &299112855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299112850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ada8fb4dd7bc27948a5cf2e7b00e0907, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dynamiteButton: {fileID: 299112852}
+  skillCost: 100
+  skillDamage: 200
+  cooldownTime: 30
 --- !u!1 &321467813
 GameObject:
   m_ObjectHideFlags: 0
@@ -1537,7 +1554,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.113484085, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
