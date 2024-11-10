@@ -31,6 +31,7 @@ public class create_new_path : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && isInCreateNewPathAction && spawner != null)
         {
+            //place path
             GameObject path = Instantiate(pathPrefab, curser3D.transform.position, new Quaternion(), tempPath.transform);
         }
 

@@ -21,6 +21,7 @@ public class path : MonoBehaviour
             //how enemy move
             transform.position = Vector3.MoveTowards(transform.position, points[pointsIndex].transform.position, moveSpeed * Time.deltaTime);
 
+            //how enemy know where to move next
             if(transform.position == points[pointsIndex].transform.position)
             {
                 pointsIndex += 1;
