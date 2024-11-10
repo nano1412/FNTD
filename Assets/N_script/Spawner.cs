@@ -6,12 +6,9 @@ using UnityEngine.UIElements;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] Transform[] points;
-    [SerializeField] GameObject path;
+    public GameObject nextPath;
     public List<GameObject> enemiesList;
-    [SerializeField] string humanKingdomName;
     [SerializeField] string spawners;
-    [SerializeField] GameObject humanKingdom;
 
     float timer;
     public float spawnTimer;
@@ -20,20 +17,7 @@ public class Spawner : MonoBehaviour
     void Start()
     {
         transform.parent = GameObject.Find(spawners).transform;
-        humanKingdom = GameObject.Find(humanKingdomName);
-        path = this.transform.Find("Path").gameObject;
-
-        List<Transform> childrenList = new List<Transform>();
-        childrenList.Add(transform);
-        foreach (Transform child in path.transform)
-        {
-            // This iterates over all direct children, not the parent
-
-            childrenList.Add(child);
-        }
-        childrenList.Add(humanKingdom.transform);
-
-        points = childrenList.ToArray();
+        nextPath = BuildingSystem.current.humanKingdom;
     }
 
     // Update is called once per frame
@@ -60,28 +44,8 @@ public class Spawner : MonoBehaviour
         {
             //Debug.Log("is enemy");
             GameObject enemy = Instantiate(enemiesList[0], this.transform.Find("Enemy"));
-            enemy.GetComponent<path>().AddPath(points);
+            enemy.GetComponent<path>().ToPath = nextPath;
         }
         enemiesList.RemoveAt(0);
-    }
-
-    public void ChangePath(string newPathName)
-    {
-        timer = spawnTimer;
-        path = this.transform.Find(newPathName).gameObject;
-
-        List<Transform> childrenList = new List<Transform>();
-        childrenList.Add(transform);
-        foreach (Transform child in path.transform)
-        {
-            // This iterates over all direct children, not the parent
-
-            childrenList.Add(child);
-        }
-        childrenList.Add(humanKingdom.transform);
-        path.name = "Path " + numOfPathChange;
-        numOfPathChange++;
-
-        points = childrenList.ToArray();
     }
 }

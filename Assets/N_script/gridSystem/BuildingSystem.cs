@@ -16,6 +16,7 @@ public class BuildingSystem : MonoBehaviour
     [SerializeField] private Tilemap MainTilemap;
     [SerializeField] private TileBase whiteTile;
     public GameObject humanKingdom;
+    public GameObject paths;
     [SerializeField] private GameObject floor;
 
     public float buildingRange;
