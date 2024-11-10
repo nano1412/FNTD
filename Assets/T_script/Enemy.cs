@@ -4,6 +4,7 @@ public class Enemy : MonoBehaviour
 {
     public int health = 100; // Initial enemy health
     public int maxHP;
+    public float moveSpeed = 5f;
     [SerializeField] int coinReward;
     private bool killedByTurret = false; // Flag to check if the enemy was killed by a turret
 
@@ -12,6 +13,7 @@ public class Enemy : MonoBehaviour
         maxHP = health;
         //Debug.Log("Enemy spawned with health: " + health);
     }
+
 
     public void TakeDamage(int amount)
     {
