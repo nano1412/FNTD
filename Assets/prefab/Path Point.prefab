@@ -133,6 +133,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextPath: {fileID: 0}
+  lastPath: []
+  isFinishInstantiate: 0
 --- !u!65 &2354601256890146286
 BoxCollider:
   m_ObjectHideFlags: 0

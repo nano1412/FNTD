@@ -25,7 +25,7 @@ public class path : MonoBehaviour
             if(Vector3.Distance(transform.position, ToPath.transform.position) <= 5 && ToPath != BuildingSystem.current.humanKingdom)
             {
             ToPath = ToPath.GetComponent<path_linkedlist>().nextPath;
-            transform.parent = ToPath.transform;
+            transform.parent = ToPath.GetComponent<path_linkedlist>().enemys.transform;
             }
         
     }

@@ -4,29 +4,39 @@ using UnityEngine;
 
 public class path_linkedlist : MonoBehaviour
 {
+    public GameObject enemys;
     public GameObject nextPath;
     public List<GameObject> lastPath;
+    public bool isFinishInstantiate = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         nextPath = BuildingSystem.current.humanKingdom;
+        enemys = new GameObject("enemys");
+        enemys.transform.parent = transform;
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        //path always have "flag" as a child
+        if (isFinishInstantiate && lastPath.Count <= 0)
+        {
+            if (enemys.transform.childCount <= 0)
+            {
+                if(nextPath.tag == "path")
+                {
+                nextPath.GetComponent<path_linkedlist>().lastPath.Remove(gameObject);
+
+                }
+                Destroy(gameObject);
+            }
+        }
     }
 
     private void AwaitForDestroy()
     {
-        while (true)
-        {
-            if(transform.childCount <= 0)
-            {
-                nextPath.GetComponent<path_linkedlist>().AwaitForDestroy();
-                Destroy(transform);
-            }
-        }
+
     }
 }

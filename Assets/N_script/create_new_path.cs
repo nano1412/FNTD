@@ -6,6 +6,7 @@ public class create_new_path : MonoBehaviour
     public GameObject curser3DPrefab;
     private GameObject curser3D;
     public GameObject lastPath;
+    private GameObject saveCurrentPath;
     [SerializeField] private GameObject pathPrefab;
     public GameObject spawner = null;
     [SerializeField] private GameObject createNewPathCanvas;
@@ -54,6 +55,11 @@ public class create_new_path : MonoBehaviour
         //new path finish
         if(pathcount >= 5)
         {
+            if(saveCurrentPath.tag == "path")
+            {
+                saveCurrentPath.GetComponent<path_linkedlist>().lastPath.Remove(spawner);
+            }
+
             pathcount = 0;
             spawner = null;
             isInCreateNewPathAction = false;
@@ -66,6 +72,7 @@ public class create_new_path : MonoBehaviour
     {
         pathcount = 0;
         this.spawner = spawner;
+        saveCurrentPath = spawner.GetComponent<Spawner>().nextPath;
         lastPath = spawner;
         isInCreateNewPathAction = true;
         curser3D.SetActive(true);
@@ -86,7 +93,8 @@ public class create_new_path : MonoBehaviour
                 Debug.Log("invalid path placement");
                 Destroy(transform);
             }
-
-            lastPath = newpath;
+            newpath.GetComponent<path_linkedlist>().lastPath.Add(lastPath);
+        newpath.GetComponent<path_linkedlist>().isFinishInstantiate = true;
+        lastPath = newpath;
     }
 }
