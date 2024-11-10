@@ -2,9 +2,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System;
+using UnityEditor;
 
 public class Interaction : MonoBehaviour
 {
+    public static Interaction current;
     Ray ray;
     RaycastHit hit;
     [SerializeField] private GameObject createNewPathCanvas;
@@ -13,10 +15,15 @@ public class Interaction : MonoBehaviour
     [SerializeField] private GameObject DisableCanvasButton;
     [SerializeField] private Button upgradeTowerButton; // Reference to the Upgrade button
 
-    [SerializeField] private GameObject saveHit;
+    public GameObject saveHit;
     [SerializeField] private GameObject selected;
     [SerializeField] private GameObject selectedCanvas;
     [SerializeField] private create_new_path create_new_path_script;
+
+    private void Awake()
+    {
+        current = this;
+    }
 
     private void Start()
     {
@@ -29,11 +36,10 @@ public class Interaction : MonoBehaviour
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit))
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                //print(hit.collider.tag);
+
+                
                 saveHit = hit.collider.gameObject;
-            }
+
         }
 
         /*
@@ -43,57 +49,60 @@ public class Interaction : MonoBehaviour
             saveSpawner = saveHit.transform.Find("spawner").gameObject;
             saveHit = null;
         }*/
-
-        try
+        if (Input.GetMouseButtonDown(0))
         {
-            switch (saveHit.tag)
+            print(hit.collider.tag);
+            try
             {
-                case "Spawner":
-                    ActiveCanvas(createNewPathCanvas);
-                    selectedCanvas = createNewPathCanvas;
-                    selected = saveHit.gameObject;
-                    break;
+                switch (saveHit.tag)
+                {
+                    case "Spawner":
+                        ActiveCanvas(createNewPathCanvas);
+                        selectedCanvas = createNewPathCanvas;
+                        selected = saveHit.gameObject;
+                        break;
 
-                case "Enemy":
-                    ActiveCanvas(EnemyStatCanvas);
-                    selectedCanvas = EnemyStatCanvas;
-                    selected = saveHit.gameObject;
-                    SetEmenyStatInCanvas(selected);
-                    break;
+                    case "Enemy":
+                        ActiveCanvas(EnemyStatCanvas);
+                        selectedCanvas = EnemyStatCanvas;
+                        selected = saveHit.gameObject;
+                        SetEmenyStatInCanvas(selected);
+                        break;
 
-                case "Tower":
-                    ActiveCanvas(TowerStatCanvas);
-                    selectedCanvas = TowerStatCanvas;
-                    selected = saveHit.gameObject;
-                    SetTowerStatInCanvas(selected);
-                    break;
+                    case "Tower":
+                        ActiveCanvas(TowerStatCanvas);
+                        selectedCanvas = TowerStatCanvas;
+                        selected = saveHit.gameObject;
+                        SetTowerStatInCanvas(selected);
+                        break;
 
-                //not implement yet
-                case "HumanKingdom":
-                    ActiveCanvas(null);
-                    selectedCanvas = null;
-                    selected = saveHit.transform.Find("HumanKingdom").gameObject;
-                    break;
+                    //not implement yet
+                    case "HumanKingdom":
+                        ActiveCanvas(null);
+                        selectedCanvas = null;
+                        selected = saveHit.transform.Find("HumanKingdom").gameObject;
+                        break;
 
 
-                case null:
+                    case null:
 
-                    break;
+                        break;
 
-                default:
+                    default:
 
-                    break;
+                        break;
+                }
             }
-        }
-        
-        catch(MissingReferenceException ex)
-        {
-            //Debug.Log("saveHit is null");
-        } 
-        
-        catch(UnassignedReferenceException ex)
-        {
-            //Debug.Log("the game is just run, there is nothing in saveHit yet");
+
+            catch (MissingReferenceException ex)
+            {
+                //Debug.Log("saveHit is null");
+            }
+
+            catch (UnassignedReferenceException ex)
+            {
+                //Debug.Log("the game is just run, there is nothing in saveHit yet");
+            }
         }
     }
     
@@ -174,6 +183,7 @@ public class Interaction : MonoBehaviour
 
     void ActiveCanvas(GameObject canvas)
     {
+        Debug.Log("active canvas called");
         DisableAllCanvas();
 
         canvas.SetActive(true);
@@ -182,9 +192,11 @@ public class Interaction : MonoBehaviour
 
     public void DisableAllCanvas()
     {
+        Debug.Log("disable canvas called");
         createNewPathCanvas.SetActive(false);
         EnemyStatCanvas.SetActive(false);
         TowerStatCanvas.SetActive(false);
+        DisableCanvasButton.SetActive(false);
     }
 
     public void ChangeSpawnerPath()

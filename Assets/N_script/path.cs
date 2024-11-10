@@ -22,9 +22,10 @@ public class path : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, ToPath.transform.position, moveSpeed * Time.deltaTime);
 
             //how enemy know where to move next
-            if(transform.position == ToPath.transform.position && ToPath != BuildingSystem.current.humanKingdom)
+            if(Vector3.Distance(transform.position, ToPath.transform.position) <= 5 && ToPath != BuildingSystem.current.humanKingdom)
             {
             ToPath = ToPath.GetComponent<path_linkedlist>().nextPath;
+            transform.parent = ToPath.transform;
             }
         
     }

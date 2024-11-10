@@ -31,31 +31,30 @@ public class create_new_path : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && isInCreateNewPathAction && spawner != null)
         {
-            //place path
-            GameObject newpath = Instantiate(pathPrefab, curser3D.transform.position, new Quaternion(), BuildingSystem.current.paths.transform);
-
-
-            if( lastPath.tag == "Spawner")
+            //use same path as other
+            if (Interaction.current.saveHit.tag == "path")
             {
-                lastPath.GetComponent<Spawner>().nextPath = newpath;
-            } else if (lastPath.tag == "path")
-            {
-                lastPath.GetComponent<path_linkedlist>().nextPath = newpath;
+                GameObject mergePath = Interaction.current.saveHit as GameObject;
+
+                AddNewPath(mergePath);
+
+                pathcount = 5;
             }
+            //create new path
             else
             {
-                Debug.Log("invalid path placement");
-                Destroy(transform);
-            }
+                GameObject newpath = Instantiate(pathPrefab, curser3D.transform.position, new Quaternion(), BuildingSystem.current.paths.transform);
 
-            lastPath = newpath;
-            pathcount++;
+                AddNewPath(newpath);
+                pathcount++;
+            }  
         }
 
         //temporary hard stop create new path with maximun of 5 ToPath
         //new path finish
         if(pathcount >= 5)
         {
+            pathcount = 0;
             spawner = null;
             isInCreateNewPathAction = false;
             curser3D.SetActive(false);
@@ -70,5 +69,24 @@ public class create_new_path : MonoBehaviour
         lastPath = spawner;
         isInCreateNewPathAction = true;
         curser3D.SetActive(true);
+    }
+
+    private void AddNewPath(GameObject newpath)
+    {
+            if (lastPath.tag == "Spawner")
+            {
+                lastPath.GetComponent<Spawner>().nextPath = newpath;
+            }
+            else if (lastPath.tag == "path")
+            {
+                lastPath.GetComponent<path_linkedlist>().nextPath = newpath;
+            }
+            else
+            {
+                Debug.Log("invalid path placement");
+                Destroy(transform);
+            }
+
+            lastPath = newpath;
     }
 }
