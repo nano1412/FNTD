@@ -843,7 +843,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 299112853}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11500000, guid: ada8fb4dd7bc27948a5cf2e7b00e0907, type: 3}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &299112853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -898,6 +910,7 @@ MonoBehaviour:
   skillCost: 100
   skillDamage: 200
   cooldownTime: 30
+  explosionRadius: 60
 --- !u!1 &321467813
 GameObject:
   m_ObjectHideFlags: 0
