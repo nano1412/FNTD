@@ -97,6 +97,13 @@ public class DynamiteSkill : MonoBehaviour
                 }
             }
 
+            if (Input.GetMouseButtonDown(1)) // เมื่อคลิกขวา
+            {
+                Debug.Log("Skill Dynamite canceled.");
+                CoinSystem.current.AddCoins(skillCost); // คืนค่าเหรียญเมื่อยกเลิก
+                yield break; // ยกเลิก Coroutine
+            }
+
             yield return null; // รอเฟรมถัดไป
         }
     }
