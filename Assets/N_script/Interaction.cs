@@ -12,7 +12,7 @@ public class Interaction : MonoBehaviour
     private Vector3 offset;
 
     Ray ray;
-    RaycastHit hit;
+    public RaycastHit hit;
     [SerializeField] private GameObject createNewPathCanvas;
     [SerializeField] private GameObject EnemyStatCanvas;
     [SerializeField] private GameObject TowerStatCanvas;
@@ -49,10 +49,7 @@ public class Interaction : MonoBehaviour
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit))
         {
-
-                
                 saveHit = hit.collider.gameObject;
-
         }
 
 

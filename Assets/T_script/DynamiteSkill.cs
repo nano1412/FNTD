@@ -4,42 +4,30 @@ using System.Collections;
 
 public class DynamiteSkill : MonoBehaviour
 {
-    public Button dynamiteButton; // ปุ่ม UI สำหรับใช้สกิล Dynamite
+
     public int skillCost = 100; // ราคาของสกิล
     public int skillDamage = 50; // ความเสียหายที่สกิลทำ
     public float cooldownTime = 30f; // เวลา Cooldown 30 วินาที
     public float explosionRadius = 5f; // รัศมีของการโจมตี AOE
 
-    private Camera mainCamera;
     private bool isCooldown = false; // ตรวจสอบว่ากำลังอยู่ในช่วง Cooldown หรือไม่
-    private float cooldownTimer; // ตัวจับเวลาสำหรับ Cooldown
-
-    void Start()
-    {
-        mainCamera = Camera.main;
-
-        if (dynamiteButton != null)
-        {
-            dynamiteButton.onClick.AddListener(ActivateSkill);
-        }
-    }
+    [SerializeField]private float cooldownTimer; // ตัวจับเวลาสำหรับ Cooldown
 
     void Update()
     {
         if (isCooldown)
         {
             cooldownTimer -= Time.deltaTime;
-            dynamiteButton.interactable = false; // ปิดการใช้งานปุ่มในช่วง Cooldown
+            
 
             if (cooldownTimer <= 0f)
             {
-                isCooldown = false;
-                dynamiteButton.interactable = true; // เปิดการใช้งานปุ่มเมื่อ Cooldown สิ้นสุด
+                isCooldown = false;       
             }
         }
     }
 
-    void ActivateSkill()
+    public void ActivateSkill()
     {
         if (isCooldown)
         {
@@ -74,12 +62,8 @@ public class DynamiteSkill : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0)) // เมื่อคลิกซ้าย
             {
-                Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-                RaycastHit hit;
 
-                if (Physics.Raycast(ray, out hit))
-                {
-                    Vector3 explosionPoint = hit.point; // ตำแหน่งที่ระเบิด
+                    Vector3 explosionPoint = Interaction.current.hit.point; // ตำแหน่งที่ระเบิด
                     Collider[] colliders = Physics.OverlapSphere(explosionPoint, explosionRadius); // ตรวจสอบวัตถุในรัศมี
 
                     foreach (Collider nearbyObject in colliders)
@@ -94,7 +78,7 @@ public class DynamiteSkill : MonoBehaviour
 
                     Debug.Log($"Dynamite exploded at {explosionPoint} with radius {explosionRadius}.");
                     locationSelected = true;
-                }
+                
             }
 
             if (Input.GetMouseButtonDown(1)) // เมื่อคลิกขวา

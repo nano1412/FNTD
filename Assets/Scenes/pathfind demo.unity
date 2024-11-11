@@ -802,7 +802,6 @@ GameObject:
   - component: {fileID: 299112854}
   - component: {fileID: 299112853}
   - component: {fileID: 299112852}
-  - component: {fileID: 299112855}
   m_Layer: 5
   m_Name: Skill-2
   m_TagString: Untagged
@@ -875,13 +874,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: ada8fb4dd7bc27948a5cf2e7b00e0907, type: 3}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 5724244687459513083}
+        m_TargetAssemblyTypeName: DynamiteSkill, Assembly-CSharp
+        m_MethodName: ActivateSkill
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -925,23 +924,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 299112850}
   m_CullTransparentMesh: 1
---- !u!114 &299112855
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 299112850}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ada8fb4dd7bc27948a5cf2e7b00e0907, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dynamiteButton: {fileID: 299112852}
-  skillCost: 100
-  skillDamage: 200
-  cooldownTime: 30
-  explosionRadius: 60
 --- !u!1 &321467813
 GameObject:
   m_ObjectHideFlags: 0
@@ -6649,6 +6631,7 @@ GameObject:
   - component: {fileID: 3398358792635533426}
   - component: {fileID: 863529650980315306}
   - component: {fileID: 5724244687459513082}
+  - component: {fileID: 5724244687459513083}
   m_Layer: 0
   m_Name: CanvasController
   m_TagString: Untagged
@@ -8115,6 +8098,23 @@ MonoBehaviour:
   selected: {fileID: 0}
   selectedCanvas: {fileID: 0}
   create_new_path_script: {fileID: 863529650980315306}
+--- !u!114 &5724244687459513083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 993627113161714178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ada8fb4dd7bc27948a5cf2e7b00e0907, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillCost: 100
+  skillDamage: 200
+  cooldownTime: 30
+  explosionRadius: 60
+  cooldownTimer: 0
 --- !u!224 &5798304484130377823
 RectTransform:
   m_ObjectHideFlags: 0
