@@ -55,13 +55,7 @@ public class Interaction : MonoBehaviour
 
         }
 
-        /*
-        if (saveHit.tag == "Spawner")
-        {
-            ActiveSpawnerCanvas();
-            saveSpawner = saveHit.transform.Find("spawner").gameObject;
-            saveHit = null;
-        }*/
+
         if (Input.GetMouseButtonDown(0))
         {
             print(hit.collider.tag);
@@ -70,9 +64,11 @@ public class Interaction : MonoBehaviour
                 switch (saveHit.tag)
                 {
                     case "Spawner":
-                        ActiveCanvas(createNewPathCanvas);
-                        selectedCanvas = createNewPathCanvas;
-                        selected = saveHit.gameObject;
+                        //change method to called create new path to create_new_path.cs NewChangePath() still keep this in case we have interaction menu with spawner
+
+                        //ActiveCanvas(createNewPathCanvas);
+                        //selectedCanvas = createNewPathCanvas;
+                        //selected = saveHit.gameObject;
                         break;
 
                     case "Enemy":
@@ -91,9 +87,9 @@ public class Interaction : MonoBehaviour
 
                     //not implement yet
                     case "HumanKingdom":
-                        ActiveCanvas(null);
-                        selectedCanvas = null;
-                        selected = saveHit.transform.Find("HumanKingdom").gameObject;
+                        //ActiveCanvas(null);
+                        //selectedCanvas = null;
+                        //selected = saveHit.transform.Find("HumanKingdom").gameObject;
                         break;
 
 

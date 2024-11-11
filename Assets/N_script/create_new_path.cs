@@ -14,6 +14,9 @@ public class create_new_path : MonoBehaviour
 
     private bool isInCreateNewPathAction = false;
 
+    //for new button function
+    private bool isAwaitingSelectSpawner = false;
+
     private void Start()
     {
         curser3D = Interaction.current.curser3D;
@@ -23,9 +26,21 @@ public class create_new_path : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //for new button function
+        if (Input.GetMouseButtonDown(0) && isAwaitingSelectSpawner)
+        {
+            if (Interaction.current.saveHit.tag == "Spawner" && CoinSystem.current.SpendCoins(skillCost))
+            {
+                ChangePath(Interaction.current.saveHit);
+            }
+            else
+            {
+                Interaction.current.curser3D.SetActive(false);
+            }
+            isAwaitingSelectSpawner = false;
+        }
 
-        if (Input.GetMouseButtonDown(0) && isInCreateNewPathAction && spawner != null)
+        if (Input.GetMouseButtonDown(0) && isInCreateNewPathAction && spawner != null && Interaction.current.saveHit.tag != "Spawner")
         {
             //use same path as other
             if (Interaction.current.saveHit.tag == "path")
@@ -95,20 +110,7 @@ public class create_new_path : MonoBehaviour
 
     public void NewChangePath()
     {
-        Interaction.current.curser3D.SetActive(true);
-
-            if (Input.GetMouseButtonDown(0))
-            {
-                if(Interaction.current.saveHit.tag == "Spawner" && CoinSystem.current.SpendCoins(skillCost))
-                {
-                    ChangePath(Interaction.current.saveHit);
-                }
-                else
-                {
-                    Interaction.current.curser3D.SetActive(false);
-                }
-                //end
-            }
-        
+            Interaction.current.curser3D.SetActive(true);
+        isAwaitingSelectSpawner = true;
     }
 }
