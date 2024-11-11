@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class create_new_path : MonoBehaviour
 {
-    public GameObject curser3DPrefab;
-    private GameObject curser3D;
+    [SerializeField] private int skillCost;
     public GameObject lastPath;
+    public GameObject curser3D;
     private GameObject saveCurrentPath;
     [SerializeField] private GameObject pathPrefab;
     public GameObject spawner = null;
@@ -14,21 +14,16 @@ public class create_new_path : MonoBehaviour
 
     private bool isInCreateNewPathAction = false;
 
-    private Vector3 offset;
-
     private void Start()
     {
-        curser3D = Instantiate(curser3DPrefab, transform);
-
-        curser3D.SetActive(false);
+        curser3D = Interaction.current.curser3D;
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 pos = BuildingSystem.GetMouseWorldPosition() + offset;
-        curser3D.transform.position = BuildingSystem.current.SnapCoordinateToGrid(pos);
+        
 
         if (Input.GetMouseButtonDown(0) && isInCreateNewPathAction && spawner != null)
         {
@@ -96,5 +91,24 @@ public class create_new_path : MonoBehaviour
             newpath.GetComponent<path_linkedlist>().lastPath.Add(lastPath);
         newpath.GetComponent<path_linkedlist>().isFinishInstantiate = true;
         lastPath = newpath;
+    }
+
+    public void NewChangePath()
+    {
+        Interaction.current.curser3D.SetActive(true);
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                if(Interaction.current.saveHit.tag == "Spawner" && CoinSystem.current.SpendCoins(skillCost))
+                {
+                    ChangePath(Interaction.current.saveHit);
+                }
+                else
+                {
+                    Interaction.current.curser3D.SetActive(false);
+                }
+                //end
+            }
+        
     }
 }

@@ -7,6 +7,10 @@ using UnityEditor;
 public class Interaction : MonoBehaviour
 {
     public static Interaction current;
+    public GameObject curser3DPrefab;
+    public GameObject curser3D;
+    private Vector3 offset;
+
     Ray ray;
     RaycastHit hit;
     [SerializeField] private GameObject createNewPathCanvas;
@@ -29,10 +33,19 @@ public class Interaction : MonoBehaviour
     {
         DisableAllCanvas();
         upgradeTowerButton.onClick.AddListener(OnUpgradeTowerButtonClicked);
+
+        curser3D = Instantiate(curser3DPrefab, transform);
+        transform.GetComponent<create_new_path>().curser3D = curser3D;
+
+        curser3D.SetActive(false);
     }
 
     void Update()
     {
+
+        Vector3 pos = BuildingSystem.GetMouseWorldPosition() + offset;
+        curser3D.transform.position = BuildingSystem.current.SnapCoordinateToGrid(pos);
+
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit))
         {

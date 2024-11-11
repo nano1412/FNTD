@@ -6662,8 +6662,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ce33018c5b27eb46abb66823a987dff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curser3DPrefab: {fileID: 1304608617915342497, guid: 8b76cc8024297a745b3653f780dd6ae1, type: 3}
+  skillCost: 0
   lastPath: {fileID: 0}
+  curser3D: {fileID: 0}
   pathPrefab: {fileID: 8169881335397744558, guid: 212ddc825883ac74b938f79b38f144a9, type: 3}
   spawner: {fileID: 0}
   createNewPathCanvas: {fileID: 2161633706497759022}
@@ -8152,6 +8153,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11819b5c143b61041a1f736f64390299, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  curser3DPrefab: {fileID: 1304608617915342497, guid: 8b76cc8024297a745b3653f780dd6ae1, type: 3}
+  curser3D: {fileID: 0}
   createNewPathCanvas: {fileID: 2161633706497759022}
   EnemyStatCanvas: {fileID: 7952267752844427420}
   TowerStatCanvas: {fileID: 7890620463696411996}
