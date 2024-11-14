@@ -55,9 +55,7 @@ public class Interaction : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            print(hit.collider.tag);
-            try
-            {
+            if (!saveHit) return;
                 switch (saveHit.tag)
                 {
                     case "Spawner":
@@ -89,26 +87,11 @@ public class Interaction : MonoBehaviour
                         //selected = saveHit.transform.Find("HumanKingdom").gameObject;
                         break;
 
-
-                    case null:
-
-                        break;
-
                     default:
 
                         break;
                 }
-            }
 
-            catch (MissingReferenceException ex)
-            {
-                //Debug.Log("saveHit is null");
-            }
-
-            catch (UnassignedReferenceException ex)
-            {
-                //Debug.Log("the game is just run, there is nothing in saveHit yet");
-            }
         }
     }
     

@@ -16,9 +16,9 @@ public class path : MonoBehaviour
     void Update()
     {
             if(ToPath == null)
-        {
-            ToPath = BuildingSystem.current.humanKingdom;
-        }
+            {
+                ToPath = BuildingSystem.current.humanKingdom;
+            }
             transform.position = Vector3.MoveTowards(transform.position, ToPath.transform.position, moveSpeed * Time.deltaTime);
 
             //how enemy know where to move next
