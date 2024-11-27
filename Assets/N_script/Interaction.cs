@@ -18,6 +18,9 @@ public class Interaction : MonoBehaviour
     [SerializeField] private GameObject TowerStatCanvas;
     [SerializeField] private GameObject DisableCanvasButton;
     [SerializeField] private Button upgradeTowerButton; // Reference to the Upgrade button
+    [SerializeField] private GameObject gameOverPanel; // Panel สำหรับหน้า Game Over
+    [SerializeField] private Button retryButton; // ปุ่ม Retry
+    [SerializeField] private Button mainMenuButton; // ปุ่ม Main Menu
 
     public GameObject saveHit;
     [SerializeField] private GameObject selected;
@@ -38,10 +41,19 @@ public class Interaction : MonoBehaviour
         transform.GetComponent<create_new_path>().curser3D = curser3D;
 
         curser3D.SetActive(false);
+
+        retryButton.onClick.AddListener(RetryGame);
+        mainMenuButton.onClick.AddListener(GoToMainMenu);
+
+        gameOverPanel.SetActive(false);
     }
 
     void Update()
     {
+        if (PlayerStats.Lives <= 0)
+        {
+            GameOver(); // เรียกฟังก์ชัน Game Over
+        }
 
         Vector3 pos = BuildingSystem.GetMouseWorldPosition() + offset;
         curser3D.transform.position = BuildingSystem.current.SnapCoordinateToGrid(pos);
@@ -93,8 +105,31 @@ public class Interaction : MonoBehaviour
                 }
 
         }
+
     }
-    
+
+    public void GameOver()
+    {
+        // แสดงหน้า Game Over Panel
+        gameOverPanel.SetActive(true);
+        Time.timeScale = 0f; // หยุดเวลาในเกม
+    }
+
+    public void RetryGame()
+    {
+        Time.timeScale = 1f; // รีเซ็ตเวลาในเกม
+       
+        WaveController.current.ResetWave(); // รีเซ็ต wave
+        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+    }
+
+    public void GoToMainMenu()
+    {
+        // โหลด Scene เมนูหลัก
+        Time.timeScale = 1f; // รีเซ็ตเวลาในเกม
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
+    }
+
 
     void SetEmenyStatInCanvas(GameObject enemy)
     {
@@ -187,7 +222,7 @@ public class Interaction : MonoBehaviour
         TowerStatCanvas.SetActive(false);
         DisableCanvasButton.SetActive(false);
     }
-
+    
     public void ChangeSpawnerPath()
     {
         create_new_path_script.ChangePath(selected);

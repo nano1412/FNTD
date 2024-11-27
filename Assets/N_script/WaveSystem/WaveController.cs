@@ -194,5 +194,12 @@ public class WaveController : MonoBehaviour
 
         return enemiesLeftInmap + enemiesLeftToBeSpawn;
     }
-
+    public void ResetWave()
+    {
+        wave = 1;
+        enemiesInWave = 10; // รีเซ็ตจำนวนศัตรูใน wave แรก
+        UpdateWeight();
+        DistrubuteEnemies();
+        waveText.text = "Wave: " + wave; // อัปเดตข้อความแสดง Wave
+    }
 }
