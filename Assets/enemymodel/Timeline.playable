@@ -18,7 +18,7 @@ MonoBehaviour:
   m_Muted: 0
   m_CustomPlayableFullTypename: 
   m_Curves: {fileID: 0}
-  m_Parent: {fileID: 11400000}
+  m_Parent: {fileID: -5968157653244861144}
   m_Children: []
   m_Clips:
   - m_Version: 1
@@ -498,7 +498,7 @@ MonoBehaviour:
   m_Muted: 0
   m_CustomPlayableFullTypename: 
   m_Curves: {fileID: 0}
-  m_Parent: {fileID: 11400000}
+  m_Parent: {fileID: -3071665741794008135}
   m_Children: []
   m_Clips:
   - m_Version: 1
@@ -615,7 +615,7 @@ MonoBehaviour:
   m_Muted: 0
   m_CustomPlayableFullTypename: 
   m_Curves: {fileID: 0}
-  m_Parent: {fileID: 11400000}
+  m_Parent: {fileID: -6188356073917819196}
   m_Children: []
   m_Clips: []
   m_Markers:
@@ -831,7 +831,7 @@ MonoBehaviour:
   m_Muted: 0
   m_CustomPlayableFullTypename: 
   m_Curves: {fileID: 0}
-  m_Parent: {fileID: 11400000}
+  m_Parent: {fileID: -6188356073917819196}
   m_Children: []
   m_Clips:
   - m_Version: 1
@@ -2048,6 +2048,72 @@ MonoBehaviour:
   m_Loop: 0
   m_Version: 1
   m_Rotation: {x: 0, y: 0, z: 0, w: 1}
+--- !u!114 &-6188356073917819196
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0fc6f5187a81dc47999eefade6f0935, type: 3}
+  m_Name: Camaras
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_AnimClip: {fileID: 0}
+  m_Locked: 0
+  m_Muted: 0
+  m_CustomPlayableFullTypename: 
+  m_Curves: {fileID: 0}
+  m_Parent: {fileID: 11400000}
+  m_Children:
+  - {fileID: -113285091780656723}
+  - {fileID: -5666983161782048464}
+  - {fileID: 2501010105423567170}
+  - {fileID: 1109064301918491041}
+  - {fileID: -8008114466562124444}
+  - {fileID: 4142092039066126684}
+  - {fileID: -7806166634854420074}
+  - {fileID: -4953039015595466083}
+  - {fileID: 5094984174306810613}
+  - {fileID: 2897954417204516087}
+  - {fileID: -2576209825531038639}
+  - {fileID: 1152559653437169826}
+  m_Clips: []
+  m_Markers:
+    m_Objects: []
+--- !u!114 &-5968157653244861144
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0fc6f5187a81dc47999eefade6f0935, type: 3}
+  m_Name: turrets
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_AnimClip: {fileID: 0}
+  m_Locked: 0
+  m_Muted: 0
+  m_CustomPlayableFullTypename: 
+  m_Curves: {fileID: 0}
+  m_Parent: {fileID: 11400000}
+  m_Children:
+  - {fileID: 6448737021142199924}
+  - {fileID: 6193941172873637958}
+  - {fileID: -2551594303270657880}
+  - {fileID: -8797653607905978869}
+  - {fileID: 3258262986949003125}
+  - {fileID: 7428131702323693882}
+  - {fileID: -5161031748149246676}
+  - {fileID: 3334064026926653786}
+  m_Clips: []
+  m_Markers:
+    m_Objects: []
 --- !u!114 &-5948636322938812266
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2563,7 +2629,7 @@ MonoBehaviour:
   m_Muted: 0
   m_CustomPlayableFullTypename: 
   m_Curves: {fileID: 0}
-  m_Parent: {fileID: 11400000}
+  m_Parent: {fileID: -6188356073917819196}
   m_Children: []
   m_Clips:
   - m_Version: 1
@@ -3534,7 +3600,7 @@ MonoBehaviour:
   m_Muted: 0
   m_CustomPlayableFullTypename: 
   m_Curves: {fileID: 0}
-  m_Parent: {fileID: 11400000}
+  m_Parent: {fileID: -5968157653244861144}
   m_Children: []
   m_Clips:
   - m_Version: 1
@@ -4046,7 +4112,7 @@ MonoBehaviour:
   m_Muted: 0
   m_CustomPlayableFullTypename: 
   m_Curves: {fileID: 0}
-  m_Parent: {fileID: 11400000}
+  m_Parent: {fileID: -6188356073917819196}
   m_Children: []
   m_Clips:
   - m_Version: 1
@@ -5387,6 +5453,31 @@ AnimationClip:
   m_HasGenericRootTransform: 1
   m_HasMotionFloatCurves: 0
   m_Events: []
+--- !u!114 &-3071665741794008135
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0fc6f5187a81dc47999eefade6f0935, type: 3}
+  m_Name: 'arrow '
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_AnimClip: {fileID: 0}
+  m_Locked: 0
+  m_Muted: 0
+  m_CustomPlayableFullTypename: 
+  m_Curves: {fileID: 0}
+  m_Parent: {fileID: 11400000}
+  m_Children:
+  - {fileID: -71068991362704273}
+  - {fileID: -8238734025159058769}
+  m_Clips: []
+  m_Markers:
+    m_Objects: []
 --- !u!74 &-3036710419838267346
 AnimationClip:
   m_ObjectHideFlags: 0
@@ -5915,7 +6006,7 @@ MonoBehaviour:
   m_Muted: 0
   m_CustomPlayableFullTypename: 
   m_Curves: {fileID: 0}
-  m_Parent: {fileID: 11400000}
+  m_Parent: {fileID: -6188356073917819196}
   m_Children: []
   m_Clips:
   - m_Version: 1
@@ -6008,7 +6099,7 @@ MonoBehaviour:
   m_Muted: 0
   m_CustomPlayableFullTypename: 
   m_Curves: {fileID: 0}
-  m_Parent: {fileID: 11400000}
+  m_Parent: {fileID: -5968157653244861144}
   m_Children: []
   m_Clips:
   - m_Version: 1
@@ -8449,7 +8540,7 @@ MonoBehaviour:
   m_Muted: 0
   m_CustomPlayableFullTypename: 
   m_Curves: {fileID: 0}
-  m_Parent: {fileID: 11400000}
+  m_Parent: {fileID: -6188356073917819196}
   m_Children: []
   m_Clips:
   - m_Version: 1
@@ -8698,7 +8789,7 @@ MonoBehaviour:
   m_Muted: 0
   m_CustomPlayableFullTypename: 
   m_Curves: {fileID: 0}
-  m_Parent: {fileID: 11400000}
+  m_Parent: {fileID: -3071665741794008135}
   m_Children: []
   m_Clips:
   - m_Version: 1
@@ -9486,37 +9577,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Version: 0
   m_Tracks:
-  - {fileID: -113285091780656723}
-  - {fileID: -5666983161782048464}
-  - {fileID: 2501010105423567170}
-  - {fileID: 1109064301918491041}
-  - {fileID: -8008114466562124444}
-  - {fileID: 4142092039066126684}
-  - {fileID: -7806166634854420074}
+  - {fileID: -6188356073917819196}
+  - {fileID: -5968157653244861144}
+  - {fileID: -3071665741794008135}
   - {fileID: -418586392734690714}
   - {fileID: -7575637067194889817}
-  - {fileID: 6448737021142199924}
-  - {fileID: 6193941172873637958}
-  - {fileID: -2551594303270657880}
-  - {fileID: -8797653607905978869}
-  - {fileID: 3258262986949003125}
-  - {fileID: 7428131702323693882}
-  - {fileID: -5161031748149246676}
-  - {fileID: 3334064026926653786}
-  - {fileID: -71068991362704273}
   - {fileID: -5948636322938812266}
   - {fileID: 4371017749504855556}
   - {fileID: -7279935078359488027}
   - {fileID: 4739240774196022305}
-  - {fileID: -4953039015595466083}
-  - {fileID: 5094984174306810613}
-  - {fileID: 2897954417204516087}
-  - {fileID: -2576209825531038639}
-  - {fileID: 1152559653437169826}
   - {fileID: -4330746006857570082}
   - {fileID: 5732632335019662331}
   - {fileID: -7610943826514026492}
-  - {fileID: -8238734025159058769}
   m_FixedDuration: 0
   m_EditorSettings:
     m_Framerate: 60
@@ -9587,7 +9659,7 @@ MonoBehaviour:
   m_Muted: 0
   m_CustomPlayableFullTypename: 
   m_Curves: {fileID: 0}
-  m_Parent: {fileID: 11400000}
+  m_Parent: {fileID: -6188356073917819196}
   m_Children: []
   m_Clips:
   - m_Version: 1
@@ -9904,7 +9976,7 @@ MonoBehaviour:
   m_Muted: 0
   m_CustomPlayableFullTypename: 
   m_Curves: {fileID: 0}
-  m_Parent: {fileID: 11400000}
+  m_Parent: {fileID: -6188356073917819196}
   m_Children: []
   m_Clips:
   - m_Version: 1
@@ -10433,7 +10505,7 @@ MonoBehaviour:
   m_Muted: 0
   m_CustomPlayableFullTypename: 
   m_Curves: {fileID: 0}
-  m_Parent: {fileID: 11400000}
+  m_Parent: {fileID: -6188356073917819196}
   m_Children: []
   m_Clips:
   - m_Version: 1
@@ -10969,7 +11041,7 @@ MonoBehaviour:
   m_Muted: 0
   m_CustomPlayableFullTypename: 
   m_Curves: {fileID: 0}
-  m_Parent: {fileID: 11400000}
+  m_Parent: {fileID: -6188356073917819196}
   m_Children: []
   m_Clips:
   - m_Version: 1
@@ -11153,7 +11225,7 @@ MonoBehaviour:
   m_Muted: 0
   m_CustomPlayableFullTypename: 
   m_Curves: {fileID: 0}
-  m_Parent: {fileID: 11400000}
+  m_Parent: {fileID: -5968157653244861144}
   m_Children: []
   m_Clips:
   - m_Version: 1
@@ -11263,7 +11335,7 @@ MonoBehaviour:
   m_Muted: 0
   m_CustomPlayableFullTypename: 
   m_Curves: {fileID: 0}
-  m_Parent: {fileID: 11400000}
+  m_Parent: {fileID: -5968157653244861144}
   m_Children: []
   m_Clips:
   - m_Version: 1
@@ -11612,7 +11684,7 @@ MonoBehaviour:
   m_Muted: 0
   m_CustomPlayableFullTypename: 
   m_Curves: {fileID: 0}
-  m_Parent: {fileID: 11400000}
+  m_Parent: {fileID: -6188356073917819196}
   m_Children: []
   m_Clips:
   - m_Version: 1
@@ -12606,7 +12678,7 @@ MonoBehaviour:
   m_Muted: 0
   m_CustomPlayableFullTypename: 
   m_Curves: {fileID: 0}
-  m_Parent: {fileID: 11400000}
+  m_Parent: {fileID: -6188356073917819196}
   m_Children: []
   m_Clips:
   - m_Version: 1
@@ -12982,7 +13054,7 @@ MonoBehaviour:
   m_Muted: 0
   m_CustomPlayableFullTypename: 
   m_Curves: {fileID: 0}
-  m_Parent: {fileID: 11400000}
+  m_Parent: {fileID: -5968157653244861144}
   m_Children: []
   m_Clips:
   - m_Version: 1
@@ -13114,7 +13186,7 @@ MonoBehaviour:
   m_Muted: 0
   m_CustomPlayableFullTypename: 
   m_Curves: {fileID: 0}
-  m_Parent: {fileID: 11400000}
+  m_Parent: {fileID: -5968157653244861144}
   m_Children: []
   m_Clips:
   - m_Version: 1
@@ -13246,7 +13318,7 @@ MonoBehaviour:
   m_Muted: 0
   m_CustomPlayableFullTypename: 
   m_Curves: {fileID: 0}
-  m_Parent: {fileID: 11400000}
+  m_Parent: {fileID: -5968157653244861144}
   m_Children: []
   m_Clips:
   - m_Version: 1
