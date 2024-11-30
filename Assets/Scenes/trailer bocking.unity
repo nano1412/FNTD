@@ -49695,7 +49695,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 960269448}
-  m_LocalEulerAnglesHint: {x: 15.162, y: 90, z: 0.001}
+  m_LocalEulerAnglesHint: {x: 0.000249702, y: 359.6715, z: 0.08901797}
 --- !u!95 &1755268640
 Animator:
   serializedVersion: 7
@@ -51294,8 +51294,8 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 2500
-  field of view: 50
+  far clip plane: 3500
+  field of view: 60.000004
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -51321,8 +51321,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1812798893}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.00568066, y: -0.06746479, z: -0.00037946584, w: 0.99770546}
-  m_LocalPosition: {x: 1654.8, y: 19.2, z: 3550.2}
+  m_LocalRotation: {x: -0.03742489, y: 0.87487656, z: 0.06834499, w: 0.47803706}
+  m_LocalPosition: {x: 3705.5, y: 87.36, z: 1021.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
