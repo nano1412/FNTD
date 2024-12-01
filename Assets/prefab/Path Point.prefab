@@ -132,8 +132,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeb4a8ffc8d1e904aac6f03b34c53c0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemys: {fileID: 0}
   nextPath: {fileID: 0}
   lastPath: []
+  stone_walkway: []
   isFinishInstantiate: 0
 --- !u!65 &2354601256890146286
 BoxCollider:
