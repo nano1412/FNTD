@@ -7,6 +7,7 @@ public class path_linkedlist : MonoBehaviour
     public GameObject enemys;
     public GameObject nextPath;
     public List<GameObject> lastPath;
+    public List<GameObject> stone_walkway;
     public bool isFinishInstantiate = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -21,17 +22,14 @@ public class path_linkedlist : MonoBehaviour
     void Update()
     {
         //path always have "flag" as a child
-        if (isFinishInstantiate && lastPath.Count <= 0)
+        if (isFinishInstantiate && lastPath.Count <= 0 && enemys.transform.childCount <= 0)
         {
-            if (enemys.transform.childCount <= 0)
-            {
                 if(nextPath.tag == "path")
                 {
                 nextPath.GetComponent<path_linkedlist>().lastPath.Remove(gameObject);
 
                 }
                 Destroy(gameObject);
-            }
         }
     }
 
