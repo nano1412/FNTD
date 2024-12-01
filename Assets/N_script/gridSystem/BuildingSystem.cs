@@ -50,7 +50,7 @@ public class BuildingSystem : MonoBehaviour
         
         KeyboardInput();
 
-        floor.transform.localScale = new Vector3(buildingRange * 2, floor.transform.localScale.y, buildingRange * 2);
+        floor.transform.localScale = new Vector3(buildingRange * 2, buildingRange * 2, buildingRange * 2);
     }
 
     private void KeyboardInput()
