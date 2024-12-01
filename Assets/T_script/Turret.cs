@@ -18,9 +18,12 @@ public class Turret : MonoBehaviour
     public Transform firePoint;
     public string enemyTag = "Enemy";
 
+    public AudioClip shootSound; // ไฟล์เสียงสำหรับการยิง
+    private AudioSource audioSource; // ตัวควบคุมเสียง
     void Start()
     {
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
+        audioSource = GetComponent<AudioSource>();
     }
 
     public int GetCost()
@@ -132,6 +135,11 @@ public class Turret : MonoBehaviour
         if (bullet != null)
         {
             bullet.Seek(target);
+        }
+
+        if (shootSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(shootSound);
         }
     }
 

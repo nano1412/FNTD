@@ -9,12 +9,18 @@ public class Bullet : MonoBehaviour
     public float explosionRadius = 5f; // รัศมีการระเบิด (กำหนดระยะ AOE)
     public bool isExplodeOnStart;
 
+    public AudioClip hitSound; // ไฟล์เสียงสำหรับกระสุนชนเป้าหมาย
+    private AudioSource audioSource; // ตัวควบคุมเสียง
+
+
     private void Start()
     {
-        if(isExplodeOnStart)
+        audioSource = GetComponent<AudioSource>();
+        if (isExplodeOnStart)
         {
             HitTarget();
         }
+        
     }
 
     public void Seek(Transform _target)
@@ -45,7 +51,10 @@ public class Bullet : MonoBehaviour
 
     void HitTarget()
     {
-        // เมื่อชนเป้าหมาย เรียกใช้ฟังก์ชันทำดาเมจแบบ AOE
+        if (hitSound != null)
+        {
+            AudioSource.PlayClipAtPoint(hitSound, transform.position);
+        }
         Explode();
         Destroy(gameObject);
     }
