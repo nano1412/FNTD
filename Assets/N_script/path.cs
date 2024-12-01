@@ -21,6 +21,10 @@ public class path : MonoBehaviour
             }
             transform.position = Vector3.MoveTowards(transform.position, ToPath.transform.position, moveSpeed * Time.deltaTime);
 
+        //rotate
+        transform.LookAt(ToPath.transform.position);
+        
+
             //how enemy know where to move next
             if(Vector3.Distance(transform.position, ToPath.transform.position) <= 5 && ToPath != BuildingSystem.current.humanKingdom)
             {

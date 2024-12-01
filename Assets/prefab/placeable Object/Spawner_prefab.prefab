@@ -66,7 +66,7 @@ MonoBehaviour:
   nextPath: {fileID: 0}
   enemiesList: []
   spawners: Spawners
-  spawnTimer: 3
+  spawnTimer: 1
 --- !u!65 &278227978514852395
 BoxCollider:
   m_ObjectHideFlags: 0
