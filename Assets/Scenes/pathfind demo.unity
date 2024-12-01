@@ -851,7 +851,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -473}
+  m_AnchoredPosition: {x: 10, y: -309.74}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &206855735
@@ -9263,6 +9263,8 @@ MonoBehaviour:
   pathPrefab: {fileID: 8169881335397744558, guid: 212ddc825883ac74b938f79b38f144a9, type: 3}
   spawner: {fileID: 0}
   createNewPathCanvas: {fileID: 2161633706497759022}
+  rockDistance: 10
+  gameobject_stone_walkway: []
 --- !u!224 &872363441259755659
 RectTransform:
   m_ObjectHideFlags: 0
