@@ -150,7 +150,7 @@ MonoBehaviour:
   partToRotate: {fileID: 9181202126967655758}
   firePoint: {fileID: 5999555106064608005}
   enemyTag: Enemy
-  shootSound: {fileID: 8300000, guid: f17314dfb53049c44b96fd6132b49ff4, type: 3}
+  shootSound: {fileID: 8300000, guid: 0b633e387d2da274cb32aca6fb291774, type: 3}
 --- !u!65 &6100859935425348325
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -182,8 +182,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: f17314dfb53049c44b96fd6132b49ff4, type: 3}
-  m_Resource: {fileID: 8300000, guid: f17314dfb53049c44b96fd6132b49ff4, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 0b633e387d2da274cb32aca6fb291774, type: 3}
+  m_Resource: {fileID: 8300000, guid: 0b633e387d2da274cb32aca6fb291774, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.5
   m_Pitch: 1

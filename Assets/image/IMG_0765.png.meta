@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5a17911d8280c6f4c831fdeff33fad97
+guid: 8f3363ce8dab3c242aef0bbea980b8c8
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -108,78 +108,12 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: IMG_1160_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 115
-        width: 93
-        height: 180
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fec15451a1670cf478b37eab202491b9
-      internalID: 667964152
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IMG_1160_1
-      rect:
-        serializedVersion: 2
-        x: 24
-        y: 66
-        width: 2312
-        height: 1559
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ebebb195c9302ba4aaee817a4bbd9ce0
-      internalID: 1160006092
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IMG_1160_2
-      rect:
-        serializedVersion: 2
-        x: 2267
-        y: 115
-        width: 93
-        height: 180
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e9d9e6acf90242e4b9a638532150994b
-      internalID: 698927188
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 7243898054cfd044998e683254e96c0d
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -188,10 +122,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      IMG_1160_0: 667964152
-      IMG_1160_1: 1160006092
-      IMG_1160_2: 698927188
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

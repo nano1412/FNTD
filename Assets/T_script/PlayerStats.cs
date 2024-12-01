@@ -12,7 +12,6 @@ public class PlayerStats : MonoBehaviour
     {
         Lives = startLives;
         //Debug.Log("Game started with " + Lives + " lives.");
-
         hpText.text = "HP: " + Lives;
     }
 

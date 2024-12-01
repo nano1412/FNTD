@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5a17911d8280c6f4c831fdeff33fad97
+guid: c7186a5286a7cfb42bb12b555a06ec60
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: IMG_1160_0
+      name: IMG_1170_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 115
-        width: 93
-        height: 180
+        x: 201
+        y: 540
+        width: 1958
+        height: 560
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -125,52 +125,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fec15451a1670cf478b37eab202491b9
-      internalID: 667964152
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IMG_1160_1
-      rect:
-        serializedVersion: 2
-        x: 24
-        y: 66
-        width: 2312
-        height: 1559
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ebebb195c9302ba4aaee817a4bbd9ce0
-      internalID: 1160006092
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IMG_1160_2
-      rect:
-        serializedVersion: 2
-        x: 2267
-        y: 115
-        width: 93
-        height: 180
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e9d9e6acf90242e4b9a638532150994b
-      internalID: 698927188
+      spriteID: fbaff44ecdd847d4fbbae9f700994070
+      internalID: -313642900
       vertices: []
       indices: 
       edges: []
@@ -179,7 +135,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 7243898054cfd044998e683254e96c0d
+    spriteID: 7d85b7c5716a87f459f25f7f9a959b3d
     internalID: 0
     vertices: []
     indices: 
@@ -189,9 +145,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      IMG_1160_0: 667964152
-      IMG_1160_1: 1160006092
-      IMG_1160_2: 698927188
+      IMG_1170_0: -313642900
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
