@@ -522,9 +522,17 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 580054124113397576, guid: 454f6cb91b8393b4cb9e379968c33192, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 762900449998505141, guid: 454f6cb91b8393b4cb9e379968c33192, type: 3}
       propertyPath: m_Name
       value: HumankindKingdom ingame
+      objectReference: {fileID: 0}
+    - target: {fileID: 762900449998505141, guid: 454f6cb91b8393b4cb9e379968c33192, type: 3}
+      propertyPath: m_TagString
+      value: HumanKingdom
       objectReference: {fileID: 0}
     - target: {fileID: 1129708774605337439, guid: 454f6cb91b8393b4cb9e379968c33192, type: 3}
       propertyPath: hpText
@@ -9035,7 +9043,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: HP
+  m_text: 'Game over HP : 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -10776,6 +10784,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spawner_prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 3840892164785628124, guid: 5e78cb8a722fb4a48b09724dba3ab3b2, type: 3}
+      propertyPath: nextPath
+      value: 
+      objectReference: {fileID: 4134332409257443705}
     - target: {fileID: 3840892164785628124, guid: 5e78cb8a722fb4a48b09724dba3ab3b2, type: 3}
       propertyPath: enemyprefab
       value: 
