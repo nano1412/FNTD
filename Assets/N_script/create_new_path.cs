@@ -11,6 +11,7 @@ public class create_new_path : MonoBehaviour
     [SerializeField] private GameObject pathPrefab;
     public GameObject spawner = null;
     [SerializeField] private GameObject createNewPathCanvas;
+    [SerializeField] private float rockDistance = 10f;
     public List<GameObject> gameobject_stone_walkway;
     private int pathcount;
     private bool isEndOnMerge = false;
@@ -128,7 +129,7 @@ public class create_new_path : MonoBehaviour
         Vector3 thisPostition = newpath.transform.position;
         Vector3 lastposition = lastPath.transform.position;
 
-        for(float distance = 10; distance <= Vector3.Distance(lastPath.transform.position, newpath.transform.position); distance += 10)
+        for(float distance = rockDistance; distance <= Vector3.Distance(lastPath.transform.position, newpath.transform.position); distance += rockDistance)
         {
             Vector3 tempStonePostition = LerpByDistance(lastposition, thisPostition, distance);
             tempStonePostition.y = 0;

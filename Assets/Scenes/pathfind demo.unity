@@ -8466,6 +8466,7 @@ MonoBehaviour:
   pathPrefab: {fileID: 8169881335397744558, guid: 212ddc825883ac74b938f79b38f144a9, type: 3}
   spawner: {fileID: 0}
   createNewPathCanvas: {fileID: 2161633706497759022}
+  rockDistance: 13
   gameobject_stone_walkway:
   - {fileID: 9016038547387034752, guid: f1238e0dd9fcfcd439e0b7af253414e5, type: 3}
   - {fileID: 8482763993302656819, guid: 00b73bc556e224c468d644a77a13b1b4, type: 3}
