@@ -85,6 +85,14 @@ public class WaveController : MonoBehaviour
                 numToSpawnenvironmentPrefab = 0;
             }
 
+            if(wave % 10 == 0)
+            {
+                for (int i = wave / 10; i > 0; i--)
+                {
+                    selectEnemyInRarity(bossEnemiesPrefab, maxBossEnemiesWeight);
+                }
+            }
+
             //number to spawn prefab formula
             numToSpawnSpawnerPrefab = numToSpawnSpawner;
             numToSpawnTowerPrefab = numToSpawnTower;

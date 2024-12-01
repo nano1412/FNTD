@@ -207,7 +207,7 @@ public class Interaction : MonoBehaviour
 
     void ActiveCanvas(GameObject canvas)
     {
-        Debug.Log("active canvas called");
+        //Debug.Log("active canvas called");
         DisableAllCanvas();
 
         canvas.SetActive(true);
@@ -216,7 +216,7 @@ public class Interaction : MonoBehaviour
 
     public void DisableAllCanvas()
     {
-        Debug.Log("disable canvas called");
+        //Debug.Log("disable canvas called");
         createNewPathCanvas.SetActive(false);
         EnemyStatCanvas.SetActive(false);
         TowerStatCanvas.SetActive(false);
