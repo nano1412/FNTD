@@ -15,6 +15,7 @@ public class WaveController : MonoBehaviour
 
     [SerializeField] private GameObject[] spawnerPrefab;
     [SerializeField] private GameObject[] towerPrefab;
+    [SerializeField] private GameObject[] environmentPrefab;
 
     [SerializeField] private EnemyWithWeight[] commonEnemiesPrefab;
     [SerializeField] private EnemyWithWeight[] rareEnemiesPrefab;
@@ -28,10 +29,11 @@ public class WaveController : MonoBehaviour
     [SerializeField] private int maxRareEnemiesWeight;
     [SerializeField] private int maxBossEnemiesWeight;
 
-
+    [SerializeField] private int numToSpawnenvironment;
     [SerializeField] private int numToSpawnSpawner;
     [SerializeField] private int numToSpawnTower;
 
+    private int numToSpawnenvironmentPrefab;
     private int numToSpawnSpawnerPrefab;
     private int numToSpawnTowerPrefab;
     
@@ -77,6 +79,10 @@ public class WaveController : MonoBehaviour
             {
                 //up map size formula
                 BuildingSystem.current.buildingRange = 250 * ((wave / 5)+1);
+
+                numToSpawnenvironmentPrefab = numToSpawnenvironment;
+                BuildingSystem.current.RNGBuilding(numToSpawnenvironmentPrefab, environmentPrefab);
+                numToSpawnenvironmentPrefab = 0;
             }
 
             //number to spawn prefab formula
