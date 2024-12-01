@@ -74054,7 +74054,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 3500
   field of view: 60.000004
   orthographic: 0
   orthographic size: 5
@@ -74081,8 +74081,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1812798893}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.09329307, y: 0.7009254, z: -0.09328088, w: 0.7009271}
-  m_LocalPosition: {x: 2822.1, y: 25.199951, z: 3700.2588}
+  m_LocalRotation: {x: -0.03742489, y: 0.87487656, z: 0.06834499, w: 0.47803706}
+  m_LocalPosition: {x: 3705.5, y: 87.36, z: 1021.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -89428,38 +89428,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: HumankindKingdom
       objectReference: {fileID: 0}
-    - target: {fileID: 1340466966879601206, guid: b0a8ca926327dbe47b131dd761c3a04f, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 76124c9ab14fa724dac940512432e5a7, type: 2}
-    - target: {fileID: 1362233697869579482, guid: b0a8ca926327dbe47b131dd761c3a04f, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: a42cbe42d805040478f4b3b432451fc6, type: 2}
-    - target: {fileID: 2126602781295378726, guid: b0a8ca926327dbe47b131dd761c3a04f, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 56be14df2ba6bda4bbe34f1d5008f035, type: 2}
-    - target: {fileID: 3686421882777679901, guid: b0a8ca926327dbe47b131dd761c3a04f, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: e582391095034294dbe229465535b4a3, type: 2}
-    - target: {fileID: 5610972617612750763, guid: b0a8ca926327dbe47b131dd761c3a04f, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 95460cdd9dbdef044a4652712499391a, type: 2}
-    - target: {fileID: 7971958198262467871, guid: b0a8ca926327dbe47b131dd761c3a04f, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: cd0703d6cae3abb4d9b9c3d20b296560, type: 2}
-    - target: {fileID: 9048625214315379512, guid: b0a8ca926327dbe47b131dd761c3a04f, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 3b3f9bb8fd8f0c3418e54ca09ddc2cdd, type: 2}
-    - target: {fileID: 9050901293873038263, guid: b0a8ca926327dbe47b131dd761c3a04f, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 4056b69f107db3144afda8de81fb2756, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
