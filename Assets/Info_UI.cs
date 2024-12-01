@@ -22,20 +22,20 @@ public class Info_UI : MonoBehaviour
 
     public void NextPage()
     {
-        currentPage++;
+        m_currentPage++;
         ClosrOtherPage();
     }
 
     public void lastPage()
     {
-        currentPage--;
+        m_currentPage--;
         ClosrOtherPage();
     }
 
     void ClosrOtherPage()
     {
-        int lastpage = currentPage - 1;
-        int nextpage = currentPage + 1;
+        int lastpage = m_currentPage - 1;
+        int nextpage = m_currentPage + 1;
 
         //Debug.Log(lastpage);
         //Debug.Log(nextpage);
@@ -43,7 +43,7 @@ public class Info_UI : MonoBehaviour
         if(lastpage >= 0) pages[lastpage].SetActive(false);
         if (nextpage < pages.Length) pages[nextpage].SetActive(false);
 
-        pages[currentPage].SetActive(true);
+        pages[m_currentPage].SetActive(true);
     }
 
     public void OpenBook()
