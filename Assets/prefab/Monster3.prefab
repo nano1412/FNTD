@@ -64,6 +64,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -505929436113270756, guid: 9497f8fc0435ead408a11e479bbcb437, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 74ef0727afbc34444abbf915101a3b3a, type: 2}
     - target: {fileID: 919132149155446097, guid: 9497f8fc0435ead408a11e479bbcb437, type: 3}
       propertyPath: m_Name
       value: Monster3
@@ -72,6 +76,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 1397318277702805348, guid: 9497f8fc0435ead408a11e479bbcb437, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b8d5a033fe154c47a5a7f2aff7fd819, type: 2}
     - target: {fileID: 7646012589857749848, guid: 9497f8fc0435ead408a11e479bbcb437, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -158,9 +166,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fa89d920f5a88249b3a7b792431ac0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: []
+  ToPath: {fileID: 0}
   moveSpeed: 10
-  pointsIndex: 0
 --- !u!114 &1075216569057949638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,4 +182,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   maxHP: 0
+  moveSpeed: 5
   coinReward: 50
