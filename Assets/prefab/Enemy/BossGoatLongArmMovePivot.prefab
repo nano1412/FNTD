@@ -92,6 +92,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 500
   maxHP: 0
+  moveSpeed: 5
   coinReward: 100
 --- !u!54 &3384127637645485377
 Rigidbody:
@@ -139,8 +140,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.99205786, y: 1.2030079, z: 0.7966301}
-  m_Center: {x: -0.012636453, y: 0.60150397, z: -0.123168856}
+  m_Size: {x: 10.940921, y: 13.475754, z: 6.8539886}
+  m_Center: {x: -0.06909895, y: 6.737877, z: 0.03776729}
 --- !u!114 &-26670922833285497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,6 +154,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fa89d920f5a88249b3a7b792431ac0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: []
+  ToPath: {fileID: 0}
   moveSpeed: 20
-  pointsIndex: 0
