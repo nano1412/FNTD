@@ -4,7 +4,18 @@ public class Info_UI : MonoBehaviour
 {
     [SerializeField] GameObject info_UI;
     [SerializeField] private GameObject[] pages;
-    private int currentPage { get { return m_currentPage; } set { if (value > 0 && value < pages.Length -1) { m_currentPage = value; } } }
+    
+    private int currentPage { 
+        get {
+            return m_currentPage; 
+        } 
+        set
+        { 
+            if (value >= 0 && value < pages.Length) { 
+                m_currentPage = value; 
+            } 
+        } 
+    }
     [SerializeField] public int m_currentPage;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -22,20 +33,20 @@ public class Info_UI : MonoBehaviour
 
     public void NextPage()
     {
-        m_currentPage++;
+        currentPage++;
         ClosrOtherPage();
     }
 
     public void lastPage()
     {
-        m_currentPage--;
+        currentPage--;
         ClosrOtherPage();
     }
 
     void ClosrOtherPage()
     {
-        int lastpage = m_currentPage - 1;
-        int nextpage = m_currentPage + 1;
+        int lastpage = currentPage - 1;
+        int nextpage = currentPage + 1;
 
         //Debug.Log(lastpage);
         //Debug.Log(nextpage);
@@ -43,12 +54,12 @@ public class Info_UI : MonoBehaviour
         if(lastpage >= 0) pages[lastpage].SetActive(false);
         if (nextpage < pages.Length) pages[nextpage].SetActive(false);
 
-        pages[m_currentPage].SetActive(true);
+        pages[currentPage].SetActive(true);
     }
 
     public void OpenBook()
     {
-        currentPage = 0;
+        currentPage = 1;
         pages[0].SetActive(true);
         info_UI.SetActive(true);
     }
