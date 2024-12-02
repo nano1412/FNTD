@@ -55,7 +55,7 @@ public class BuildingSystem : MonoBehaviour
 
     private void KeyboardInput()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
+        /*if (Input.GetKeyDown(KeyCode.Z))
         {
             InitializeObjectThatFollowMouse(prefab1);
         }
@@ -76,8 +76,8 @@ public class BuildingSystem : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return))
         {
             objectToPlace_PlaceableObjectScript.Rotate();
-        }
-        else if (Input.GetKeyDown(KeyCode.Mouse0) && objectToPlace != null)
+        }*/
+        if (Input.GetKeyDown(KeyCode.Mouse0) && objectToPlace != null)
         {
             if (!IsColideWithWhiteTile(objectToPlace_PlaceableObjectScript))
             {

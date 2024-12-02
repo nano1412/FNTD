@@ -2568,7 +2568,7 @@ MonoBehaviour:
   humanKingdom: {fileID: 4134332409257443705}
   paths: {fileID: 95648904}
   floor: {fileID: 1450793661}
-  buildingRange: 750
+  buildingRange: 500
   noRNGSpawnRange: 0
   prefab1: {fileID: 4173418805247382789, guid: 46b816d36590ed84cbe332fbb443e5e7, type: 3}
   prefab2: {fileID: 5305718710101437997, guid: 7afcf2d33bb48c34fbb44002ff3e883b, type: 3}
@@ -2586,7 +2586,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waveText: {fileID: 987295424}
-  wave: 1
+  wave: 4
   enemiesInWave: 10
   spawnerPrefab:
   - {fileID: 1333141726311767786, guid: 5e78cb8a722fb4a48b09724dba3ab3b2, type: 3}
@@ -3303,15 +3303,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 960604950126304143, guid: 021acec2de057d34798ba7a2ab414758, type: 3}
       propertyPath: m_LocalScale.x
-      value: 750
+      value: 1074.825
       objectReference: {fileID: 0}
     - target: {fileID: 960604950126304143, guid: 021acec2de057d34798ba7a2ab414758, type: 3}
       propertyPath: m_LocalScale.y
-      value: 750
+      value: 1074.825
       objectReference: {fileID: 0}
     - target: {fileID: 960604950126304143, guid: 021acec2de057d34798ba7a2ab414758, type: 3}
       propertyPath: m_LocalScale.z
-      value: 750
+      value: 1074.825
       objectReference: {fileID: 0}
     - target: {fileID: 960604950126304143, guid: 021acec2de057d34798ba7a2ab414758, type: 3}
       propertyPath: m_LocalPosition.x
