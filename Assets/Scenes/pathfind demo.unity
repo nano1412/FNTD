@@ -2586,7 +2586,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waveText: {fileID: 987295424}
-  wave: 4
+  wave: 1
   enemiesInWave: 10
   spawnerPrefab:
   - {fileID: 1333141726311767786, guid: 5e78cb8a722fb4a48b09724dba3ab3b2, type: 3}
