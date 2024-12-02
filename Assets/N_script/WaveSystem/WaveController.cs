@@ -78,7 +78,7 @@ public class WaveController : MonoBehaviour
             if (wave % 5 == 0)
             {
                 //up map size formula
-                BuildingSystem.current.buildingRange = 125 * ((wave / 5)+1);
+                BuildingSystem.current.buildingRange = 250 * ((wave / 5)+1);
 
                 numToSpawnenvironmentPrefab = numToSpawnenvironment;
                 BuildingSystem.current.RNGBuilding(numToSpawnenvironmentPrefab, environmentPrefab);
