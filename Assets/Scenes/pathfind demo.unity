@@ -2518,7 +2518,7 @@ MonoBehaviour:
   humanKingdom: {fileID: 4134332409257443705}
   paths: {fileID: 95648904}
   floor: {fileID: 1450793661}
-  buildingRange: 250
+  buildingRange: 375
   noRNGSpawnRange: 0
   prefab1: {fileID: 4173418805247382789, guid: 46b816d36590ed84cbe332fbb443e5e7, type: 3}
   prefab2: {fileID: 5305718710101437997, guid: 7afcf2d33bb48c34fbb44002ff3e883b, type: 3}
@@ -3253,15 +3253,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 960604950126304143, guid: 021acec2de057d34798ba7a2ab414758, type: 3}
       propertyPath: m_LocalScale.x
-      value: 500
+      value: 750
       objectReference: {fileID: 0}
     - target: {fileID: 960604950126304143, guid: 021acec2de057d34798ba7a2ab414758, type: 3}
       propertyPath: m_LocalScale.y
-      value: 500
+      value: 750
       objectReference: {fileID: 0}
     - target: {fileID: 960604950126304143, guid: 021acec2de057d34798ba7a2ab414758, type: 3}
       propertyPath: m_LocalScale.z
-      value: 500
+      value: 750
       objectReference: {fileID: 0}
     - target: {fileID: 960604950126304143, guid: 021acec2de057d34798ba7a2ab414758, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5515,26 +5515,6 @@ Tilemap:
   m_GameObject: {fileID: 1430570517}
   m_Enabled: 1
   m_Tiles:
-  - first: {x: -7, y: -2, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: -6, y: -2, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
   - first: {x: -2, y: -2, z: 0}
     second:
       serializedVersion: 2
@@ -5575,7 +5555,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: -7, y: -1, z: 0}
+  - first: {x: -11, y: -1, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 0
@@ -5585,7 +5565,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: -6, y: -1, z: 0}
+  - first: {x: -10, y: -1, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 0
@@ -5626,6 +5606,26 @@ Tilemap:
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
   - first: {x: 1, y: -1, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 0
+      m_TileSpriteIndex: 0
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: -11, y: 0, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 0
+      m_TileSpriteIndex: 0
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: -10, y: 0, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 0
@@ -11867,7 +11867,7 @@ PrefabInstance:
       objectReference: {fileID: 6453380481440969478, guid: fe5204bb5d41f6c43a9be9c87c75e179, type: 3}
     - target: {fileID: 5683777527483929063, guid: 5e78cb8a722fb4a48b09724dba3ab3b2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -152.5
+      value: -249.7
       objectReference: {fileID: 0}
     - target: {fileID: 5683777527483929063, guid: 5e78cb8a722fb4a48b09724dba3ab3b2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -11875,7 +11875,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5683777527483929063, guid: 5e78cb8a722fb4a48b09724dba3ab3b2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -27.6
+      value: -3.5
       objectReference: {fileID: 0}
     - target: {fileID: 5683777527483929063, guid: 5e78cb8a722fb4a48b09724dba3ab3b2, type: 3}
       propertyPath: m_LocalRotation.w
