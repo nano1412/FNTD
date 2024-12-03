@@ -81,12 +81,6 @@ PrefabInstance:
       addedObject: {fileID: -6696072842175153283}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d43157f23133dc940b7948eae83b0b6f, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -4282299301398184810}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d43157f23133dc940b7948eae83b0b6f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: -1159405693396841538}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d43157f23133dc940b7948eae83b0b6f, type: 3}
-      insertIndex: -1
       addedObject: {fileID: -1569666769647372439}
   m_SourcePrefab: {fileID: 100100000, guid: d43157f23133dc940b7948eae83b0b6f, type: 3}
 --- !u!1 &6770447179590240824 stripped
@@ -108,54 +102,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ToPath: {fileID: 0}
   moveSpeed: 10
---- !u!65 &-4282299301398184810
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6770447179590240824}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 27.635036, y: 20.956839, z: 20.726599}
-  m_Center: {x: 0.5710327, y: 0.21502075, z: -1.6941323}
---- !u!54 &-1159405693396841538
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6770447179590240824}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 80
-  m_CollisionDetection: 0
 --- !u!114 &-1569666769647372439
 MonoBehaviour:
   m_ObjectHideFlags: 0
