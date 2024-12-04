@@ -4,7 +4,7 @@ using System.Collections;
 
 public class DynamiteSkill : MonoBehaviour
 {
-
+    public DamageType damageType;
     public int skillCost = 100; // ราคาของสกิล
     public float skillDamage = 50; // ความเสียหายที่สกิลทำ
     public float cooldownTime = 30f; // เวลา Cooldown 30 วินาที
@@ -71,7 +71,7 @@ public class DynamiteSkill : MonoBehaviour
                         Enemy enemy = nearbyObject.GetComponent<Enemy>();
                         if (enemy != null)
                         {
-                            enemy.TakeDamage(skillDamage);
+                            enemy.TakeDamage(skillDamage,damageType);
                             Debug.Log($"{enemy.name} took {skillDamage} damage from Dynamite.");
                         }
                     }

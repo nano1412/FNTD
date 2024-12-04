@@ -104,6 +104,7 @@ MonoBehaviour:
   damage: 80
   explosionRadius: 5
   isExplodeOnStart: 0
+  damageType: 1
   hitSound: {fileID: 8300000, guid: 0a41828633d62ba44a70743982c3eb2b, type: 3}
 --- !u!82 &-2966800635148726724
 AudioSource:
