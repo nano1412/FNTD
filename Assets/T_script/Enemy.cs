@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public int health = 100; // Initial enemy health
-    public int maxHP;
+    public float health = 100f; // Initial enemy health
+    public float maxHP;
     public float moveSpeed = 5f;
     [SerializeField] int coinReward;
     private bool killedByTurret = false; // Flag to check if the enemy was killed by a turret
@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour
     }
 
 
-    public void TakeDamage(int amount)
+    public void TakeDamage(float amount)
     {
         health -= amount;
         //Debug.Log("Enemy took damage, remaining health: " + health);

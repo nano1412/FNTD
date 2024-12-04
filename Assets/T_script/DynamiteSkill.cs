@@ -6,7 +6,7 @@ public class DynamiteSkill : MonoBehaviour
 {
 
     public int skillCost = 100; // ราคาของสกิล
-    public int skillDamage = 50; // ความเสียหายที่สกิลทำ
+    public float skillDamage = 50; // ความเสียหายที่สกิลทำ
     public float cooldownTime = 30f; // เวลา Cooldown 30 วินาที
     public float explosionRadius = 5f; // รัศมีของการโจมตี AOE
 

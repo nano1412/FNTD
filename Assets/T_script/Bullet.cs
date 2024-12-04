@@ -5,7 +5,7 @@ public class Bullet : MonoBehaviour
     private Transform target;
 
     public float speed = 70f;
-    public int damage = 10;            // ตั้งค่าดาเมจของกระสุนเป็น 10
+    public float damage = 10;            // ตั้งค่าดาเมจของกระสุนเป็น 10
     public float explosionRadius = 5f; // รัศมีการระเบิด (กำหนดระยะ AOE)
     public bool isExplodeOnStart;
 
