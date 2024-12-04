@@ -10,6 +10,8 @@ public class Spawner : MonoBehaviour
     public List<GameObject> enemiesList;
     [SerializeField] string spawners;
 
+    public float speedMultiplier = 1f;
+    public float hpMultiplier = 1f;
     float timer;
     public float spawnTimer;
     private int numOfPathChange = 1;
@@ -44,6 +46,9 @@ public class Spawner : MonoBehaviour
         {
             //Debug.Log("is enemy");
             GameObject enemy = Instantiate(enemiesList[0], this.transform.Find("Enemy"));
+            enemy.GetComponent<Enemy>().health *= hpMultiplier;
+            enemy.GetComponent<path>().moveSpeed *= speedMultiplier;
+            Debug.Log(enemy.GetComponent<Enemy>().health *= hpMultiplier);
             enemy.GetComponent<path>().ToPath = nextPath;
         }
         enemiesList.RemoveAt(0);
