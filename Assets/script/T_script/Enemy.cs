@@ -12,6 +12,7 @@ using static DamageType;
 
 public class Enemy : MonoBehaviour
 {
+    
     public float health = 100f; // Initial enemy health
     [SerializeField] private float PhysicalResistance;
     [SerializeField] private float magicResistance;

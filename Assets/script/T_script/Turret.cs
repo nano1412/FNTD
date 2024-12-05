@@ -8,6 +8,8 @@ public class Turret : MonoBehaviour
     public int upgradeCost;
     public int level = 1; // เริ่มที่เลเวล 1
 
+    [SerializeField] GameObject rangeIndicatorPrefab;
+    public GameObject rangeIndicator;
     public float range = 15f;
     public float fireRate = 1f;
     private float fireCountdown = 0f;
@@ -22,6 +24,8 @@ public class Turret : MonoBehaviour
     private AudioSource audioSource; // ตัวควบคุมเสียง
     void Start()
     {
+        rangeIndicator = Instantiate(rangeIndicatorPrefab,transform);
+        rangeIndicator.SetActive(false);
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
         audioSource = GetComponent<AudioSource>();
     }
@@ -105,6 +109,7 @@ public class Turret : MonoBehaviour
 
     void Update()
     {
+        rangeIndicator.transform.localScale = new Vector3(range, rangeIndicator.transform.localScale.y, range);
         if (target == null)
             return;
 
@@ -148,4 +153,5 @@ public class Turret : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, range);
     }
+
 }

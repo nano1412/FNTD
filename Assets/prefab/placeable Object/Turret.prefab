@@ -134,13 +134,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 150
+  upgradeCost: 0
+  level: 1
+  rangeIndicatorPrefab: {fileID: 8104986284888074801, guid: 78444ee11f631d14d923a8af2930ad03, type: 3}
   range: 50
   fireRate: 3
-  damage: 10
+  turretPrefabs: []
   bulletPrefab: {fileID: 3290477809511262552, guid: e239b9ff83586634eb940c6e7b03d8c6, type: 3}
   partToRotate: {fileID: 1827336848876154880}
   firePoint: {fileID: 5454899619809242949}
   enemyTag: Enemy
+  shootSound: {fileID: 0}
 --- !u!114 &198939505846034899
 MonoBehaviour:
   m_ObjectHideFlags: 0
