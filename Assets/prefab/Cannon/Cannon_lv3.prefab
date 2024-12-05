@@ -488,6 +488,8 @@ MonoBehaviour:
   cost: 0
   upgradeCost: 0
   level: 3
+  rangeIndicatorPrefab: {fileID: 2257227053199725838, guid: babe70478e491fa469ecf13574b3c4d8, type: 3}
+  rangeIndicator: {fileID: 0}
   range: 50
   fireRate: 0.5
   turretPrefabs:

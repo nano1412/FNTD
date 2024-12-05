@@ -17,6 +17,11 @@ public class WaveController : MonoBehaviour
     [SerializeField] private GameObject[] towerPrefab;
     [SerializeField] private GameObject[] environmentPrefab;
 
+    public GameObject spawners;
+    [SerializeField] private float speedMultiplier = 1f;
+    [SerializeField] private float hpMultiplier = 1f;
+    [SerializeField] private float spawnTimerMultiplier = 1f;
+
     [SerializeField] private EnemyWithWeight[] commonEnemiesPrefab;
     [SerializeField] private EnemyWithWeight[] rareEnemiesPrefab;
     [SerializeField] private EnemyWithWeight[] bossEnemiesPrefab;
@@ -25,9 +30,9 @@ public class WaveController : MonoBehaviour
     [SerializeField] private int rareEnemiesWeight;
     [SerializeField] private int bossEnemiesWeight;
 
-    [SerializeField] private int maxCommonEnemiesWeight;
-    [SerializeField] private int maxRareEnemiesWeight;
-    [SerializeField] private int maxBossEnemiesWeight;
+    private int maxCommonEnemiesWeight;
+    private int maxRareEnemiesWeight;
+     private int maxBossEnemiesWeight;
 
     [SerializeField] private int numToSpawnenvironment;
     [SerializeField] private int numToSpawnSpawner;
@@ -90,6 +95,17 @@ public class WaveController : MonoBehaviour
                 for (int i = wave / 10; i > 0; i--)
                 {
                     selectEnemyInRarity(bossEnemiesPrefab, maxBossEnemiesWeight);
+                }
+            }
+
+            //Multiplier spawn rate/hp/speed
+            foreach(Transform spawner in spawners.transform)
+            {
+                if (spawner.CompareTag("Spawner"))
+                {
+                    spawner.GetComponent<Spawner>().speedMultiplier *= speedMultiplier;
+                    spawner.GetComponent<Spawner>().hpMultiplier *= hpMultiplier;
+                    spawner.GetComponent<Spawner>().spawnTimer *= spawnTimerMultiplier;
                 }
             }
 

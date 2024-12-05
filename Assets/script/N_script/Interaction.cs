@@ -22,6 +22,7 @@ public class Interaction : MonoBehaviour
     [SerializeField] private Button retryButton; // ปุ่ม Retry
     [SerializeField] private Button mainMenuButton; // ปุ่ม Main Menu
 
+    GameObject saveTurretRangeIndicator;
     public GameObject saveHit;
     [SerializeField] private GameObject selected;
     [SerializeField] private GameObject selectedCanvas;
@@ -159,6 +160,10 @@ public class Interaction : MonoBehaviour
             return;
         }
 
+        //show indicator
+        saveTurretRangeIndicator = tower.GetComponent<Turret>().rangeIndicator;
+        saveTurretRangeIndicator.SetActive(true);
+
         TMP_Text nameCanvas = TowerStatCanvas.transform.Find("TowerName").GetComponent<TMP_Text>();
         TMP_Text lvCanvas = TowerStatCanvas.transform.Find("TowerLevel").GetComponent<TMP_Text>();
         TMP_Text bulletCanvas = TowerStatCanvas.transform.Find("TowerBulletType").GetComponent<TMP_Text>();
@@ -221,6 +226,11 @@ public class Interaction : MonoBehaviour
         EnemyStatCanvas.SetActive(false);
         TowerStatCanvas.SetActive(false);
         DisableCanvasButton.SetActive(false);
+
+        if(saveTurretRangeIndicator != null)
+        {
+        saveTurretRangeIndicator.SetActive(false);
+        }
     }
     
     public void ChangeSpawnerPath()

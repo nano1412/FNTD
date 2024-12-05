@@ -1,12 +1,25 @@
+using System.Net.NetworkInformation;
 using UnityEngine;
+using static DamageType;
+
+
+    public enum DamageType
+    {
+        physical,
+        magic
+    }
+
 
 public class Enemy : MonoBehaviour
 {
-    public int health = 100; // Initial enemy health
-    public int maxHP;
+    
+    public float health = 100f; // Initial enemy health
+    [SerializeField] private float PhysicalResistance;
+    [SerializeField] private float magicResistance;
+    public float maxHP;
     public float moveSpeed = 5f;
     [SerializeField] int coinReward;
-    private bool killedByTurret = false; // Flag to check if the enemy was killed by a turret
+    private bool isDieByHP = false; // Flag to check if the enemy was killed by a turret
 
     void Start()
     {
@@ -15,14 +28,23 @@ public class Enemy : MonoBehaviour
     }
 
 
-    public void TakeDamage(int amount)
+    public void TakeDamage(float amount, DamageType damageType)
     {
+        switch (damageType)
+        {
+            case DamageType.physical:
+                amount = amount * (100 - PhysicalResistance) / 100;
+            break; 
+            case DamageType.magic:
+                amount = amount * (100 - magicResistance) / 100;
+            break;
+        }
         health -= amount;
         //Debug.Log("Enemy took damage, remaining health: " + health);
 
         if (health <= 0)
         {
-            killedByTurret = true; // Mark as killed by turret
+            isDieByHP = true; // Mark as killed by turret
             Die();
         }
     }
@@ -32,7 +54,7 @@ public class Enemy : MonoBehaviour
         //Debug.Log("Enemy died!");
 
         // Check if the enemy was killed by a turret
-        if (killedByTurret)
+        if (isDieByHP)
         {
             CoinSystem.current.AddCoins(coinReward); // Call the CoinSystem to add coins when the enemy dies
             //Debug.Log("Coins added: 10");

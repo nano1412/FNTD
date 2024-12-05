@@ -1,13 +1,15 @@
 using UnityEngine;
+using static DamageType;
 
 public class Bullet : MonoBehaviour
 {
     private Transform target;
 
     public float speed = 70f;
-    public int damage = 10;            // ตั้งค่าดาเมจของกระสุนเป็น 10
+    public float damage = 10;            // ตั้งค่าดาเมจของกระสุนเป็น 10
     public float explosionRadius = 5f; // รัศมีการระเบิด (กำหนดระยะ AOE)
     public bool isExplodeOnStart;
+    public DamageType damageType;
 
     public AudioClip hitSound; // ไฟล์เสียงสำหรับกระสุนชนเป้าหมาย
     private AudioSource audioSource; // ตัวควบคุมเสียง
@@ -68,7 +70,7 @@ public class Bullet : MonoBehaviour
             Enemy e = collider.GetComponent<Enemy>();
             if (e != null)
             {
-                e.TakeDamage(damage); // ทำดาเมจให้กับศัตรูที่อยู่ในรัศมี
+                e.TakeDamage(damage, damageType); // ทำดาเมจให้กับศัตรูที่อยู่ในรัศมี
             }
         }
     }

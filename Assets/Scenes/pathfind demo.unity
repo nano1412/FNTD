@@ -1062,7 +1062,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &235527117
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2597,6 +2597,10 @@ MonoBehaviour:
   - {fileID: 8930444719861144128, guid: a61857479f98e0a4396825c5b0b8dcc3, type: 3}
   - {fileID: 3464109321332880434, guid: 67016be0325e0464ea6817e279400e8e, type: 3}
   - {fileID: 8646426675371089800, guid: 656d31a4efd90024f9d350349bfc1339, type: 3}
+  spawners: {fileID: 516749938}
+  speedMultiplier: 1.5
+  hpMultiplier: 1.5
+  spawnTimerMultiplier: 0.99
   commonEnemiesPrefab:
   - name: imp
     enemy: {fileID: 6453380481440969478, guid: fe5204bb5d41f6c43a9be9c87c75e179, type: 3}
@@ -2618,9 +2622,6 @@ MonoBehaviour:
   commonEnemiesWeight: 60
   rareEnemiesWeight: 30
   bossEnemiesWeight: 10
-  maxCommonEnemiesWeight: 0
-  maxRareEnemiesWeight: 0
-  maxBossEnemiesWeight: 0
   numToSpawnenvironment: 30
   numToSpawnSpawner: 2
   numToSpawnTower: 1
@@ -6407,7 +6408,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1588497456
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8169,7 +8170,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1893556660
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8625,7 +8626,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1981418146
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10930,6 +10931,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ada8fb4dd7bc27948a5cf2e7b00e0907, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageType: 0
   skillCost: 100
   skillDamage: 200
   cooldownTime: 30
