@@ -143,7 +143,8 @@ MonoBehaviour:
   cost: 100
   upgradeCost: 210
   level: 1
-  rangeIndicatorPrefab: {fileID: 8104986284888074801, guid: 78444ee11f631d14d923a8af2930ad03, type: 3}
+  rangeIndicatorPrefab: {fileID: 2257227053199725838, guid: babe70478e491fa469ecf13574b3c4d8, type: 3}
+  rangeIndicator: {fileID: 0}
   range: 40
   fireRate: 0.5
   turretPrefabs:

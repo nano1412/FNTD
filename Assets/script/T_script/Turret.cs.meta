@@ -4,7 +4,8 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - rangeIndicator: {fileID: 8104986284888074801, guid: 78444ee11f631d14d923a8af2930ad03, type: 3}
+  - rangeIndicatorPrefab: {instanceID: 0}
+  - rangeIndicator: {fileID: 2257227053199725838, guid: babe70478e491fa469ecf13574b3c4d8, type: 3}
   - bulletPrefab: {instanceID: 0}
   - partToRotate: {instanceID: 0}
   - firePoint: {instanceID: 0}
