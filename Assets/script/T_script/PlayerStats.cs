@@ -1,12 +1,21 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerStats : MonoBehaviour
 {
-    public static int Lives;
-    public int startLives = 5;
+    public static PlayerStats current;
+
+    public float Lives;
+    public float startLives = 5;
 
     public TMP_Text hpText;
+    public Image healthbarFill;
+
+    private void Awake()
+    {
+        current = this;
+    }
 
     void Start()
     {
@@ -16,9 +25,11 @@ public class PlayerStats : MonoBehaviour
     }
 
     // Method for updating player lives and logging
-    public static void UpdateLives(int amount)
+    public void UpdateLives(float amount)
     {
         Lives -= amount;
+
+        healthbarFill.fillAmount = Lives/ startLives;
 
         // Ensure lives do not drop below zero
         if (Lives < 0)
@@ -44,4 +55,5 @@ public class PlayerStats : MonoBehaviour
             hpText.text = "HP: " + Lives;
         }
     }
+
 }
