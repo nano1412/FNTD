@@ -5,10 +5,10 @@ public class CoinSystem : MonoBehaviour
 {
     public static CoinSystem current;
 
-    public int Coins; // จำนวนเหรียญปัจจุบัน
-    public int startCoins = 100; // จำนวนเหรียญเริ่มต้น
+    public int Coins; // ๏ฟฝำนวน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝยญ๏ฟฝัจ๏ฟฝุบัน
+    public int startCoins = 100; // ๏ฟฝำนวน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝยญ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ
 
-    public TMP_Text coinText; // ตัวแสดงเหรียญใน UI
+    public TMP_Text coinText; // ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝสด๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝยญ๏ฟฝ UI
 
     private void Awake()
     {
@@ -17,12 +17,12 @@ public class CoinSystem : MonoBehaviour
 
     void Start()
     {
-        Coins = startCoins; // กำหนดจำนวนเหรียญเริ่มต้น
-        //Debug.Log("Game started with " + Coins + " coins."); // แสดงผลใน Console
-        UpdateCoinText(); // อัพเดท UI ของเหรียญ
+        Coins = startCoins; // ๏ฟฝ๏ฟฝหน๏ฟฝ๏ฟฝำนวน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝยญ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ
+        //Debug.Log("Game started with " + Coins + " coins."); // ๏ฟฝสด๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ Console
+        UpdateCoinText(); // ๏ฟฝัพเดท UI ๏ฟฝอง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝยญ
     }
 
-    // ฟังก์ชันสำหรับการหักเหรียญ
+    // ๏ฟฝัง๏ฟฝ๏ฟฝัน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝับ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝัก๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝยญ
     public bool SpendCoins(int amount)
     {
         if (Coins >= amount)
@@ -38,20 +38,20 @@ public class CoinSystem : MonoBehaviour
         }
     }
 
-    // ฟังก์ชันสำหรับการเพิ่มเหรียญ
+    // ๏ฟฝัง๏ฟฝ๏ฟฝัน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝับ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝยญ
     public void AddCoins(int amount)
     {
         Coins += amount;
         //Debug.Log("Coins added: " + amount + ". Current coins: " + Coins);
     }
 
-    // อัพเดท UI ของเหรียญ
+    // ๏ฟฝัพเดท UI ๏ฟฝอง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝยญ
     private void Update()
     {
         UpdateCoinText();
     }
 
-    // แสดงจำนวนเหรียญบนหน้าจอ
+    // ๏ฟฝสด๏ฟฝ๏ฟฝำนวน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝยญ๏ฟฝ๏ฟฝหน๏ฟฝาจ๏ฟฝ
     private void UpdateCoinText()
     {
         coinText.text = Coins.ToString();

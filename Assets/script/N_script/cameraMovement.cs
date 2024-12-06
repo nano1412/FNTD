@@ -16,7 +16,7 @@ public class cameraMovement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -49,7 +49,7 @@ public class cameraMovement : MonoBehaviour
         float camY = transform.position.y;
         float camZ = Mathf.Clamp(transform.position.z, -BuildingSystem.current.buildingRange, BuildingSystem.current.buildingRange);
 
-        transform.position = new Vector3(camX,camY,camZ);
+        transform.position = new Vector3(camX, camY, camZ);
 
         //transform.position = Vector3.ClampMagnitude(cameraFocus.transform.position, BuildingSystem.current.buildingRange);
 
@@ -66,15 +66,15 @@ public class cameraMovement : MonoBehaviour
 
     void Zoom()
     {
-        if(componentBase == null)
+        if (componentBase == null)
         {
             componentBase = virtualCamera.GetCinemachineComponent(CinemachineCore.Stage.Body);
         }
 
-        if(Input.GetAxis("Mouse ScrollWheel") != 0)
+        if (Input.GetAxis("Mouse ScrollWheel") != 0)
         {
             cameraDistance = Input.GetAxis("Mouse ScrollWheel") * sensitivity;
-            if(componentBase is CinemachinePositionComposer)
+            if (componentBase is CinemachinePositionComposer)
             {
                 (componentBase as CinemachinePositionComposer).CameraDistance -= cameraDistance;
             }

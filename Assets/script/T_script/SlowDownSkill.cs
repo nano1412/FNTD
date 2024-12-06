@@ -4,14 +4,14 @@ using System.Collections;
 
 public class SlowDownSkill : MonoBehaviour
 {
-    public Button slowDownButton; // ปุ่ม UI สำหรับใช้สกิล Slow Down
-    public int skillCost = 150; // ราคาของสกิล
-    public float slowDownDuration = 5f; // ระยะเวลาที่ศัตรูจะถูกลดความเร็ว
-    public float slowFactor = 0.5f; // อัตราการลดความเร็ว (50% ของความเร็วเดิม)
-    public float cooldownTime = 20f; // เวลา Cooldown 20 วินาที
+    public Button slowDownButton; // ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ UI ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝับ๏ฟฝ๏ฟฝสก๏ฟฝ๏ฟฝ Slow Down
+    public int skillCost = 150; // ๏ฟฝาคาของสก๏ฟฝ๏ฟฝ
+    public float slowDownDuration = 5f; // ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝาท๏ฟฝ๏ฟฝ๏ฟฝัต๏ฟฝูจะถูกลด๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ
+    public float slowFactor = 0.5f; // ๏ฟฝัต๏ฟฝาก๏ฟฝ๏ฟฝลด๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ (50% ๏ฟฝอง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ)
+    public float cooldownTime = 20f; // ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ Cooldown 20 ๏ฟฝินาท๏ฟฝ
 
-    private bool isCooldown = false; // ตรวจสอบว่ากำลังอยู่ในช่วง Cooldown หรือไม่
-    private float cooldownTimer; // ตัวจับเวลาสำหรับ Cooldown
+    private bool isCooldown = false; // ๏ฟฝ๏ฟฝวจ๏ฟฝอบ๏ฟฝ๏ฟฝาก๏ฟฝ๏ฟฝัง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝในช๏ฟฝวง Cooldown ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ
+    private float cooldownTimer; // ๏ฟฝ๏ฟฝวจับ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝับ Cooldown
 
     void Start()
     {
@@ -26,12 +26,12 @@ public class SlowDownSkill : MonoBehaviour
         if (isCooldown)
         {
             cooldownTimer -= Time.deltaTime;
-            slowDownButton.interactable = false; // ปิดการใช้งานปุ่มในช่วง Cooldown
+            slowDownButton.interactable = false; // ๏ฟฝิด๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝาน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝในช๏ฟฝวง Cooldown
 
             if (cooldownTimer <= 0f)
             {
                 isCooldown = false;
-                slowDownButton.interactable = true; // เปิดการใช้งานปุ่มเมื่อ Cooldown สิ้นสุด
+                slowDownButton.interactable = true; // ๏ฟฝิด๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝาน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ Cooldown ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝุด
             }
         }
     }
@@ -47,8 +47,8 @@ public class SlowDownSkill : MonoBehaviour
         if (CoinSystem.current.SpendCoins(skillCost))
         {
             Debug.Log("Skill Slow Down activated! Slowing all enemies.");
-            ApplySlowDown(); // ลดความเร็วศัตรูทุกตัว
-            StartCooldown(); // เริ่ม Cooldown
+            ApplySlowDown(); // ลด๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝัต๏ฟฝูทุก๏ฟฝ๏ฟฝ๏ฟฝ
+            StartCooldown(); // ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ Cooldown
         }
         else
         {
@@ -65,13 +65,13 @@ public class SlowDownSkill : MonoBehaviour
 
     void ApplySlowDown()
     {
-        Enemy[] enemies = FindObjectsOfType<Enemy>(); // หา Enemy ทุกตัวในฉาก
+        Enemy[] enemies = FindObjectsOfType<Enemy>(); // ๏ฟฝ๏ฟฝ Enemy ๏ฟฝุก๏ฟฝ๏ฟฝ๏ฟฝในฉาก
 
         foreach (Enemy enemy in enemies)
         {
             if (enemy != null)
             {
-                enemy.moveSpeed *= slowFactor; // ลดความเร็วลงตาม slowFactor
+                enemy.moveSpeed *= slowFactor; // ลด๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝลง๏ฟฝ๏ฟฝ๏ฟฝ slowFactor
                 Debug.Log($"{enemy.name} speed reduced.");
             }
         }
@@ -88,7 +88,7 @@ public class SlowDownSkill : MonoBehaviour
         {
             if (enemy != null)
             {
-                enemy.moveSpeed /= slowFactor; // คืนค่าความเร็วปัจจุบัน
+                enemy.moveSpeed /= slowFactor; // ๏ฟฝืน๏ฟฝ๏ฟฝาค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝวปัจ๏ฟฝุบัน
                 Debug.Log($"{enemy.name} speed restored.");
             }
         }

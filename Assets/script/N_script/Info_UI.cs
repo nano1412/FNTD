@@ -4,17 +4,20 @@ public class Info_UI : MonoBehaviour
 {
     [SerializeField] GameObject info_UI;
     [SerializeField] private GameObject[] pages;
-    
-    private int currentPage { 
-        get {
-            return m_currentPage; 
-        } 
+
+    private int currentPage
+    {
+        get
+        {
+            return m_currentPage;
+        }
         set
-        { 
-            if (value >= 0 && value < pages.Length) { 
-                m_currentPage = value; 
-            } 
-        } 
+        {
+            if (value >= 0 && value < pages.Length)
+            {
+                m_currentPage = value;
+            }
+        }
     }
     [SerializeField] public int m_currentPage;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -51,7 +54,7 @@ public class Info_UI : MonoBehaviour
         //Debug.Log(lastpage);
         //Debug.Log(nextpage);
 
-        if(lastpage >= 0) pages[lastpage].SetActive(false);
+        if (lastpage >= 0) pages[lastpage].SetActive(false);
         if (nextpage < pages.Length) pages[nextpage].SetActive(false);
 
         pages[currentPage].SetActive(true);

@@ -181,6 +181,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  PhysicalResistance: 0
+  magicResistance: 0
   maxHP: 0
   moveSpeed: 5
+  rarity: 1
   coinReward: 50

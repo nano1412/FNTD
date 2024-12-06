@@ -32,7 +32,7 @@ public class WaveController : MonoBehaviour
 
     private int maxCommonEnemiesWeight;
     private int maxRareEnemiesWeight;
-     private int maxBossEnemiesWeight;
+    private int maxBossEnemiesWeight;
 
     [SerializeField] private int numToSpawnenvironment;
     [SerializeField] private int numToSpawnSpawner;
@@ -41,7 +41,7 @@ public class WaveController : MonoBehaviour
     private int numToSpawnenvironmentPrefab;
     private int numToSpawnSpawnerPrefab;
     private int numToSpawnTowerPrefab;
-    
+
     [SerializeField] private GameObject allspawners;
 
     float nextWaveTimer;
@@ -65,7 +65,7 @@ public class WaveController : MonoBehaviour
         nextWaveTimer -= Time.deltaTime;
         if (nextWaveTimer < 0f)
         {
-            
+
             CheckWave();
             nextWaveTimer = spawnTimer;
         }
@@ -83,14 +83,14 @@ public class WaveController : MonoBehaviour
             if (wave % 5 == 0)
             {
                 //up map size formula
-                BuildingSystem.current.buildingRange = 250 * ((wave / 5)+2);
+                BuildingSystem.current.buildingRange = 250 * ((wave / 5) + 2);
 
                 numToSpawnenvironmentPrefab = numToSpawnenvironment;
                 BuildingSystem.current.RNGBuilding(numToSpawnenvironmentPrefab, environmentPrefab);
                 numToSpawnenvironmentPrefab = 0;
             }
 
-            if(wave % 10 == 0)
+            if (wave % 10 == 0)
             {
                 for (int i = wave / 10; i > 0; i--)
                 {
@@ -99,7 +99,7 @@ public class WaveController : MonoBehaviour
             }
 
             //Multiplier spawn rate/hp/speed
-            foreach(Transform spawner in spawners.transform)
+            foreach (Transform spawner in spawners.transform)
             {
                 if (spawner.CompareTag("Spawner"))
                 {
@@ -153,7 +153,7 @@ public class WaveController : MonoBehaviour
 
     private void DistrubuteEnemies()
     {
-        while(enemiesInWave > 0)
+        while (enemiesInWave > 0)
         {
             int enemyRarity = Random.Range(0, commonEnemiesWeight + rareEnemiesWeight + bossEnemiesWeight);
             switch (enemyRarity)
@@ -180,10 +180,10 @@ public class WaveController : MonoBehaviour
     void selectEnemyInRarity(EnemyWithWeight[] enemywithweight, int maxWeight)
     {
         int randomWeight = Random.Range(0, maxWeight);
-        for(int i = 0; i < enemywithweight.Length; i++)
+        for (int i = 0; i < enemywithweight.Length; i++)
         {
             randomWeight -= enemywithweight[i].weight;
-            if(randomWeight < 0)
+            if (randomWeight < 0)
             {
                 //Debug.Log("enemy no " + i);
                 SendEnemiesToSpawner(enemywithweight[i].enemy);
@@ -213,7 +213,7 @@ public class WaveController : MonoBehaviour
         int enemiesLeftInmap = 0;
         int enemiesLeftToBeSpawn = 0;
 
-        foreach(Transform spawner in allspawners.transform)
+        foreach (Transform spawner in allspawners.transform)
         {
             if (spawner.GetComponent<Spawner>() != null)
             {
@@ -227,9 +227,9 @@ public class WaveController : MonoBehaviour
     public void ResetWave()
     {
         wave = 1;
-        enemiesInWave = 10; // ÃÕà«çµ¨Ó¹Ç¹ÈÑµÃÙã¹ wave áÃ¡
+        enemiesInWave = 10; // ï¿½ï¿½ï¿½çµ¨Ó¹Ç¹ï¿½Ñµï¿½ï¿½ï¿½ wave ï¿½Ã¡
         UpdateWeight();
         DistrubuteEnemies();
-        waveText.text = "Wave: " + wave; // ÍÑ»à´µ¢éÍ¤ÇÒÁáÊ´§ Wave
+        waveText.text = "Wave: " + wave; // ï¿½Ñ»à´µï¿½ï¿½Í¤ï¿½ï¿½ï¿½ï¿½Ê´ï¿½ Wave
     }
 }

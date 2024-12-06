@@ -47,7 +47,7 @@ public class BuildingSystem : MonoBehaviour
 
         //noRNGSpawnRange formula
         noRNGSpawnRange = buildingRange / 3;
-        
+
         KeyboardInput();
 
         floor.transform.localScale = new Vector3(buildingRange * 2, buildingRange * 2, buildingRange * 2);
@@ -231,11 +231,12 @@ public class BuildingSystem : MonoBehaviour
         {
             objectToPlaceCost = objectToPlace.GetComponent<Turret>().GetCost();
             objectToPlace.GetComponent<Turret>().enabled = false;
-        } else
+        }
+        else
         {
             objectToPlaceCost = 0;
         }
-            
+
         objectToPlace.AddComponent<ObjectDrag>();
     }
 
@@ -260,18 +261,19 @@ public class BuildingSystem : MonoBehaviour
             //Debug.Log("invalid RNG placement.");
             Destroy(objectToPlaceRNG);
             return false;
-        } else
-        {
-        objectToPlaceRNG_PlaceableObjectScript.Place();
-            Vector3Int start = gridLayout.WorldToCell(objectToPlaceRNG_PlaceableObjectScript.GetStartPosition()); 
-            TakeArea(start, objectToPlaceRNG_PlaceableObjectScript.Size);
-        if (objectToPlaceRNG.GetComponent<Turret>() != null)
-        {
-            //Debug.Log("RNG is enable");
-            objectToPlaceRNG.GetComponent<Turret>().enabled = true;
         }
+        else
+        {
+            objectToPlaceRNG_PlaceableObjectScript.Place();
+            Vector3Int start = gridLayout.WorldToCell(objectToPlaceRNG_PlaceableObjectScript.GetStartPosition());
+            TakeArea(start, objectToPlaceRNG_PlaceableObjectScript.Size);
+            if (objectToPlaceRNG.GetComponent<Turret>() != null)
+            {
+                //Debug.Log("RNG is enable");
+                objectToPlaceRNG.GetComponent<Turret>().enabled = true;
+            }
 
-        return true;
+            return true;
 
         }
     }

@@ -36,6 +36,6 @@ public class Building_Button : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

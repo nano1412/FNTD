@@ -5,24 +5,24 @@ using System.Collections;
 public class DynamiteSkill : MonoBehaviour
 {
     public DamageType damageType;
-    public int skillCost = 100; // ÃÒ¤Ò¢Í§Ê¡ÔÅ
-    public float skillDamage = 50; // ¤ÇÒÁàÊÕÂËÒÂ·ÕèÊ¡ÔÅ·Ó
-    public float cooldownTime = 30f; // àÇÅÒ Cooldown 30 ÇÔ¹Ò·Õ
-    public float explosionRadius = 5f; // ÃÑÈÁÕ¢Í§¡ÒÃâ¨ÁµÕ AOE
+    public int skillCost = 100; // ï¿½Ò¤Ò¢Í§Ê¡ï¿½ï¿½
+    public float skillDamage = 50; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½Ê¡ï¿½Å·ï¿½
+    public float cooldownTime = 30f; // ï¿½ï¿½ï¿½ï¿½ Cooldown 30 ï¿½Ô¹Ò·ï¿½
+    public float explosionRadius = 5f; // ï¿½ï¿½ï¿½ï¿½Õ¢Í§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ AOE
 
-    private bool isCooldown = false; // µÃÇ¨ÊÍºÇèÒ¡ÓÅÑ§ÍÂÙèã¹ªèÇ§ Cooldown ËÃ×ÍäÁè
-    [SerializeField]private float cooldownTimer; // µÑÇ¨ÑºàÇÅÒÊÓËÃÑº Cooldown
+    private bool isCooldown = false; // ï¿½ï¿½Ç¨ï¿½Íºï¿½ï¿½Ò¡ï¿½ï¿½Ñ§ï¿½ï¿½ï¿½ï¿½ã¹ªï¿½Ç§ Cooldown ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    [SerializeField] private float cooldownTimer; // ï¿½ï¿½Ç¨Ñºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñº Cooldown
 
     void Update()
     {
         if (isCooldown)
         {
             cooldownTimer -= Time.deltaTime;
-            
+
 
             if (cooldownTimer <= 0f)
             {
-                isCooldown = false;       
+                isCooldown = false;
             }
         }
     }
@@ -39,7 +39,7 @@ public class DynamiteSkill : MonoBehaviour
         {
             Debug.Log("Skill Dynamite activated! Select a location.");
             StartCoroutine(SelectLocationAndDamage());
-            StartCooldown(); // àÃÔèÁ Cooldown
+            StartCooldown(); // ï¿½ï¿½ï¿½ï¿½ï¿½ Cooldown
         }
         else
         {
@@ -60,35 +60,35 @@ public class DynamiteSkill : MonoBehaviour
 
         while (!locationSelected)
         {
-            if (Input.GetMouseButtonDown(0)) // àÁ×èÍ¤ÅÔ¡«éÒÂ
+            if (Input.GetMouseButtonDown(0)) // ï¿½ï¿½ï¿½ï¿½Í¤ï¿½Ô¡ï¿½ï¿½ï¿½ï¿½
             {
 
-                    Vector3 explosionPoint = Interaction.current.hit.point; // µÓáË¹è§·ÕèÃÐàºÔ´
-                    Collider[] colliders = Physics.OverlapSphere(explosionPoint, explosionRadius); // µÃÇ¨ÊÍºÇÑµ¶Øã¹ÃÑÈÁÕ
+                Vector3 explosionPoint = Interaction.current.hit.point; // ï¿½ï¿½ï¿½Ë¹è§·ï¿½ï¿½ï¿½ï¿½ï¿½Ô´
+                Collider[] colliders = Physics.OverlapSphere(explosionPoint, explosionRadius); // ï¿½ï¿½Ç¨ï¿½Íºï¿½Ñµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-                    foreach (Collider nearbyObject in colliders)
+                foreach (Collider nearbyObject in colliders)
+                {
+                    Enemy enemy = nearbyObject.GetComponent<Enemy>();
+                    if (enemy != null)
                     {
-                        Enemy enemy = nearbyObject.GetComponent<Enemy>();
-                        if (enemy != null)
-                        {
-                            enemy.TakeDamage(skillDamage,damageType);
-                            Debug.Log($"{enemy.name} took {skillDamage} damage from Dynamite.");
-                        }
+                        enemy.TakeDamage(skillDamage, damageType);
+                        Debug.Log($"{enemy.name} took {skillDamage} damage from Dynamite.");
                     }
+                }
 
-                    Debug.Log($"Dynamite exploded at {explosionPoint} with radius {explosionRadius}.");
-                    locationSelected = true;
-                
+                Debug.Log($"Dynamite exploded at {explosionPoint} with radius {explosionRadius}.");
+                locationSelected = true;
+
             }
 
-            if (Input.GetMouseButtonDown(1)) // àÁ×èÍ¤ÅÔ¡¢ÇÒ
+            if (Input.GetMouseButtonDown(1)) // ï¿½ï¿½ï¿½ï¿½Í¤ï¿½Ô¡ï¿½ï¿½ï¿½
             {
                 Debug.Log("Skill Dynamite canceled.");
-                CoinSystem.current.AddCoins(skillCost); // ¤×¹¤èÒàËÃÕÂ­àÁ×èÍÂ¡àÅÔ¡
-                yield break; // Â¡àÅÔ¡ Coroutine
+                CoinSystem.current.AddCoins(skillCost); // ï¿½×¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â­ï¿½ï¿½ï¿½ï¿½ï¿½Â¡ï¿½ï¿½Ô¡
+                yield break; // Â¡ï¿½ï¿½Ô¡ Coroutine
             }
 
-            yield return null; // ÃÍà¿ÃÁ¶Ñ´ä»
+            yield return null; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½
         }
     }
 }
