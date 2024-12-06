@@ -111,8 +111,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  PhysicalResistance: 0
+  magicResistance: 0
   maxHP: 0
   moveSpeed: 5
+  rarity: 0
   coinReward: 20
 --- !u!54 &2122161014110218608
 Rigidbody:
@@ -160,8 +163,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 7.677335, y: 11.499591, z: 5.844185}
-  m_Center: {x: -0.011445999, y: 5.2497954, z: 0.043630123}
+  m_Size: {x: 54.764423, y: 87.23917, z: 43.128624}
+  m_Center: {x: -2.335596, y: 41.193066, z: 0.5586016}
 --- !u!114 &6526613836538188710
 MonoBehaviour:
   m_ObjectHideFlags: 0
