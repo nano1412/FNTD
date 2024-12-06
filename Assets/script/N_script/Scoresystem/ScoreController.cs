@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using static ScoreController;
 
 public class ScoreController : MonoBehaviour
 {
@@ -23,6 +24,9 @@ public class ScoreController : MonoBehaviour
 
     private bool isAlreadyAddScore = false;
 
+    public delegate void HighscoreChange(List<ScoreElement> list);
+    public static event HighscoreChange onHighscoreChange;
+
     [SerializeField] private Transform scoreParent;
     [SerializeField] private GameObject scorePrefab;
     List<GameObject> scoresUI = new List<GameObject>();
@@ -41,7 +45,17 @@ public class ScoreController : MonoBehaviour
     {
         LoadScore();
     }
-    
+
+    private void OnEnable()
+    {
+        onHighscoreChange += UpdateUI;
+    }
+
+    private void OnDisable()
+    {
+        onHighscoreChange -= UpdateUI;
+    }
+
     private void LoadScore()
     {
         scores = FileHandler.ReadListFromJSON<ScoreElement>(saveFileName);
@@ -49,6 +63,10 @@ public class ScoreController : MonoBehaviour
         //data lower than in leaderboard will be delete
         while (scores.Count > maxShowScoreCount) {
             scores.RemoveAt(maxShowScoreCount);
+        }
+
+        if(onHighscoreChange != null) { 
+            onHighscoreChange.Invoke(scores);
         }
     }
 
@@ -75,6 +93,12 @@ public class ScoreController : MonoBehaviour
                 }
 
                 SaveScore();
+
+                if (onHighscoreChange != null)
+                {
+                    onHighscoreChange.Invoke(scores);
+                }
+
                 break;
             }
         }

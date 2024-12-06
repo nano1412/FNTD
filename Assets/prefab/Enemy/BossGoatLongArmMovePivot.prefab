@@ -91,8 +91,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 500
+  PhysicalResistance: 0
+  magicResistance: 0
   maxHP: 0
   moveSpeed: 5
+  rarity: 2
   coinReward: 100
 --- !u!54 &3384127637645485377
 Rigidbody:
