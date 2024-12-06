@@ -2,10 +2,23 @@ using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class ScoreController : MonoBehaviour
 {
     public static ScoreController current;
+
+    public int currentTotalKill;
+    public int currentCommonKill;
+    public int currentRareKill;
+    public int currentBossKill;
+    public string currentPlayer;
+
+    public TextMeshPro totalKillText;
+    public TextMeshPro commonKillText;
+    public TextMeshPro rareKillText;
+    public TextMeshPro bossKillText;
 
     List<ScoreElement> scores = new List<ScoreElement>();
     [SerializeField] int maxShowScoreCount = 5;
@@ -49,6 +62,30 @@ public class ScoreController : MonoBehaviour
                 break;
             }
         }
+    }
+
+    public void ResetScore()
+    {
+    currentTotalKill = 0;
+    currentCommonKill = 0;
+    currentRareKill = 0;
+    currentBossKill = 0;
+    currentPlayer = "";
+    }
+
+    public void AddCommonKill()
+    {
+        currentCommonKill++;
+    }
+
+    public void AddRareKill()
+    {
+        currentRareKill++;
+    }
+
+    public void AddBossKill()
+    {
+        currentBossKill++;
     }
 }
 

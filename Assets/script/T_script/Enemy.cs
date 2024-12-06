@@ -9,6 +9,13 @@ using static DamageType;
         magic
     }
 
+public enum Rarity
+{
+    common,
+    rare,
+    boss
+}
+
 
 public class Enemy : MonoBehaviour
 {
@@ -18,6 +25,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float magicResistance;
     public float maxHP;
     public float moveSpeed = 5f;
+    [SerializeField] Rarity rarity;
     [SerializeField] int coinReward;
     private bool isDieByHP = false; // Flag to check if the enemy was killed by a turret
 
@@ -45,7 +53,24 @@ public class Enemy : MonoBehaviour
         if (health <= 0)
         {
             isDieByHP = true; // Mark as killed by turret
+            AddKill();
             Die();
+        }
+    }
+
+    private void AddKill()
+    {
+        switch(rarity)
+        {
+            case Rarity.common:
+                ScoreController.current.AddCommonKill();
+                break; 
+            case Rarity.rare:
+                ScoreController.current.AddRareKill();
+                break; 
+            case Rarity.boss:
+                ScoreController.current.AddBossKill();
+                break;
         }
     }
 
