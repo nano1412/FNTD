@@ -6,7 +6,7 @@ public class Turret : MonoBehaviour
     private Enemy targetEnemy;
     public int cost;
     public int upgradeCost;
-    public int level = 1; // เริ่มที่เลเวล 1
+    public int level = 1; // ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ 1
 
     [SerializeField] GameObject rangeIndicatorPrefab;
     public GameObject rangeIndicator;
@@ -14,17 +14,17 @@ public class Turret : MonoBehaviour
     public float fireRate = 1f;
     private float fireCountdown = 0f;
 
-    public GameObject[] turretPrefabs; // Array ของ prefab สำหรับแต่ละเลเวล
+    public GameObject[] turretPrefabs; // Array ๏ฟฝอง prefab ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝับ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ
     public GameObject bulletPrefab;
     public Transform partToRotate;
     public Transform firePoint;
     public string enemyTag = "Enemy";
 
-    public AudioClip shootSound; // ไฟล์เสียงสำหรับการยิง
-    private AudioSource audioSource; // ตัวควบคุมเสียง
+    public AudioClip shootSound; // ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝยง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝับ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝิง
+    private AudioSource audioSource; // ๏ฟฝ๏ฟฝวควบ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝยง
     void Start()
     {
-        rangeIndicator = Instantiate(rangeIndicatorPrefab,transform);
+        rangeIndicator = Instantiate(rangeIndicatorPrefab, transform);
         rangeIndicator.SetActive(false);
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
         audioSource = GetComponent<AudioSource>();
@@ -37,48 +37,48 @@ public class Turret : MonoBehaviour
 
     public void UpgradeTurret()
     {
-        // ตรวจสอบว่าเลเวลของป้อมยังไม่ถึงระดับสูงสุด
+        // ๏ฟฝ๏ฟฝวจ๏ฟฝอบ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝลของ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝัง๏ฟฝ๏ฟฝ๏ฟฝึง๏ฟฝะดับ๏ฟฝูง๏ฟฝุด
         if (level < turretPrefabs.Length)
         {
-            int currentPrefabIndex = level - 1; // เก็บอินเด็กซ์ปัจจุบันสำหรับ prefab
+            int currentPrefabIndex = level - 1; // ๏ฟฝ๏ฟฝ๏ฟฝิน๏ฟฝ็กซ๏ฟฝัจ๏ฟฝุบัน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝับ prefab
 
-            // ตรวจสอบว่าเหรียญเพียงพอหรือไม่
+            // ๏ฟฝ๏ฟฝวจ๏ฟฝอบ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝยญ๏ฟฝ๏ฟฝยง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ
             if (CoinSystem.current.SpendCoins(upgradeCost))
             {
-                // อัปเกรดเลเวล
+                // ๏ฟฝัป๏ฟฝรด๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ
                 level++;
-                UpgradeToNextLevelPrefab(currentPrefabIndex); // อัปเกรดไปยัง prefab ถัดไป
+                UpgradeToNextLevelPrefab(currentPrefabIndex); // ๏ฟฝัป๏ฟฝรด๏ฟฝ๏ฟฝัง prefab ๏ฟฝัด๏ฟฝ
 
-                // เพิ่มค่าใช้จ่ายในการอัปเกรด
-                upgradeCost += 100; // เพิ่ม 100 หน่วยทุกครั้งที่อัปเกรด
+                // ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝในก๏ฟฝ๏ฟฝ๏ฟฝัป๏ฟฝรด
+                upgradeCost += 100; // ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ 100 หน๏ฟฝ๏ฟฝยทุก๏ฟฝ๏ฟฝ๏ฟฝ้งท๏ฟฝ๏ฟฝ๏ฟฝัป๏ฟฝรด
 
-                Debug.Log($"ป้อมอัปเกรดเป็นเลเวล {level} แล้ว! ใช้เหรียญ {upgradeCost} หน่วย");
+                Debug.Log($"๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝัป๏ฟฝรด๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ {level} ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ! ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝยญ {upgradeCost} หน๏ฟฝ๏ฟฝ๏ฟฝ");
             }
             else
             {
-                Debug.Log("เหรียญไม่พอสำหรับการอัปเกรด");
+                Debug.Log("๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝยญ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝับ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝัป๏ฟฝรด");
             }
         }
         else
         {
-            Debug.Log("ป้อมอยู่ในระดับสูงสุดแล้ว!");
+            Debug.Log("๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝะดับ๏ฟฝูง๏ฟฝุด๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ!");
         }
     }
 
     private void UpgradeToNextLevelPrefab(int currentPrefabIndex)
     {
-        // เก็บตำแหน่งและการหมุนของป้อมปัจจุบัน
+        // ๏ฟฝ็บต๏ฟฝ๏ฟฝหน๏ฟฝ๏ฟฝ๏ฟฝะก๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝุน๏ฟฝอง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝัจ๏ฟฝุบัน
         Vector3 currentPosition = transform.position;
         Quaternion currentRotation = transform.rotation;
 
-        // ลบป้อมปัจจุบัน
+        // ลบ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝัจ๏ฟฝุบัน
         Destroy(gameObject);
 
-        // สร้างป้อมใหม่จาก prefab ในเลเวลถัดไป
+        // ๏ฟฝ๏ฟฝ๏ฟฝาง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝาก prefab ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝลถัด๏ฟฝ
         GameObject newTurret = Instantiate(turretPrefabs[currentPrefabIndex + 1], currentPosition, currentRotation);
-        newTurret.GetComponent<Turret>().level = level; // กำหนดเลเวลให้ตรงกับป้อมใหม่
+        newTurret.GetComponent<Turret>().level = level; // ๏ฟฝ๏ฟฝหน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝรง๏ฟฝับ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ
 
-        Debug.Log($"ป้อมอัปเกรดเป็นเลเวล {level}! เปลี่ยนไปใช้ prefab ใหม่");
+        Debug.Log($"๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝัป๏ฟฝรด๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ {level}! ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝยน๏ฟฝ๏ฟฝ๏ฟฝ prefab ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ");
     }
 
     void UpdateTarget()

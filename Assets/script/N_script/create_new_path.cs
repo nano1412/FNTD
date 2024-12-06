@@ -63,12 +63,12 @@ public class create_new_path : MonoBehaviour
 
                 AddNewPath(newpath);
                 pathcount++;
-            }  
+            }
         }
 
         //temporary hard stop create new path with maximun of 5 ToPath
         //new path finish
-        if(pathcount >= 5)
+        if (pathcount >= 5)
         {
             if (!isEndOnMerge)
             {
@@ -99,28 +99,28 @@ public class create_new_path : MonoBehaviour
 
     private void AddNewPath(GameObject newpath)
     {
-            if (lastPath.tag == "Spawner")
-            {
-                lastPath.GetComponent<Spawner>().nextPath = newpath;
-            }
-            else if (lastPath.tag == "path")
-            {
-                lastPath.GetComponent<path_linkedlist>().nextPath = newpath;
-            }
-            else
-            {
-                Debug.Log("invalid path placement");
-                Destroy(transform);
-            }
-        WalkStone(lastPath,newpath);
-            newpath.GetComponent<path_linkedlist>().lastPath.Add(lastPath);
+        if (lastPath.tag == "Spawner")
+        {
+            lastPath.GetComponent<Spawner>().nextPath = newpath;
+        }
+        else if (lastPath.tag == "path")
+        {
+            lastPath.GetComponent<path_linkedlist>().nextPath = newpath;
+        }
+        else
+        {
+            Debug.Log("invalid path placement");
+            Destroy(transform);
+        }
+        WalkStone(lastPath, newpath);
+        newpath.GetComponent<path_linkedlist>().lastPath.Add(lastPath);
         newpath.GetComponent<path_linkedlist>().isFinishInstantiate = true;
         lastPath = newpath;
     }
 
     public void NewChangePath()
     {
-            Interaction.current.curser3D.SetActive(true);
+        Interaction.current.curser3D.SetActive(true);
         isAwaitingSelectSpawner = true;
     }
 
@@ -129,12 +129,12 @@ public class create_new_path : MonoBehaviour
         Vector3 thisPostition = newpath.transform.position;
         Vector3 lastposition = lastPath.transform.position;
 
-        for(float distance = rockDistance; distance <= Vector3.Distance(lastPath.transform.position, newpath.transform.position); distance += rockDistance)
+        for (float distance = rockDistance; distance <= Vector3.Distance(lastPath.transform.position, newpath.transform.position); distance += rockDistance)
         {
             Vector3 tempStonePostition = LerpByDistance(lastposition, thisPostition, distance);
             tempStonePostition.y = 0;
             int randomNum = Random.Range(0, 3);
-            GameObject tempStone = Instantiate(gameobject_stone_walkway[randomNum], tempStonePostition, Quaternion.Euler(0,Random.Range(0, 360),0));
+            GameObject tempStone = Instantiate(gameobject_stone_walkway[randomNum], tempStonePostition, Quaternion.Euler(0, Random.Range(0, 360), 0));
 
             if (lastPath.tag == "path")
             {
@@ -145,9 +145,9 @@ public class create_new_path : MonoBehaviour
                 tempStone.transform.parent = newpath.transform;
             }
         }
-        
+
     }
-    
+
     //example code
     public Vector3 LerpByDistance(Vector3 A, Vector3 B, float x)
     {

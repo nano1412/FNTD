@@ -15,7 +15,7 @@ public class path_linkedlist : MonoBehaviour
         nextPath = BuildingSystem.current.humanKingdom;
         enemys = new GameObject("enemys");
         enemys.transform.parent = transform;
-       
+
     }
 
     // Update is called once per frame
@@ -24,12 +24,12 @@ public class path_linkedlist : MonoBehaviour
         //path always have "flag" as a child
         if (isFinishInstantiate && lastPath.Count <= 0 && enemys.transform.childCount <= 0)
         {
-                if(nextPath.tag == "path")
-                {
+            if (nextPath.tag == "path")
+            {
                 nextPath.GetComponent<path_linkedlist>().lastPath.Remove(gameObject);
 
-                }
-                Destroy(gameObject);
+            }
+            Destroy(gameObject);
         }
     }
 

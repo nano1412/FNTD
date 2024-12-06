@@ -3,12 +3,12 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenuController : MonoBehaviour
 {
-    [SerializeField] private GameObject pauseMenuUI; // Canvas ¢Í§ Pause Menu
+    [SerializeField] private GameObject pauseMenuUI; // Canvas ï¿½Í§ Pause Menu
     private bool isPaused = false;
 
     void Update()
     {
-        // ¡´»ØèÁ ESC à¾×èÍà»Ô´/»Ô´ Pause Menu
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ESC ï¿½ï¿½ï¿½ï¿½ï¿½Ô´/ï¿½Ô´ Pause Menu
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (isPaused)
@@ -22,35 +22,35 @@ public class PauseMenuController : MonoBehaviour
         }
     }
 
-    // ¿Ñ§¡ìªÑ¹à»Ô´ Pause Menu
+    // ï¿½Ñ§ï¿½ï¿½Ñ¹ï¿½Ô´ Pause Menu
     public void PauseGame()
     {
-        pauseMenuUI.SetActive(true); // áÊ´§ Pause Menu
-        Time.timeScale = 0f; // ËÂØ´àÇÅÒã¹à¡Á
+        pauseMenuUI.SetActive(true); // ï¿½Ê´ï¿½ Pause Menu
+        Time.timeScale = 0f; // ï¿½ï¿½Ø´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         isPaused = true;
     }
 
-    // ¿Ñ§¡ìªÑ¹»Ô´ Pause Menu
+    // ï¿½Ñ§ï¿½ï¿½Ñ¹ï¿½Ô´ Pause Menu
     public void ResumeGame()
     {
-        pauseMenuUI.SetActive(false); // «èÍ¹ Pause Menu
-        Time.timeScale = 1f; // àÇÅÒ¡ÅÑºÁÒ»¡µÔ
+        pauseMenuUI.SetActive(false); // ï¿½ï¿½Í¹ Pause Menu
+        Time.timeScale = 1f; // ï¿½ï¿½ï¿½Ò¡ï¿½Ñºï¿½Ò»ï¿½ï¿½ï¿½
         isPaused = false;
     }
 
     public void OpenSettings()
     {
-        Debug.Log("à»Ô´ Settings!"); // ÊÃéÒ§Ë¹éÒ Settings µÒÁµéÍ§¡ÒÃ
+        Debug.Log("ï¿½Ô´ Settings!"); // ï¿½ï¿½ï¿½Ò§Ë¹ï¿½ï¿½ Settings ï¿½ï¿½ï¿½ï¿½ï¿½Í§ï¿½ï¿½ï¿½
     }
 
     public void OpenHowToPlay()
     {
-        Debug.Log("à»Ô´ How to Play!"); // ÊÃéÒ§Ë¹éÒ How to Play µÒÁµéÍ§¡ÒÃ
+        Debug.Log("ï¿½Ô´ How to Play!"); // ï¿½ï¿½ï¿½Ò§Ë¹ï¿½ï¿½ How to Play ï¿½ï¿½ï¿½ï¿½ï¿½Í§ï¿½ï¿½ï¿½
     }
 
     public void BackToMainMenu()
     {
-        Time.timeScale = 1f; // àÇÅÒ¡ÅÑºÁÒ»¡µÔ
-        SceneManager.LoadScene("MainMenu"); // âËÅ´©Ò¡àÁ¹ÙËÅÑ¡
+        Time.timeScale = 1f; // ï¿½ï¿½ï¿½Ò¡ï¿½Ñºï¿½Ò»ï¿½ï¿½ï¿½
+        SceneManager.LoadScene("MainMenu"); // ï¿½ï¿½Å´ï¿½Ò¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¡
     }
 }

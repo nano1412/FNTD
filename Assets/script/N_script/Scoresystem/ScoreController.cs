@@ -61,11 +61,13 @@ public class ScoreController : MonoBehaviour
         scores = FileHandler.ReadListFromJSON<ScoreElement>(saveFileName);
 
         //data lower than in leaderboard will be delete
-        while (scores.Count > maxShowScoreCount) {
+        while (scores.Count > maxShowScoreCount)
+        {
             scores.RemoveAt(maxShowScoreCount);
         }
 
-        if(onHighscoreChange != null) { 
+        if (onHighscoreChange != null)
+        {
             onHighscoreChange.Invoke(scores);
         }
     }
@@ -79,9 +81,9 @@ public class ScoreController : MonoBehaviour
     {
         if (isAlreadyAddScore) { return; }
 
-        for(int i = 0;i < maxShowScoreCount; i++)
+        for (int i = 0; i < maxShowScoreCount; i++)
         {
-            if(i >= scores.Count || element.totalKill > scores[i].totalKill)
+            if (i >= scores.Count || element.totalKill > scores[i].totalKill)
             {
                 //add new highscore
                 scores.Insert(i, element);
@@ -106,12 +108,12 @@ public class ScoreController : MonoBehaviour
 
     public void ResetScore()
     {
-    currentTotalKill = 0;
-    currentCommonKill = 0;
-    currentRareKill = 0;
-    currentBossKill = 0;
-    currentPlayer = "";
-        isAlreadyAddScore= false;
+        currentTotalKill = 0;
+        currentCommonKill = 0;
+        currentRareKill = 0;
+        currentBossKill = 0;
+        currentPlayer = "";
+        isAlreadyAddScore = false;
     }
 
     public void AddCommonKill()
@@ -152,25 +154,26 @@ public class ScoreController : MonoBehaviour
 
     private void Update()
     {
-        currentTotalKill = currentCommonKill + currentRareKill +currentBossKill;
+        currentTotalKill = currentCommonKill + currentRareKill + currentBossKill;
 
         totalKillText.GetComponent<TMP_Text>().text = currentTotalKill.ToString();
-        commonKillText.GetComponent<TMP_Text>().text=currentCommonKill.ToString();
+        commonKillText.GetComponent<TMP_Text>().text = currentCommonKill.ToString();
         rareKillText.GetComponent<TMP_Text>().text = currentRareKill.ToString();
-        bossKillText.GetComponent<TMP_Text>().text =currentBossKill.ToString();
+        bossKillText.GetComponent<TMP_Text>().text = currentBossKill.ToString();
     }
 
     private void UpdateUI(List<ScoreElement> elements)
     {
-        for(int i = 0; i < elements.Count; i++)
+        for (int i = 0; i < elements.Count; i++)
         {
             ScoreElement element = elements[i];
-            if(element.totalKill > 0) {
+            if (element.totalKill > 0)
+            {
 
                 if (i >= scoresUI.Count)
                 {
-                    GameObject temp = Instantiate(scorePrefab,Vector3.zero,Quaternion.identity);
-                    temp.transform.SetParent(scoreParent,false);
+                    GameObject temp = Instantiate(scorePrefab, Vector3.zero, Quaternion.identity);
+                    temp.transform.SetParent(scoreParent, false);
 
                     scoresUI.Add(temp);
 

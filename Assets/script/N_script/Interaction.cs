@@ -18,9 +18,9 @@ public class Interaction : MonoBehaviour
     [SerializeField] private GameObject TowerStatCanvas;
     [SerializeField] private GameObject DisableCanvasButton;
     [SerializeField] private Button upgradeTowerButton; // Reference to the Upgrade button
-    [SerializeField] private GameObject gameOverPanel; // Panel ÊÓËÃÑºË¹éÒ Game Over
-    [SerializeField] private Button retryButton; // »ØèÁ Retry
-    [SerializeField] private Button mainMenuButton; // »ØèÁ Main Menu
+    [SerializeField] private GameObject gameOverPanel; // Panel ï¿½ï¿½ï¿½ï¿½ÑºË¹ï¿½ï¿½ Game Over
+    [SerializeField] private Button retryButton; // ï¿½ï¿½ï¿½ï¿½ Retry
+    [SerializeField] private Button mainMenuButton; // ï¿½ï¿½ï¿½ï¿½ Main Menu
 
     GameObject saveTurretRangeIndicator;
     public GameObject saveHit;
@@ -53,7 +53,7 @@ public class Interaction : MonoBehaviour
     {
         if (PlayerStats.Lives <= 0)
         {
-            GameOver(); // àÃÕÂ¡¿Ñ§¡ìªÑ¹ Game Over
+            GameOver(); // ï¿½ï¿½ï¿½Â¡ï¿½Ñ§ï¿½ï¿½Ñ¹ Game Over
         }
 
         Vector3 pos = BuildingSystem.GetMouseWorldPosition() + offset;
@@ -62,48 +62,48 @@ public class Interaction : MonoBehaviour
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit))
         {
-                saveHit = hit.collider.gameObject;
+            saveHit = hit.collider.gameObject;
         }
 
 
         if (Input.GetMouseButtonDown(0))
         {
             if (!saveHit) return;
-                switch (saveHit.tag)
-                {
-                    case "Spawner":
-                        //change method to called create new path to create_new_path.cs NewChangePath() still keep this in case we have interaction menu with spawner
+            switch (saveHit.tag)
+            {
+                case "Spawner":
+                    //change method to called create new path to create_new_path.cs NewChangePath() still keep this in case we have interaction menu with spawner
 
-                        //ActiveCanvas(createNewPathCanvas);
-                        //selectedCanvas = createNewPathCanvas;
-                        //selected = saveHit.gameObject;
-                        break;
+                    //ActiveCanvas(createNewPathCanvas);
+                    //selectedCanvas = createNewPathCanvas;
+                    //selected = saveHit.gameObject;
+                    break;
 
-                    case "Enemy":
-                        ActiveCanvas(EnemyStatCanvas);
-                        selectedCanvas = EnemyStatCanvas;
-                        selected = saveHit.gameObject;
-                        SetEmenyStatInCanvas(selected);
-                        break;
+                case "Enemy":
+                    ActiveCanvas(EnemyStatCanvas);
+                    selectedCanvas = EnemyStatCanvas;
+                    selected = saveHit.gameObject;
+                    SetEmenyStatInCanvas(selected);
+                    break;
 
-                    case "Tower":
-                        ActiveCanvas(TowerStatCanvas);
-                        selectedCanvas = TowerStatCanvas;
-                        selected = saveHit.gameObject;
-                        SetTowerStatInCanvas(selected);
-                        break;
+                case "Tower":
+                    ActiveCanvas(TowerStatCanvas);
+                    selectedCanvas = TowerStatCanvas;
+                    selected = saveHit.gameObject;
+                    SetTowerStatInCanvas(selected);
+                    break;
 
-                    //not implement yet
-                    case "HumanKingdom":
-                        //ActiveCanvas(null);
-                        //selectedCanvas = null;
-                        //selected = saveHit.transform.Find("HumanKingdom").gameObject;
-                        break;
+                //not implement yet
+                case "HumanKingdom":
+                    //ActiveCanvas(null);
+                    //selectedCanvas = null;
+                    //selected = saveHit.transform.Find("HumanKingdom").gameObject;
+                    break;
 
-                    default:
+                default:
 
-                        break;
-                }
+                    break;
+            }
 
         }
 
@@ -111,31 +111,31 @@ public class Interaction : MonoBehaviour
 
     public void GameOver()
     {
-        // áÊ´§Ë¹éÒ Game Over Panel
+        // ï¿½Ê´ï¿½Ë¹ï¿½ï¿½ Game Over Panel
         gameOverPanel.SetActive(true);
-        Time.timeScale = 0f; // ËÂØ´àÇÅÒã¹à¡Á
+        Time.timeScale = 0f; // ï¿½ï¿½Ø´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     }
 
     public void RetryGame()
     {
-        Time.timeScale = 1f; // ÃÕà«çµàÇÅÒã¹à¡Á
+        Time.timeScale = 1f; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
         ScoreController.current.ResetScore();
-        WaveController.current.ResetWave(); // ÃÕà«çµ wave
+        WaveController.current.ResetWave(); // ï¿½ï¿½ï¿½ï¿½ wave
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
     }
 
     public void GoToMainMenu()
     {
-        // âËÅ´ Scene àÁ¹ÙËÅÑ¡
-        Time.timeScale = 1f; // ÃÕà«çµàÇÅÒã¹à¡Á
+        // ï¿½ï¿½Å´ Scene ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¡
+        Time.timeScale = 1f; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
     }
 
 
     void SetEmenyStatInCanvas(GameObject enemy)
     {
-        if(enemy.tag != "Enemy")
+        if (enemy.tag != "Enemy")
         {
             Debug.Log("This is not Enemy");
             return;
@@ -196,16 +196,16 @@ public class Interaction : MonoBehaviour
             Turret turret = selected.GetComponent<Turret>();
             if (turret != null)
             {
-                int upgradeCost = turret.upgradeCost; // ¤èÒãªé¨èÒÂã¹¡ÒÃÍÑ»à¡Ã´
-                if (CoinSystem.current.SpendCoins(upgradeCost)) // µÃÇ¨ÊÍºáÅĞËÑ¡àËÃÕÂ­ÊÓËÃÑº¡ÒÃÍÑ»à¡Ã´
+                int upgradeCost = turret.upgradeCost; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ã¹¡ï¿½ï¿½ï¿½Ñ»ï¿½Ã´
+                if (CoinSystem.current.SpendCoins(upgradeCost)) // ï¿½ï¿½Ç¨ï¿½Íºï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½Â­ï¿½ï¿½ï¿½ï¿½Ñºï¿½ï¿½ï¿½ï¿½Ñ»ï¿½Ã´
                 {
-                    turret.UpgradeTurret(); // ÍÑ»à¡Ã´»éÍÁ
-                    selected = null; // ÃÕà«çµ¡ÒÃàÅ×Í¡»éÍÁãËé¡ÅÑºä»ÍÂÙèÊ¶Ò¹ĞàÃÔèÁµé¹
-                    DisableAllCanvas(); // »Ô´ËÃ×ÍÃÕà¿Ãª UI ãËé¡ÅÑºä»ÍÂÙèÊ¶Ò¹ĞàÃÔèÁµé¹
+                    turret.UpgradeTurret(); // ï¿½Ñ»ï¿½Ã´ï¿½ï¿½ï¿½ï¿½
+                    selected = null; // ï¿½ï¿½ï¿½çµ¡ï¿½ï¿½ï¿½ï¿½ï¿½Í¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñºï¿½ï¿½ï¿½ï¿½ï¿½Ê¶Ò¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+                    DisableAllCanvas(); // ï¿½Ô´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ãª UI ï¿½ï¿½ï¿½ï¿½Ñºï¿½ï¿½ï¿½ï¿½ï¿½Ê¶Ò¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 }
                 else
                 {
-                    Debug.Log("àËÃÕÂ­äÁè¾ÍÊÓËÃÑº¡ÒÃÍÑ»à¡Ã´!");
+                    Debug.Log("ï¿½ï¿½ï¿½ï¿½Â­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñºï¿½ï¿½ï¿½ï¿½Ñ»ï¿½Ã´!");
                 }
             }
         }
@@ -228,12 +228,12 @@ public class Interaction : MonoBehaviour
         TowerStatCanvas.SetActive(false);
         DisableCanvasButton.SetActive(false);
 
-        if(saveTurretRangeIndicator != null)
+        if (saveTurretRangeIndicator != null)
         {
-        saveTurretRangeIndicator.SetActive(false);
+            saveTurretRangeIndicator.SetActive(false);
         }
     }
-    
+
     public void ChangeSpawnerPath()
     {
         create_new_path_script.ChangePath(selected);

@@ -6,13 +6,13 @@ public class Bullet : MonoBehaviour
     private Transform target;
 
     public float speed = 70f;
-    public float damage = 10;            // ตั้งค่าดาเมจของกระสุนเป็น 10
-    public float explosionRadius = 5f; // รัศมีการระเบิด (กำหนดระยะ AOE)
+    public float damage = 10;            // ๏ฟฝ๏ฟฝ้งค๏ฟฝาด๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝุน๏ฟฝ๏ฟฝ 10
+    public float explosionRadius = 5f; // ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝีก๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝิด (๏ฟฝ๏ฟฝหน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ AOE)
     public bool isExplodeOnStart;
     public DamageType damageType;
 
-    public AudioClip hitSound; // ไฟล์เสียงสำหรับกระสุนชนเป้าหมาย
-    private AudioSource audioSource; // ตัวควบคุมเสียง
+    public AudioClip hitSound; // ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝยง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝับ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝุน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ
+    private AudioSource audioSource; // ๏ฟฝ๏ฟฝวควบ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝยง
 
 
     private void Start()
@@ -22,7 +22,7 @@ public class Bullet : MonoBehaviour
         {
             HitTarget();
         }
-        
+
     }
 
     public void Seek(Transform _target)
@@ -63,21 +63,21 @@ public class Bullet : MonoBehaviour
 
     void Explode()
     {
-        // หาเป้าหมายที่อยู่ในรัศมีการระเบิด
+        // ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝยท๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝีก๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝิด
         Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
         foreach (Collider collider in colliders)
         {
             Enemy e = collider.GetComponent<Enemy>();
             if (e != null)
             {
-                e.TakeDamage(damage, damageType); // ทำดาเมจให้กับศัตรูที่อยู่ในรัศมี
+                e.TakeDamage(damage, damageType); // ๏ฟฝำด๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝับ๏ฟฝัต๏ฟฝูท๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ
             }
         }
     }
 
     void OnDrawGizmosSelected()
     {
-        // แสดงรัศมีการระเบิดเมื่อเลือกกระสุนใน Scene View
+        // ๏ฟฝสด๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝีก๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝิด๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอก๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝุน๏ฟฝ Scene View
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, explosionRadius);
     }

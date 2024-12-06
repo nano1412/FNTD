@@ -28,7 +28,7 @@ public class Spawner : MonoBehaviour
         timer -= Time.deltaTime;
         if (timer < 0f)
         {
-                Spawn();
+            Spawn();
             timer = spawnTimer;
         }
     }
@@ -40,7 +40,7 @@ public class Spawner : MonoBehaviour
 
     void Spawn()
     {
-        if(enemiesList.Count <= 0) { return; }
+        if (enemiesList.Count <= 0) { return; }
 
         if (enemiesList[0].tag == "Enemy")
         {

@@ -3,11 +3,11 @@ using UnityEngine;
 using static DamageType;
 
 
-    public enum DamageType
-    {
-        physical,
-        magic
-    }
+public enum DamageType
+{
+    physical,
+    magic
+}
 
 public enum Rarity
 {
@@ -19,7 +19,7 @@ public enum Rarity
 
 public class Enemy : MonoBehaviour
 {
-    
+
     public float health = 100f; // Initial enemy health
     [SerializeField] private float PhysicalResistance;
     [SerializeField] private float magicResistance;
@@ -42,10 +42,10 @@ public class Enemy : MonoBehaviour
         {
             case DamageType.physical:
                 amount = amount * (100 - PhysicalResistance) / 100;
-            break; 
+                break;
             case DamageType.magic:
                 amount = amount * (100 - magicResistance) / 100;
-            break;
+                break;
         }
         health -= amount;
         //Debug.Log("Enemy took damage, remaining health: " + health);
@@ -60,14 +60,14 @@ public class Enemy : MonoBehaviour
 
     private void AddKill()
     {
-        switch(rarity)
+        switch (rarity)
         {
             case Rarity.common:
                 ScoreController.current.AddCommonKill();
-                break; 
+                break;
             case Rarity.rare:
                 ScoreController.current.AddRareKill();
-                break; 
+                break;
             case Rarity.boss:
                 ScoreController.current.AddBossKill();
                 break;
@@ -91,7 +91,7 @@ public class Enemy : MonoBehaviour
     // Called when the enemy collides with the HumanKingdom
     void OnTriggerEnter(Collider other)
     {
-        
+
 
         if (other.CompareTag("HumanKingdom")) // Check if the collision is with the HumanKingdom
         {
