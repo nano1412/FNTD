@@ -15,13 +15,17 @@ public class ScoreController : MonoBehaviour
     public int currentBossKill;
     public string currentPlayer;
 
-    public GameObject totalKillText;
-    public GameObject commonKillText;
-    public GameObject rareKillText;
-    public GameObject bossKillText;
-    public GameObject playerNameInput;
+    [SerializeField] private GameObject totalKillText;
+    [SerializeField] private GameObject commonKillText;
+    [SerializeField] private GameObject rareKillText;
+    [SerializeField] private GameObject bossKillText;
+    [SerializeField] private GameObject playerNameInput;
 
     private bool isAlreadyAddScore = false;
+
+    [SerializeField] private Transform scoreParent;
+    [SerializeField] private GameObject scorePrefab;
+    List<GameObject> scoresUI = new List<GameObject>();
 
     List<ScoreElement> scores = new List<ScoreElement>();
     [SerializeField] int maxShowScoreCount = 5;
@@ -130,6 +134,33 @@ public class ScoreController : MonoBehaviour
         commonKillText.GetComponent<TMP_Text>().text=currentCommonKill.ToString();
         rareKillText.GetComponent<TMP_Text>().text = currentRareKill.ToString();
         bossKillText.GetComponent<TMP_Text>().text =currentBossKill.ToString();
+    }
+
+    private void UpdateUI(List<ScoreElement> elements)
+    {
+        for(int i = 0; i < elements.Count; i++)
+        {
+            ScoreElement element = elements[i];
+            if(element.totalKill > 0) {
+
+                if (i >= scoresUI.Count)
+                {
+                    GameObject temp = Instantiate(scorePrefab,Vector3.zero,Quaternion.identity);
+                    temp.transform.SetParent(scoreParent,false);
+
+                    scoresUI.Add(temp);
+
+                }
+
+                var texts = scoresUI[i].GetComponentsInChildren<TMP_Text>();
+                texts[0].text = element.player;
+                texts[1].text = element.totalKill.ToString();
+                texts[2].text = element.commonKill.ToString();
+                texts[3].text = element.rareKill.ToString();
+                texts[4].text = element.bossKill.ToString();
+
+            }
+        }
     }
 }
 
