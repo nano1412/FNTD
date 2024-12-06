@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: d43157f23133dc940b7948eae83b0b6f, type: 3}
       propertyPath: m_LocalScale.x
-      value: 30.000002
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d43157f23133dc940b7948eae83b0b6f, type: 3}
       propertyPath: m_LocalScale.y
-      value: 30.000002
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d43157f23133dc940b7948eae83b0b6f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 30.000002
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d43157f23133dc940b7948eae83b0b6f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -175,3 +175,6 @@ MonoBehaviour:
   moveSpeed: 5
   rarity: 2
   coinReward: 1000
+  HPbarPrefab: {fileID: 8705361006534902417, guid: 492aa7ae75840a649b7a6d3a4c45c798, type: 3}
+  healthbar: {fileID: 0}
+  healthbarOffset: 120

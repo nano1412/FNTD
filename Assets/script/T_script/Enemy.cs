@@ -30,10 +30,17 @@ public class Enemy : MonoBehaviour
     [SerializeField] int coinReward;
     private bool isDieByHP = false; // Flag to check if the enemy was killed by a turret
 
+    public GameObject HPbarPrefab;
     public Image healthbar;
+    public float healthbarOffset;
 
     void Start()
     {
+        GameObject tempHPbar = Instantiate(HPbarPrefab,new Vector3(0,healthbarOffset,0),Quaternion.identity, transform);
+        healthbar = tempHPbar.transform.Find("fill").GetComponent<Image>();
+
+
+
         maxHP = health;
         //Debug.Log("Enemy spawned with health: " + health);
     }
