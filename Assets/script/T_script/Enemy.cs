@@ -31,13 +31,15 @@ public class Enemy : MonoBehaviour
     private bool isDieByHP = false; // Flag to check if the enemy was killed by a turret
 
     public GameObject HPbarPrefab;
-    public Image healthbar;
+    GameObject HPbar;
+    public Image healthbarFill;
     public float healthbarOffset;
 
     void Start()
     {
-        GameObject tempHPbar = Instantiate(HPbarPrefab,new Vector3(0,healthbarOffset,0),Quaternion.identity, transform);
-        healthbar = tempHPbar.transform.Find("fill").GetComponent<Image>();
+       HPbar = Instantiate(HPbarPrefab, Vector3.zero,Quaternion.identity, transform);
+        HPbar.GetComponent<RectTransform>().localPosition = new Vector3(0, healthbarOffset,0);
+        healthbarFill = HPbar.transform.Find("fill").GetComponent<Image>();
 
 
 
@@ -48,7 +50,7 @@ public class Enemy : MonoBehaviour
     private void Update()
     {
         //make hpbar look on camera
-        healthbar.transform.LookAt(2 * healthbar.transform.position - Camera.main.transform.position);
+        HPbar.transform.LookAt(2 * HPbar.transform.position - Camera.main.transform.position);
     }
 
 
@@ -78,7 +80,7 @@ public class Enemy : MonoBehaviour
 
     public void UpdateHPbar(float amount)
     {
-        healthbar.fillAmount = amount;
+        healthbarFill.fillAmount = amount;
     }
 
     private void AddKill()

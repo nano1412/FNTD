@@ -127,8 +127,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.81529135, y: 0.53256637, z: 0.47311231}
-  m_Center: {x: 0.05999589, y: 0.005881071, z: 0.0066601275}
+  m_Size: {x: 3.6767712, y: 3.4920738, z: 4.0061245}
+  m_Center: {x: 0.023622751, y: -0.7151443, z: 0.026601791}
 --- !u!54 &1339137246087282745
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -176,5 +176,5 @@ MonoBehaviour:
   rarity: 0
   coinReward: 100
   HPbarPrefab: {fileID: 8705361006534902417, guid: 492aa7ae75840a649b7a6d3a4c45c798, type: 3}
-  healthbar: {fileID: 0}
-  healthbarOffset: 90
+  healthbarFill: {fileID: 0}
+  healthbarOffset: 8
