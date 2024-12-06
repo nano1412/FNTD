@@ -15,14 +15,23 @@ public class ScoreController : MonoBehaviour
     public int currentBossKill;
     public string currentPlayer;
 
-    public TextMeshPro totalKillText;
-    public TextMeshPro commonKillText;
-    public TextMeshPro rareKillText;
-    public TextMeshPro bossKillText;
+    public GameObject totalKillText;
+    public GameObject commonKillText;
+    public GameObject rareKillText;
+    public GameObject bossKillText;
+    public GameObject playerNameInput;
+
+    private bool isAlreadyAddScore = false;
 
     List<ScoreElement> scores = new List<ScoreElement>();
     [SerializeField] int maxShowScoreCount = 5;
     [SerializeField] string saveFileName;
+
+    private void Awake()
+    {
+        current = this;
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -46,12 +55,15 @@ public class ScoreController : MonoBehaviour
 
     public void AddHighscoreIfPossible(ScoreElement element)
     {
+        if (isAlreadyAddScore) { return; }
+
         for(int i = 0;i < maxShowScoreCount; i++)
         {
             if(i >= scores.Count || element.totalKill > scores[i].totalKill)
             {
                 //add new highscore
                 scores.Insert(i, element);
+                isAlreadyAddScore = true;
 
                 while (scores.Count > maxShowScoreCount)
                 {
@@ -71,6 +83,7 @@ public class ScoreController : MonoBehaviour
     currentRareKill = 0;
     currentBossKill = 0;
     currentPlayer = "";
+        isAlreadyAddScore= false;
     }
 
     public void AddCommonKill()
@@ -86,6 +99,37 @@ public class ScoreController : MonoBehaviour
     public void AddBossKill()
     {
         currentBossKill++;
+    }
+
+    public void AddPlayername(string name)
+    {
+        currentPlayer = name;
+    }
+
+    public void SummiitToLeaderBoard()
+    {
+        AddPlayername(playerNameInput.GetComponent<TMP_InputField>().text);
+
+        ScoreElement currentPlayerScore = new ScoreElement
+        (
+            currentPlayer,
+            currentTotalKill,
+            currentCommonKill,
+            currentRareKill,
+            currentBossKill
+        );
+
+        AddHighscoreIfPossible(currentPlayerScore);
+    }
+
+    private void Update()
+    {
+        currentTotalKill = currentCommonKill + currentRareKill +currentBossKill;
+
+        totalKillText.GetComponent<TMP_Text>().text = currentTotalKill.ToString();
+        commonKillText.GetComponent<TMP_Text>().text=currentCommonKill.ToString();
+        rareKillText.GetComponent<TMP_Text>().text = currentRareKill.ToString();
+        bossKillText.GetComponent<TMP_Text>().text =currentBossKill.ToString();
     }
 }
 

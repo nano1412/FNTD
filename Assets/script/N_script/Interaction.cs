@@ -119,7 +119,8 @@ public class Interaction : MonoBehaviour
     public void RetryGame()
     {
         Time.timeScale = 1f; // ÃÕà«çµàÇÅÒã¹à¡Á
-       
+
+        ScoreController.current.ResetScore();
         WaveController.current.ResetWave(); // ÃÕà«çµ wave
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
     }

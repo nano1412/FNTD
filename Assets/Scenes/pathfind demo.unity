@@ -2107,10 +2107,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1162446218}
-  - {fileID: 941051957}
-  - {fileID: 1316482504}
-  - {fileID: 1052538578}
-  - {fileID: 824803663}
   m_Father: {fileID: 1428759278}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
@@ -2161,7 +2157,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 404650258}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 634484179}
+        m_TargetAssemblyTypeName: ScoreController, Assembly-CSharp
+        m_MethodName: SummiitToLeaderBoard
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &404650258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3164,12 +3172,13 @@ MonoBehaviour:
   currentRareKill: 0
   currentBossKill: 0
   currentPlayer: 
-  totalKillText: {fileID: 0}
-  commonKillText: {fileID: 0}
-  rareKillText: {fileID: 0}
-  bossKillText: {fileID: 0}
+  totalKillText: {fileID: 941051956}
+  commonKillText: {fileID: 824803662}
+  rareKillText: {fileID: 1052538577}
+  bossKillText: {fileID: 1316482503}
+  playerNameInput: {fileID: 0}
   maxShowScoreCount: 5
-  saveFileName: 
+  saveFileName: HighScore
 --- !u!1 &674385408
 GameObject:
   m_ObjectHideFlags: 0
@@ -4400,7 +4409,7 @@ GameObject:
   - component: {fileID: 824803665}
   - component: {fileID: 824803664}
   m_Layer: 5
-  m_Name: commonKillText
+  m_Name: PlayercommonKillText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4418,11 +4427,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 404650256}
+  m_Father: {fileID: 1428759278}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 63.997986, y: -1}
+  m_AnchoredPosition: {x: -557.8585, y: -1.7644653}
   m_SizeDelta: {x: 128, y: 42.824}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &824803664
@@ -4989,7 +4998,7 @@ GameObject:
   - component: {fileID: 941051959}
   - component: {fileID: 941051958}
   m_Layer: 5
-  m_Name: totalKillText
+  m_Name: PlayertotalKillText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5007,11 +5016,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 404650256}
+  m_Father: {fileID: 1428759278}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 509.39697, y: -1}
+  m_AnchoredPosition: {x: -112.45947, y: -1.7644653}
   m_SizeDelta: {x: 145.8717, y: 42.824}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &941051958
@@ -5533,7 +5542,7 @@ GameObject:
   - component: {fileID: 1052538580}
   - component: {fileID: 1052538579}
   m_Layer: 5
-  m_Name: rareKillText
+  m_Name: PlayerrareKillText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5551,11 +5560,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 404650256}
+  m_Father: {fileID: 1428759278}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 193.65552, y: -1}
+  m_AnchoredPosition: {x: -428.20093, y: -1.7644653}
   m_SizeDelta: {x: 172.5723, y: 42.824}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1052538579
@@ -6719,7 +6728,7 @@ GameObject:
   - component: {fileID: 1316482506}
   - component: {fileID: 1316482505}
   m_Layer: 5
-  m_Name: bossKillText
+  m_Name: PlayerbossKillText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6737,11 +6746,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 404650256}
+  m_Father: {fileID: 1428759278}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 346.20068, y: -1}
+  m_AnchoredPosition: {x: -275.65576, y: -1.7644653}
   m_SizeDelta: {x: 159.222, y: 42.824}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1316482505
@@ -7007,6 +7016,10 @@ RectTransform:
   m_Children:
   - {fileID: 154379156}
   - {fileID: 404650256}
+  - {fileID: 941051957}
+  - {fileID: 1316482504}
+  - {fileID: 1052538578}
+  - {fileID: 824803663}
   m_Father: {fileID: 1732114005}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
