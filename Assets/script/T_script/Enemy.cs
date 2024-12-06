@@ -1,5 +1,6 @@
 using System.Net.NetworkInformation;
 using UnityEngine;
+using UnityEngine.UI;
 using static DamageType;
 
 
@@ -29,10 +30,18 @@ public class Enemy : MonoBehaviour
     [SerializeField] int coinReward;
     private bool isDieByHP = false; // Flag to check if the enemy was killed by a turret
 
+    public Image healthbar;
+
     void Start()
     {
         maxHP = health;
         //Debug.Log("Enemy spawned with health: " + health);
+    }
+
+    private void Update()
+    {
+        //make hpbar look on camera
+        healthbar.transform.LookAt(2 * healthbar.transform.position - Camera.main.transform.position);
     }
 
 
@@ -48,6 +57,8 @@ public class Enemy : MonoBehaviour
                 break;
         }
         health -= amount;
+
+        UpdateHPbar(health/maxHP);
         //Debug.Log("Enemy took damage, remaining health: " + health);
 
         if (health <= 0)
@@ -56,6 +67,11 @@ public class Enemy : MonoBehaviour
             AddKill();
             Die();
         }
+    }
+
+    public void UpdateHPbar(float amount)
+    {
+        healthbar.fillAmount = amount;
     }
 
     private void AddKill()
