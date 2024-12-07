@@ -90,13 +90,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da6f60e37d34d374b902d0591560e677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 1
   health: 500
   PhysicalResistance: 0
-  magicResistance: 0
+  magicResistance: 40
   maxHP: 0
   moveSpeed: 5
   rarity: 2
-  coinReward: 100
+  coinReward: 200
   HPbarPrefab: {fileID: 8705361006534902417, guid: 492aa7ae75840a649b7a6d3a4c45c798, type: 3}
   healthbarFill: {fileID: 0}
   healthbarOffset: 12

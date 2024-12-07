@@ -399,6 +399,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2901083261403068355}
     - target: {fileID: 1129708774605337439, guid: 454f6cb91b8393b4cb9e379968c33192, type: 3}
+      propertyPath: startLives
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1129708774605337439, guid: 454f6cb91b8393b4cb9e379968c33192, type: 3}
       propertyPath: damageSound
       value: 
       objectReference: {fileID: 8300000, guid: ec6adfea04afc1d40b01cd29d021796c, type: 3}
@@ -410,6 +414,10 @@ PrefabInstance:
       propertyPath: coinText
       value: 
       objectReference: {fileID: 5351781483309110960}
+    - target: {fileID: 1797769597569559548, guid: 454f6cb91b8393b4cb9e379968c33192, type: 3}
+      propertyPath: startCoins
+      value: 800
+      objectReference: {fileID: 0}
     - target: {fileID: 5210154028023825875, guid: 454f6cb91b8393b4cb9e379968c33192, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -3284,8 +3292,8 @@ MonoBehaviour:
   - {fileID: 3464109321332880434, guid: 67016be0325e0464ea6817e279400e8e, type: 3}
   - {fileID: 8646426675371089800, guid: 656d31a4efd90024f9d350349bfc1339, type: 3}
   spawners: {fileID: 516749938}
-  speedMultiplier: 1.5
-  hpMultiplier: 1.5
+  speedMultiplier: 1.2
+  hpMultiplier: 1.2
   spawnTimerMultiplier: 0.99
   commonEnemiesPrefab:
   - name: imp
