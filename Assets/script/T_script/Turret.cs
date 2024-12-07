@@ -41,45 +41,59 @@ public class Turret : MonoBehaviour
         // ��Ǩ�ͺ�������Ţͧ�����ѧ���֧�дѺ�٧�ش
         if (level < turretPrefabs.Length)
         {
-            int currentPrefabIndex = level - 1; // ���Թ�硫�Ѩ�غѹ����Ѻ prefab
+            int currentPrefabIndex = level - 1;
 
-            // ��Ǩ�ͺ�������­��§���������
+            // ตรวจสอบว่าเหรียญเพียงพอหรือไม่
             if (CoinSystem.current.SpendCoins(upgradeCost))
             {
-                // �ѻ�ô�����
+                // อัปเกรดเลเวล
                 level++;
-                UpgradeToNextLevelPrefab(currentPrefabIndex); // �ѻ�ô��ѧ prefab �Ѵ�
 
-                // ������������㹡���ѻ�ô
-                upgradeCost += 100; // ���� 100 ˹��·ء���駷���ѻ�ô
+                // อัปเกรดไปยัง prefab ถัดไป
+                UpgradeToNextLevelPrefab(currentPrefabIndex);
 
-                Debug.Log($"�����ѻ�ô������� {level} ����! ������­ {upgradeCost} ˹���");
+                // เพิ่มค่าใช้จ่ายในการอัปเกรด
+                upgradeCost += 100;
             }
             else
             {
-                Debug.Log("����­��������Ѻ����ѻ�ô");
+                // เหรียญไม่พอ ไม่ทำอะไร
+                return;
             }
         }
         else
         {
-            Debug.Log("����������дѺ�٧�ش����!");
+            // เลเวลถึงระดับสูงสุดแล้ว ไม่ทำอะไร
+            return;
         }
     }
 
     private void UpgradeToNextLevelPrefab(int currentPrefabIndex)
     {
         // �纵��˹���С����ع�ͧ�����Ѩ�غѹ
+        if (turretPrefabs[currentPrefabIndex + 1] == null)
+        {
+            // คืนเหรียญให้ผู้เล่นในกรณีที่ prefab ยังไม่ได้ตั้งค่า
+            CoinSystem.current.AddCoins(upgradeCost);
+            return;
+        }
+
+        // เก็บตำแหน่งและการหมุนของป้อมปัจจุบัน
         Vector3 currentPosition = transform.position;
         Quaternion currentRotation = transform.rotation;
 
-        // ź�����Ѩ�غѹ
+        // ลบป้อมปัจจุบัน
         Destroy(gameObject);
 
-        // ���ҧ��������ҡ prefab �����ŶѴ�
+        // สร้างป้อมใหม่จาก prefab ในเลเวลถัดไป
         GameObject newTurret = Instantiate(turretPrefabs[currentPrefabIndex + 1], currentPosition, currentRotation);
-        newTurret.GetComponent<Turret>().level = level; // ��˹���������ç�Ѻ��������
 
-        Debug.Log($"�����ѻ�ô������� {level}! ����¹��� prefab ����");
+        // กำหนดเลเวลใหม่ให้ป้อมที่อัปเกรดแล้ว
+        Turret newTurretScript = newTurret.GetComponent<Turret>();
+        if (newTurretScript != null)
+        {
+            newTurretScript.level = level;
+        }
     }
 
     void UpdateTarget()

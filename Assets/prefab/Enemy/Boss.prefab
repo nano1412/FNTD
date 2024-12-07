@@ -168,9 +168,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da6f60e37d34d374b902d0591560e677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  enemyName: 
   health: 1000
-  PhysicalResistance: 80
+  physicalResistance: 100
   magicResistance: 0
   maxHP: 0
   moveSpeed: 5

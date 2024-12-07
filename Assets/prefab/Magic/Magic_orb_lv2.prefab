@@ -137,12 +137,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f68959b37a912f4898897127def5ccf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  turretName: 
   cost: 0
   upgradeCost: 300
   level: 2
   rangeIndicatorPrefab: {fileID: 2257227053199725838, guid: babe70478e491fa469ecf13574b3c4d8, type: 3}
   rangeIndicator: {fileID: 0}
-  range: 40
+  range: 60
   fireRate: 1
   turretPrefabs:
   - {fileID: 2011616575309309519, guid: 268660ebb0da7ea40b9162425aae6f49, type: 3}
