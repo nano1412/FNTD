@@ -3653,10 +3653,10 @@ MonoBehaviour:
   CoinRewardbase: 1
   commonEnemiesPrefab:
   - name: imp
-    enemy: {fileID: 6453380481440969478, guid: fe5204bb5d41f6c43a9be9c87c75e179, type: 3}
+    enemy: {fileID: 7968930126434737349, guid: a86ba9f08e3302a4fb50ae46283d3dd0, type: 3}
     weight: 7
   - name: orc
-    enemy: {fileID: 2587095862675472767, guid: e7ae3f2fa4a26954781491b1a6fcf361, type: 3}
+    enemy: {fileID: 2065526270604698965, guid: f94821ab37accab4faf7c07a66f45ebd, type: 3}
     weight: 3
   rareEnemiesPrefab:
   - name: fly
