@@ -35,16 +35,19 @@ public class Enemy : MonoBehaviour
     public Image healthbarFill;
     public float healthbarOffset;
 
+    public AudioClip deathSound; // เสียงเมื่อตาย
+    private AudioSource audioSource;
+
     void Start()
     {
        HPbar = Instantiate(HPbarPrefab, Vector3.zero,Quaternion.identity, transform);
         HPbar.GetComponent<RectTransform>().localPosition = new Vector3(0, healthbarOffset,0);
         healthbarFill = HPbar.transform.Find("fill").GetComponent<Image>();
 
-
-
+        audioSource = GetComponent<AudioSource>();
         maxHP = health;
         //Debug.Log("Enemy spawned with health: " + health);
+
     }
 
     private void Update()
@@ -108,9 +111,10 @@ public class Enemy : MonoBehaviour
         {
             CoinSystem.current.AddCoins(coinReward); // Call the CoinSystem to add coins when the enemy dies
             //Debug.Log("Coins added: 10");
+            audioSource.PlayOneShot(deathSound);
         }
 
-        Destroy(gameObject);
+        Destroy(gameObject,0.5f);
     }
 
     // Called when the enemy collides with the HumanKingdom
