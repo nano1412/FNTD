@@ -50,7 +50,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6749f6aa62827ea4da5fef99a19eaf11, type: 3}
       propertyPath: m_Name
-      value: gigiSkeleton_walk
+      value: gigiSkeleton_ingame
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6749f6aa62827ea4da5fef99a19eaf11, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 6180427082354266863, guid: 6749f6aa62827ea4da5fef99a19eaf11, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -186,7 +190,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f736e9b2cad64234a8c000fd91156273, type: 3}
   m_Resource: {fileID: 8300000, guid: f736e9b2cad64234a8c000fd91156273, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -195,7 +199,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 489.9848
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
