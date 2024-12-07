@@ -99,6 +99,17 @@ public class WaveController : MonoBehaviour
                 }
             }
 
+            //number to spawn prefab formula
+            numToSpawnSpawnerPrefab = numToSpawnSpawner;
+            numToSpawnTowerPrefab = numToSpawnTower;
+
+            BuildingSystem.current.RNGBuilding(numToSpawnSpawnerPrefab, spawnerPrefab);
+            BuildingSystem.current.RNGBuilding(numToSpawnTowerPrefab, towerPrefab);
+
+            //dont want to pass by ref. but want to reset the value after it's done execute
+            numToSpawnSpawnerPrefab = 0;
+            numToSpawnTowerPrefab = 0;
+
             //Multiplier spawn rate/hp/speed
             foreach (Transform spawner in spawners.transform)
             {
@@ -110,17 +121,6 @@ public class WaveController : MonoBehaviour
                 }
             }
             CoinRewardbase = CoinRewardbase * CoinRewardMultiplier;
-
-            //number to spawn prefab formula
-            numToSpawnSpawnerPrefab = numToSpawnSpawner;
-            numToSpawnTowerPrefab = numToSpawnTower;
-
-            BuildingSystem.current.RNGBuilding(numToSpawnSpawnerPrefab, spawnerPrefab);
-            BuildingSystem.current.RNGBuilding(numToSpawnTowerPrefab, towerPrefab);
-
-            //dont want to pass by ref. but want to reset the value after it's done execute
-            numToSpawnSpawnerPrefab = 0;
-            numToSpawnTowerPrefab = 0;
 
 
             //enemy formula

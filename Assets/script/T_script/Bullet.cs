@@ -40,7 +40,7 @@ public class Bullet : MonoBehaviour
 
         if(target.CompareTag("Enemy"))
         {
-            speed = target.GetComponent<Enemy>().moveSpeed * 20f;
+            speed = target.GetComponent<path>().moveSpeed * 20f;
         }
 
         Vector3 dir = target.position - transform.position;
