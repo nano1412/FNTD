@@ -21,6 +21,8 @@ public class WaveController : MonoBehaviour
     [SerializeField] private float speedMultiplier = 1f;
     [SerializeField] private float hpMultiplier = 1f;
     [SerializeField] private float spawnTimerMultiplier = 1f;
+    [SerializeField] private float CoinRewardMultiplier = 1f;
+    public float CoinRewardbase = 1f;
 
     [SerializeField] private EnemyWithWeight[] commonEnemiesPrefab;
     [SerializeField] private EnemyWithWeight[] rareEnemiesPrefab;
@@ -107,6 +109,7 @@ public class WaveController : MonoBehaviour
                     spawner.GetComponent<Spawner>().spawnTimer *= spawnTimerMultiplier;
                 }
             }
+            CoinRewardbase = CoinRewardbase * CoinRewardMultiplier;
 
             //number to spawn prefab formula
             numToSpawnSpawnerPrefab = numToSpawnSpawner;
