@@ -51,7 +51,7 @@ public class Interaction : MonoBehaviour
 
     void Update()
     {
-        if (PlayerStats.Lives <= 0)
+        if (PlayerStats.current.Lives <= 0)
         {
             GameOver(); // ���¡�ѧ��ѹ Game Over
         }

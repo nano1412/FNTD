@@ -54,9 +54,8 @@ public class WaveController : MonoBehaviour
 
     private void Start()
     {
-        enemiesInWave = 10;
-        UpdateWeight();
-        DistrubuteEnemies();
+        //UpdateWeight();
+        //DistrubuteEnemies();
     }
 
     void Update()
@@ -77,7 +76,7 @@ public class WaveController : MonoBehaviour
     {
         waveText.text = "Wave: " + wave;
 
-        if (!(IsEnemiesLeft() > 0))
+        if (!(IsEnemiesLeft() + enemiesInWave > 0))
         {
             wave++;
             if (wave % 5 == 0)
@@ -123,10 +122,10 @@ public class WaveController : MonoBehaviour
 
             //enemy formula
             enemiesInWave = 10 + (wave * 2);
-            UpdateWeight();
-            DistrubuteEnemies();
 
         }
+            UpdateWeight();
+            DistrubuteEnemies();
     }
 
     void UpdateWeight()

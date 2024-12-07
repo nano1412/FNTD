@@ -97,6 +97,9 @@ MonoBehaviour:
   moveSpeed: 5
   rarity: 2
   coinReward: 100
+  HPbarPrefab: {fileID: 8705361006534902417, guid: 492aa7ae75840a649b7a6d3a4c45c798, type: 3}
+  healthbarFill: {fileID: 0}
+  healthbarOffset: 12
 --- !u!54 &3384127637645485377
 Rigidbody:
   m_ObjectHideFlags: 0

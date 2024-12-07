@@ -1,5 +1,6 @@
 using System.Net.NetworkInformation;
 using UnityEngine;
+using UnityEngine.UI;
 using static DamageType;
 
 
@@ -29,10 +30,27 @@ public class Enemy : MonoBehaviour
     [SerializeField] int coinReward;
     private bool isDieByHP = false; // Flag to check if the enemy was killed by a turret
 
+    public GameObject HPbarPrefab;
+    GameObject HPbar;
+    public Image healthbarFill;
+    public float healthbarOffset;
+
     void Start()
     {
+       HPbar = Instantiate(HPbarPrefab, Vector3.zero,Quaternion.identity, transform);
+        HPbar.GetComponent<RectTransform>().localPosition = new Vector3(0, healthbarOffset,0);
+        healthbarFill = HPbar.transform.Find("fill").GetComponent<Image>();
+
+
+
         maxHP = health;
         //Debug.Log("Enemy spawned with health: " + health);
+    }
+
+    private void Update()
+    {
+        //make hpbar look on camera
+        HPbar.transform.LookAt(2 * HPbar.transform.position - Camera.main.transform.position);
     }
 
 
@@ -48,6 +66,8 @@ public class Enemy : MonoBehaviour
                 break;
         }
         health -= amount;
+
+        UpdateHPbar(health/maxHP);
         //Debug.Log("Enemy took damage, remaining health: " + health);
 
         if (health <= 0)
@@ -56,6 +76,11 @@ public class Enemy : MonoBehaviour
             AddKill();
             Die();
         }
+    }
+
+    public void UpdateHPbar(float amount)
+    {
+        healthbarFill.fillAmount = amount;
     }
 
     private void AddKill()
@@ -95,7 +120,7 @@ public class Enemy : MonoBehaviour
 
         if (other.CompareTag("HumanKingdom")) // Check if the collision is with the HumanKingdom
         {
-            PlayerStats.UpdateLives(1); // Reduce player's lives by 1
+            PlayerStats.current.UpdateLives(1); // Reduce player's lives by 1
             //Debug.Log("Player loses 1 life. Remaining lives: " + PlayerStats.Lives);
 
             // Destroy the enemy without adding coins

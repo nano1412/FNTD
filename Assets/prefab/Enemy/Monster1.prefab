@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 5f2b6d7b98dc3ca4191e274e292643a0, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5f2b6d7b98dc3ca4191e274e292643a0, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5f2b6d7b98dc3ca4191e274e292643a0, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5f2b6d7b98dc3ca4191e274e292643a0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -111,9 +111,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  PhysicalResistance: 0
+  magicResistance: 0
   maxHP: 0
   moveSpeed: 5
+  rarity: 0
   coinReward: 20
+  HPbarPrefab: {fileID: 8705361006534902417, guid: 492aa7ae75840a649b7a6d3a4c45c798, type: 3}
+  healthbarFill: {fileID: 0}
+  healthbarOffset: 8
 --- !u!54 &2122161014110218608
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -160,8 +166,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 49.244255, y: 72.89696, z: 47.57073}
-  m_Center: {x: -0.67789793, y: 35.948467, z: 0.79369783}
+  m_Size: {x: 5.9968567, y: 8.9750805, z: 4.345602}
+  m_Center: {x: -0.17319107, y: 3.987525, z: -0.093916416}
 --- !u!114 &6526613836538188710
 MonoBehaviour:
   m_ObjectHideFlags: 0
