@@ -85,9 +85,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 70
-  damage: 40
+  damage: 100
   explosionRadius: 0
   isExplodeOnStart: 0
+  damageType: 0
   hitSound: {fileID: 8300000, guid: f74930faf3d1380429c08856aa213029, type: 3}
 --- !u!82 &6197988499700948419
 AudioSource:

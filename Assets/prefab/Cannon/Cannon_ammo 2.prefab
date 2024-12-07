@@ -90,10 +90,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf1e1bfe0584b2e42ab29126626efca4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 50
-  damage: 160
-  explosionRadius: 50
+  speed: 70
+  damage: 240
+  explosionRadius: 80
   isExplodeOnStart: 0
+  damageType: 0
   hitSound: {fileID: 8300000, guid: 04e70b4d1e6191f4f9b1cf69efc90fbf, type: 3}
 --- !u!54 &3296519344542392369
 Rigidbody:

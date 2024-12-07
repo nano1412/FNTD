@@ -5,13 +5,23 @@ using System.Collections;
 public class DynamiteSkill : MonoBehaviour
 {
     public DamageType damageType;
-    public int skillCost = 100; // �ҤҢͧʡ��
-    public float skillDamage = 50; // ����������·��ʡ�ŷ�
-    public float cooldownTime = 30f; // ���� Cooldown 30 �Թҷ�
-    public float explosionRadius = 5f; // ����բͧ������� AOE
+    public int skillCost = 100; // ค่าความต้องการเหรียญของสกิล
+    public float skillDamage = 50; // ความเสียหายที่ทำได้
+    public float cooldownTime = 30f; // เวลา Cooldown 30 วินาที
+    public float explosionRadius = 5f; // รัศมีของการระเบิด AOE
 
-    private bool isCooldown = false; // ��Ǩ�ͺ��ҡ��ѧ����㹪�ǧ Cooldown �������
-    [SerializeField] private float cooldownTimer; // ��ǨѺ��������Ѻ Cooldown
+    private bool isCooldown = false; // ตรวจสอบว่าสกิลกำลังอยู่ในช่วง Cooldown หรือไม่
+    [SerializeField] private float cooldownTimer; // ตัวจับเวลา Cooldown
+
+    public Button skillButton; // ปุ่ม UI ของสกิล
+    private Color originalColor; // สีเดิมของปุ่ม
+    private Color cooldownColor = Color.red; // สีที่ใช้แสดงช่วง Cooldown
+
+    void Start()
+    {
+        // เก็บสีเดิมของปุ่ม
+        originalColor = skillButton.image.color;
+    }
 
     void Update()
     {
@@ -19,10 +29,9 @@ public class DynamiteSkill : MonoBehaviour
         {
             cooldownTimer -= Time.deltaTime;
 
-
             if (cooldownTimer <= 0f)
             {
-                isCooldown = false;
+                EndCooldown();
             }
         }
     }
@@ -31,19 +40,13 @@ public class DynamiteSkill : MonoBehaviour
     {
         if (isCooldown)
         {
-            Debug.Log("Skill is on cooldown.");
             return;
         }
 
         if (CoinSystem.current.SpendCoins(skillCost))
         {
-            Debug.Log("Skill Dynamite activated! Select a location.");
             StartCoroutine(SelectLocationAndDamage());
-            StartCooldown(); // ����� Cooldown
-        }
-        else
-        {
-            Debug.Log("Not enough coins to use Dynamite.");
+            StartCooldown();
         }
     }
 
@@ -51,7 +54,19 @@ public class DynamiteSkill : MonoBehaviour
     {
         isCooldown = true;
         cooldownTimer = cooldownTime;
-        Debug.Log($"Dynamite skill on cooldown for {cooldownTime} seconds.");
+
+        // เปลี่ยนสีปุ่มและปิดการใช้งาน
+        skillButton.image.color = cooldownColor;
+        skillButton.interactable = false;
+    }
+
+    private void EndCooldown()
+    {
+        isCooldown = false;
+
+        // คืนสีเดิมของปุ่มและเปิดการใช้งาน
+        skillButton.image.color = originalColor;
+        skillButton.interactable = true;
     }
 
     private IEnumerator SelectLocationAndDamage()
@@ -60,11 +75,10 @@ public class DynamiteSkill : MonoBehaviour
 
         while (!locationSelected)
         {
-            if (Input.GetMouseButtonDown(0)) // ����ͤ�ԡ����
+            if (Input.GetMouseButtonDown(0)) // คลิกซ้าย
             {
-
-                Vector3 explosionPoint = Interaction.current.hit.point; // ���˹觷�����Դ
-                Collider[] colliders = Physics.OverlapSphere(explosionPoint, explosionRadius); // ��Ǩ�ͺ�ѵ��������
+                Vector3 explosionPoint = Interaction.current.hit.point; // ตำแหน่งที่ชี้
+                Collider[] colliders = Physics.OverlapSphere(explosionPoint, explosionRadius); // ตรวจสอบวัตถุในรัศมี
 
                 foreach (Collider nearbyObject in colliders)
                 {
@@ -72,23 +86,19 @@ public class DynamiteSkill : MonoBehaviour
                     if (enemy != null)
                     {
                         enemy.TakeDamage(skillDamage, damageType);
-                        Debug.Log($"{enemy.name} took {skillDamage} damage from Dynamite.");
                     }
                 }
 
-                Debug.Log($"Dynamite exploded at {explosionPoint} with radius {explosionRadius}.");
                 locationSelected = true;
-
             }
 
-            if (Input.GetMouseButtonDown(1)) // ����ͤ�ԡ���
+            if (Input.GetMouseButtonDown(1)) // คลิกขวา
             {
-                Debug.Log("Skill Dynamite canceled.");
-                CoinSystem.current.AddCoins(skillCost); // �׹�������­�����¡��ԡ
-                yield break; // ¡��ԡ Coroutine
+                CoinSystem.current.AddCoins(skillCost); // คืนค่าเหรียญเมื่อยกเลิก
+                yield break; // ยกเลิก Coroutine
             }
 
-            yield return null; // ������Ѵ�
+            yield return null; // รอเฟรมถัดไป
         }
     }
 }
