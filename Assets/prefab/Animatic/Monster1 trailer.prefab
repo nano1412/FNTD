@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 5f2b6d7b98dc3ca4191e274e292643a0, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5f2b6d7b98dc3ca4191e274e292643a0, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5f2b6d7b98dc3ca4191e274e292643a0, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5f2b6d7b98dc3ca4191e274e292643a0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -117,6 +117,9 @@ MonoBehaviour:
   moveSpeed: 5
   rarity: 0
   coinReward: 20
+  HPbarPrefab: {fileID: 0}
+  healthbarFill: {fileID: 0}
+  healthbarOffset: 0
 --- !u!54 &2122161014110218608
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -163,8 +166,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 54.764423, y: 87.23917, z: 43.128624}
-  m_Center: {x: -2.335596, y: 41.193066, z: 0.5586016}
+  m_Size: {x: 6.387632, y: 7.576565, z: 4.975232}
+  m_Center: {x: -0.14979959, y: 3.582281, z: -0.19895744}
 --- !u!114 &6526613836538188710
 MonoBehaviour:
   m_ObjectHideFlags: 0
