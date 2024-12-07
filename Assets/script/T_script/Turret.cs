@@ -4,6 +4,7 @@ public class Turret : MonoBehaviour
 {
     private Transform target;
     private Enemy targetEnemy;
+    public string turretName;
     public int cost;
     public int upgradeCost;
     public int level = 1; // ������������� 1

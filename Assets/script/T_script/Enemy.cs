@@ -20,10 +20,10 @@ public enum Rarity
 
 public class Enemy : MonoBehaviour
 {
-
+    public string enemyName;
     public float health = 100f; // Initial enemy health
-    [SerializeField] private float PhysicalResistance;
-    [SerializeField] private float magicResistance;
+    public float physicalResistance;
+    public float magicResistance;
     public float maxHP;
     public float moveSpeed = 5f;
     [SerializeField] Rarity rarity;
@@ -59,7 +59,7 @@ public class Enemy : MonoBehaviour
         switch (damageType)
         {
             case DamageType.physical:
-                amount = amount * (100 - PhysicalResistance) / 100;
+                amount = amount * (100 - physicalResistance) / 100;
                 break;
             case DamageType.magic:
                 amount = amount * (100 - magicResistance) / 100;

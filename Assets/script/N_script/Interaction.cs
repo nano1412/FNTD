@@ -143,14 +143,20 @@ public class Interaction : MonoBehaviour
         TMP_Text nameCanvas = EnemyStatCanvas.transform.Find("EnemyName").GetComponent<TMP_Text>();
         TMP_Text speedCanvas = EnemyStatCanvas.transform.Find("EnemySpeed").GetComponent<TMP_Text>();
         TMP_Text hpCanvas = EnemyStatCanvas.transform.Find("EnemyHP").GetComponent<TMP_Text>();
+        TMP_Text physicalResistanceCanvas = EnemyStatCanvas.transform.Find("EnemyPhysicalResist").GetComponent<TMP_Text>();
+        TMP_Text magicResistanceCanvas = EnemyStatCanvas.transform.Find("EnemyMagicResist").GetComponent<TMP_Text>();
 
-        string enemyName = enemy.name;
+        string enemyName = enemy.GetComponent<Enemy>().enemyName;
         string enemySpeed = enemy.GetComponent<path>().moveSpeed.ToString();
         string enemyHP = enemy.GetComponent<Enemy>().maxHP.ToString();
+        string enemyPhysicalResistance = enemy.GetComponent<Enemy>().physicalResistance.ToString();
+        string enemyMagicResistance = enemy.GetComponent<Enemy>().magicResistance.ToString();
 
         nameCanvas.text = enemyName;
         speedCanvas.text = "Speed: " + enemySpeed;
         hpCanvas.text = "max HP: " + enemyHP;
+        physicalResistanceCanvas.text = "Physical Resistance: " + enemyPhysicalResistance + " %";
+        magicResistanceCanvas.text = "Physical Resistance: " + enemyMagicResistance + " %";
     }
 
     void SetTowerStatInCanvas(GameObject tower)
@@ -165,6 +171,7 @@ public class Interaction : MonoBehaviour
         saveTurretRangeIndicator = tower.GetComponent<Turret>().rangeIndicator;
         saveTurretRangeIndicator.SetActive(true);
 
+        TMP_Text upgradeCostCanvas = TowerStatCanvas.transform.Find("TowerUpgradeCost").GetComponent<TMP_Text>();
         TMP_Text nameCanvas = TowerStatCanvas.transform.Find("TowerName").GetComponent<TMP_Text>();
         TMP_Text lvCanvas = TowerStatCanvas.transform.Find("TowerLevel").GetComponent<TMP_Text>();
         TMP_Text bulletCanvas = TowerStatCanvas.transform.Find("TowerBulletType").GetComponent<TMP_Text>();
@@ -172,13 +179,15 @@ public class Interaction : MonoBehaviour
         TMP_Text fireRateCanvas = TowerStatCanvas.transform.Find("TowerfireRate").GetComponent<TMP_Text>();
         TMP_Text damageCanvas = TowerStatCanvas.transform.Find("TowerDamage").GetComponent<TMP_Text>();
 
-        string towerName = tower.name;
-        string towerlv = "0"; //not implement yet
+        string upgradeCost = tower.GetComponent<Turret>().upgradeCost.ToString();
+        string towerName = tower.GetComponent<Turret>().turretName;
+        string towerlv = tower.GetComponent<Turret>().level.ToString(); //not implement yet
         string towerBullet = tower.GetComponent<Turret>().bulletPrefab.name;
         string towerRange = tower.GetComponent<Turret>().range.ToString();
         string towerFireRate = tower.GetComponent<Turret>().fireRate.ToString();
         string towerDamage = tower.GetComponent<Turret>().bulletPrefab.GetComponent<Bullet>().damage.ToString();
 
+        upgradeCostCanvas.text = "Upgradde cost:" + upgradeCost + " G";
         nameCanvas.text = towerName;
         lvCanvas.text = "LV: " + towerlv;
         bulletCanvas.text = "Bullet: " + towerBullet;
