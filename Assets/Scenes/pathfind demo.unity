@@ -3637,6 +3637,9 @@ MonoBehaviour:
   - {fileID: 1333141726311767786, guid: 5e78cb8a722fb4a48b09724dba3ab3b2, type: 3}
   towerPrefab:
   - {fileID: 5305718710101437997, guid: 7afcf2d33bb48c34fbb44002ff3e883b, type: 3}
+  - {fileID: 8382238454840215484, guid: c43e1c9c1199dbc4e95169c8179ae063, type: 3}
+  - {fileID: 5115871150568103077, guid: d7b24c2fc7fa45c439f24452a8395e4a, type: 3}
+  - {fileID: 2011616575309309519, guid: 268660ebb0da7ea40b9162425aae6f49, type: 3}
   environmentPrefab:
   - {fileID: 4661459094938414034, guid: f8866fd6c9ca38241858cbe6bcaa5f8a, type: 3}
   - {fileID: 8930444719861144128, guid: a61857479f98e0a4396825c5b0b8dcc3, type: 3}
