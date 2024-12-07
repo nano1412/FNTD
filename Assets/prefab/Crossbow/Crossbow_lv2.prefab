@@ -343,7 +343,7 @@ MonoBehaviour:
   rangeIndicatorPrefab: {fileID: 2257227053199725838, guid: babe70478e491fa469ecf13574b3c4d8, type: 3}
   rangeIndicator: {fileID: 0}
   range: 50
-  fireRate: 1
+  fireRate: 1.3
   turretPrefabs:
   - {fileID: 5305718710101437997, guid: 7afcf2d33bb48c34fbb44002ff3e883b, type: 3}
   - {fileID: 7789578711893300334}

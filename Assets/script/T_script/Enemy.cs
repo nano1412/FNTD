@@ -20,7 +20,7 @@ public enum Rarity
 
 public class Enemy : MonoBehaviour
 {
-
+    public float damage = 1;
     public float health = 100f; // Initial enemy health
     [SerializeField] private float PhysicalResistance;
     [SerializeField] private float magicResistance;
@@ -120,7 +120,7 @@ public class Enemy : MonoBehaviour
 
         if (other.CompareTag("HumanKingdom")) // Check if the collision is with the HumanKingdom
         {
-            PlayerStats.current.UpdateLives(1); // Reduce player's lives by 1
+            PlayerStats.current.UpdateLives(damage); // Reduce player's lives by 1
             //Debug.Log("Player loses 1 life. Remaining lives: " + PlayerStats.Lives);
 
             // Destroy the enemy without adding coins
