@@ -41,7 +41,7 @@ public class CoinSystem : MonoBehaviour
     // �ѧ��ѹ����Ѻ�����������­
     public void AddCoins(int amount)
     {
-        Coins += amount;
+        Coins += (int) (amount * WaveController.current.CoinRewardbase);
         //Debug.Log("Coins added: " + amount + ". Current coins: " + Coins);
     }
 

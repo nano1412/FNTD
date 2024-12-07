@@ -38,6 +38,11 @@ public class Bullet : MonoBehaviour
             return;
         }
 
+        if(target.CompareTag("Enemy"))
+        {
+            speed = target.GetComponent<Enemy>().moveSpeed * 20f;
+        }
+
         Vector3 dir = target.position - transform.position;
         float distanceThisFrame = speed * Time.deltaTime;
 
