@@ -5,6 +5,7 @@ public class path : MonoBehaviour
 {
     public GameObject ToPath;
     public float moveSpeed;
+    [SerializeField] private bool isNotFollowPath;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -15,7 +16,7 @@ public class path : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (ToPath == null)
+        if (ToPath == null || isNotFollowPath)
         {
             ToPath = BuildingSystem.current.humanKingdom;
         }
