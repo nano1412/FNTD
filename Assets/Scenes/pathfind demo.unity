@@ -688,7 +688,7 @@ PrefabInstance:
       objectReference: {fileID: 5351781483309110960}
     - target: {fileID: 1797769597569559548, guid: 454f6cb91b8393b4cb9e379968c33192, type: 3}
       propertyPath: startCoins
-      value: 500
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 1797769597569559548, guid: 454f6cb91b8393b4cb9e379968c33192, type: 3}
       propertyPath: CoinRewardMultiplier
@@ -3435,27 +3435,27 @@ MonoBehaviour:
     weight: 5
   - name: Gummy Bat
     enemy: {fileID: 3773647221350182369, guid: 35765910f2aca5145b7dd33b5fe35a4e, type: 3}
-    weight: 1
+    weight: 5
   - name: Wood Log
     enemy: {fileID: 3765390713512512192, guid: cfb31806ce21f424082908509c1b3b08, type: 3}
-    weight: 20
+    weight: 5
   rareEnemiesPrefab:
   - name: Jetpack
     enemy: {fileID: 8179448358006770218, guid: 42b28ca20978b4349ba0e38d251a15bd, type: 3}
-    weight: 10
+    weight: 5
   - name: Funny Sponge
     enemy: {fileID: 5081923633589294793, guid: 1e4191c7a830ed24bbca37428e532be5, type: 3}
-    weight: 10
+    weight: 5
   - name: Skeleton
     enemy: {fileID: 2065526270604698965, guid: f94821ab37accab4faf7c07a66f45ebd, type: 3}
-    weight: 10
+    weight: 5
   bossEnemiesPrefab:
   - name: boss Minotaur
     enemy: {fileID: 4224726859126828029, guid: 3bee08329bfebf640801ffc5a93b7086, type: 3}
-    weight: 10
+    weight: 5
   - name: bossgoat
     enemy: {fileID: 8198564023107875476, guid: 6b2a83ece32426241a9b45d74f526e0c, type: 3}
-    weight: 10
+    weight: 5
   commonEnemiesWeight: 60
   rareEnemiesWeight: 30
   bossEnemiesWeight: 10

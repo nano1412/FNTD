@@ -141,13 +141,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turretName: Cannon
-  cost: 70
+  cost: 80
   upgradeCost: 200
   level: 1
   rangeIndicatorPrefab: {fileID: 2257227053199725838, guid: babe70478e491fa469ecf13574b3c4d8, type: 3}
   rangeIndicator: {fileID: 0}
   range: 50
-  fireRate: 0.5
+  fireRate: 0.35
   turretPrefabs:
   - {fileID: 8382238454840215484}
   - {fileID: 4173418805247382789, guid: 46b816d36590ed84cbe332fbb443e5e7, type: 3}
