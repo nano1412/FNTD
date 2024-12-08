@@ -11,6 +11,7 @@ public class EffectPlayer : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        transform.SetParent(BuildingSystem.current.effect.transform);
 
         vfx = transform.GetComponent<VisualEffect>();
         audioSource = transform.GetComponent<AudioSource>();
