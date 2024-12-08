@@ -61,7 +61,9 @@ MonoBehaviour:
   healthbarFill: {fileID: 0}
   healthbarOffset: 16
   damage: 5
-  deathSound: {fileID: 8300000, guid: f736e9b2cad64234a8c000fd91156273, type: 3}
+  physicalDamageEffect: {fileID: 4175559066867058353, guid: 282b99e17407f194bbbcaccbf63c752a, type: 3}
+  magicDamageEffect: {fileID: 4175559066867058353, guid: ee1f11441cb0add4a84c60b4a175ce90, type: 3}
+  deadEffect: {fileID: 4175559066867058353, guid: 08087df92a1f57e4eac2137fa51add44, type: 3}
 --- !u!114 &4219861471057153625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,6 +78,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ToPath: {fileID: 0}
   moveSpeed: 10
+  isNotFollowPath: 0
 --- !u!82 &5248875373797346246
 AudioSource:
   m_ObjectHideFlags: 0
