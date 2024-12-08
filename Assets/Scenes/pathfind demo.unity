@@ -3435,14 +3435,14 @@ MonoBehaviour:
     weight: 5
   - name: Gummy Bat
     enemy: {fileID: 3773647221350182369, guid: 35765910f2aca5145b7dd33b5fe35a4e, type: 3}
-    weight: 5
+    weight: 3
   - name: Wood Log
     enemy: {fileID: 3765390713512512192, guid: cfb31806ce21f424082908509c1b3b08, type: 3}
     weight: 5
   rareEnemiesPrefab:
   - name: Jetpack
     enemy: {fileID: 8179448358006770218, guid: 42b28ca20978b4349ba0e38d251a15bd, type: 3}
-    weight: 5
+    weight: 3
   - name: Funny Sponge
     enemy: {fileID: 5081923633589294793, guid: 1e4191c7a830ed24bbca37428e532be5, type: 3}
     weight: 5

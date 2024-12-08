@@ -78,6 +78,8 @@ MonoBehaviour:
   ToPath: {fileID: 0}
   moveSpeed: 5
   isNotFollowPath: 0
+  flyPower: 0
+  ceiling: 10
 --- !u!54 &6111934004756169174
 Rigidbody:
   m_ObjectHideFlags: 0

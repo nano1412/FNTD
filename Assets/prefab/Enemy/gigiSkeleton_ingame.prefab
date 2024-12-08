@@ -132,7 +132,7 @@ MonoBehaviour:
   moveSpeed: 15
   isNotFollowPath: 0
   flyPower: 0
-  ceiling: 15
+  ceiling: 10
 --- !u!54 &7426266442223033997
 Rigidbody:
   m_ObjectHideFlags: 0

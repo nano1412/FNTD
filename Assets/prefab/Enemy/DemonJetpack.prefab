@@ -76,8 +76,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ToPath: {fileID: 0}
-  moveSpeed: 30
+  moveSpeed: 25
   isNotFollowPath: 1
+  flyPower: 10
+  ceiling: 15
 --- !u!54 &5083111163409558527
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -124,8 +126,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 10.95896, y: 16.75061, z: 12.520224}
-  m_Center: {x: 0.3216524, y: -3.077838, z: 0.033988953}
+  m_Size: {x: 10.95896, y: 10.326219, z: 12.520224}
+  m_Center: {x: 0.3216524, y: 0.13435698, z: 0.033988953}
 --- !u!1001 &1888806929982989511
 PrefabInstance:
   m_ObjectHideFlags: 0
