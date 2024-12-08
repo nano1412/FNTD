@@ -2772,6 +2772,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 486797395}
   m_CullTransparentMesh: 1
+--- !u!1001 &492450845
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3773647221350182369, guid: 35765910f2aca5145b7dd33b5fe35a4e, type: 3}
+      propertyPath: m_Name
+      value: Gummy Bat
+      objectReference: {fileID: 0}
+    - target: {fileID: 7674310046919928308, guid: 35765910f2aca5145b7dd33b5fe35a4e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -145.44595
+      objectReference: {fileID: 0}
+    - target: {fileID: 7674310046919928308, guid: 35765910f2aca5145b7dd33b5fe35a4e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.000045776367
+      objectReference: {fileID: 0}
+    - target: {fileID: 7674310046919928308, guid: 35765910f2aca5145b7dd33b5fe35a4e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -87.52188
+      objectReference: {fileID: 0}
+    - target: {fileID: 7674310046919928308, guid: 35765910f2aca5145b7dd33b5fe35a4e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7674310046919928308, guid: 35765910f2aca5145b7dd33b5fe35a4e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7674310046919928308, guid: 35765910f2aca5145b7dd33b5fe35a4e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7674310046919928308, guid: 35765910f2aca5145b7dd33b5fe35a4e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7674310046919928308, guid: 35765910f2aca5145b7dd33b5fe35a4e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7674310046919928308, guid: 35765910f2aca5145b7dd33b5fe35a4e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7674310046919928308, guid: 35765910f2aca5145b7dd33b5fe35a4e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 35765910f2aca5145b7dd33b5fe35a4e, type: 3}
 --- !u!1 &516749938
 GameObject:
   m_ObjectHideFlags: 0
@@ -3389,6 +3446,7 @@ MonoBehaviour:
   prefab1: {fileID: 4173418805247382789, guid: 46b816d36590ed84cbe332fbb443e5e7, type: 3}
   prefab2: {fileID: 5305718710101437997, guid: 7afcf2d33bb48c34fbb44002ff3e883b, type: 3}
   prefab3: {fileID: 5115871150568103077, guid: d7b24c2fc7fa45c439f24452a8395e4a, type: 3}
+  effect: {fileID: 0}
 --- !u!114 &634484178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3435,6 +3493,9 @@ MonoBehaviour:
   - name: Wolf
     enemy: {fileID: 328691751598158966, guid: d0cf16b0e02caf244994257aaae402a9, type: 3}
     weight: 2
+  - name: Gummy Bat
+    enemy: {fileID: 3773647221350182369, guid: 35765910f2aca5145b7dd33b5fe35a4e, type: 3}
+    weight: 1
   rareEnemiesPrefab:
   - name: fly
     enemy: {fileID: 1689470851070754440, guid: 9e6049d5ebba3a441823a7a2e379a418, type: 3}
@@ -15300,3 +15361,4 @@ SceneRoots:
   - {fileID: 8778073050621349983}
   - {fileID: 5798304484130377823}
   - {fileID: 450150539}
+  - {fileID: 492450845}
