@@ -3667,7 +3667,7 @@ MonoBehaviour:
     enemy: {fileID: 6770447179590240824, guid: 14b09eb7f3037354bb47075f919989b4, type: 3}
     weight: 10
   - name: bossgoat
-    enemy: {fileID: 1569005799928374408, guid: 052c6351f37d97f4eae0b73b50a82d34, type: 3}
+    enemy: {fileID: 8198564023107875476, guid: 6b2a83ece32426241a9b45d74f526e0c, type: 3}
     weight: 10
   commonEnemiesWeight: 60
   rareEnemiesWeight: 30
