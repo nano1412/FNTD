@@ -129,14 +129,15 @@ MonoBehaviour:
   enemyName: Baphomet
   health: 500
   physicalResistance: 0
-  magicResistance: 100
+  magicResistance: 50
   maxHP: 0
   moveSpeed: 5
   rarity: 2
-  coinReward: 400
+  coinReward: 500
   HPbarPrefab: {fileID: 8705361006534902417, guid: 492aa7ae75840a649b7a6d3a4c45c798, type: 3}
   healthbarFill: {fileID: 0}
   healthbarOffset: 12
+  damage: 10
   deathSound: {fileID: 8300000, guid: f736e9b2cad64234a8c000fd91156273, type: 3}
 --- !u!54 &-4372669620802653221
 Rigidbody:
@@ -296,4 +297,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ToPath: {fileID: 0}
-  moveSpeed: 20
+  moveSpeed: 10

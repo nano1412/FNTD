@@ -3658,10 +3658,22 @@ MonoBehaviour:
   - name: orc
     enemy: {fileID: 2065526270604698965, guid: f94821ab37accab4faf7c07a66f45ebd, type: 3}
     weight: 3
+  - name: KnightZombie
+    enemy: {fileID: 4788727673912483896, guid: 28cfb135ff9aada449ca7eeab263c369, type: 3}
+    weight: 5
+  - name: Wolf
+    enemy: {fileID: 328691751598158966, guid: d0cf16b0e02caf244994257aaae402a9, type: 3}
+    weight: 2
   rareEnemiesPrefab:
   - name: fly
     enemy: {fileID: 1689470851070754440, guid: 9e6049d5ebba3a441823a7a2e379a418, type: 3}
     weight: 10
+  - name: Jelly
+    enemy: {fileID: 5081923633589294793, guid: 1e4191c7a830ed24bbca37428e532be5, type: 3}
+    weight: 10
+  - name: Log
+    enemy: {fileID: 3765390713512512192, guid: cfb31806ce21f424082908509c1b3b08, type: 3}
+    weight: 20
   bossEnemiesPrefab:
   - name: boss
     enemy: {fileID: 6770447179590240824, guid: 14b09eb7f3037354bb47075f919989b4, type: 3}
@@ -14605,6 +14617,8 @@ MonoBehaviour:
   skillDamage: 500
   cooldownTime: 30
   explosionRadius: 70
+  rangeIndicatorPrefab: {fileID: 0}
+  rangeIndicator: {fileID: 0}
   cooldownTimer: 0
   skillButton: {fileID: 299112852}
 --- !u!114 &5724244687459513084

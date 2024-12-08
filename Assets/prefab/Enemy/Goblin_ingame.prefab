@@ -8,6 +8,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 866526941858931925, guid: 53ab9ad2e854caf478a8b96567d2939e, type: 3}
+      propertyPath: m_Size.y
+      value: 10.946567
+      objectReference: {fileID: 0}
+    - target: {fileID: 866526941858931925, guid: 53ab9ad2e854caf478a8b96567d2939e, type: 3}
+      propertyPath: m_Center.y
+      value: 5.4328
+      objectReference: {fileID: 0}
     - target: {fileID: 6178104862358008091, guid: 53ab9ad2e854caf478a8b96567d2939e, type: 3}
       propertyPath: m_Mass
       value: 1
@@ -102,6 +110,7 @@ MonoBehaviour:
   HPbarPrefab: {fileID: 8705361006534902417, guid: 492aa7ae75840a649b7a6d3a4c45c798, type: 3}
   healthbarFill: {fileID: 0}
   healthbarOffset: 8
+  damage: 1
   deathSound: {fileID: 8300000, guid: f736e9b2cad64234a8c000fd91156273, type: 3}
 --- !u!114 &3341789697140130308
 MonoBehaviour:
