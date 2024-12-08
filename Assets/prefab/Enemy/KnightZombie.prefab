@@ -333,7 +333,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: KnightZombie
   health: 150
-  physicalResistance: 10
+  physicalResistance: 5
   magicResistance: 0
   maxHP: 0
   moveSpeed: 5

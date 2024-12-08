@@ -50,8 +50,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Funny Sponge
   health: 225
-  physicalResistance: 10
-  magicResistance: 20
+  physicalResistance: 5
+  magicResistance: 10
   maxHP: 0
   moveSpeed: 5
   rarity: 1

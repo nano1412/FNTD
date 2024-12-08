@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1865586797361275433
+--- !u!1 &4224726859126828029
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,50 +8,50 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 682371165376272599}
-  - component: {fileID: 3803725178167190955}
-  - component: {fileID: -7185362197593850652}
-  - component: {fileID: 1080654481583593989}
-  - component: {fileID: 3169541091172359397}
+  - component: {fileID: 1755335131108965013}
+  - component: {fileID: 2770000525997397437}
+  - component: {fileID: 8848115102011735416}
+  - component: {fileID: 6111934004756169174}
+  - component: {fileID: 6392912090734561726}
   m_Layer: 0
-  m_Name: Baphomet_ingame
+  m_Name: Minotaur
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &682371165376272599
+--- !u!4 &1755335131108965013
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1865586797361275433}
+  m_GameObject: {fileID: 4224726859126828029}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8387675328414297915}
+  - {fileID: 8105180721343640587}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3803725178167190955
+--- !u!114 &2770000525997397437
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1865586797361275433}
+  m_GameObject: {fileID: 4224726859126828029}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: da6f60e37d34d374b902d0591560e677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyName: Baphomet
+  enemyName: Minotaur
   health: 500
-  physicalResistance: 5
-  magicResistance: 25
+  physicalResistance: 25
+  magicResistance: 5
   maxHP: 0
   moveSpeed: 5
   rarity: 2
@@ -63,13 +63,13 @@ MonoBehaviour:
   physicalDamageEffect: {fileID: 4175559066867058353, guid: 282b99e17407f194bbbcaccbf63c752a, type: 3}
   magicDamageEffect: {fileID: 4175559066867058353, guid: ee1f11441cb0add4a84c60b4a175ce90, type: 3}
   deadEffect: {fileID: 4175559066867058353, guid: 08087df92a1f57e4eac2137fa51add44, type: 3}
---- !u!114 &-7185362197593850652
+--- !u!114 &8848115102011735416
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1865586797361275433}
+  m_GameObject: {fileID: 4224726859126828029}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0fa89d920f5a88249b3a7b792431ac0e, type: 3}
@@ -78,15 +78,15 @@ MonoBehaviour:
   ToPath: {fileID: 0}
   moveSpeed: 5
   isNotFollowPath: 0
---- !u!54 &1080654481583593989
+--- !u!54 &6111934004756169174
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1865586797361275433}
+  m_GameObject: {fileID: 4224726859126828029}
   serializedVersion: 4
-  m_Mass: 5
+  m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -103,15 +103,15 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
---- !u!65 &3169541091172359397
+--- !u!65 &6392912090734561726
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1865586797361275433}
+  m_GameObject: {fileID: 4224726859126828029}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -124,97 +124,97 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 8.341173, y: 15.093546, z: 6.0297637}
-  m_Center: {x: 0.48832798, y: 7.046774, z: 0.746578}
---- !u!1001 &8353538733165529296
+  m_Size: {x: 12.2499485, y: 16.30738, z: 12.881273}
+  m_Center: {x: -0.47603488, y: 7.6536903, z: 1.6079302}
+--- !u!1001 &8642930576635286496
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 682371165376272599}
+    m_TransformParent: {fileID: 1755335131108965013}
     m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: eeb3a9c20e976f847b1b722d92f2bba8, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 7cfe7d600d3c2814698f80a9cfe6b929, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: eeb3a9c20e976f847b1b722d92f2bba8, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 7cfe7d600d3c2814698f80a9cfe6b929, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: eeb3a9c20e976f847b1b722d92f2bba8, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 7cfe7d600d3c2814698f80a9cfe6b929, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: eeb3a9c20e976f847b1b722d92f2bba8, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 7cfe7d600d3c2814698f80a9cfe6b929, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: eeb3a9c20e976f847b1b722d92f2bba8, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 7cfe7d600d3c2814698f80a9cfe6b929, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: eeb3a9c20e976f847b1b722d92f2bba8, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 7cfe7d600d3c2814698f80a9cfe6b929, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: eeb3a9c20e976f847b1b722d92f2bba8, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 7cfe7d600d3c2814698f80a9cfe6b929, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: eeb3a9c20e976f847b1b722d92f2bba8, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 7cfe7d600d3c2814698f80a9cfe6b929, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: eeb3a9c20e976f847b1b722d92f2bba8, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 7cfe7d600d3c2814698f80a9cfe6b929, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: eeb3a9c20e976f847b1b722d92f2bba8, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 7cfe7d600d3c2814698f80a9cfe6b929, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -4529832293434525961, guid: eeb3a9c20e976f847b1b722d92f2bba8, type: 3}
+    - target: {fileID: -778916098087667748, guid: 7cfe7d600d3c2814698f80a9cfe6b929, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 3ee4a9bc7ff18904c856c4b9d7792c72, type: 2}
-    - target: {fileID: 919132149155446097, guid: eeb3a9c20e976f847b1b722d92f2bba8, type: 3}
+      objectReference: {fileID: 2100000, guid: 209da0f7c46815f41be0a1f642cd2103, type: 2}
+    - target: {fileID: 919132149155446097, guid: 7cfe7d600d3c2814698f80a9cfe6b929, type: 3}
       propertyPath: m_Name
-      value: Baphomet_Walk_NewUvTexture2
+      value: Minotaur_Walk
       objectReference: {fileID: 0}
-    - target: {fileID: 8195889745786614565, guid: eeb3a9c20e976f847b1b722d92f2bba8, type: 3}
+    - target: {fileID: 4038349197597032740, guid: 7cfe7d600d3c2814698f80a9cfe6b929, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 211047d6f63274c4f98ac72b3ed47711, type: 2}
+      objectReference: {fileID: 2100000, guid: 43a889848917c934cbf386fbee79defd, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: eeb3a9c20e976f847b1b722d92f2bba8, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7cfe7d600d3c2814698f80a9cfe6b929, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8347754089757251483}
-  m_SourcePrefab: {fileID: 100100000, guid: eeb3a9c20e976f847b1b722d92f2bba8, type: 3}
---- !u!4 &8387675328414297915 stripped
+      addedObject: {fileID: 7648627891161305987}
+  m_SourcePrefab: {fileID: 100100000, guid: 7cfe7d600d3c2814698f80a9cfe6b929, type: 3}
+--- !u!4 &8105180721343640587 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: eeb3a9c20e976f847b1b722d92f2bba8, type: 3}
-  m_PrefabInstance: {fileID: 8353538733165529296}
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7cfe7d600d3c2814698f80a9cfe6b929, type: 3}
+  m_PrefabInstance: {fileID: 8642930576635286496}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &9163931243782436225 stripped
+--- !u!1 &8876790857030201009 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: eeb3a9c20e976f847b1b722d92f2bba8, type: 3}
-  m_PrefabInstance: {fileID: 8353538733165529296}
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 7cfe7d600d3c2814698f80a9cfe6b929, type: 3}
+  m_PrefabInstance: {fileID: 8642930576635286496}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &8347754089757251483
+--- !u!95 &7648627891161305987
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9163931243782436225}
+  m_GameObject: {fileID: 8876790857030201009}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 424dd5c8d1501cf4097f4f43aac65675, type: 2}
+  m_Controller: {fileID: 9100000, guid: 4a92f1216fe94184eb173d8eddc6fe0a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

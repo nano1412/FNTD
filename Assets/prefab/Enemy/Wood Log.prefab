@@ -50,8 +50,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Wood Log
   health: 200
-  physicalResistance: 10
-  magicResistance: 10
+  physicalResistance: 5
+  magicResistance: 5
   maxHP: 0
   moveSpeed: 5
   rarity: 0

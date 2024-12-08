@@ -51,7 +51,7 @@ MonoBehaviour:
   enemyName: Swif Wolf
   health: 125
   physicalResistance: 0
-  magicResistance: 10
+  magicResistance: 5
   maxHP: 0
   moveSpeed: 5
   rarity: 0

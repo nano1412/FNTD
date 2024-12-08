@@ -103,8 +103,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Elite Skeleton
   health: 200
-  physicalResistance: 20
-  magicResistance: 10
+  physicalResistance: 10
+  magicResistance: 5
   maxHP: 0
   moveSpeed: 5
   rarity: 1
