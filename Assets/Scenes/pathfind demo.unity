@@ -3363,6 +3363,7 @@ Transform:
   - {fileID: 516749939}
   - {fileID: 95648905}
   - {fileID: 797832694}
+  - {fileID: 1432736745}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &634484177
@@ -3389,6 +3390,7 @@ MonoBehaviour:
   prefab1: {fileID: 4173418805247382789, guid: 46b816d36590ed84cbe332fbb443e5e7, type: 3}
   prefab2: {fileID: 5305718710101437997, guid: 7afcf2d33bb48c34fbb44002ff3e883b, type: 3}
   prefab3: {fileID: 5115871150568103077, guid: d7b24c2fc7fa45c439f24452a8395e4a, type: 3}
+  effect: {fileID: 1432736744}
 --- !u!114 &634484178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8009,6 +8011,37 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1432736744
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1432736745}
+  m_Layer: 0
+  m_Name: effect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1432736745
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1432736744}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 634484176}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1447710320
 GameObject:
   m_ObjectHideFlags: 0
