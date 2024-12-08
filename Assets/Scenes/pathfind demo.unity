@@ -14606,6 +14606,8 @@ MonoBehaviour:
   skillDamage: 500
   cooldownTime: 30
   explosionRadius: 70
+  rangeIndicatorPrefab: {fileID: 2257227053199725838, guid: babe70478e491fa469ecf13574b3c4d8, type: 3}
+  rangeIndicator: {fileID: 0}
   cooldownTimer: 0
   skillButton: {fileID: 299112852}
 --- !u!114 &5724244687459513084

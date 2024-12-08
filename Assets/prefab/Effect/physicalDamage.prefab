@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8880005312336090409}
   - component: {fileID: 698302347695871185}
   m_Layer: 0
-  m_Name: dynamite effect
+  m_Name: physicalDamage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

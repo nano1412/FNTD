@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8880005312336090409}
   - component: {fileID: 698302347695871185}
   m_Layer: 0
-  m_Name: dynamite effect
+  m_Name: magicDamage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58,7 +58,7 @@ VisualEffect:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4175559066867058353}
   m_Enabled: 1
-  m_Asset: {fileID: 8926484042661614526, guid: 306ecd5a4938f0f42bca40963d01ad7d, type: 3}
+  m_Asset: {fileID: 8926484042661614526, guid: 27bc1844a2074f04280e21469fe1df27, type: 3}
   m_InitialEventName: OnPlay
   m_InitialEventNameOverriden: 0
   m_StartSeed: 0

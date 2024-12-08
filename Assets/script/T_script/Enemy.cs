@@ -35,8 +35,9 @@ public class Enemy : MonoBehaviour
     public Image healthbarFill;
     public float healthbarOffset;
 
-    public AudioClip deathSound; // เสียงเมื่อตาย
-    private AudioSource audioSource;
+    public GameObject physicalDamageEffect;
+    public GameObject magicDamageEffect;
+    public GameObject deadEffect;
 
     void Start()
     {
@@ -44,7 +45,6 @@ public class Enemy : MonoBehaviour
         HPbar.GetComponent<RectTransform>().localPosition = new Vector3(0, healthbarOffset,0);
         healthbarFill = HPbar.transform.Find("fill").GetComponent<Image>();
 
-        audioSource = GetComponent<AudioSource>();
         maxHP = health;
         //Debug.Log("Enemy spawned with health: " + health);
 
@@ -62,9 +62,11 @@ public class Enemy : MonoBehaviour
         switch (damageType)
         {
             case DamageType.physical:
+                Instantiate(physicalDamageEffect, transform);
                 amount = amount * (100 - physicalResistance) / 100;
                 break;
             case DamageType.magic:
+                Instantiate(magicDamageEffect, transform);
                 amount = amount * (100 - magicResistance) / 100;
                 break;
         }
@@ -111,7 +113,7 @@ public class Enemy : MonoBehaviour
         {
             CoinSystem.current.AddCoins(coinReward); // Call the CoinSystem to add coins when the enemy dies
             //Debug.Log("Coins added: 10");
-            audioSource.PlayOneShot(deathSound);
+            Instantiate(deadEffect,transform);
         }
 
         Destroy(gameObject,0.5f);
