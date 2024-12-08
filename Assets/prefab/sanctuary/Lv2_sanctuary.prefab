@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f68959b37a912f4898897127def5ccf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turretName: Sanctuary Lv2
+  turretName: Sanctuary
   cost: 0
   upgradeCost: 400
   level: 2
