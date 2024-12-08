@@ -109,7 +109,7 @@ public class BuildingSystem : MonoBehaviour
 
             objectToPlace = null;
         }
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Mouse1))
         {
             Destroy(objectToPlace);
         }
