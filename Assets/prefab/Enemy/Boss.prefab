@@ -109,6 +109,8 @@ MonoBehaviour:
   ToPath: {fileID: 0}
   moveSpeed: 10
   isNotFollowPath: 0
+  flyPower: 0
+  ceiling: 15
 --- !u!65 &-4282299301398184810
 BoxCollider:
   m_ObjectHideFlags: 0

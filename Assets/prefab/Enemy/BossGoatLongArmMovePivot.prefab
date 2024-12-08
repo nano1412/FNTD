@@ -168,3 +168,5 @@ MonoBehaviour:
   ToPath: {fileID: 0}
   moveSpeed: 20
   isNotFollowPath: 0
+  flyPower: 0
+  ceiling: 15
