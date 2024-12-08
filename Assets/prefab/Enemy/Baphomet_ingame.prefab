@@ -76,13 +76,13 @@ PrefabInstance:
       addedObject: {fileID: -7052989810929844459}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5752aa5cb3cd9c846ab9d6dffaea0845, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 3156318986426605724}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5752aa5cb3cd9c846ab9d6dffaea0845, type: 3}
+      insertIndex: -1
       addedObject: {fileID: -4372669620802653221}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5752aa5cb3cd9c846ab9d6dffaea0845, type: 3}
       insertIndex: -1
       addedObject: {fileID: -8791460830624379757}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5752aa5cb3cd9c846ab9d6dffaea0845, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3156318986426605724}
   m_SourcePrefab: {fileID: 100100000, guid: 5752aa5cb3cd9c846ab9d6dffaea0845, type: 3}
 --- !u!1 &8198564023107875476 stripped
 GameObject:
@@ -125,12 +125,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Baphomet
   health: 500
-  physicalResistance: 0
+  physicalResistance: 5
   magicResistance: 40
   maxHP: 0
   moveSpeed: 5
   rarity: 2
-  coinReward: 500
+  coinReward: 250
   HPbarPrefab: {fileID: 8705361006534902417, guid: 492aa7ae75840a649b7a6d3a4c45c798, type: 3}
   healthbarFill: {fileID: 0}
   healthbarOffset: 12
@@ -138,6 +138,21 @@ MonoBehaviour:
   physicalDamageEffect: {fileID: 4175559066867058353, guid: 282b99e17407f194bbbcaccbf63c752a, type: 3}
   magicDamageEffect: {fileID: 4175559066867058353, guid: ee1f11441cb0add4a84c60b4a175ce90, type: 3}
   deadEffect: {fileID: 4175559066867058353, guid: 08087df92a1f57e4eac2137fa51add44, type: 3}
+--- !u!114 &3156318986426605724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8198564023107875476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fa89d920f5a88249b3a7b792431ac0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ToPath: {fileID: 0}
+  moveSpeed: 5
+  isNotFollowPath: 0
 --- !u!54 &-4372669620802653221
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -186,18 +201,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 8.341173, y: 15.093546, z: 6.0297637}
   m_Center: {x: 0.48832798, y: 7.046774, z: 0.746578}
---- !u!114 &3156318986426605724
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8198564023107875476}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fa89d920f5a88249b3a7b792431ac0e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ToPath: {fileID: 0}
-  moveSpeed: 10
-  isNotFollowPath: 0

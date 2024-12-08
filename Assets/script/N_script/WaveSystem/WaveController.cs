@@ -120,7 +120,7 @@ public class WaveController : MonoBehaviour
                     spawner.GetComponent<Spawner>().spawnTimer *= spawnTimerMultiplier;
                 }
             }
-            CoinRewardbase = CoinRewardbase * CoinRewardMultiplier;
+            CoinRewardbase = CoinRewardbase + CoinRewardMultiplier;
 
 
             //enemy formula

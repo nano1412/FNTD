@@ -2772,63 +2772,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 486797395}
   m_CullTransparentMesh: 1
---- !u!1001 &492450845
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3773647221350182369, guid: 35765910f2aca5145b7dd33b5fe35a4e, type: 3}
-      propertyPath: m_Name
-      value: Gummy Bat
-      objectReference: {fileID: 0}
-    - target: {fileID: 7674310046919928308, guid: 35765910f2aca5145b7dd33b5fe35a4e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -145.44595
-      objectReference: {fileID: 0}
-    - target: {fileID: 7674310046919928308, guid: 35765910f2aca5145b7dd33b5fe35a4e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.000045776367
-      objectReference: {fileID: 0}
-    - target: {fileID: 7674310046919928308, guid: 35765910f2aca5145b7dd33b5fe35a4e, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -87.52188
-      objectReference: {fileID: 0}
-    - target: {fileID: 7674310046919928308, guid: 35765910f2aca5145b7dd33b5fe35a4e, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7674310046919928308, guid: 35765910f2aca5145b7dd33b5fe35a4e, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7674310046919928308, guid: 35765910f2aca5145b7dd33b5fe35a4e, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7674310046919928308, guid: 35765910f2aca5145b7dd33b5fe35a4e, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7674310046919928308, guid: 35765910f2aca5145b7dd33b5fe35a4e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7674310046919928308, guid: 35765910f2aca5145b7dd33b5fe35a4e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7674310046919928308, guid: 35765910f2aca5145b7dd33b5fe35a4e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 35765910f2aca5145b7dd33b5fe35a4e, type: 3}
 --- !u!1 &516749938
 GameObject:
   m_ObjectHideFlags: 0
@@ -3166,8 +3109,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4290180607
+  m_fontColor: {r: 1, g: 0.9607843, b: 0.7137255, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3475,37 +3418,37 @@ MonoBehaviour:
   - {fileID: 3464109321332880434, guid: 67016be0325e0464ea6817e279400e8e, type: 3}
   - {fileID: 8646426675371089800, guid: 656d31a4efd90024f9d350349bfc1339, type: 3}
   spawners: {fileID: 516749938}
-  speedMultiplier: 1.2
+  speedMultiplier: 1.1
   hpMultiplier: 1.2
   spawnTimerMultiplier: 0.99
-  CoinRewardMultiplier: 1.1
+  CoinRewardMultiplier: 0.04
   CoinRewardbase: 1
   commonEnemiesPrefab:
   - name: imp
     enemy: {fileID: 7968930126434737349, guid: a86ba9f08e3302a4fb50ae46283d3dd0, type: 3}
-    weight: 7
-  - name: orc
-    enemy: {fileID: 2065526270604698965, guid: f94821ab37accab4faf7c07a66f45ebd, type: 3}
-    weight: 3
+    weight: 5
   - name: KnightZombie
     enemy: {fileID: 4788727673912483896, guid: 28cfb135ff9aada449ca7eeab263c369, type: 3}
     weight: 5
-  - name: Wolf
+  - name: Swif Wolf
     enemy: {fileID: 328691751598158966, guid: d0cf16b0e02caf244994257aaae402a9, type: 3}
-    weight: 2
+    weight: 5
   - name: Gummy Bat
     enemy: {fileID: 3773647221350182369, guid: 35765910f2aca5145b7dd33b5fe35a4e, type: 3}
     weight: 1
-  rareEnemiesPrefab:
-  - name: fly
-    enemy: {fileID: 1689470851070754440, guid: 9e6049d5ebba3a441823a7a2e379a418, type: 3}
-    weight: 10
-  - name: Jelly
-    enemy: {fileID: 5081923633589294793, guid: 1e4191c7a830ed24bbca37428e532be5, type: 3}
-    weight: 10
-  - name: Log
+  - name: Wood Log
     enemy: {fileID: 3765390713512512192, guid: cfb31806ce21f424082908509c1b3b08, type: 3}
     weight: 20
+  rareEnemiesPrefab:
+  - name: Jetpack
+    enemy: {fileID: 8179448358006770218, guid: 42b28ca20978b4349ba0e38d251a15bd, type: 3}
+    weight: 10
+  - name: Funny Sponge
+    enemy: {fileID: 5081923633589294793, guid: 1e4191c7a830ed24bbca37428e532be5, type: 3}
+    weight: 10
+  - name: Skeleton
+    enemy: {fileID: 2065526270604698965, guid: f94821ab37accab4faf7c07a66f45ebd, type: 3}
+    weight: 10
   bossEnemiesPrefab:
   - name: boss
     enemy: {fileID: 6770447179590240824, guid: 14b09eb7f3037354bb47075f919989b4, type: 3}
@@ -6524,8 +6467,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4290180607
+  m_fontColor: {r: 1, g: 0.9607843, b: 0.7137255, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -8389,7 +8332,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Fake New
+  m_text: 'Fake News
 
 '
   m_isRightToLeft: 0
@@ -8400,8 +8343,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4290180607
+  m_fontColor: {r: 1, g: 0.96054906, b: 0.7122642, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -9810,8 +9753,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4290180607
+  m_fontColor: {r: 1, g: 0.9607843, b: 0.7137255, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -11152,7 +11095,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 400 C
+  m_text: 50 C
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: df0305ca8450aa44faa3ce09e065f2d7, type: 2}
   m_sharedMaterial: {fileID: 3380859219461475933, guid: df0305ca8450aa44faa3ce09e065f2d7, type: 2}
@@ -12201,8 +12144,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4290180607
+  m_fontColor: {r: 1, g: 0.9607843, b: 0.7137255, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -12416,8 +12359,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4290180607
+  m_fontColor: {r: 1, g: 0.9607843, b: 0.7137255, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -14295,10 +14238,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effect: {fileID: 4175559066867058353, guid: 15ab2825453da094587f50c0566a3ed1, type: 3}
   damageType: 0
-  skillCost: 400
-  skillDamage: 500
-  cooldownTime: 30
-  explosionRadius: 70
+  skillCost: 50
+  skillDamage: 200
+  cooldownTime: 15
+  explosionRadius: 40
   rangeIndicatorPrefab: {fileID: 2257227053199725838, guid: babe70478e491fa469ecf13574b3c4d8, type: 3}
   rangeIndicator: {fileID: 0}
   cooldownTimer: 0
@@ -14480,8 +14423,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -15361,4 +15304,3 @@ SceneRoots:
   - {fileID: 8778073050621349983}
   - {fileID: 5798304484130377823}
   - {fileID: 450150539}
-  - {fileID: 492450845}
