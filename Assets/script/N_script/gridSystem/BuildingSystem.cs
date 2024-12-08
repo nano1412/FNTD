@@ -26,6 +26,8 @@ public class BuildingSystem : MonoBehaviour
     public GameObject prefab2;
     public GameObject prefab3;
 
+    public GameObject effect;
+
     private GameObject objectToPlace;
     private PlaceableObject objectToPlace_PlaceableObjectScript;
 
