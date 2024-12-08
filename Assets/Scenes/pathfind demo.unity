@@ -14726,12 +14726,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ada8fb4dd7bc27948a5cf2e7b00e0907, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  effect: {fileID: 4175559066867058353, guid: 15ab2825453da094587f50c0566a3ed1, type: 3}
   damageType: 0
   skillCost: 400
   skillDamage: 500
   cooldownTime: 30
   explosionRadius: 70
-  rangeIndicatorPrefab: {fileID: 0}
+  rangeIndicatorPrefab: {fileID: 2257227053199725838, guid: babe70478e491fa469ecf13574b3c4d8, type: 3}
   rangeIndicator: {fileID: 0}
   cooldownTimer: 0
   skillButton: {fileID: 299112852}
