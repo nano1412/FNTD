@@ -4,6 +4,7 @@ using System.Collections;
 
 public class DynamiteSkill : MonoBehaviour
 {
+    public GameObject effect;
     public DamageType damageType;
     public int skillCost = 100; // ค่าความต้องการเหรียญของสกิล
     public float skillDamage = 50; // ความเสียหายที่ทำได้
@@ -79,6 +80,7 @@ public class DynamiteSkill : MonoBehaviour
             {
                 Vector3 explosionPoint = Interaction.current.hit.point; // ตำแหน่งที่ชี้
                 Collider[] colliders = Physics.OverlapSphere(explosionPoint, explosionRadius); // ตรวจสอบวัตถุในรัศมี
+                Instantiate(effect, explosionPoint, Quaternion.identity);
 
                 foreach (Collider nearbyObject in colliders)
                 {
