@@ -76,8 +76,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ToPath: {fileID: 0}
-  moveSpeed: 25
+  moveSpeed: 20
   isNotFollowPath: 1
+  flyPower: 10
+  ceiling: 15
 --- !u!54 &789012235899915755
 Rigidbody:
   m_ObjectHideFlags: 0

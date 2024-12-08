@@ -688,7 +688,7 @@ PrefabInstance:
       objectReference: {fileID: 5351781483309110960}
     - target: {fileID: 1797769597569559548, guid: 454f6cb91b8393b4cb9e379968c33192, type: 3}
       propertyPath: startCoins
-      value: 2000
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 1797769597569559548, guid: 454f6cb91b8393b4cb9e379968c33192, type: 3}
       propertyPath: CoinRewardMultiplier
@@ -3438,7 +3438,7 @@ MonoBehaviour:
     weight: 3
   - name: Wood Log
     enemy: {fileID: 3765390713512512192, guid: cfb31806ce21f424082908509c1b3b08, type: 3}
-    weight: 5
+    weight: 0
   rareEnemiesPrefab:
   - name: Jetpack
     enemy: {fileID: 8179448358006770218, guid: 42b28ca20978b4349ba0e38d251a15bd, type: 3}
