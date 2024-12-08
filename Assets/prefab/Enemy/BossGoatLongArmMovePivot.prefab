@@ -93,7 +93,7 @@ MonoBehaviour:
   enemyName: Baphomet
   health: 500
   physicalResistance: 0
-  magicResistance: 100
+  magicResistance: 40
   maxHP: 0
   moveSpeed: 5
   rarity: 2
