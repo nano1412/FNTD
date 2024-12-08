@@ -51,7 +51,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Jelly
   health: 200
-  physicalResistance: 15
+  physicalResistance: 10
   magicResistance: 0
   maxHP: 0
   moveSpeed: 5
@@ -59,7 +59,7 @@ MonoBehaviour:
   coinReward: 200
   HPbarPrefab: {fileID: 8705361006534902417, guid: 492aa7ae75840a649b7a6d3a4c45c798, type: 3}
   healthbarFill: {fileID: 0}
-  healthbarOffset: 12
+  healthbarOffset: 16
   damage: 5
   deathSound: {fileID: 8300000, guid: f736e9b2cad64234a8c000fd91156273, type: 3}
 --- !u!114 &4219861471057153625

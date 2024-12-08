@@ -205,20 +205,18 @@ public class Interaction : MonoBehaviour
             Turret turret = selected.GetComponent<Turret>();
             if (turret != null)
             {
-                int upgradeCost = turret.upgradeCost; // ��������㹡���ѻ�ô
-                if (CoinSystem.current.SpendCoins(upgradeCost)) // ��Ǩ�ͺ����ѡ����­����Ѻ����ѻ�ô
+                int upgradeCost = turret.upgradeCost;
+                if (CoinSystem.current.SpendCoins(upgradeCost))
                 {
-                    turret.UpgradeTurret(); // �ѻ�ô����
-                    selected = null; // ���絡�����͡��������Ѻ�����ʶҹ��������
-                    DisableAllCanvas(); // �Դ�������ê UI ����Ѻ�����ʶҹ��������
-                }
-                else
-                {
-                    Debug.Log("����­��������Ѻ����ѻ�ô!");
+                    turret.UpgradeTurret();
+                    // อัปเดต selected ให้ชี้ไปยัง Turret ตัวใหม่
+                    selected = turret.gameObject;
+                    DisableAllCanvas();
                 }
             }
         }
     }
+
 
     void ActiveCanvas(GameObject canvas)
     {
