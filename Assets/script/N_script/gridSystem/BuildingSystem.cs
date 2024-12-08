@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -99,7 +100,11 @@ public class BuildingSystem : MonoBehaviour
                 Destroy(objectToPlace);
             }
 
-            else
+            else if (IsHitPath(objectToPlace.transform.position))
+            {
+                Debug.Log("Turret is place on Path");
+                Destroy(objectToPlace);
+            } else
             {
                 objectToPlace_PlaceableObjectScript.Place();
                 Vector3Int start = gridLayout.WorldToCell(objectToPlace_PlaceableObjectScript.GetStartPosition());
@@ -115,6 +120,14 @@ public class BuildingSystem : MonoBehaviour
         }
     }
 
+    bool IsHitPath(Vector3 point)
+    {
+        foreach(Transform path in paths.transform) {
+            if(path.GetComponent<Collider>().bounds.Contains(point)) return true;
+        }
+        return false;
+    }
+
     public void RNGBuilding(int ObjectAmount, GameObject[] gameObjectPrefab)
     {
         int attempt = 0;
@@ -125,10 +138,12 @@ public class BuildingSystem : MonoBehaviour
             Vector3 randomPositionSnap = BuildingSystem.current.SnapCoordinateToGrid(randomPosition);
 
             bool isInValidSpace = (IsInSquare(BuildingSystem.current.buildingRange, randomPositionSnap.x, randomPositionSnap.z)
-                               && !IsInSquare(BuildingSystem.current.noRNGSpawnRange, randomPositionSnap.x, randomPositionSnap.z));
+                               && !IsInSquare(BuildingSystem.current.noRNGSpawnRange, randomPositionSnap.x, randomPositionSnap.z))
+                               && !IsHitPath(randomPositionSnap);
 
+            
 
-            if (isInValidSpace)
+                if (isInValidSpace)
             {
                 try
                 {
@@ -210,10 +225,10 @@ public class BuildingSystem : MonoBehaviour
 
     void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.blue;
+        Gizmos.color = UnityEngine.Color.blue;
         Gizmos.DrawWireCube(transform.position, new Vector3(buildingRange * 2, 100, buildingRange * 2));
 
-        Gizmos.color = Color.green;
+        Gizmos.color = UnityEngine.Color.green;
         Gizmos.DrawWireCube(transform.position, new Vector3(noRNGSpawnRange * 2, 100, noRNGSpawnRange * 2));
     }
 
@@ -318,3 +333,6 @@ public class BuildingSystem : MonoBehaviour
     #endregion
 }
 
+internal class vector3
+{
+}
