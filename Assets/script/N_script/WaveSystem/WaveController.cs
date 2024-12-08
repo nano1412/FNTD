@@ -115,12 +115,12 @@ public class WaveController : MonoBehaviour
             {
                 if (spawner.CompareTag("Spawner"))
                 {
-                    spawner.GetComponent<Spawner>().speedMultiplier *= speedMultiplier;
+                    spawner.GetComponent<Spawner>().speedMultiplier += speedMultiplier;
                     spawner.GetComponent<Spawner>().hpMultiplier *= hpMultiplier;
                     spawner.GetComponent<Spawner>().spawnTimer *= spawnTimerMultiplier;
                 }
             }
-            CoinRewardbase = CoinRewardbase * CoinRewardMultiplier;
+            CoinRewardbase = CoinRewardbase + CoinRewardMultiplier;
 
 
             //enemy formula

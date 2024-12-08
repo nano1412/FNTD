@@ -92,8 +92,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
-  damage: 200
-  explosionRadius: 40
+  damage: 600
+  explosionRadius: 60
   isExplodeOnStart: 1
   damageType: 1
   hitSound: {fileID: 0}
