@@ -11,6 +11,9 @@ public class DynamiteSkill : MonoBehaviour
     public float cooldownTime = 30f; // เวลา Cooldown 30 วินาที
     public float explosionRadius = 5f; // รัศมีของการระเบิด AOE
 
+    [SerializeField] private GameObject rangeIndicatorPrefab;
+    [SerializeField] private GameObject rangeIndicator;
+
     private bool isCooldown = false; // ตรวจสอบว่าสกิลกำลังอยู่ในช่วง Cooldown หรือไม่
     [SerializeField] private float cooldownTimer; // ตัวจับเวลา Cooldown
 
@@ -20,6 +23,9 @@ public class DynamiteSkill : MonoBehaviour
 
     void Start()
     {
+        rangeIndicator = Instantiate(rangeIndicatorPrefab);
+        rangeIndicator.transform.localScale = new Vector3(explosionRadius,rangeIndicator.transform.localScale.y, explosionRadius);
+        rangeIndicator.SetActive(false);
         // เก็บสีเดิมของปุ่ม
         originalColor = skillButton.image.color;
     }
@@ -47,6 +53,7 @@ public class DynamiteSkill : MonoBehaviour
         if (CoinSystem.current.SpendCoins(skillCost))
         {
             StartCoroutine(SelectLocationAndDamage());
+            
             StartCooldown();
         }
     }
@@ -73,12 +80,15 @@ public class DynamiteSkill : MonoBehaviour
     private IEnumerator SelectLocationAndDamage()
     {
         bool locationSelected = false;
+        rangeIndicator.SetActive (true);
 
         while (!locationSelected)
         {
+            Vector3 explosionPoint = Interaction.current.hit.point; // ตำแหน่งที่ชี้
+            rangeIndicator.transform.position = explosionPoint;
+
             if (Input.GetMouseButtonDown(0)) // คลิกซ้าย
             {
-                Vector3 explosionPoint = Interaction.current.hit.point; // ตำแหน่งที่ชี้
                 Collider[] colliders = Physics.OverlapSphere(explosionPoint, explosionRadius); // ตรวจสอบวัตถุในรัศมี
                 Instantiate(effect, explosionPoint, Quaternion.identity);
 
@@ -92,11 +102,13 @@ public class DynamiteSkill : MonoBehaviour
                 }
 
                 locationSelected = true;
+                rangeIndicator.SetActive(false);
             }
 
             if (Input.GetMouseButtonDown(1)) // คลิกขวา
             {
                 CoinSystem.current.AddCoins(skillCost); // คืนค่าเหรียญเมื่อยกเลิก
+                rangeIndicator.SetActive(false);
                 yield break; // ยกเลิก Coroutine
             }
 
