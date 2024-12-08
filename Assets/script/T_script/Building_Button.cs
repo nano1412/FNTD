@@ -15,7 +15,7 @@ public class Building_Button : MonoBehaviour
     {
         gameController = GameObject.Find("GameController");
 
-        turretName.text = objectToBuild.name;
+        turretName.text = objectToBuild.GetComponent<Turret>().turretName;
 
         if (objectToBuild.GetComponent<Turret>() != null)
         {
