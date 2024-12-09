@@ -10819,7 +10819,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '200 C
+  m_text: '100 C
 
 '
   m_isRightToLeft: 0
@@ -11095,7 +11095,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 200 C
+  m_text: 600 C
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: df0305ca8450aa44faa3ce09e065f2d7, type: 2}
   m_sharedMaterial: {fileID: 3380859219461475933, guid: df0305ca8450aa44faa3ce09e065f2d7, type: 2}
@@ -12742,7 +12742,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ce33018c5b27eb46abb66823a987dff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillCost: 200
+  skillCost: 100
   lastPath: {fileID: 0}
   curser3D: {fileID: 0}
   pathPrefab: {fileID: 8169881335397744558, guid: 212ddc825883ac74b938f79b38f144a9, type: 3}
@@ -14238,7 +14238,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effect: {fileID: 4175559066867058353, guid: 15ab2825453da094587f50c0566a3ed1, type: 3}
   damageType: 0
-  skillCost: 200
+  skillCost: 600
   skillDamage: 500
   cooldownTime: 15
   explosionRadius: 40

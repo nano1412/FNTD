@@ -144,7 +144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turretName: Sanctuary
   cost: 0
-  upgradeCost: 1000
+  upgradeCost: 450
   level: 2
   rangeIndicatorPrefab: {fileID: 2257227053199725838, guid: babe70478e491fa469ecf13574b3c4d8, type: 3}
   rangeIndicator: {fileID: 0}
