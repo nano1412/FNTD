@@ -3456,9 +3456,9 @@ MonoBehaviour:
   - name: bossgoat
     enemy: {fileID: 3759094261692220393, guid: e185dd65e0d8c6f4a81c9b72dd5c9413, type: 3}
     weight: 5
-  commonEnemiesWeight: 60
-  rareEnemiesWeight: 30
-  bossEnemiesWeight: 10
+  commonEnemiesWeight: 600
+  rareEnemiesWeight: 300
+  bossEnemiesWeight: 5
   numToSpawnenvironment: 30
   numToSpawnSpawner: 2
   numToSpawnTower: 1
