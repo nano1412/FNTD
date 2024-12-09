@@ -138,13 +138,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turretName: Magic Orb
-  cost: 200
-  upgradeCost: 100
+  cost: 175
+  upgradeCost: 220
   level: 1
   rangeIndicatorPrefab: {fileID: 2257227053199725838, guid: babe70478e491fa469ecf13574b3c4d8, type: 3}
   rangeIndicator: {fileID: 0}
   range: 60
-  fireRate: 0.9
+  fireRate: 0.75
   turretPrefabs:
   - {fileID: 2011616575309309519}
   - {fileID: 7062489253614302278, guid: afe956f3ab311b74c9f7fb4e74652658, type: 3}

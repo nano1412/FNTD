@@ -48,7 +48,7 @@ public class Spawner : MonoBehaviour
             GameObject enemy = Instantiate(enemiesList[0], this.transform.Find("Enemy"));
             enemy.GetComponent<Enemy>().health *= hpMultiplier;
             enemy.GetComponent<path>().moveSpeed *= speedMultiplier;
-            Debug.Log(enemy.GetComponent<Enemy>().health *= hpMultiplier);
+            //Debug.Log(enemy.GetComponent<Enemy>().health *= hpMultiplier);
             enemy.GetComponent<path>().ToPath = nextPath;
         }
         enemiesList.RemoveAt(0);

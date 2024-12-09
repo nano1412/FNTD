@@ -19,7 +19,7 @@ public class WaveController : MonoBehaviour
 
     public GameObject spawners;
     [SerializeField] private float speedMultiplier = 1f;
-    [SerializeField] private float hpMultiplier = 1f;
+    public float hpMultiplier = 1f;
     [SerializeField] private float spawnTimerMultiplier = 1f;
     [SerializeField] private float CoinRewardMultiplier = 1f;
     public float CoinRewardbase = 1f;
@@ -165,12 +165,12 @@ public class WaveController : MonoBehaviour
                     selectEnemyInRarity(commonEnemiesPrefab, maxCommonEnemiesWeight);
                     break;
 
-                case int i when (i < rareEnemiesWeight):
+                case int i when (i < commonEnemiesWeight+rareEnemiesWeight):
                     //Debug.Log("is rare");
                     selectEnemyInRarity(rareEnemiesPrefab, maxRareEnemiesWeight);
                     break;
 
-                case int i when (i < bossEnemiesWeight):
+                case int i when (i < commonEnemiesWeight + rareEnemiesWeight+bossEnemiesWeight):
                     //Debug.Log("is boss");
                     selectEnemyInRarity(bossEnemiesPrefab, maxBossEnemiesWeight);
                     break;

@@ -42,10 +42,6 @@ public class Turret : MonoBehaviour
         if (level < turretPrefabs.Length)
         {
             int currentPrefabIndex = level - 1;
-
-            // ตรวจสอบว่าเหรียญเพียงพอหรือไม่
-            if (CoinSystem.current.SpendCoins(upgradeCost))
-            {
                 // อัปเกรดเลเวล
                 level++;
 
@@ -54,17 +50,7 @@ public class Turret : MonoBehaviour
 
                 // เพิ่มค่าใช้จ่ายในการอัปเกรด
                 upgradeCost += 100;
-            }
-            else
-            {
-                // เหรียญไม่พอ ไม่ทำอะไร
-                return;
-            }
-        }
-        else
-        {
-            // เลเวลถึงระดับสูงสุดแล้ว ไม่ทำอะไร
-            return;
+
         }
     }
 

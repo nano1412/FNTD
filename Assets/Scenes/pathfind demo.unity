@@ -3418,7 +3418,7 @@ MonoBehaviour:
   - {fileID: 3464109321332880434, guid: 67016be0325e0464ea6817e279400e8e, type: 3}
   - {fileID: 8646426675371089800, guid: 656d31a4efd90024f9d350349bfc1339, type: 3}
   spawners: {fileID: 516749938}
-  speedMultiplier: 0.05
+  speedMultiplier: 0.1
   hpMultiplier: 1.1
   spawnTimerMultiplier: 0.99
   CoinRewardMultiplier: 0.01
@@ -3435,14 +3435,14 @@ MonoBehaviour:
     weight: 5
   - name: Gummy Bat
     enemy: {fileID: 3773647221350182369, guid: 35765910f2aca5145b7dd33b5fe35a4e, type: 3}
-    weight: 3
+    weight: 2
   - name: Wood Log
     enemy: {fileID: 3765390713512512192, guid: cfb31806ce21f424082908509c1b3b08, type: 3}
     weight: 5
   rareEnemiesPrefab:
   - name: Jetpack
     enemy: {fileID: 8179448358006770218, guid: 42b28ca20978b4349ba0e38d251a15bd, type: 3}
-    weight: 3
+    weight: 2
   - name: Funny Sponge
     enemy: {fileID: 5081923633589294793, guid: 1e4191c7a830ed24bbca37428e532be5, type: 3}
     weight: 5
@@ -3454,7 +3454,7 @@ MonoBehaviour:
     enemy: {fileID: 4224726859126828029, guid: 3bee08329bfebf640801ffc5a93b7086, type: 3}
     weight: 5
   - name: bossgoat
-    enemy: {fileID: 8198564023107875476, guid: 6b2a83ece32426241a9b45d74f526e0c, type: 3}
+    enemy: {fileID: 3759094261692220393, guid: e185dd65e0d8c6f4a81c9b72dd5c9413, type: 3}
     weight: 5
   commonEnemiesWeight: 60
   rareEnemiesWeight: 30
@@ -11095,7 +11095,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 600 C
+  m_text: 500 C
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: df0305ca8450aa44faa3ce09e065f2d7, type: 2}
   m_sharedMaterial: {fileID: 3380859219461475933, guid: df0305ca8450aa44faa3ce09e065f2d7, type: 2}
@@ -14238,7 +14238,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effect: {fileID: 4175559066867058353, guid: 15ab2825453da094587f50c0566a3ed1, type: 3}
   damageType: 0
-  skillCost: 600
+  skillCost: 500
   skillDamage: 500
   cooldownTime: 15
   explosionRadius: 40
@@ -14423,8 +14423,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4290180607
+  m_fontColor: {r: 1, g: 0.9607843, b: 0.7137255, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -14874,7 +14874,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &7899218050801524258
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -255,13 +255,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turretName: Crossbow
-  cost: 200
-  upgradeCost: 100
+  cost: 150
+  upgradeCost: 200
   level: 1
   rangeIndicatorPrefab: {fileID: 2257227053199725838, guid: babe70478e491fa469ecf13574b3c4d8, type: 3}
   rangeIndicator: {fileID: 0}
   range: 70
-  fireRate: 1
+  fireRate: 0.85
   turretPrefabs:
   - {fileID: 5305718710101437997}
   - {fileID: 7789578711893300334, guid: 273c34377f1b7524e936a7d10226787c, type: 3}

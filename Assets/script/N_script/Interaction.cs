@@ -187,7 +187,7 @@ public class Interaction : MonoBehaviour
         string towerFireRate = tower.GetComponent<Turret>().fireRate.ToString();
         string towerDamage = tower.GetComponent<Turret>().bulletPrefab.GetComponent<Bullet>().damage.ToString();
 
-        upgradeCostCanvas.text = "Upgradde cost:" + upgradeCost + " G";
+        upgradeCostCanvas.text = "Upgradde cost:" + upgradeCost + " C";
         nameCanvas.text = towerName;
         lvCanvas.text = "LV: " + towerlv;
         bulletCanvas.text = "Bullet: " + towerBullet;

@@ -19,7 +19,7 @@ public class Building_Button : MonoBehaviour
 
         if (objectToBuild.GetComponent<Turret>() != null)
         {
-            turretCost.text = objectToBuild.GetComponent<Turret>().GetCost().ToString();
+            turretCost.text = objectToBuild.GetComponent<Turret>().GetCost().ToString() + " C";
             objectToBuild.GetComponent<Turret>().enabled = false;
         }
         else

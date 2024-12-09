@@ -97,7 +97,7 @@ public class DynamiteSkill : MonoBehaviour
                     Enemy enemy = nearbyObject.GetComponent<Enemy>();
                     if (enemy != null)
                     {
-                        enemy.TakeDamage(skillDamage, damageType);
+                        enemy.TakeDamage(skillDamage * WaveController.current.hpMultiplier, damageType);
                     }
                 }
 
