@@ -3418,7 +3418,7 @@ MonoBehaviour:
   - {fileID: 3464109321332880434, guid: 67016be0325e0464ea6817e279400e8e, type: 3}
   - {fileID: 8646426675371089800, guid: 656d31a4efd90024f9d350349bfc1339, type: 3}
   spawners: {fileID: 516749938}
-  speedMultiplier: 0.01
+  speedMultiplier: 0.05
   hpMultiplier: 1.1
   spawnTimerMultiplier: 0.99
   CoinRewardMultiplier: 0.01
@@ -10819,7 +10819,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '100 C
+  m_text: '200 C
 
 '
   m_isRightToLeft: 0
@@ -11095,7 +11095,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 50 C
+  m_text: 200 C
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: df0305ca8450aa44faa3ce09e065f2d7, type: 2}
   m_sharedMaterial: {fileID: 3380859219461475933, guid: df0305ca8450aa44faa3ce09e065f2d7, type: 2}
@@ -12742,7 +12742,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ce33018c5b27eb46abb66823a987dff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillCost: 100
+  skillCost: 200
   lastPath: {fileID: 0}
   curser3D: {fileID: 0}
   pathPrefab: {fileID: 8169881335397744558, guid: 212ddc825883ac74b938f79b38f144a9, type: 3}
@@ -14238,8 +14238,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effect: {fileID: 4175559066867058353, guid: 15ab2825453da094587f50c0566a3ed1, type: 3}
   damageType: 0
-  skillCost: 50
-  skillDamage: 300
+  skillCost: 200
+  skillDamage: 500
   cooldownTime: 15
   explosionRadius: 40
   rangeIndicatorPrefab: {fileID: 2257227053199725838, guid: babe70478e491fa469ecf13574b3c4d8, type: 3}
