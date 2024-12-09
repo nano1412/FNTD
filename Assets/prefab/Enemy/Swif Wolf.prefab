@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2092583937193993912}
   - component: {fileID: 5811706303786524777}
   m_Layer: 0
-  m_Name: Wolf
+  m_Name: Swif Wolf
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,10 +48,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da6f60e37d34d374b902d0591560e677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyName: Wolf
-  health: 60
+  enemyName: Swif Wolf
+  health: 125
   physicalResistance: 0
-  magicResistance: 0
+  magicResistance: 5
   maxHP: 0
   moveSpeed: 5
   rarity: 0
@@ -59,7 +59,7 @@ MonoBehaviour:
   HPbarPrefab: {fileID: 8705361006534902417, guid: 492aa7ae75840a649b7a6d3a4c45c798, type: 3}
   healthbarFill: {fileID: 0}
   healthbarOffset: 5
-  damage: 1
+  damage: 2
   physicalDamageEffect: {fileID: 4175559066867058353, guid: 282b99e17407f194bbbcaccbf63c752a, type: 3}
   magicDamageEffect: {fileID: 4175559066867058353, guid: ee1f11441cb0add4a84c60b4a175ce90, type: 3}
   deadEffect: {fileID: 4175559066867058353, guid: 08087df92a1f57e4eac2137fa51add44, type: 3}
@@ -76,9 +76,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ToPath: {fileID: 0}
-  moveSpeed: 20
+  moveSpeed: 17
   isNotFollowPath: 0
-  flyPower: 0
+  flyPower: 1
   ceiling: 15
 --- !u!54 &2092583937193993912
 Rigidbody:

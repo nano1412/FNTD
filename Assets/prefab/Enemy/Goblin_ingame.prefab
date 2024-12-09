@@ -99,7 +99,7 @@ MonoBehaviour:
   HPbarPrefab: {fileID: 8705361006534902417, guid: 492aa7ae75840a649b7a6d3a4c45c798, type: 3}
   healthbarFill: {fileID: 0}
   healthbarOffset: 8
-  damage: 0
+  damage: 1
   physicalDamageEffect: {fileID: 4175559066867058353, guid: 282b99e17407f194bbbcaccbf63c752a, type: 3}
   magicDamageEffect: {fileID: 4175559066867058353, guid: ee1f11441cb0add4a84c60b4a175ce90, type: 3}
   deadEffect: {fileID: 4175559066867058353, guid: 08087df92a1f57e4eac2137fa51add44, type: 3}
@@ -119,4 +119,4 @@ MonoBehaviour:
   moveSpeed: 15
   isNotFollowPath: 0
   flyPower: 0
-  ceiling: 15
+  ceiling: 10

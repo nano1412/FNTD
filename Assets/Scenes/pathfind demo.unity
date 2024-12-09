@@ -672,7 +672,7 @@ PrefabInstance:
       objectReference: {fileID: 2901083261403068355}
     - target: {fileID: 1129708774605337439, guid: 454f6cb91b8393b4cb9e379968c33192, type: 3}
       propertyPath: startLives
-      value: 20
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 1129708774605337439, guid: 454f6cb91b8393b4cb9e379968c33192, type: 3}
       propertyPath: damageSound
@@ -2747,7 +2747,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9245283, g: 0.9245283, b: 0.9245283, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3109,8 +3109,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4290180607
+  m_fontColor: {r: 1, g: 0.9607843, b: 0.7137255, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3363,7 +3363,6 @@ Transform:
   - {fileID: 516749939}
   - {fileID: 95648905}
   - {fileID: 797832694}
-  - {fileID: 1432736745}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &634484177
@@ -3390,7 +3389,7 @@ MonoBehaviour:
   prefab1: {fileID: 4173418805247382789, guid: 46b816d36590ed84cbe332fbb443e5e7, type: 3}
   prefab2: {fileID: 5305718710101437997, guid: 7afcf2d33bb48c34fbb44002ff3e883b, type: 3}
   prefab3: {fileID: 5115871150568103077, guid: d7b24c2fc7fa45c439f24452a8395e4a, type: 3}
-  effect: {fileID: 1432736744}
+  effect: {fileID: 0}
 --- !u!114 &634484178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3419,41 +3418,44 @@ MonoBehaviour:
   - {fileID: 3464109321332880434, guid: 67016be0325e0464ea6817e279400e8e, type: 3}
   - {fileID: 8646426675371089800, guid: 656d31a4efd90024f9d350349bfc1339, type: 3}
   spawners: {fileID: 516749938}
-  speedMultiplier: 1.2
-  hpMultiplier: 1.2
+  speedMultiplier: 0.01
+  hpMultiplier: 1.1
   spawnTimerMultiplier: 0.99
-  CoinRewardMultiplier: 1.1
+  CoinRewardMultiplier: 0.04
   CoinRewardbase: 1
   commonEnemiesPrefab:
   - name: imp
     enemy: {fileID: 7968930126434737349, guid: a86ba9f08e3302a4fb50ae46283d3dd0, type: 3}
-    weight: 7
-  - name: orc
-    enemy: {fileID: 2065526270604698965, guid: f94821ab37accab4faf7c07a66f45ebd, type: 3}
-    weight: 3
+    weight: 5
   - name: KnightZombie
     enemy: {fileID: 4788727673912483896, guid: 28cfb135ff9aada449ca7eeab263c369, type: 3}
     weight: 5
-  - name: Wolf
+  - name: Swif Wolf
     enemy: {fileID: 328691751598158966, guid: d0cf16b0e02caf244994257aaae402a9, type: 3}
-    weight: 2
-  rareEnemiesPrefab:
-  - name: fly
-    enemy: {fileID: 1689470851070754440, guid: 9e6049d5ebba3a441823a7a2e379a418, type: 3}
-    weight: 10
-  - name: Jelly
-    enemy: {fileID: 5081923633589294793, guid: 1e4191c7a830ed24bbca37428e532be5, type: 3}
-    weight: 10
-  - name: Log
+    weight: 5
+  - name: Gummy Bat
+    enemy: {fileID: 3773647221350182369, guid: 35765910f2aca5145b7dd33b5fe35a4e, type: 3}
+    weight: 3
+  - name: Wood Log
     enemy: {fileID: 3765390713512512192, guid: cfb31806ce21f424082908509c1b3b08, type: 3}
-    weight: 20
+    weight: 5
+  rareEnemiesPrefab:
+  - name: Jetpack
+    enemy: {fileID: 8179448358006770218, guid: 42b28ca20978b4349ba0e38d251a15bd, type: 3}
+    weight: 3
+  - name: Funny Sponge
+    enemy: {fileID: 5081923633589294793, guid: 1e4191c7a830ed24bbca37428e532be5, type: 3}
+    weight: 5
+  - name: Skeleton
+    enemy: {fileID: 2065526270604698965, guid: f94821ab37accab4faf7c07a66f45ebd, type: 3}
+    weight: 5
   bossEnemiesPrefab:
-  - name: boss
-    enemy: {fileID: 6770447179590240824, guid: 14b09eb7f3037354bb47075f919989b4, type: 3}
-    weight: 10
+  - name: boss Minotaur
+    enemy: {fileID: 4224726859126828029, guid: 3bee08329bfebf640801ffc5a93b7086, type: 3}
+    weight: 5
   - name: bossgoat
     enemy: {fileID: 8198564023107875476, guid: 6b2a83ece32426241a9b45d74f526e0c, type: 3}
-    weight: 10
+    weight: 5
   commonEnemiesWeight: 60
   rareEnemiesWeight: 30
   bossEnemiesWeight: 10
@@ -6465,8 +6467,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4290180607
+  m_fontColor: {r: 1, g: 0.9607843, b: 0.7137255, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -6862,7 +6864,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.1254902, g: 1, b: 0, a: 1}
+  m_Color: {r: 0.38781595, g: 0.7830189, b: 0.4317274, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -8011,37 +8013,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &1432736744
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1432736745}
-  m_Layer: 0
-  m_Name: effect
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1432736745
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1432736744}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 634484176}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1447710320
 GameObject:
   m_ObjectHideFlags: 0
@@ -8361,7 +8332,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Fake New
+  m_text: 'Fake News
 
 '
   m_isRightToLeft: 0
@@ -8372,8 +8343,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4290180607
+  m_fontColor: {r: 1, g: 0.96054906, b: 0.7122642, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -9782,8 +9753,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4290180607
+  m_fontColor: {r: 1, g: 0.9607843, b: 0.7137255, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -10848,7 +10819,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '200 C
+  m_text: '100 C
 
 '
   m_isRightToLeft: 0
@@ -11124,7 +11095,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 400 C
+  m_text: 50 C
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: df0305ca8450aa44faa3ce09e065f2d7, type: 2}
   m_sharedMaterial: {fileID: 3380859219461475933, guid: df0305ca8450aa44faa3ce09e065f2d7, type: 2}
@@ -12173,8 +12144,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4290180607
+  m_fontColor: {r: 1, g: 0.9607843, b: 0.7137255, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -12388,8 +12359,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4290180607
+  m_fontColor: {r: 1, g: 0.9607843, b: 0.7137255, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -12771,7 +12742,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ce33018c5b27eb46abb66823a987dff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillCost: 200
+  skillCost: 100
   lastPath: {fileID: 0}
   curser3D: {fileID: 0}
   pathPrefab: {fileID: 8169881335397744558, guid: 212ddc825883ac74b938f79b38f144a9, type: 3}
@@ -13595,7 +13566,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 39.826, y: -160}
+  m_AnchoredPosition: {x: 202.4, y: -107.9}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &3194861493556455107
@@ -14267,10 +14238,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effect: {fileID: 4175559066867058353, guid: 15ab2825453da094587f50c0566a3ed1, type: 3}
   damageType: 0
-  skillCost: 400
-  skillDamage: 500
-  cooldownTime: 30
-  explosionRadius: 70
+  skillCost: 50
+  skillDamage: 300
+  cooldownTime: 15
+  explosionRadius: 40
   rangeIndicatorPrefab: {fileID: 2257227053199725838, guid: babe70478e491fa469ecf13574b3c4d8, type: 3}
   rangeIndicator: {fileID: 0}
   cooldownTimer: 0
@@ -14452,8 +14423,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
