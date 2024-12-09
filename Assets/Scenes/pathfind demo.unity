@@ -3421,7 +3421,7 @@ MonoBehaviour:
   speedMultiplier: 0.01
   hpMultiplier: 1.1
   spawnTimerMultiplier: 0.99
-  CoinRewardMultiplier: 0.04
+  CoinRewardMultiplier: 0.01
   CoinRewardbase: 1
   commonEnemiesPrefab:
   - name: imp
@@ -14630,63 +14630,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8575391887873400366}
   m_CullTransparentMesh: 1
---- !u!1001 &7094747340174637600
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3759094261692220393, guid: e185dd65e0d8c6f4a81c9b72dd5c9413, type: 3}
-      propertyPath: m_Name
-      value: Baphomet_ingame
-      objectReference: {fileID: 0}
-    - target: {fileID: 5709453462205837009, guid: e185dd65e0d8c6f4a81c9b72dd5c9413, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -163.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 5709453462205837009, guid: e185dd65e0d8c6f4a81c9b72dd5c9413, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.000071525574
-      objectReference: {fileID: 0}
-    - target: {fileID: 5709453462205837009, guid: e185dd65e0d8c6f4a81c9b72dd5c9413, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -43.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5709453462205837009, guid: e185dd65e0d8c6f4a81c9b72dd5c9413, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5709453462205837009, guid: e185dd65e0d8c6f4a81c9b72dd5c9413, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5709453462205837009, guid: e185dd65e0d8c6f4a81c9b72dd5c9413, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5709453462205837009, guid: e185dd65e0d8c6f4a81c9b72dd5c9413, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5709453462205837009, guid: e185dd65e0d8c6f4a81c9b72dd5c9413, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5709453462205837009, guid: e185dd65e0d8c6f4a81c9b72dd5c9413, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5709453462205837009, guid: e185dd65e0d8c6f4a81c9b72dd5c9413, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: e185dd65e0d8c6f4a81c9b72dd5c9413, type: 3}
 --- !u!114 &7212281890754064458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15278,6 +15221,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 278227978514852395, guid: 5e78cb8a722fb4a48b09724dba3ab3b2, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1333141726311767786, guid: 5e78cb8a722fb4a48b09724dba3ab3b2, type: 3}
       propertyPath: m_Name
       value: Spawner_prefab
@@ -15361,4 +15308,3 @@ SceneRoots:
   - {fileID: 8778073050621349983}
   - {fileID: 5798304484130377823}
   - {fileID: 450150539}
-  - {fileID: 7094747340174637600}
