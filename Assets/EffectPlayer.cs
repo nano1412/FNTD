@@ -16,14 +16,14 @@ public class EffectPlayer : MonoBehaviour
         vfx = transform.GetComponent<VisualEffect>();
         audioSource = transform.GetComponent<AudioSource>();
 
-        if (vfx != null)
+        if (vfx != null && eventAttribute != null)
         {
         eventAttribute = vfx.CreateVFXEventAttribute();
         vfx.SendEvent("OnPlay", eventAttribute);
 
         }
 
-        if(audioSource != null)
+        if(audioSource != null && Sound != null)
         {
             audioSource.PlayOneShot(Sound);
         }
