@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1102 &-2188883483420550784
+--- !u!1102 &-2844107976159441873
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
@@ -20,7 +20,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 1827226128182048838, guid: eeb3a9c20e976f847b1b722d92f2bba8, type: 3}
+  m_Motion: {fileID: 1827226128182048838, guid: 6fa1334e6768fd34fb56bb45e9a608dd, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -36,8 +36,8 @@ AnimatorStateMachine:
   m_Name: Base Layer
   m_ChildStates:
   - serializedVersion: 1
-    m_State: {fileID: -2188883483420550784}
-    m_Position: {x: 470, y: 100, z: 0}
+    m_State: {fileID: -2844107976159441873}
+    m_Position: {x: 427.693, y: 101.125305, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -47,7 +47,7 @@ AnimatorStateMachine:
   m_EntryPosition: {x: 50, y: 120, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-  m_DefaultState: {fileID: -2188883483420550784}
+  m_DefaultState: {fileID: -2844107976159441873}
 --- !u!91 &9100000
 AnimatorController:
   m_ObjectHideFlags: 0
